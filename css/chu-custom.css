@@ -9,14 +9,23 @@ body {
     font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif !important;
 	font-size:32px;
 }
-
 h3{
 	font-size:32px;
 }
+
+@media(max-width:768px) {
+	body,
+	h3{
+		font-size:24px;
+	}
+}
+
 section{
 	padding: 0;
 	position:relative;
-	width:100%;	
+	height: auto;
+	width:100%;
+	min-height:100%;
 }
 
 ul{
@@ -86,9 +95,17 @@ hr{
 .nav-ul{
 	position:fixed;
 	border:none;
-	background: rgba(1, 1, 1, 0) 
+	background: rgba(1, 1, 1, 0);
+	margin-top:10px;
+	margin-left:10px;
 }
-
+@media(min-width:768px) {
+	.sec1nav,
+	.nav-ul{
+		margin-top:20px;
+		margin-left:10px;
+	}
+}
 .btn1 {
     color: #1a1a1a;
 	font-size:20px;
@@ -153,14 +170,6 @@ hr{
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
    color:    #1a1a1a;
-}
-
-@media(min-width:768px) {
-	.sec1nav,
-	.nav-ul{
-		margin-top:20px;
-		margin-left:10px;
-	}
 }
 
 .hover-up{
@@ -244,6 +253,7 @@ hr{
     width: 400px;
     height: 100%;
     margin-left: -400px;
+	overflow-x: hidden;
     overflow-y: auto;
     background: #1a1a1a;
     -webkit-transition: all 0.3s ease-in-out;
@@ -624,19 +634,23 @@ hr{
 }
 .preloader-wrapper img{
 	position:relative;
-	height:250px;
-	width:auto;
-	margin-top:17%;
 	float:left;
-	left: 50%;
-	-webkit-transform: translate(-55%,0);
-    -o-transform: translate(-55%,0); 
-    -moz-transform: translate(-55%,0);
-	transform: translate(-55%,0);
+	left:-20px;
+	top:-25px;
+	width:80%;
+	height:auto;
 }
-@media(max-width:768px) {
+@media(min-width:768px) {
 	.preloader-wrapper img{
-		margin-top:40%;
+		height:250px;
+		width:auto;
+		margin-top:17%;
+		float:left;
+		left: 50%;
+		-webkit-transform: translate(-55%,0);
+		-o-transform: translate(-55%,0); 
+		-moz-transform: translate(-55%,0);
+		transform: translate(-55%,0);
 	}
 }
 /*-------section 1----------*/
@@ -655,6 +669,7 @@ hr{
 .arrow_box {
 	position: absolute;
 	left: 50%;
+	z-index:3
 }
 .arrow_box:after {
 	border: solid transparent;
@@ -667,6 +682,7 @@ hr{
 	border-top-color: #1a1a1a;
 	border-width: 30px;
 	margin-left: -30px;
+	z-index:3
 }
 
 #sec1-content{
@@ -745,6 +761,11 @@ hr{
 	left:50%;
 	margin-left:-40px;
 	z-index:4
+}
+@media(max-width:480px) {
+	.chu-down{
+		display:none
+	}
 }
 .chu-down img{
 	height:80px;
@@ -869,6 +890,7 @@ hr{
 .slid-wrapper img{
 	position:relative;
 	height:100%;
+	width:auto;
 	margin:0;
 	padding:0;
 	border:none;
@@ -902,11 +924,6 @@ hr{
 	padding:0 100px;
 	top:-50px;
 	overflow:hidden
-}
-@media(max-width:768px) {
-	.leftimg{
-		display:none
-	}
 }
 .leftimg{
 	margin-left:5%;
@@ -974,6 +991,30 @@ hr{
 	font-weight:bold;
     margin: 10px 0 30px;
 }
+
+@media(max-width:480px) {
+	.slid-wrapper,
+	.sec2mask,
+	.leftimg{
+		display:none
+	}
+	.aboutright{
+		position:relative;
+		margin-left:0;
+		top:0;
+		padding: 100px 0 0 0 ;
+	}
+	.aboutright-inner {
+		width:100%;
+	}
+	.aboutright-inner > div:before {
+		top: 50px;
+	}
+	.aboutright-inner > div:after {
+		bottom: -50px;
+	}
+}
+
 /*=================================================================
 	sec3 skills
 ==================================================================*/
@@ -1060,7 +1101,6 @@ hr{
 #sec4 .row{
 	margin-top:150px;
 }
-
 .pimg{
 	position:relative;
 	width:100%;
@@ -1113,6 +1153,17 @@ hr{
 	padding-top:20px;
 }
 
+@media(max-width:480px) {
+	#sec4 .row{
+		margin-top:0;
+	}
+	.pp-wrapper{
+		margin:30px 0;
+	}
+	.pimg-wrapper{
+		margin-top:30px;
+	}
+}
 /*=================================================================
 	sec5 social
 ==================================================================*/
@@ -1173,6 +1224,15 @@ hr{
     -moz-transform: translate(0,2px);
 	transform: translate(0,2px);
 }
+.dropup{
+	position:relative;
+	display:inline-block
+}
+#wechatlink .dropup .dropdown-menu{
+	height:400px; 
+	left:150px; 
+	bottom:-100px
+}
 #facebookhint{
 	position:absolute;
 	left:50%;
@@ -1191,7 +1251,17 @@ hr{
 	margin-left:125px;
 	opacity:0
 }
-
+.wechat-dropup{
+	display:none
+}
+@media(max-width:480px) {
+	.hoverhints{
+		display:none
+	}
+	#wechatlink .dropup .dropdown-menu{
+		display:none
+	}
+}
 /*=================================================================
 	sec6 Contact
 ==================================================================*/
@@ -1290,7 +1360,11 @@ textarea.form-control {
          -o-transition: all 0.3s ease 0s;
             transition: all 0.3s ease 0s;
 }
-
+@media(max-width:480px) {
+	.contact-details p i {
+    	margin-left: 50%;
+	}
+}
 .contact-details span {
 	position:absolute;
     display: inline-block;
@@ -1328,6 +1402,12 @@ textarea.form-control {
 }
 .contact-details p:hover .fa-phone, .hidespan4{
 	color:#00C045
+}
+
+/*TEMP*/
+form p{
+	font-size:16px;
+	opacity:0.8
 }
 /*============================================================
 	Google Maps

@@ -423,9 +423,9 @@
                     	<a href="https://www.linkedin.com/in/tianxin-chu-980881a4" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
                     </li>
 					<li id="wechatlink" class="wow zoomIn" data-wow-delay="0.4s">
-                    	<div class="dropup" style="display:inline-block"> 
+                    	<div class="dropup"> 
                         	<a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-weixin fa-2x"></i></a>
-            				<ul class="dropdown-menu" style="height:400px; left:150px; bottom:-100px">
+            				<ul class="dropdown-menu">
               					<img src="imgs/wechatbarcode.jpg" class="barcode" alt="" height="400">
             				</ul>
           				</div>
@@ -438,7 +438,10 @@
                 	<li id="linkedinhint">Open LinkedIn in New Tab</li>
                     <li id="wechathint">Scan Barcode</li>
                 </ul>
-            </div>	
+            </div>
+            <div class="row wechat-dropup">
+            	<img src="imgs/wechatbarcode.jpg" class="barcode" alt="" height="400">
+            </div>
 		</div>
       </aside>
     </section>
@@ -469,19 +472,20 @@
                 	<h3 class="form-headline">Leave me a Message</h3>
 					<form action="src/sendmail.php" method="post">
 						<div class="input-field">
-							<input type="text" name="senderName" class="form-control" placeholder="Your Name...">
+							<input type="text" name="senderName" class="form-control" placeholder="Your Name..." disabled="true">
 						</div>
 						<div class="input-field">
-							<input type="email" name="email" class="form-control" placeholder="Your Email...">
+							<input type="email" name="email" class="form-control" placeholder="Your Email..." disabled="true">
 						</div>
 						<div class="input-field">
-							<input type="text" name="subject" class="form-control" placeholder="Subject...">
+							<input type="text" name="subject" class="form-control" placeholder="Subject..." disabled="true">
 						</div>
 						<div class="input-field">
-							<textarea name="message" class="form-control" placeholder="Your message..."></textarea>
+							<textarea name="message" class="form-control" placeholder="Your message..." disabled="true"></textarea>
 						</div>
-						<button type="submit" id="submit" class="btn btn1" style="padding-top:3px; margin-bottom:20px">Send</button>
-					</form>
+						<button type="submit" id="submit" class="btn btn1" style="padding-top:3px; margin-bottom:20px" disabled="true">Send</button>
+						<p>Message Function (PHP) is Currently Not Supported by GitHub</p>
+                    </form>
 				</div>
 			</div>
         </div>
