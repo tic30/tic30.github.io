@@ -712,7 +712,7 @@ hr{
 	padding:100px 0;
 	background-color:#1a1a1a;
 	/*background: linear-gradient(to bottom, #515151, #1B1B1B);*/
-	min-height:768px;
+	min-height:100%;
 	-webkit-transition: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
@@ -752,6 +752,12 @@ hr{
 #chu-logo{
 	width:180px;
 	height:auto;
+}
+@media(max-width:480px) {
+	chu-logo{
+		width:100px;
+		height:auto;
+	}
 }
 #hand{
 	position:absolute;
