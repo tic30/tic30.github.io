@@ -9,7 +9,7 @@ $(document).ready(function(e){
 	if(w > 768){
 		//$('#sec2').css("height",h+300);
 		$('#sec2').css("height",800);
-		//$('#sec3').css("height",600);
+		$('#sec3').css("height",600);
 		//$('#sec4').css("height",(rowh+150)*6+250);
 		$('#sec5').css("height",500);
 		//$('.transimg').prop("height",h+300);
