@@ -987,7 +987,7 @@ footer{
 #sec3{
 	position:relative;
 	background-image:url(../imgs/bgsec2.jpg);
-	background-size:cover;
+	background-size: cover;
 	background-repeat: no-repeat;
     background-attachment: fixed;
 	color:#fff;
@@ -1145,13 +1145,20 @@ footer{
 		margin-top:30px;
 	}
 }
-
+@media(min-width:768px) and (max-width:1024px){
+	.pp-wrapper{
+		padding-top:0;
+	}
+	.pp-wrapper p{
+		font-size:16px
+	}
+}
 /*=================================================================
 	sec5 social
 ==================================================================*/
 #sec5{
-	background-image:url(../imgs/bgsec5.jpg);
-	background-size:cover;
+	background-image: url(../imgs/bgsec5.jpg);
+	background-size: cover;
 	background-repeat: no-repeat;
     background-attachment: fixed;
 	color:#fff;
@@ -1340,7 +1347,7 @@ textarea.form-control {
 	     -o-transform: translate(-100px,0); 
 			transform: translate(-100px,0);
 }
-@media(min-width:768px) {
+@media(min-width:769px) {
 	#sec6-content .row{
 		padding-bottom:30px
 	}
