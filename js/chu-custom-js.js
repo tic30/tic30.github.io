@@ -10,7 +10,6 @@ var	w = window.innerWidth;
 $(document).ready(function(e){
 	$(this).scrollTop(0);
 	var rowh = $('#sec4 .row').height();
-	//$('section').css("height",h);
 	if(w > 480){
 		$('#sec1').css("height",h-30);
 		$('.arrow_box').css("top",h-30);
@@ -21,12 +20,9 @@ $(document).ready(function(e){
 	}
 	if(w > 768){
 		$('#sec1').css("height",h);
-		//$('#sec2').css("height",h+300);
 		$('#sec2').css("height",800);
 		$('#sec3').css("height",600);
-		//$('#sec4').css("height",(rowh+150)*6+250);
 		$('#sec5').css("height",500);
-		//$('.transimg').prop("height",h+300);
 		$( ".slid-wrapper" ).change(sliding());
 		
 		//preloader effect
@@ -56,7 +52,6 @@ $(document).ready(function(e){
 			$( this ).find('.pimg-wrapper').insertBefore($( this ).find('.pp-wrapper'));
 		});
 		$('.pp-wrapper').removeClass("fadeInDown").addClass("fadeInUp");
-		//$('#facebooklink, #linkedinlink').addClass("col-sm-6");
 		$('#wechatlink').click(function() {
 			$('.wechat-dropup').css("display","block");
 			$('.wechat-dropup').addClass("animated fadeInUp");
@@ -64,19 +59,11 @@ $(document).ready(function(e){
 		$('.wechat-dropup').click(function() {
 			$(this).css("display","none");
 		});
-		/*
-		$('#facebookhint').css("opacity","1");
-		$('#linkedinhint').css("opacity","1");
-		$('#wechathint').css("opacity","1");
-		*/
-		//$( ".pp-wrapper, .pimg-wrapper" ).removeClass("col-sm-offset-1");
 	}
-	var //mn = $(".navbar"); 
-		//mns = "nav-scrolled";
-		imgNo=0;
-		imgWidth=$('.slid-wrapper img').css("height");
 	
 	//sec2 sliding portfolio	
+	var	imgNo=0;
+	var	imgWidth=$('.slid-wrapper img').css("height");
 	$('.slid-wrapper img').css("width",imgWidth);
 	function sliding(){
 		$( ".slid-wrapper" ).animate({ 
@@ -170,15 +157,8 @@ $(document).ready(function(e){
 		$('.slider-img').stop(true, true).removeClass("animated-slow fadeIn");
 	});
 	
-	/*
-	$('.dropdown-toggle').click(function(e) {
-		e.preventDefault();
-	  	$(this).localScroll({duration:500});
-	});
-	*/
 	//disable hover effects on touch devices
 	var touch = window.ontouchstart || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
-
 	if (touch || w <= 768) { // remove all :hover stylesheets
 		try { // prevent exception on browsers not supporting DOM styleSheets properly
 			for (var si in document.styleSheets) {
@@ -240,7 +220,7 @@ $(document).ready(function(e){
 				},200);
 			});
 			
-			//*************** nav-img hover effect ***************//
+			//*************** sec1 nav-img hover effect ***************//
 			$('.nav-img').hover(function() {
 				if(timer) {
 					clearTimeout(timer);
@@ -250,10 +230,27 @@ $(document).ready(function(e){
 					$('.nav-img').removeClass('animated bounceInDown');
 					$('.nav-img').addClass('nav-img-hover animated-fast2 zoomInOut');
 				}, 50);
-			},
-			// mouse out
-			function() {
+			}, function() {
 				$('.nav-img').removeClass('animated-fast2 zoomInOut');
+			});
+			
+			//*************** sec1 logo hover ******************//
+			$('#chu-logo').hover(function() {
+				$('#hand').removeClass('animated tada'); //hand-wave
+				$('#hand, #smile3').stop(true, true).css("opacity","1");
+				$('#hand').addClass('animated tada');
+			}, function() {
+				setTimeout(function() {
+					$('#hand, #smile3').stop(true, true).css("opacity","0");
+					$('#hand').removeClass('animated tada');
+				}, 800)
+			});
+			
+			//*************** sec1 p hover ******************//
+			$('.sec1-p-span').hover(function() {
+				$(this).addClass('hover-up');
+			}, function() {
+				$(this).removeClass('hover-up');
 			});
 			
 			//*************** btn hover ******************//
@@ -267,9 +264,7 @@ $(document).ready(function(e){
 					thisbtn.addClass('charged');
 					thisbtn.css("color","#fff");
 				}, 50);
-			},
-			// mouse out
-			function() {
+			}, function() {
 				var thisbtn = $(this);
 				timer = setTimeout(function() {
 					thisbtn.removeClass('charged');
@@ -291,26 +286,15 @@ $(document).ready(function(e){
 						t.addClass('charged-long-b');
 					else if(t.find('.td-color').hasClass('td-g'))
 						t.addClass('charged-long-g');
-					//t.find('.td-words').addClass('hover-up');
 					t.find('.td-words').css("color","#333");
 				}, 50);
-			},
-			// mouse out
-			function() {
+			}, function() {
 				var t = $(this);
 				t.removeClass('charged-long-o charged-long-g charged-long-b');
-				//t.find('.td-words').removeClass('hover-up');
 				t.find('.td-words').css("color","#fff");
 			});
 			
-			//sec1 p hover 
-			$('.sec1-p-span').hover(function() {
-				$(this).addClass('hover-up');
-			}, function() {
-				$(this).removeClass('hover-up');
-			});
-			
-			//sec5 wechat
+			//*************** sec5 links hover ******************//
 			$('.dropdown-toggle').hover(function() {
 				$('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
 			}, function() {
@@ -320,40 +304,6 @@ $(document).ready(function(e){
 				$('.dropdown-menu').stop(true, true);
 			}, function() {
 				$('.dropdown-menu').stop(true, true).delay(200).fadeOut(300);
-			});
-			//sec2-nav dropdown hover
-			/*
-			$('.dropdown-toggle').hover(function() {
-				$('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
-			}, function() {
-				$('.dropdown-menu').stop(true, true).delay(200).fadeOut(300);
-			});
-			
-			$('.dropdown-menu').hover(function() {
-				$('.dropdown-menu').stop(true, true);
-			}, function() {
-				$('.dropdown-menu').stop(true, true).delay(200).fadeOut(300);
-			});
-			
-			$('.navbar-item').hover(function() {
-				$(this).find('div').addClass('hover-up');
-				//$(this).find('dropdown-menu').addClass('hover-down');
-				$(this).find('hr').css("opacity","1");
-			}, function() {
-				$(this).find('div').removeClass('hover-up');
-				//$(this).find('dropdown-menu').removeClass('hover-down');
-				$(this).find('hr').css("opacity","0.3");
-			});
-			*/
-			$('#chu-logo').hover(function() {
-				$('#hand').removeClass('animated tada'); //hand-wave
-				$('#hand, #smile3').stop(true, true).css("opacity","1");
-				$('#hand').addClass('animated tada');
-			}, function() {
-				setTimeout(function() {
-					$('#hand, #smile3').stop(true, true).css("opacity","0");
-					$('#hand').removeClass('animated tada');
-				}, 800)
 			});
 			
 			$('#facebooklink').hover(function() {
@@ -374,16 +324,17 @@ $(document).ready(function(e){
 				$('#wechathint').css("opacity","0");
 			});
 			
+			//*************** down arrow hover ******************//
 			$('.chu-down').hover(function() {
-				$(this).removeClass("wow animated mybounce");
 				$(this).addClass("animated mybounce");
+			},function(){
+				$(this).removeClass("animated mybounce");
 			});
 		});
 	}
 });
 
 $(window).scroll(function(){
-	//$('#header2').html($(this).scrollTop()+" -- " +h);
 	//branding effects
 	function branding(){
 		var winh = $(window).scrollTop();
@@ -404,7 +355,7 @@ $(window).scroll(function(){
 		$('.sec1nav-brand hr').css("border-color","#fff");
 	}
 	
-	//animate arrow
+	//animate sec1 arrow
 	var arrowOffset;
 	if (w > 480) 
 		arrowOffset = 30;
@@ -420,30 +371,9 @@ $(window).scroll(function(){
 		$('.sec2mask').removeClass("lighter-gradient");
 		$('.sec2mask').addClass("original-mask");
 	}
-	
-	//fix sec2-nav
-	/*
-	if( $(this).scrollTop() > h ) {
-		mn.addClass(mns);
-		//$('.placeholder').addClass("placeholderIn");
-	} else {
-		mn.removeClass(mns);
-		//$('.placeholder').removeClass("placeholderIn");
-	}
-	*/
-	//pimg-code slide
-	/*
-	$( ".pimg-wrapper" ).each(function() {
-		if( $(window).scrollTop() >= this.scrollTop()){
-			setTimeout(function(){
-				this.find('.pimg-code').addClass('pimg-code-piledup');
-			}, 1000);
-		}
-	});
-	*/
 });
 
-//smooth scroll
+/* ==========  smooth scroll ========== */
 $(function() {
   $('.local-scroll').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -461,87 +391,78 @@ $(function() {
 
 /* ==========  START GOOGLE MAP ========== */
 function initMap() {
-    // Basic options for a simple Google Map
-    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+	var myLatLng = new google.maps.LatLng(40.444434, -79.953595);
 
-	    var myLatLng = new google.maps.LatLng(40.444434, -79.953595);
+	var mapOptions = {
+	    zoom: 13,
+	    center: myLatLng,
+	    disableDefaultUI: true,
+	    scrollwheel: false,
+	    navigationControl: true,
+	    mapTypeControl: false,
+	    scaleControl: false,
+	    draggable: false,
 
-	    var mapOptions = {
-	        zoom: 13,
-	        center: myLatLng,
-	        disableDefaultUI: true,
-	        scrollwheel: false,
-	        navigationControl: true,
-	        mapTypeControl: false,
-	        scaleControl: false,
-	        draggable: false,
-
-        // How you would like to style the map. 
-        // This is where you would paste any style found on Snazzy Maps.
-        styles: [{
-            featureType: 'water',
-            stylers: [{
-                color: '#ffffff'
-            }, {
-                visibility: 'on'
-            }]
+    //map styles
+    styles: [{
+        featureType: 'water',
+        stylers: [{
+            color: '#ffffff'
+        	}, {
+            visibility: 'on'
+        }]
+     	}, {
+        featureType: 'landscape',
+        stylers: [{
+            color: '#f2f2f2'
+        }]
         }, {
-            featureType: 'landscape',
-            stylers: [{
-                color: '#f2f2f2'
-            }]
+        featureType: 'road',
+        stylers: [{
+            saturation: -100
+        	}, {
+            lightness: 45
+        }]
         }, {
-            featureType: 'road',
-            stylers: [{
-                saturation: -100
-            }, {
-                lightness: 45
-            }]
+        featureType: 'road.highway',
+        stylers: [{
+            visibility: 'simplified'
+        }]
         }, {
-            featureType: 'road.highway',
-            stylers: [{
-                visibility: 'simplified'
-            }]
+        featureType: 'road.arterial',
+        elementType: 'labels.icon',
+        stylers: [{
+            visibility: 'off'
+        }]
         }, {
-            featureType: 'road.arterial',
-            elementType: 'labels.icon',
-            stylers: [{
-                visibility: 'off'
-            }]
+        featureType: 'administrative',
+        elementType: 'labels.text.fill',
+        stylers: [{
+            color: '#444444'
+        }]
         }, {
-            featureType: 'administrative',
-            elementType: 'labels.text.fill',
-            stylers: [{
-                color: '#444444'
-            }]
+        featureType: 'transit',
+        stylers: [{
+            visibility: 'off'
+        }]
         }, {
-            featureType: 'transit',
-            stylers: [{
-                visibility: 'off'
-            }]
-        }, {
-            featureType: 'poi',
-            stylers: [{
-                visibility: 'off'
-            }]
+        featureType: 'poi',
+        stylers: [{
+            visibility: 'off'
+        }]
         }]
     };
 
-    // Get the HTML DOM element that will contain your map 
-    // We are using a div with id="map" seen below in the <body>
     var mapElement = document.getElementById('map-canvas');
-
-    // Create the Google Map using our element and options defined above
     var map = new google.maps.Map(mapElement, mapOptions);
-
-    // Let's also add a marker while we're at it
+	
+	//place marker
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(40.444434, -79.953595),
         map: map,
 		icon: 'imgs/icons/map-marker.png',
     });
 }
-
 // ========== END GOOGLE MAP ========== //
 
 //start wow
@@ -550,10 +471,4 @@ var wow = new WOW({
 	})
 	wow.init();
 
-//Temp PHP Supporting Issue
-/*
-$( "form" ).submit(function( event ) {
-  alert( "Oops! Message currently unavailable. (PHP not supported by GitHub)" );
-  event.preventDefault();
-});
-*/
+//Temp PHP Supporting Issue: need a hosting which supports PHP
