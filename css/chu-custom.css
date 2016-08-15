@@ -110,7 +110,7 @@ hr{
 }
 @media(max-width:768px) {
 	.sec-title{
-		padding:10px 0;
+		padding-top:20px;
 	}
 }
 .sec-title h2{
@@ -181,6 +181,8 @@ hr{
 	position:relative;
 	height:1em;
 	text-transform: uppercase;
+	padding:0;
+	margin:0;
 	opacity:0
 }
 @media(max-width:768px) {
@@ -218,11 +220,11 @@ hr{
 	display:inline-block;
 	font-size:28px;
 	width: 0;
-	height:1em;
-	padding:0;
+	height:1.1em;
+	padding-top:0.05em;
 	margin:0;
 	color:#fff;
-	overflow-x:hidden;overflow-y:visible;
+	overflow:hidden;
 	text-align:left
 }
 .dd{
@@ -242,7 +244,6 @@ hr{
 	position:relative;
 	display:inline-block;
 	margin-top:0;
-	
 	margin-left: 10px;
 }
 .nav-img{
@@ -254,18 +255,27 @@ hr{
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
+.nav-img-hover{
+	opacity: 1;
+}
 @media(max-width:768px) {
 	.nav-img{
+		margin-top:0.2em;
 		opacity: 1;
 	}
 }
-.nav-img-hover{
-	height:35px;
-	width:35px;
-	margin-left:-5px;
-	opacity: 0.6;
+@media(max-width:480px) {
+	.sec1nav-brand{
+		display:none
+	}
+	.nav-img-wrapper{
+		margin-left: 0;
+	}
+	#chu-menu{
+		-webkit-transform: translate(-20px,0) rotate(45deg);
+		    	transform: translate(-20px,0) rotate(45deg);
+	}
 }
-
 /*----------end brand---------------*/
 
 /*--------------------start left menu---------------*/
@@ -294,7 +304,6 @@ hr{
 	}
 }
 
-/* Sidebar Styles */
 .sidebar-nav {
     position: absolute;
     top: 0;
@@ -308,10 +317,11 @@ hr{
 	padding-top:50px
 }
 .sidebar-nav > .sidebar-brand hr{
-	opacity:0.6
+	opacity:0.7
 }
 .sidebar-nav > .sidebar-brand p{
 	margin-top:20px;
+	opacity:0.7
 }
 .slider-item{
 	padding:0;
@@ -387,7 +397,6 @@ hr{
 .closeButton{
 	position:absolute;
 	top:140px;
-	margin-right:10px;
 	right:10px;
 }
 #menu-close{
@@ -417,11 +426,11 @@ hr{
 	left:25px;
 }
 @media(max-width:400px) {
-	.slider-img{
-		left:10px;
+	.myTable-second-half{
+		display:none
 	}
-	.slider-img-words{
-		left:10px;
+	.closeButton{
+		top:10px
 	}
 }
 .flip-container {
@@ -472,6 +481,12 @@ hr{
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
+.animated-fast2 {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both ease-in;
+  animation-fill-mode: both ease-in;
+}
 .animated-slow {
   -webkit-animation-duration: 2s;
   animation-duration: 2s;
@@ -484,11 +499,44 @@ hr{
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
+
+@-webkit-keyframes zoomInOut {
+  from {
+    -webkit-transform: none;
+		    transform: none;
+  }
+  50% {
+	-webkit-transform: scale3d(.3, .3, .3) rotate(45deg);
+		    transform: scale3d(.3, .3, .3) rotate(45deg);
+  }
+  to{
+	-webkit-transform: scale3d(1, 1, 1) rotate(90deg);
+		    transform: scale3d(1, 1, 1) rotate(90deg);
+  }
+}
+@keyframes zoomInOut {
+  from {
+    -webkit-transform: none;
+		    transform: none;
+  }
+  50% {
+	-webkit-transform: scale3d(.3, .3, .3) rotate(45deg);
+		    transform: scale3d(.3, .3, .3) rotate(45deg);
+  }
+  to{
+	-webkit-transform: scale3d(1, 1, 1) rotate(90deg);
+		    transform: scale3d(1, 1, 1) rotate(90deg);
+  }
+}
+.zoomInOut {
+  -webkit-animation-name: zoomInOut;
+  animation-name: zoomInOut;
+}
+
 @-webkit-keyframes charge{
     0%{box-shadow: inset 0px 0px 0px #1a1a1a;}
     100%{box-shadow: inset 200px 0px 0px #1a1a1a;}
 }
-
 @keyframes charge{
     0%{box-shadow: inset 0px 0px 0px #1a1a1a;}
     100%{box-shadow: inset 200px 0px 0px #1a1a1a;}
@@ -497,11 +545,11 @@ hr{
 	-webkit-animation: charge 0.2s forwards ease-in-out;
             animation: charge 0.2s forwards ease-in-out;
 }
+
 @-webkit-keyframes charge-long-o{
     0%{box-shadow: inset 0px 0px 0px #FCFC60;}
     100%{box-shadow: inset 400px 0px 0px #FCFC60;}
 }
-
 @keyframes charge-long-o{
     0%{box-shadow: inset 0px 0px 0px #FCFC60;}
     100%{box-shadow: inset 400px 0px 0px #FCFC60;}
@@ -510,11 +558,11 @@ hr{
 	-webkit-animation: charge-long-o 0.3s forwards ease-in-out;
             animation: charge-long-o 0.3s forwards ease-in-out;
 }
+
 @-webkit-keyframes charge-long-g{
     0%{box-shadow: inset 0px 0px 0px #6BFF8E;}
     100%{box-shadow: inset 400px 0px 0px #6BFF8E;}
 }
-
 @keyframes charge-long-g{
     0%{box-shadow: inset 0px 0px 0px #6BFF8E;}
     100%{box-shadow: inset 400px 0px 0px #6BFF8E;}
@@ -523,11 +571,11 @@ hr{
 	-webkit-animation: charge-long-g 0.3s forwards ease-in-out;
             animation: charge-long-g 0.3s forwards ease-in-out;
 }
+
 @-webkit-keyframes charge-long-b{
     0%{box-shadow: inset 0px 0px 0px #6DE6FF;}
     100%{box-shadow: inset 400px 0px 0px #6DE6FF;}
 }
-
 @keyframes charge-long-b{
     0%{box-shadow: inset 0px 0px 0px #6DE6FF;}
     100%{box-shadow: inset 400px 0px 0px #6DE6FF;}
@@ -536,6 +584,7 @@ hr{
 	-webkit-animation: charge-long-b 0.3s forwards ease-in-out;
             animation: charge-long-b 0.3s forwards ease-in-out;
 }
+
 .mybounce{
 	-webkit-animation-name: bounce;
   	animation-name: bounce;
@@ -544,6 +593,8 @@ hr{
   	-webkit-transform-origin: center bottom;
   	transform-origin: center bottom;
 }
+
+/*
 @-webkit-keyframes hand-wave {
   from {
     -webkit-transform: scale3d(1, 1, 1);
@@ -570,7 +621,6 @@ hr{
     transform: scale3d(1, 1, 1);
   }
 }
-
 @keyframes hand-wave {
   from {
     -webkit-transform: scale3d(1, 1, 1);
@@ -597,11 +647,11 @@ hr{
     transform: scale3d(1, 1, 1);
   }
 }
-
 .hand-wave {
   -webkit-animation-name: hand-wave;
   animation-name: hand-wave;
 }
+*/
 
 @-webkit-keyframes fadeInUp-light {
   from {
@@ -609,28 +659,24 @@ hr{
     -webkit-transform: translate3d(0, 30px, 0);
     transform: translate3d(0, 30px, 0);
   }
-
   to {
     opacity: 0.7;
     -webkit-transform: none;
     transform: none;
   }
 }
-
 @keyframes fadeInUp-light {
   from {
     opacity: 0;
     -webkit-transform: translate3d(0, 30px, 0);
     transform: translate3d(0, 30px, 0);
   }
-
   to {
     opacity: 0.7;
     -webkit-transform: none;
     transform: none;
   }
 }
-
 .fadeInUp-light {
   -webkit-animation-name: fadeInUp-light;
   animation-name: fadeInUp-light;
@@ -641,32 +687,27 @@ hr{
 	-webkit-transform: none;
     transform: none;
   }
-
   to {
 	opacity:0.8;
     -webkit-transform: scale3d(.9, .9, .9) translate3d(65%, 5%, 0);
     transform: scale3d(.9, .9, .9) translate3d(65%, 5%, 0);
   }
 }
-
 @keyframes pileUp-right {
   from {
 	-webkit-transform: none;
     transform: none;
   }
-
   to {
 	opacity:0.8;
     -webkit-transform: scale3d(.9, .9, .9) translate3d(65%, 5%, 0);
     transform: scale3d(.9, .9, .9) translate3d(65%, 5%, 0);
   }
 }
-
 .pileUp-right {
   -webkit-animation: pileUp-right 0.5s forwards ease-out;
   animation: pileUp-right 0.5s forwards ease-out;
 }
-
 
 /*---------end animations---------------*/
 
@@ -746,7 +787,9 @@ hr{
 }
 @media(max-width:768px) {
 	#sec1-content{
-		opacity:1
+		opacity:1;
+		height:100%;
+		margin-top:0;
 	}
 }
 #chu-logo{
@@ -754,7 +797,7 @@ hr{
 	height:auto;
 }
 @media(max-width:480px) {
-	chu-logo{
+	#chu-logo{
 		width:100px;
 		height:auto;
 	}
@@ -1079,10 +1122,14 @@ hr{
 		position:relative;
 		margin-left:0;
 		top:0;
-		padding: 50px 0 50px 0;
+		padding: 20px 0 0 0;
 	}
 	.aboutright-inner {
 		width:100%;
+		padding:0;
+	}
+	.aboutright-inner p{
+		padding-top:30px
 	}
 	.aboutright-inner > div:before {
 		top: 50px;
@@ -1237,11 +1284,14 @@ hr{
 }
 
 @media(max-width:480px) {
+	#sec4{
+		min-height:0;
+	}
 	#sec4 .row{
 		margin-top:0;
 	}
 	#sec4-content{
-		margin-bottom:30px;
+		padding-bottom:0;
 	}
 	.pp-wrapper{
 		margin-top:30px;
@@ -1352,6 +1402,11 @@ hr{
 	}
 	#wechatlink .dropup .dropdown-menu{
 		display:none
+	}
+}
+@media(max-width:480px) {
+	.social-button li {
+		padding-bottom:10px
 	}
 }
 /*=================================================================
