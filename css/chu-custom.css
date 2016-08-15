@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*!
  * chu-custom.css
  * Version - 1.1
@@ -1298,7 +1297,10 @@ footer{
 		padding-bottom:0;
 	}
 	.pp-wrapper{
-		margin-top:30px;
+		padding-top:40px;
+	}
+	.pp-wrapper p{
+		padding-top:0;
 	}
 	.pimg-wrapper{
 		margin-top:30px;
@@ -1502,12 +1504,8 @@ textarea.form-control {
 	font-size:28px;
     margin-bottom: 15px;
 }
-.contact-details-wrapper{
-	padding-top:20px
-}
 .contact-details p {
     line-height: 50px;
-	margin-top:30px
 }
 .contact-details span,
 .contact-details p i {
@@ -1521,6 +1519,9 @@ textarea.form-control {
 	display: inline-block;
 }
 @media(min-width:768px) {
+	#sec6-content .row{
+		padding-bottom:30px
+	}
 	#sec6-content .sec-title:hover .sec6titleh2{
 		opacity:0.7;
 		font-size:20px;
@@ -1542,6 +1543,12 @@ textarea.form-control {
 		-o-transform: translate(0,10px);
 		-moz-transform: translate(0,10px);
 		transform: translate(0,10px);
+	}
+	.contact-details-wrapper{
+		padding-top:20px
+	}
+	.contact-details p{
+		margin-top:30px
 	}
 	.contact-details p i {
 		margin-left: 30%;
