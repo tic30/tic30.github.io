@@ -68,7 +68,7 @@
   $mail->Host = "smtp.pitt.edu"; // sets Pitt as the SMTP server
   $mail->Port = 587; // set the SMTP port for the Pitt server
   $mail->Username = "tic30"; // Pitt username
-  $mail->Password = "ctxscmm@1013"; // Pitt password
+  $mail->Password = "123"; // Pitt password
 
   
   $sender = strip_tags("tic30@pitt.edu");
