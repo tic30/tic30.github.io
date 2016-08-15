@@ -7,9 +7,8 @@
 var h = window.innerHeight;
 var	w = window.innerWidth;
 	
-$(document).ready(function(e){
+$(document).ready(function(){
 	$(this).scrollTop(0);
-	var rowh = $('#sec4 .row').height();
 	if(w > 480){
 		$('#sec1').css("height",h-30);
 		$('.arrow_box').css("top",h-30);
@@ -70,10 +69,10 @@ $(document).ready(function(e){
 		$( ".slid-wrapper" ).animate({ 
 			"left": "-=600px" 
 		}, 5000, "linear", function() {
-			if(imgNo<6)
-				imgNo++;
-			else
-				imgNo=1;
+			if(imgNo<6){
+				imgNo++;}
+			else{
+				imgNo=1;}
 			$( this ).css("left","+=600px");
 			$( this ).append( $(".p"+imgNo) );
 			$( this ).change(sliding());
@@ -86,8 +85,9 @@ $(document).ready(function(e){
 		//branding effects
 		function branding(){
 			var winh = $(window).scrollTop();
-			if(	( winh > h-50 && winh <= $('#sec3').offset().top-50 ) || (winh > $('#sec4').offset().top-50 && winh <= $('#sec5').offset().top-50 ) || winh > $('#sec6').offset().top-50 )
+			if(	( winh > h-50 && winh <= $('#sec3').offset().top-50 ) || (winh > $('#sec4').offset().top-50 && winh <= $('#sec5').offset().top-50 ) || winh > $('#sec6').offset().top-50 ){
 				return true;
+			}
 			else{
 				return false;
 			}
@@ -96,7 +96,7 @@ $(document).ready(function(e){
         $("#sidebar-wrapper").toggleClass("toggled");
 		if($('.nav-img').hasClass("img-inverted")){
 			$('.nav-img').removeClass("img-inverted");
-		}else if(!$('.nav-img').hasClass("img-inverted") && branding == true){
+		}else if(!$('.nav-img').hasClass("img-inverted") && branding === true){
 			$('.nav-img').addClass("img-inverted");
 		}
 		if($("#sidebar-wrapper").hasClass("toggled")){
@@ -130,8 +130,9 @@ $(document).ready(function(e){
 		//branding effects
 		function branding(){
 			var winh = $(window).scrollTop();
-			if(	( winh > h-50 && winh <= $('#sec3').offset().top-50 ) || (winh > $('#sec4').offset().top-50 && winh <= $('#sec5').offset().top-50 ) || winh > $('#sec6').offset().top-50 )
+			if(	( winh > h-50 && winh <= $('#sec3').offset().top-50 ) || (winh > $('#sec4').offset().top-50 && winh <= $('#sec5').offset().top-50 ) || winh > $('#sec6').offset().top-50 ){
 				return true;
+			}
 			else{
 				return false;
 			}
@@ -141,7 +142,7 @@ $(document).ready(function(e){
 		if($('.nav-img').hasClass("img-inverted")){
 			$('.nav-img').removeClass("img-inverted");
 		}
-		else if(!$('.nav-img').hasClass("img-inverted") && branding == true){
+		else if(!$('.nav-img').hasClass("img-inverted") && branding === true){
 			$('.nav-img').addClass("img-inverted");
 			$('.sec1nav-brand .steady, .sec1nav-brand .zoom, .dd').css("color","#000");
 			$('.sec1nav-brand hr').css("border-color","#000");
@@ -244,7 +245,7 @@ $(document).ready(function(e){
 				setTimeout(function() {
 					$('#hand, #smile3').stop(true, true).css("opacity","0");
 					$('#hand').removeClass('animated tada');
-				}, 800)
+				}, 800);
 			});
 			
 			//*************** sec1 p hover ******************//
@@ -296,24 +297,16 @@ $(document).ready(function(e){
 			});
 			
 			//*************** sec5 links hover ******************//
-			if (w>768 && w<1024){
-				$('.dropdown-toggle').hover(function(e) {
-					e.preventDefault();
-					$('.dropdown-menu').css("display","none");
-				});
-			}
-			else{
-				$('.dropdown-toggle').hover(function() {
-					$('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
-				}, function() {
-					$('.dropdown-menu').stop(true, true).delay(200).fadeOut(300);
-				});
-				$('.dropdown-menu').hover(function() {
-					$('.dropdown-menu').stop(true, true);
-				}, function() {
-					$('.dropdown-menu').stop(true, true).delay(200).fadeOut(300);
-				});
-			}
+			$('.dropdown-toggle').hover(function() {
+				$('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
+			}, function() {
+				$('.dropdown-menu').stop(true, true).delay(200).fadeOut(300);
+			});
+			$('.dropdown-menu').hover(function() {
+				$('.dropdown-menu').stop(true, true);
+			}, function() {
+				$('.dropdown-menu').stop(true, true).delay(200).fadeOut(300);
+			});
 			
 			$('#facebooklink').hover(function() {
 				$('#facebookhint').css("opacity","1");
@@ -354,7 +347,7 @@ $(window).scroll(function(){
 		}
 	}
 	var branding = branding();
-	if( branding == true && !$("#sidebar-wrapper").hasClass("toggled")) {
+	if( branding === true && !$("#sidebar-wrapper").hasClass("toggled")) {
 		$('.nav-img').addClass("img-inverted");
 		$('.sec1nav-brand span, .sec1nav-brand div, .dd').css("color","#000");
 		$('.sec1nav-brand hr').css("border-color","#000");
@@ -477,7 +470,7 @@ function initMap() {
 //start wow
 var wow = new WOW({
 		offset: 50,
-	})
+	});
 	wow.init();
 
 //Temp PHP Supporting Issue: need a hosting which supports PHP

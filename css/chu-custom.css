@@ -993,6 +993,11 @@ footer{
 	color:#fff;
 	z-index:1
 }
+@media(max-width:1024px){
+	#sec3{
+		background-attachment: scroll;
+	}
+}
 #sec3-content{
 	padding-bottom:100px
 }
@@ -1107,6 +1112,7 @@ footer{
          -o-transition: all 0.3s ease;
             transition: all 0.3s ease;
 }
+.pimg-wrapper:focus .pimg-code,
 .pimg-wrapper:hover .pimg-code{
 	position:absolute;
 	opacity:1;
@@ -1114,6 +1120,7 @@ footer{
     transform: translate3d(5%, -5%, 0);
 	z-index:3;
 }
+.pimg-wrapper:focus .pimg,
 .pimg-wrapper:hover .pimg{
 	-webkit-transform: scale3d(.9, .9, .9) translate3d(-10%, 5%, 0);
     transform: scale3d(.9, .9, .9) translate3d(-10%, 5%, 0);
@@ -1162,6 +1169,11 @@ footer{
 	background-repeat: no-repeat;
     background-attachment: fixed;
 	color:#fff;
+}
+@media(max-width:1024px){
+	#sec5{
+		background-attachment: scroll;
+	}
 }
 #sec5-content{
 	margin:0;
@@ -1222,6 +1234,7 @@ footer{
 	bottom:-100px
 }
 .wechat-dropup{
+	padding-top:10px;
 	display:none
 }
 .barcode{
@@ -1242,7 +1255,11 @@ footer{
 		padding-bottom:10px
 	}
 }
-
+@media(min-width:768px) and (max-width:1024px){
+	.dropdown-menu{
+		display:none !important
+	}
+}
 /*=================================================================
 	sec6 Contact
 ==================================================================*/
