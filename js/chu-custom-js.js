@@ -1,3 +1,9 @@
+/*!
+ * chu-custom-js.js
+ * Version - 1.1
+ * Copyright (c) 2016 Tianxin Chu
+ */
+ 
 var h = window.innerHeight;
 	w = window.innerWidth;
 $(document).ready(function(e){
@@ -394,8 +400,6 @@ $(window).scroll(function(){
 	*/
 });
 
-
-
 //smooth scroll
 $(function() {
   $('.local-scroll').click(function() {
@@ -496,6 +500,12 @@ function initMap() {
 }
 
 // ========== END GOOGLE MAP ========== //
+
+//start wow
+var wow = new WOW({
+		offset: 50,
+	})
+	wow.init();
 
 //Temp PHP Supporting Issue
 /*
