@@ -83,9 +83,6 @@ $(document).ready(function(e){
 			$( this ).change(sliding());
 		});
 	}
-
-	//$('.local-scroll').localScroll({duration:500});
-	
 	
 	$('#chu-menu').click(function(e) {
         e.preventDefault();
@@ -121,7 +118,7 @@ $(document).ready(function(e){
 		}
     });
 	
-	$('#menu-close').click(function(e) {
+	$('#menu-close, .slider-item a').click(function(e) {
 		e.preventDefault();
 		$("#sidebar-wrapper").toggleClass("toggled");
 		if($('.nav-img').hasClass("img-inverted")){
