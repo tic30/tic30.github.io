@@ -196,7 +196,7 @@ footer{
 	margin:0;
 	opacity:0
 }
-@media(max-width:768px) {
+@media(max-width:1024px) {
 	.sec1nav-brand{
 		opacity:1;
 	}
@@ -269,9 +269,8 @@ footer{
 .nav-img-hover{
 	opacity: 1;
 }
-@media(max-width:768px) {
+@media(max-width:1024px) {
 	.nav-img{
-		margin-top:0.2em;
 		opacity: 1;
 	}
 }
@@ -651,7 +650,7 @@ footer{
 	text-align:center;
 	z-index:10;
 }
-@media(max-width:768px) {
+@media(max-width:1024px) {
 	.preloader-wrapper{
 		display:none
 	}
@@ -664,7 +663,7 @@ footer{
 	width:80%;
 	height:auto;
 }
-@media(min-width:768px) {
+@media(min-width:1024px) {
 	.preloader-wrapper img{
 		height:250px;
 		width:auto;
@@ -677,7 +676,13 @@ footer{
 		transform: translate(-55%,0);
 	}
 }
-
+.preloader-button{
+	position:relative;
+	float:left;
+	margin-top:30%;
+	border:solid 1px #fff;
+	display:none
+}
 /*=================================================================
 	sec1
 ==================================================================*/
@@ -722,7 +727,7 @@ footer{
 	margin-top:8%;
 	opacity: 0;
 }
-@media(max-width:768px) {
+@media(max-width:1024px) {
 	#sec1-content{
 		opacity:1;
 		height:100%;
@@ -917,7 +922,7 @@ footer{
     margin: 0 5% 0 5%;
 }
 .aboutright-inner p {
-	font-size:24px;
+	font-size:20px;
 	line-height: 30px;
 }
 .aboutright-inner > div {
@@ -1130,7 +1135,8 @@ footer{
 	padding-top:50px;
 }
 .pp-wrapper p{
-	padding-top:20px;
+	text-align: justify;
+	padding-top:50px;
 }
 @media(max-width:480px) {
 	#sec4{
@@ -1303,6 +1309,16 @@ footer{
 	font-size:20px;
 	opacity:0.7
 }
+.self-intro{
+	font-size:20px;
+	text-align: justify;
+	padding: 0 10px 0 10px;
+}
+.self-intro p span{
+	font-size:36px;
+	font-weight:bold;
+	font-style:italic;
+}
 .input-field {
     margin-bottom: 10px;
 }
@@ -1348,21 +1364,21 @@ textarea.form-control {
 	position:absolute;
 	display: inline-block;
 	margin-left: -200px;
-	clip:rect(0px,300px,100px,300px);
+	clip:rect(0px,500px,100px,500px);
 }
 .contact-details p a:focus span{
 	color:#1a1a1a !important;
-	-webkit-transform: translate(100px,0);
-	   -moz-transform: translate(100px,0);
-		 -o-transform: translate(100px,0); 
-			transform: translate(100px,0);
-	clip:rect(0px,300px,100px,0px);
+	-webkit-transform: translate(80px,0);
+	   -moz-transform: translate(80px,0);
+		 -o-transform: translate(80px,0); 
+			transform: translate(80px,0);
+	clip:rect(0px,500px,100px,0px);
 }
 .contact-details p a:focus i{
-	-webkit-transform: translate(-100px,0);
-	   -moz-transform: translate(-100px,0);
-	     -o-transform: translate(-100px,0); 
-			transform: translate(-100px,0);
+	-webkit-transform: translate(-130px,0);
+	   -moz-transform: translate(-130px,0);
+	     -o-transform: translate(-130px,0); 
+			transform: translate(-130px,0);
 }
 @media(min-width:769px) {
 	#sec6-content .row{
@@ -1372,23 +1388,23 @@ textarea.form-control {
 		opacity:0.7;
 		font-size:20px;
 		-webkit-transform: translate(0,80px);
-		-o-transform: translate(0,80px);
-		-moz-transform: translate(0,80px);
-		transform: translate(0,80px);
+			 -o-transform: translate(0,80px);
+		   -moz-transform: translate(0,80px);
+				transform: translate(0,80px);
 	}
 	#sec6-content .sec-title:hover .sec6titlep{
 		opacity:1;
 		font-size:40px;
 		-webkit-transform: translate(0,-80px);
-		-o-transform: translate(0,-80px);
-		-moz-transform: translate(0,-80px);
-		transform: translate(0,-80px);
+			 -o-transform: translate(0,-80px);
+		   -moz-transform: translate(0,-80px);
+				transform: translate(0,-80px);
 	}
 	#sec6-content .sec-title:hover hr{
 		-webkit-transform: translate(0,10px);
-		-o-transform: translate(0,10px);
-		-moz-transform: translate(0,10px);
-		transform: translate(0,10px);
+			 -o-transform: translate(0,10px);
+		   -moz-transform: translate(0,10px);
+				transform: translate(0,10px);
 	}
 	.form-headline{
 		text-align:left
@@ -1401,7 +1417,7 @@ textarea.form-control {
 		text-align:left
 	}
 	.contact-details p i {
-		margin-left: 30%;
+		margin-left: 50%;
 		-webkit-transform: translate(-50%,0);
 		-o-transform: translate(-50%,0); 
 		-moz-transform: translate(-50%,0);
@@ -1413,17 +1429,17 @@ textarea.form-control {
 		font-size:28px;
 	}
 	.contact-details p:hover span{
-		-webkit-transform: translate(120px,0);
-		-o-transform: translate(120px,0); 
-		-moz-transform: translate(120px,0);
-		transform: translate(120px,0);
-		clip:rect(0px,300px,100px,0px);
+		-webkit-transform: translate(100px,0);
+		 	 -o-transform: translate(100px,0); 
+		   -moz-transform: translate(100px,0);
+				transform: translate(100px,0);
+		clip:rect(0px,500px,100px,0px);
 	}
 	.contact-details p:hover i{
 		-webkit-transform: translate(-100px,0);
-		-o-transform: translate(-100px,0); 
-		-moz-transform: translate(-100px,0);
-		transform: translate(-100px,0);
+		 	 -o-transform: translate(-100px,0); 
+		   -moz-transform: translate(-100px,0);
+				transform: translate(-100px,0);
 	}
 	.contact-details p:hover .fa-github, .hidespan1{
 		color:#FC4E46 !important
