@@ -191,6 +191,7 @@ footer{
 .sec1nav-brand{
 	position:relative;
 	height:1em;
+	top:0;
 	text-transform: uppercase;
 	padding:0;
 	margin:0;
@@ -254,21 +255,48 @@ footer{
 .nav-img-wrapper{
 	position:relative;
 	display:inline-block;
-	margin-top:0;
+	text-align:left;
+	top:5px;
 	margin-left: 10px;
+	height:25px;
+	width:50px;
+	opacity:0;
+	padding:0
 }
-.nav-img{
+.nav-img-wrapper a{
+	position:relative;
+	margin:0;
+	padding:0;
 	height:25px;
 	width:25px;
-	opacity: 0;
-	-webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
 }
-.nav-img-hover{
-	opacity: 1;
+.nav-img{
+	position:absolute;
+	height:25px;
+	width:25px;
 }
+.nav-img1{
+	-webkit-transition:0.3s ease-out;
+	transition:0.3s ease-out;
+}
+.nav-img2{
+	-webkit-transform: rotateX(90deg); /* Safari */
+    transform: rotateX(90deg);
+	opacity:0;
+	
+	-webkit-transition:0.5s ease-out;
+	transition:0.5s ease-out;
+}
+.nav-img-wrapper:hover .nav-img1{
+	-webkit-transform: rotateX(90deg) ; /* Safari */
+    transform: rotateX(90deg);
+}
+.nav-img-wrapper:hover .nav-img2{
+	opacity:1;
+	-webkit-transform: rotateX(0); /* Safari */
+    transform: rotateX(0);
+}
+
 @media(max-width:1024px) {
 	.nav-img{
 		opacity: 1;
@@ -280,6 +308,9 @@ footer{
 	}
 	.nav-img-wrapper{
 		margin-left: 0;
+	}
+	.nav-img2{
+		display:none
 	}
 	#chu-menu{
 		-webkit-transform: translate(-20px,0) rotate(45deg);
@@ -384,9 +415,24 @@ footer{
 	position:absolute;
 	top:140px;
 	right:10px;
+	height:25px;
+	width:40px;
 }
 #menu-close{
 	opacity: 1;
+}
+.closeButton a .nav-img2{
+	-webkit-transform: rotateZ(180deg) !important; /* Safari */
+    transform: rotateZ(180deg) !important;
+}
+.closeButton:hover .nav-img1{
+	-webkit-transform: rotateX(90deg) ; /* Safari */
+    transform: rotateX(90deg);
+}
+.closeButton:hover .nav-img2{
+	opacity:1;
+	-webkit-transform: rotateX(0); /* Safari */
+    transform: rotateX(0);
 }
 .slider-img-wrapper{
 	height:160px;

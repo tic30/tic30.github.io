@@ -35,7 +35,7 @@ $(document).ready(function(){
 				$('.sec1nav-brand').addClass("animated bounceInDown");
 				}, 150);
 				setTimeout(function(){
-					$('#chu-menu').addClass("animated bounceInDown");
+					$('.nav-img-wrapper').addClass("animated bounceInDown");
 				}, 200);
 			}, 800);
 			setTimeout(function(){
@@ -108,7 +108,7 @@ $(document).ready(function(){
 	}
 	
 	//left slidebar effects
-	$('#chu-menu').click(function(e) {
+	$('.nav-img-wrapper').click(function(e) {
         e.preventDefault();
 		//branding effects
 		function branding(){
@@ -153,7 +153,7 @@ $(document).ready(function(){
 		}
     });
 	
-	$('#menu-close, .slider-item a').click(function(e) {
+	$('.closeButton, .slider-item a').click(function(e) {
 		e.preventDefault();
 		//branding effects
 		function branding(){
@@ -248,20 +248,6 @@ $(document).ready(function(){
 						$('.dd').css("display","none");
 					},200);
 				},200);
-			});
-			
-			//*************** sec1 nav-img hover effect ***************//
-			$('.nav-img').hover(function() {
-				if(timer) {
-					clearTimeout(timer);
-					timer = null;
-				}
-				timer = setTimeout(function() {
-					$('.nav-img').removeClass('animated bounceInDown');
-					$('.nav-img').addClass('nav-img-hover animated-fast2 zoomInOut');
-				}, 50);
-			}, function() {
-				$('.nav-img').removeClass('animated-fast2 zoomInOut');
 			});
 			
 			//*************** sec1 logo hover ******************//
