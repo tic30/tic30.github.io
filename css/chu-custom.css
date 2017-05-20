@@ -202,7 +202,8 @@ footer{
 		opacity:1;
 	}
 }
-.sec1nav-brand a{
+.sec1nav-brand a,
+.sec1nav-brand a div{
 	float:left;
 	text-align: left;
 }
