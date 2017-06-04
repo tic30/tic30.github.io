@@ -609,7 +609,7 @@ img{
 #sec3,
 #sec5 {
     height: auto;
-    background: #f2f2f2;
+    background: #eee;
     color: #1a1a1a;
     padding-bottom: 60px;
 }
@@ -617,7 +617,9 @@ img{
 #sec3 {
     z-index: 3;
 }
-
+#sec4 {
+    background: white;
+}
 #sec6-sub,
 #sec8 {
     padding-bottom: 100px;
