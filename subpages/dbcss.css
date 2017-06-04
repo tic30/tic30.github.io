@@ -1,3 +1,9 @@
+/*!
+ * chu-custom-js.js
+ * Version - 1.2
+ * Copyright (c) 2016-2017 Tianxin Chu
+ */
+
 html,
 body {
     height: 100%;
@@ -123,9 +129,9 @@ img{
     width: 50px;
     height: 50px;
     border-radius: 30px;
-    color: white;
     padding-top: 6px;
-    background-color: #aaaaaa;
+    color: #666;
+    background-color: #f5f5f5;
     box-shadow: 3px 3px 10px #aaaaaa;
 }
 .return-icon i{
@@ -133,15 +139,14 @@ img{
     font-size: 24px;
 }
 .return-icon:hover {
-    color: #333333;
     cursor: pointer;
+    color: #1a1a1a;
     background-color: white;
-    box-shadow: 3px 3px 10px #888888;
 }
 
 .return-icon-hint {
     position: absolute;
-    bottom: -25px;
+    bottom: -30px;
     height: 20px;
     width: 50px;
     font-size: 1rem;

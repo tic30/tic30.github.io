@@ -314,11 +314,12 @@ footer{
 		display:none
 	}
 	.nav-img-wrapper{
-		margin-left: 0;
+        left: 0;
+        margin-left:-50px
 	}
 	#chu-menu{
-		-webkit-transform: translate(-20px,0) rotate(45deg);
-		    	transform: translate(-20px,0) rotate(45deg);
+		-webkit-transform: rotate(45deg);
+		    	transform: rotate(45deg);
 	}
 }
 
@@ -341,7 +342,7 @@ footer{
 #sidebar-wrapper.toggled{
     margin-left: 0;
 }
-@media(max-width:400px) {
+@media(max-width:480px) {
 	#sidebar-wrapper {
 		width: 100%;
     	margin-left: -100%;
