@@ -87,7 +87,7 @@ img{
 .dd {
     top: 60px;
     width: 200px;
-    font-size: 1rem;
+    font-size: 18px;
     text-align: justify
 }
 
@@ -257,6 +257,7 @@ img{
 
 .sec1nav-brand a {
     opacity: 1;
+    font-size: 28px
 }
 
 .sec1nav div,
@@ -318,6 +319,29 @@ img{
     animation-delay: 5s;
 }
 
+.sec1-logo{
+    position: absolute;
+    left: 100px;
+    font-size: 28px;
+    color: #666;
+    top: 50px
+}
+.sec1-logo div{
+    float: left;
+    line-height: 28px;
+}
+.sec1-white-cover{
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    -webkit-animation-name: dashboardtext-anim;
+    animation-name: dashboardtext-anim;
+    -webkit-animation-delay: 3.5s;
+    animation-delay: 3.5s;
+}
 .dashboardtext {
     position: absolute;
     top: 40%;
@@ -377,66 +401,64 @@ img{
     animation-delay: 3.5s;
 }
 
-@-webkit-keyframes sec1-rightp-anim {
+@-webkit-keyframes dashboardtext-anim {
     from {
+        top: 55%;
+        height: 2px;
         -webkit-transform: translateX(0);
-        /* Chrome, Safari, Opera */
         transform: translateX(0);
     }
-    40% {
-        -webkit-transform: translateX(-55%);
-        /* Chrome, Safari, Opera */
-        transform: translateX(-55%);
+    20% {
+        top: 55%;
+        height: 2px;
+        width: 100%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
     }
     60% {
-        top: 40%;
-        height: 120px;
-        -webkit-transform: translateX(-55%);
-        /* Chrome, Safari, Opera */
-        transform: translateX(-55%);
+        top: 55%;
+        height: 2px;
+        width: 100%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
     }
     to {
         top: 0;
         height: 100%;
-        -webkit-transform: translateX(-100%);
-        /* Chrome, Safari, Opera */
-        transform: translateX(-100%);
+        width: 100%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
     }
 }
 
-@keyframes sec1-rightp-anim {
+@keyframes dashboardtext-anim {
     from {
+        top: 55%;
+        height: 2px;
         -webkit-transform: translateX(0);
-        /* Chrome, Safari, Opera */
         transform: translateX(0);
     }
-    40% {
-        -webkit-transform: translateX(-55%);
-        /* Chrome, Safari, Opera */
-        transform: translateX(-55%);
+    20% {
+        top: 55%;
+        height: 2px;
+        width: 100%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
     }
     60% {
-        top: 40%;
-        height: 120px;
-        -webkit-transform: translateX(-55%);
-        /* Chrome, Safari, Opera */
-        transform: translateX(-55%);
+        top: 55%;
+        height: 2px;
+        width: 100%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
     }
     to {
         top: 0;
         height: 100%;
-        -webkit-transform: translateX(-100%);
-        /* Chrome, Safari, Opera */
-        transform: translateX(-100%);
+        width: 100%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
     }
-}
-
-.sec1-rightp-anim {
-    -webkit-animation-name: sec1-rightp-anim;
-    animation-name: sec1-rightp-anim;
-    -webkit-animation-delay: 3.5s;
-    /* Safari 4.0 - 8.0 */
-    animation-delay: 3.5s;
 }
 
 @-webkit-keyframes fadeIn-light {
@@ -536,7 +558,9 @@ img{
     height: 400px;
     width: 400px;
     max-width:100%;
-    padding-top: 20px
+    padding-top: 20px;
+    border-radius: 2px;
+    box-shadow: 3px 3px 9px #aaaaaa;
 }
 
 .player-cover-before-inner .hint {
@@ -550,7 +574,6 @@ img{
 .player-cover-before-inner:hover {
     cursor: pointer;
     background-color: white;
-    box-shadow: 3px 3px 9px #aaaaaa;
 }
 
 .player-cover-before-inner:hover .hint {
@@ -609,7 +632,7 @@ img{
 #sec3,
 #sec5 {
     height: auto;
-    background: #f2f2f2;
+    background: #eee;
     color: #1a1a1a;
     padding-bottom: 60px;
 }
@@ -622,6 +645,9 @@ img{
     background-color: white;
 }
 
+#sec5 {
+    min-height: 0;
+}
 #sec6-sub,
 #sec8 {
     padding-bottom: 100px;
