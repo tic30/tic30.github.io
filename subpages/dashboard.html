@@ -41,15 +41,15 @@
             <img class="logo logo0" src="subimgs/icons/dbicon0.png" alt="Loading Logo...">
             <img class="logo logo1 dashboard-anim" src="subimgs/icons/dbicon1.png" alt="Loading Logo...">
         </div>
-        <div id="sec1-content">
-            <div class="left-panel sec1-leftp-anim animated-forwards"><img class="cmu" src="subimgs/cmu.png" alt="Loading Logo..."></div>
+        <div class="sec1-white-cover animated-forwards-slow">
+            <!--<div class="left-panel sec1-leftp-anim animated-forwards"><img class="cmu" src="subimgs/cmu.png" alt="Loading Logo..."></div>
             <div class="right-panel sec1-rightp-anim animated-forwards-slow">
                 <img class="cmu animated fadeOut" src="subimgs/hcii.png" alt="Loading Logo...">
-            </div>
+            </div>-->
         </div>
         <div class="dashboardtext">
             <div class="fadeInDown animated">Dashboard</div>
-            <span class="fadeInUp animated">Research Project</span>
+            <span class="fadeInUp animated-forwards-slow">Research Project @ CMU.HCII</span>
         </div>
         <div id="sec1-down" class="chu-down wow mybounce inverted"><img src="../imgs/icons/chu-down.png" alt="Loading down icon..."></div>
     </section>
@@ -64,8 +64,8 @@
                     <h1>Q</h1>
                     <hr class="hr-dark wow zoomIn">
                     <div>What problem to solve?</div>
-                    <div class="hint">>> Look closer
-                        <<</div>
+                    <!--<div class="hint">>> Look closer
+                        <<</div>-->
                     </div>
                 </div>
 
@@ -83,6 +83,7 @@
                         </ul>
                         <div class="replay-youtube animated fadeInUp li4" type="button"><i class="fa fa-repeat" aria-hidden="true"></i></div>
                     </div>
+                    <div class="chu-down wow mybounce inverted"><img src="../imgs/icons/chu-down.png" alt="Loading down icon..."></div>
                 </div>
             </div>
     </section>
@@ -177,9 +178,10 @@
             </div>
             <p class="content-p">By the end of my stay, our team has finished designing and constructing the database and pre-scan the designated classroom for testing purpose. We also finished visualizing data with web interface, making Unity interact with database, dynamically generating and placing objects based on retrived data, and rendering simple visual effects and animations. The image below is a demo web interface.</p>
             <img class="dashboard-img" src="subimgs/dashboard4.jpg" alt="Loading dashboard...">
-            <p class="content-p">In the image shown below, the white background object is the classroom scan model. The "objects" floating on top the PCs are figures which simulate visual feedback to remind teacher the learning status for specific student. All of them are dynamically generated and rendered based on local database input. The object behavior is also optimized to interact with camera movement and gesture.</p>
+            <!--<p class="content-p">In the image shown below, the white background object is the classroom scan model. The "objects" floating on top the PCs are figures which simulate visual feedback to remind teacher the learning status for specific student. All of them are dynamically generated and rendered based on local database input. The object behavior is also optimized to interact with camera movement and gesture.</p>-->
+            <p class="content-p">In the visual world, I built figures which simulate visual feedback to remind teacher the learning status for specific student, made them dynamically generated and rendered based on local database input. The object behavior is also optimized to interact with camera movement and gesture.</p>
             <img class="dashboard-img" src="subimgs/dashboard5.png" alt="Loading dashboard...">
-            <p class="content-p">Meanwhile, the steaming is tested seperately. With intention to bring our product online, more issues like web hosting, network accessibility and security need to be taken into consideration. In the near future, field testing will be conducted and more information can be collected to aid the decision-making progress.</p>
+            <p class="content-p">Meanwhile, the steaming is tested seperately. With intention to bring our product online, more issues like network accessibility and security need to be taken into consideration. In the near future, field testing will be conducted and more information can be collected to aid the decision-making progress.</p>
         </div>
     </section>
     <!-- /end of section 7 -->
@@ -199,9 +201,9 @@
         </div>
 
         <!-- float button -->
-        <div class="return-icon"><i class="fa fa-chevron-up" aria-hidden="true"></i>
+        <a href="#sec1" class="local-scroll return-icon"><i class="fa fa-chevron-up" aria-hidden="true"></i>
             <div class="return-icon-hint">Top</div>
-        </div>
+        </a>
 
     </section>
 
@@ -214,7 +216,7 @@
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/wow.min.js"></script>
-    <script src="subpagejs.js"></script>
+    <script src="dbjs.js"></script>
 </body>
 
 </html>

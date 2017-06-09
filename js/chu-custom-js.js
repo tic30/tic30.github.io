@@ -1,7 +1,7 @@
 /*!
  * chu-custom-js.js
- * Version - 1.1
- * Copyright (c) 2016 Tianxin Chu
+ * Version - 1.2
+ * Copyright (c) 2016-2017 Tianxin Chu
  */
 
 var h = window.innerHeight;
