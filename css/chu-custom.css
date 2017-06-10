@@ -83,7 +83,8 @@ hr{
 
 .img-inverted{
 	-webkit-filter: invert(100%);
-	filter: invert(100%)
+	filter: invert(100%);
+    opacity: 1 !important
 }
 
 .btn1 {
@@ -342,20 +343,27 @@ footer{
 #sidebar-wrapper.toggled{
     margin-left: 0;
 }
-@media(max-width:480px) {
-	#sidebar-wrapper {
-		width: 100%;
-    	margin-left: -100%;
-		overflow: hidden;
-	}
+#sidebar-wrapper .page-overlay{
+    display: none;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.6;
+}
+#sidebar-wrapper.toggled .page-overlay{
+    display: block
 }
 
 .sidebar-nav {
     position: absolute;
     top: 0;
     width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
+    background-color: inherit;
     list-style: none;
 }
 .sidebar-nav > .sidebar-brand {
@@ -396,6 +404,12 @@ footer{
 	position:relative;
 	top:0;
 	height:100%
+}
+.myTable .td-inner img{
+	width: 18px;
+    float: left;
+    margin: 15px 20px 0 25px;
+    opacity: 0.6
 }
 .myTable .td-words{
 	padding:10px 0 0 40px;
@@ -1245,6 +1259,9 @@ footer{
 	}
 	.pp-wrapper{
 		padding-top:40px;
+	}
+    #portfolio1 .pp-wrapper{
+		padding-top:70px;
 	}
 	.pp-wrapper p{
 		padding-top:0;
