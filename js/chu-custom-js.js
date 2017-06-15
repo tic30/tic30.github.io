@@ -220,27 +220,28 @@ $(document).ready(function () {
 
             //*************** sec1 brand hover effect ***************//
             $('.sec1nav-brand').hover(function () {
+                    $('.dd').css("width", "180px");
                     if (timer) {
                         clearTimeout(timer);
                         timer = null;
                     }
                     timer = setTimeout(function () {
+                        $('.nav-img-wrapper').animate({
+                            left: '180px'
+                        }, 200);
+                        
                         $('.sec1nav-brand .zoom').removeClass('animated fadeOut');
                         $('.sec1nav-brand .zoom').addClass('animated fadeIn');
                         $('.sec1nav-brand .zoom').animate({
                             width: '110px'
                         }, 200);
                         $('.sec1nav-brand hr').stop(true, true).animate({
-                            width: '175px',
+                            width: '180px',
                             opacity: '1'
                         }, 200);
-                        $('.dd').removeClass('animated-fast fadeOutUp fadeInDown');
-                        $('.dd').stop(true, true).addClass('animated-fast fadeInDown');
+                        $('.dd').removeClass('animated-fast2 fadeOutUp fadeInDown');
+                        $('.dd').stop(true, true).addClass('animated-fast2 fadeInDown');
                         $('.dd').css("display", "block");
-                    }, 200);
-
-                    $('.nav-img1').animate({
-                        opacity: '0'
                     }, 200);
                 },
                 // mouse out
@@ -254,13 +255,20 @@ $(document).ready(function () {
                         $('.sec1nav-brand .zoom').animate({
                             width: '0'
                         }, 200);
-                        $('.nav-img1').animate({
-                            opacity: '1'
+                        setTimeout(function () {
+                            $('.dd').addClass('fadeOutUp');
+                            $('.dd').animate({
+                                width: '70px'
+                            }, 200);
                         }, 200);
-                        $('.dd').addClass('fadeOutUp');
+                        setTimeout(function () {                            
+                            $('.nav-img-wrapper').animate({
+                                left: '40px'
+                            }, 200);
+                        }, 200);
                         setTimeout(function () {
                             $('.dd').css("display", "none");
-                        }, 200);
+                        }, 400);
                     }, 200);
                 });
 
