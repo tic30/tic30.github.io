@@ -732,6 +732,71 @@ footer{
   animation: pileUp-right 0.5s forwards ease-out;
 }
 
+@-webkit-keyframes fadeInLeft-light {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-10%, 0, 0);
+    transform: translate3d(-10%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInLeft-light {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-10%, 0, 0);
+    transform: translate3d(-10%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInLeft-light {
+  -webkit-animation-name: fadeInLeft-light;
+  animation-name: fadeInLeft-light;
+}
+
+@-webkit-keyframes fadeInRight-light {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(10%, 0, 0);
+    transform: translate3d(10%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInRight-light {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(10%, 0, 0);
+    transform: translate3d(10%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInRight-light {
+  -webkit-animation-name: fadeInRight-light;
+  animation-name: fadeInRight-light;
+}
 /*=================================================================
 	preloader
 ==================================================================*/
@@ -744,15 +809,10 @@ footer{
 	background-color:#1a1a1a;
 	text-align:center;
 	z-index:10;
+    display: none
 }
 
-.preloader-wrapper{
-    display:none
-}
 @media(min-width:1024px) {
-    .preloader-wrapper{
-        display: block;
-    }
 	.preloader-wrapper img{
         position:absolute;
 		height:250px;
@@ -1281,6 +1341,7 @@ footer{
          -o-transition: all 0.3s ease;
             transition: all 0.3s ease;
 }
+.pimg-wrapper:active .pimg-code,
 .pimg-wrapper:focus .pimg-code,
 .pimg-wrapper:hover .pimg-code{
 	position:absolute;
@@ -1289,6 +1350,7 @@ footer{
     transform: translate3d(5%, -5%, 0);
 	z-index:3;
 }
+.pimg-wrapper:active .pimg,
 .pimg-wrapper:focus .pimg,
 .pimg-wrapper:hover .pimg{
 	-webkit-transform: scale3d(.9, .9, .9) translate3d(-10%, 5%, 0);
@@ -1550,41 +1612,54 @@ textarea.form-control {
 	     -o-transform: translate(-130px,0); 
 			transform: translate(-130px,0);
 }
+.location-highlight{
+    font-weight: 700;
+}
 @media(min-width:769px) {
-	#sec6-content .row{
-		padding-bottom:30px
+	#sec6-content .bottomRow{
+		padding-bottom:100px
 	}
+    #sec6-content .sec-title{
+        height: 270px;
+        overflow: hidden
+    }
 	#sec6-content .sec-title:hover .sec6titleh2{
 		opacity:0.7;
 		font-size:20px;
-		-webkit-transform: translate(0,80px);
-			 -o-transform: translate(0,80px);
-		   -moz-transform: translate(0,80px);
-				transform: translate(0,80px);
+        font-weight: normal;
+		-webkit-transform: translate(0,85px);
+			 -o-transform: translate(0,85px);
+		   -moz-transform: translate(0,85px);
+				transform: translate(0,85px);
 	}
 	#sec6-content .sec-title:hover .sec6titlep{
 		opacity:1;
-		font-size:40px;
-		-webkit-transform: translate(0,-80px);
-			 -o-transform: translate(0,-80px);
-		   -moz-transform: translate(0,-80px);
-				transform: translate(0,-80px);
+		font-size:36px;
+        font-weight: 500;
+		-webkit-transform: translate(0,-70px);
+			 -o-transform: translate(0,-70px);
+		   -moz-transform: translate(0,-70px);
+				transform: translate(0,-70px);
 	}
 	#sec6-content .sec-title:hover hr{
-		-webkit-transform: translate(0,10px);
-			 -o-transform: translate(0,10px);
-		   -moz-transform: translate(0,10px);
-				transform: translate(0,10px);
+		-webkit-transform: translate(0,20px);
+			 -o-transform: translate(0,20px);
+		   -moz-transform: translate(0,20px);
+				transform: translate(0,20px);
+	}
+    #sec6-content .sec-title:hover h2{
+		line-height: 1;
 	}
 	.form-headline{
 		text-align:left
 	}
 	.contact-details-wrapper{
-		padding-top:20px
+		padding-top:0
 	}
 	.contact-details p{
-		margin-top:30px;
-		text-align:left
+		margin-bottom:20px;
+		text-align:left;
+        font-size: 28px
 	}
 	.contact-details p i {
 		margin-left: 50%;
@@ -1595,8 +1670,7 @@ textarea.form-control {
 	}
 	.contact-details span {
 		opacity:1;
-		margin-top:5px;
-		font-size:28px;
+		font-size:24px;
 	}
 	.contact-details p:hover span{
 		-webkit-transform: translate(100px,0);

@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="css/chu-custom.css">
 
 <!--statistics-->
+    <!--
 <script>
     var _hmt = _hmt || [];
     (function() {
@@ -24,10 +25,13 @@
       var s = document.getElementsByTagName("script")[0]; 
       s.parentNode.insertBefore(hm, s);
     })();
-</script>
+</script>-->
+    <script type="text/javascript">
+            var timerStart = Date.now();
+        </script>
 </head>
 
-<body id="pageTop">
+<body id="pageTop"><!-- onload="bodyLoaded()" -->
 	<div class="preloader-wrapper text-center">
     	<img src="imgs/chu-preloader.gif" alt="Loading preloader...">
         <div class="preloader-button-wrapper"><button class="btn preloader-button">Continue...</button>--</div>
@@ -430,12 +434,12 @@
               	<hr class="hr-dark wow zoomIn">
                 <p class="wow fadeInUp"><div class="sec6titlep">I am open for hire!</div></p>
 			</div>
-            <div class="row self-intro wow fadeInUp">
-            	<p><span>I</span> am pursuing a career within the scope of web programming(full stack) and interactive computing/UX research. My strength is front end development and prototyping. Meanwhile I am always learning and would love to explore new technology fields.</p>
-                <p><span>A</span>t the moment, I am open to positions in Greater Seattle Area, WA. My availability starts at 1/1/2018.</p>
-            </div>
-            <div class="row">
-                <div class="contact-details-wrapper col-md-5 wow fadeInLeft" data-wow-delay="0.3s">
+            <div class="row bottomRow">                
+                <div class="self-intro col-md-8 wow fadeInLeft-light" data-wow-delay="0.3s">
+                    <p><span>I</span> am pursuing a career within the scope of web programming(full stack) and interactive computing/UX research. My strength is front end development and prototyping. Meanwhile I am always learning and would love to explore new technology fields.</p>
+                    <p><span>A</span>t the moment, I am open to positions in <i class="location-highlight">Seattle, WA</i>. My availability starts at 1/1/2018. Please contact me by your favorite way at your best convenience if you are interested in chatting. </p>
+                </div>
+                <div class="contact-details-wrapper col-md-4 wow fadeInRight-light" data-wow-delay="0.3s">
 					<address class="contact-details">			
 						<p><a href="https://github.com/tic30" target="_blank"><i class="fa fa-github fa-2x"></i><span class="hidespan1">Follow me on GitHub</span></a></p>
                         <p><a href="mailto:chutianxin@gmail.com"><i class="fa fa-envelope fa-18x"></i><span class="hidespan2">chutianxin@gmail.com</span></a></p>
@@ -443,6 +447,7 @@
         				<p><a href="tel:765-714-5794"><i class="fa fa-phone fa-2x"></i><span class="hidespan4">(765) 714-5794</span></a></p>
 					</address>
 				</div>
+                <!--
                 <div class="col-md-6 contact-form wow fadeInRight col-md-offset-1" data-wow-delay="0.4s">
                 	<h3 class="form-headline">Leave me a Message</h3>
 					<form action="src/sendmail.php" method="post">
@@ -459,14 +464,17 @@
 						<p>Mmm...Message? Why not send me an email? Or pick one from the left hand side!</p>
                     </form>
 				</div>
+                -->
 			</div>
         </div>
     </section>
     <!-- /end of section 6 -->
     
+    <!--
     <div id="google-map">
       <div id="map-canvas"></div>
     </div>
+    -->
     
     <footer>
     	<div>© Copyright&nbsp;&nbsp;2016 - 2017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chu, Tianxin</div>
@@ -474,9 +482,10 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/wow.min.js"></script>
-    <!--Google API--> 
+    <!--Google API-->
+    <!--
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbYMZkplMyzHPu7yxStB4w50DINGq5cn8&callback=initMap"
-        async defer></script>
+        async defer></script>-->
     <script src="js/chu-custom-js.js"></script>
 </body>
 </html>

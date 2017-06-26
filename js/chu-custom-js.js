@@ -25,7 +25,7 @@ $(document).ready(function () {
         $('#sec1').css("height", h - 10);
         $('.arrow_box').css("top", h - 10);
     }*/
-    
+
     if (w > 768) {
         $('#sec1').css("height", h);
         $('#sec2').css("height", 800);
@@ -33,26 +33,25 @@ $(document).ready(function () {
         $(".slid-wrapper").change(sliding());
     }
     if (w > 1024) {
+        $('#sec1').css("min-height", "700px");
         //preloader effect
+        $('.preloader-wrapper').css("display", "block");
         setTimeout(function () {
-            $('.preloader-wrapper').addClass("animated fadeOut");
-            $(this).scrollTop(0);
-            setTimeout(function () {
-                $('.preloader-wrapper').css("display", "none");
-                $('#sec1-content').addClass("animated-slow fadeInUp");
-                setTimeout(function () {
-                    $('.sec1nav-brand').addClass("animated bounceInDown");
-                }, 150);
-                setTimeout(function () {
-                    $('.nav-img-wrapper').addClass("animated bounceInDown");
-                }, 200);
-            }, 800);
-            setTimeout(function () {
-                $('.chu-down').addClass("animated mybounce");
-            }, 2000);
-            setTimeout(function () {
-                $('#sec1').css("height", h - arrowOffset);
-            }, 3000);
+            if (document.readyState === "complete") {
+                preloaderOut();
+            } else {
+                var txt = document.createElement("p");
+                txt.innerHTML = "Just give it a little more time...";
+                $('.preloader-wrapper').append(txt);
+                document.onreadystatechange = function () {
+                    if (document.readyState === "complete") {
+                        preloaderOut();
+                    }
+                };
+                setTimeout(function(){
+                    txt.innerHTML = "Page loading takes longer than usual. Please try refreshing...";
+                }, 55000);
+            }
         }, 5000);
     }
     if (w <= 768) {
@@ -72,6 +71,7 @@ $(document).ready(function () {
     }
 
     //resize error hint
+    /*
     setTimeout(function () {
         $('.preloader-button').css("display", "block");
         $('.preloader-button').addClass("animated fadeInDown");
@@ -96,7 +96,7 @@ $(document).ready(function () {
         setTimeout(function () {
             $('#sec1').css("height", h - arrowOffset);
         }, 3000);
-    });
+    });*/
 
     //sec2 sliding portfolio	
     var imgNo = 0;
@@ -229,7 +229,7 @@ $(document).ready(function () {
                         $('.nav-img-wrapper').animate({
                             left: '180px'
                         }, 200);
-                        
+
                         $('.sec1nav-brand .zoom').removeClass('animated fadeOut');
                         $('.sec1nav-brand .zoom').addClass('animated fadeIn');
                         $('.sec1nav-brand .zoom').animate({
@@ -261,7 +261,7 @@ $(document).ready(function () {
                                 width: '70px'
                             }, 200);
                         }, 200);
-                        setTimeout(function () {                            
+                        setTimeout(function () {
                             $('.nav-img-wrapper').animate({
                                 left: '40px'
                             }, 200);
@@ -301,19 +301,16 @@ $(document).ready(function () {
                 timer = setTimeout(function () {
                     t.find('.td-words').css("color", "#fff");
                     t.find('img').addClass("img-inverted");
-                    if (t.find('.td-color').hasClass('td-o')){
+                    if (t.find('.td-color').hasClass('td-o')) {
                         t.addClass('charged-long-o');
-                    }
-                    else if (t.find('.td-color').hasClass('td-b')){
+                    } else if (t.find('.td-color').hasClass('td-b')) {
                         t.addClass('charged-long-b');
-                    }
-                    else if (t.find('.td-color').hasClass('td-g')){
+                    } else if (t.find('.td-color').hasClass('td-g')) {
                         t.addClass('charged-long-g');
-                    }
-                    else if (t.find('.td-color').hasClass('td-r')){
+                    } else if (t.find('.td-color').hasClass('td-r')) {
                         t.addClass('charged-long-r');
                     }
-                    
+
                 }, 50);
             }, function () {
                 var t = $(this);
@@ -383,6 +380,33 @@ $(document).ready(function () {
     });
 });
 
+function preloaderOut() {
+    $('.preloader-wrapper').addClass("animated fadeOut");
+    $(document).scrollTop(0);
+    setTimeout(function () {
+        $('.preloader-wrapper').css("display", "none");
+        $('#sec1-content').addClass("animated-slow fadeInUp");
+        setTimeout(function () {
+            $('.sec1nav-brand').addClass("animated bounceInDown");
+        }, 150);
+        setTimeout(function () {
+            $('.nav-img-wrapper').addClass("animated bounceInDown");
+        }, 200);
+    }, 800);
+    setTimeout(function () {
+        $('.chu-down').addClass("animated mybounce");
+    }, 2000);
+    setTimeout(function () {
+        $('#sec1').css("height", h - arrowOffset);
+    }, 3000);
+}
+
+$(window).resize(function () {
+    h = window.innerHeight;
+    $('#sec1').css("height", h - arrowOffset);
+    $('.arrow_box').css("top", h - arrowOffset);
+});
+
 $(window).scroll(function () {
     //branding effects
     function branding() {
@@ -405,7 +429,7 @@ $(window).scroll(function () {
     }
 
     //animate sec1 arrow
-    
+
     if ($(this).scrollTop() > 30) {
         $('#sec1').css("height", h);
         $('.sec2mask').removeClass("original-mask");
@@ -434,6 +458,7 @@ $(function () {
 });
 
 /* =======  START GOOGLE MAP ======= */
+/*
 function initMap() {
     var myLatLng = new google.maps.LatLng(47.604099, -122.329844);
 
@@ -445,7 +470,7 @@ function initMap() {
         navigationControl: true,
         mapTypeControl: false,
         scaleControl: false,
-        draggable: false,
+        draggable: true,
 
         //map styles
         styles: [{
@@ -506,7 +531,13 @@ function initMap() {
         map: map,
         icon: 'imgs/icons/map-marker.png',
     });
+    
+    marker.addListener('click', function() {
+        map.setZoom(8);
+        map.setCenter(marker.getPosition());
+    });
 }
+*/
 // ======= END GOOGLE MAP ======= //
 
 //start wow
