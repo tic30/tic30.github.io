@@ -41,15 +41,16 @@ $(document).ready(function () {
                 preloaderOut();
             } else {
                 var txt = document.createElement("p");
-                txt.innerHTML = "Just give it a little more time...";
+                txt.id = "preloaderHint";
+                txt.innerHTML = "Loading...";
                 $('.preloader-wrapper').append(txt);
                 document.onreadystatechange = function () {
                     if (document.readyState === "complete") {
-                        preloaderOut();
+                        //preloaderOut();
                     }
                 };
                 setTimeout(function(){
-                    txt.innerHTML = "Page loading takes longer than usual. Please try refreshing...";
+                    txt.innerHTML = "Page loading takes longer than usual. <br/>Please refresh the page...";
                 }, 55000);
             }
         }, 5000);

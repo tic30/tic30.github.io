@@ -854,6 +854,13 @@ footer{
 	border:solid 1px #f5f5f5;
     color: #f5f5f5;
 }
+#preloaderHint{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 55%;
+    font-size: 2rem;
+}
 /*=================================================================
 	sec1
 ==================================================================*/
