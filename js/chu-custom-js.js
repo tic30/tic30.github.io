@@ -141,7 +141,7 @@ $(document).ready(function () {
         if ($("#sidebar-wrapper").hasClass("toggled")) {
             $(".sec1nav").removeClass("animated bounceInLeft slideInLeft");
             $(".sec1nav").addClass("animated bounceOutLeft");
-
+            /*
             $('.td-words').addClass("animated-slow fadeIn");
             setTimeout(function () {
                 $('#si1').addClass("animated-slow fadeIn");
@@ -161,6 +161,7 @@ $(document).ready(function () {
             setTimeout(function () {
                 $('#si6').addClass("animated-slow fadeIn");
             }, 1250);
+            */
         }
     });
 
@@ -191,7 +192,7 @@ $(document).ready(function () {
             $(".sec1nav").removeClass("animated bounceOutLeft");
             $(".sec1nav").addClass("animated bounceInLeft");
         }
-        $('.td-words').stop(true, true).removeClass("animated-slow fadeIn");
+        //$('.td-words').stop(true, true).removeClass("animated-slow fadeIn");
         $('.slider-img').stop(true, true).removeClass("animated-slow fadeIn");
     });
 
@@ -293,13 +294,15 @@ $(document).ready(function () {
             });
 
             //*************** myTable link hover ***************//
-            $('.myTable .slider-item').hover(function () {
+            $('.myTable .slider-item').hover(function (e) {
+                //e.preventDefault();
                 var t = $(this);
+                /*
                 if (timer) {
                     clearTimeout(timer);
                     timer = null;
                 }
-                timer = setTimeout(function () {
+                timer = setTimeout(function () {*/
                     t.find('.td-words').css("color", "#fff");
                     t.find('img').addClass("img-inverted");
                     if (t.find('.td-color').hasClass('td-o')) {
@@ -312,8 +315,9 @@ $(document).ready(function () {
                         t.addClass('charged-long-r');
                     }
 
-                }, 50);
+                //}, 50);
             }, function () {
+                //mouse out
                 var t = $(this);
                 t.removeClass('charged-long-o charged-long-g charged-long-b charged-long-r');
                 t.find('.td-words').css("color", "#666");

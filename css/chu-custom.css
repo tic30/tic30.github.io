@@ -617,11 +617,11 @@ footer{
 
 @-webkit-keyframes charge-long-o{
     0%{box-shadow: inset 0px 0px 0px #f4c20d;}
-    100%{box-shadow: inset 400px 0px 0px #f4c20d;}
+    100%{box-shadow: inset 212px 0px 0px #f4c20d;}
 }
 @keyframes charge-long-o{
     0%{box-shadow: inset 0px 0px 0px #f4c20d;}
-    100%{box-shadow: inset 400px 0px 0px #f4c20d;}
+    100%{box-shadow: inset 212px 0px 0px #f4c20d;}
 }
 .charged-long-o{
 	-webkit-animation: charge-long-o 0.3s forwards ease-in-out;
@@ -630,11 +630,11 @@ footer{
 
 @-webkit-keyframes charge-long-g{
     0%{box-shadow: inset 0px 0px 0px #00C045;}
-    100%{box-shadow: inset 400px 0px 0px #00C045;}
+    100%{box-shadow: inset 212px 0px 0px #00C045;}
 }
 @keyframes charge-long-g{
     0%{box-shadow: inset 0px 0px 0px #00C045;}
-    100%{box-shadow: inset 400px 0px 0px #00C045;}
+    100%{box-shadow: inset 212px 0px 0px #00C045;}
 }
 .charged-long-g{
 	-webkit-animation: charge-long-g 0.3s forwards ease-in-out;
@@ -643,11 +643,11 @@ footer{
 
 @-webkit-keyframes charge-long-b{
     0%{box-shadow: inset 0px 0px 0px #009EE3;}
-    100%{box-shadow: inset 400px 0px 0px #009EE3;}
+    100%{box-shadow: inset 212px 0px 0px #009EE3;}
 }
 @keyframes charge-long-b{
     0%{box-shadow: inset 0px 0px 0px #009EE3;}
-    100%{box-shadow: inset 400px 0px 0px #009EE3;}
+    100%{box-shadow: inset 212px 0px 0px #009EE3;}
 }
 .charged-long-b{
 	-webkit-animation: charge-long-b 0.3s forwards ease-in-out;
@@ -656,11 +656,11 @@ footer{
 
 @-webkit-keyframes charge-long-r{
     0%{box-shadow: inset 0px 0px 0px #FC4E46;}
-    100%{box-shadow: inset 400px 0px 0px #FC4E46;}
+    100%{box-shadow: inset 212px 0px 0px #FC4E46;}
 }
 @keyframes charge-long-r{
     0%{box-shadow: inset 0px 0px 0px #FC4E46;}
-    100%{box-shadow: inset 400px 0px 0px #FC4E46;}
+    100%{box-shadow: inset 212px 0px 0px #FC4E46;}
 }
 .charged-long-r{
 	-webkit-animation: charge-long-r 0.3s forwards ease-in-out;
