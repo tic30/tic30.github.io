@@ -1,6 +1,5 @@
 /*!
  * chu-custom-js.js
- * Version - 1.2
  * Copyright (c) 2016-2017 Tianxin Chu
  */
 
@@ -28,12 +27,15 @@ $(document).ready(function () {
 
     if (w > 768) {
         $('#sec1').css("height", h);
-        $('#sec2').css("height", 800);
+        $('#sec2').css("height", h);
         $('#sec3').css("height", 600);
         $(".slid-wrapper").change(sliding());
     }
     if (w > 1024) {
         $('#sec1').css("min-height", "700px");
+        $('.sec1nav-brand').css("opacity","0");
+        $('.nav-img-wrapper').css("opacity","0");
+        $('#sec1-content').css("opacity","0");
         //preloader effect
         $('.preloader-wrapper').css("display", "block");
         setTimeout(function () {

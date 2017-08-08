@@ -1,6 +1,5 @@
 /*!
  * chu-custom.css
- * Version - 1.1
  * Copyright (c) 2016 Tianxin Chu
  */
  
@@ -163,7 +162,7 @@ footer{
 	background-color:#1a1a1a;
 	text-align:center;
 	padding-top:20px;
-	color: rgba(255,255,255,0.6);
+	color: rgba(255,255,255,0.5);
 	font-size:16px;
 }
 
@@ -200,13 +199,7 @@ footer{
 	text-transform: uppercase;
 	padding:0;
 	margin:0;
-	opacity:0;
     z-index: 3;
-}
-@media(max-width:1024px) {
-	.sec1nav-brand{
-		opacity:1;
-	}
 }
 .sec1nav-brand,
 .sec1nav-brand a,
@@ -261,7 +254,6 @@ footer{
 	left: 40px;
 	height:1em;
 	width:50px;
-	opacity:0;
 	padding:0;
     z-index: 2;
 }
@@ -300,11 +292,6 @@ footer{
     transform: rotateX(0);
 }
 
-@media(max-width:1024px) {
-	.nav-img-wrapper{
-		opacity: 1;
-	}
-}
 @media(max-width:768px) {
 	.nav-img2{
 		display:none
@@ -870,15 +857,15 @@ footer{
 	background-color:#1a1a1a;
 	min-height:100%;
 	-webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s ease-out;
-    -o-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out;
 	z-index:3
 }
 .arrow_box {
 	position: absolute;
 	left: 50%;
-	z-index:3
+	z-index:3;
+    -webkit-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
 }
 .arrow_box:after {
 	border: solid transparent;
@@ -903,11 +890,9 @@ footer{
 	position:relative;
 	height:90%;
 	margin-top:8%;
-	opacity: 0;
 }
 @media(max-width:1024px) {
 	#sec1-content{
-		opacity:1;
 		height:100%;
 		margin-top:0;
 	}
@@ -1117,6 +1102,8 @@ footer{
 	border-radius:4px;
     background-color: #f5f5f5;
     box-shadow: 0 1px 8px rgba(0,0,0,.5);
+    -webkit-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
     /*
 	background: rgba(255,255,255,0.8);
     background: -webkit-linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.9));
