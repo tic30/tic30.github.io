@@ -27,7 +27,7 @@ $(document).ready(function () {
 
     if (w > 768) {
         $('#sec1').css("height", h);
-        $('#sec2').css("height", h);
+        $('#sec2').css("height", 500);
         $('#sec3').css("height", 600);
         $(".slid-wrapper").change(sliding());
     }
