@@ -1613,7 +1613,8 @@ textarea.form-control {
 			transform: translate(-130px,0);
 }
 .location-highlight{
-    font-weight: 700;
+	font-weight: 700;
+	color: #333;
 }
 @media(min-width:769px) {
 	#sec6-content .bottomRow{
