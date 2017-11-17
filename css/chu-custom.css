@@ -1255,6 +1255,10 @@ footer{
          -o-transition: all 0.3s ease 0s;
             transition: all 0.3s ease 0s;
 }
+.service-item{
+	min-height:220px
+}
+
 .service-item:hover .service-icon {
     margin-bottom: 20px;
 	-webkit-filter: none; /* Chrome, Safari, Opera */
