@@ -978,13 +978,12 @@ footer{
   }
 
 .sec1-p-span + .tooltip > .tooltip-inner {
-    max-width: 230px;
-    width: 230px;
+    max-width: 300px;
+    width: 300px;
 }
-
-.sec1-p-span + .tooltip > .tooltip-inner {
-    max-width: 230px;
-    width: 230px;
+.sec1-p-span#uiux + .tooltip > .tooltip-inner {
+    max-width: 200px;
+    width: 200px;
 }
 
 
