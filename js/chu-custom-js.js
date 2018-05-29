@@ -78,7 +78,7 @@ $(document).ready(function () {
     setTimeout(function () {
         $('.preloader-button').css("display", "block");
         $('.preloader-button').addClass("animated fadeInDown");
-    }, 7000);
+    }, 7000);*/
     $('.preloader-button').click(function (e) {
         e.preventDefault();
         $('.preloader-wrapper').addClass("animated fadeOut");
@@ -99,7 +99,7 @@ $(document).ready(function () {
         setTimeout(function () {
             $('#sec1').css("height", h - arrowOffset);
         }, 3000);
-    });*/
+    });
 
     //sec2 sliding portfolio	
     var imgNo = 0;

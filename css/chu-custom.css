@@ -94,7 +94,8 @@ hr{
 	border-radius:2px;
     background-color: #f5f5f5;
 	width:300px;
-	height:50px
+	height:50px;
+	max-width: 100%;
 }
 
 .btn1.focus,
@@ -811,27 +812,22 @@ footer{
 	}
 }
 .preloader-button-wrapper{
-	position:relative;
+	position:fixed;
 	width:100%;
-	top:53%;
-	left: 50%;
-    -webkit-transform: translate(-50%,0);
-    transform: translate(-50%,0);
-	height:50px;
+	bottom:20px;
+	right:20px;
+	text-align: right;
+	height: 50px;
     color: #1a1a1a;
 }
 .preloader-button{
-    position: absolute;
-	border:solid 1px #666;
+	border:solid 1px #1a1a1a;
     background-color: #1a1a1a;
-    width: 36%;
-	font-size:20px;
+	font-size:18px;
 	padding-top: 5px;
 	border-radius:2px;
 	height:50px;
-    color: #666;
-    left: 32%;
-	display:none
+    color: #ddd;
 }
 .preloader-button:hover{
 	border:solid 1px #f5f5f5;
@@ -1093,10 +1089,11 @@ footer{
 .leftimg img{
 	height:100%;
 	position: absolute;
-	right: 0
+	right: 0;
+	opacity:0.5
 }
 .aboutright {
-	margin-left: 3%;
+	margin-left: 10%;
 	max-width: 60%;
 	padding-bottom:60px;
 	/* bottom:0;
@@ -1315,6 +1312,9 @@ footer{
 #sec4 .row{
 	margin-top:150px;
 }
+#sec4 #portfolio1{
+	margin-top:100px;
+}
 .pimg{
 	position:relative;
 	width:100%;
@@ -1371,7 +1371,8 @@ footer{
 	#sec4{
 		min-height:0;
 	}
-	#sec4 .row{
+	#sec4 .row,
+	#sec4 #portfolio1{
 		margin-top:0;
 	}
 	#sec4-content{
@@ -1380,7 +1381,8 @@ footer{
 	.pp-wrapper{
 		padding-top:40px;
 	}
-    #portfolio3 .pp-wrapper{
+	#portfolio2 .pp-wrapper,
+    #portfolio5 .pp-wrapper{
 		padding-top:70px;
 	}
 	.pp-wrapper p{
