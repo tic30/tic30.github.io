@@ -109,6 +109,10 @@ hr{
 	margin-top:40px;
 	padding-left:5px
 }
+.btn-note{
+	font-size: 14px;
+	margin-top: 6px;
+}
 @media(max-width:480px) {
 	.btn2{
 		margin-top:10px;
