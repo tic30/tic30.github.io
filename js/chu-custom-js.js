@@ -48,7 +48,7 @@ $(document).ready(function () {
                 $('.preloader-wrapper').append(txt);
                 document.onreadystatechange = function () {
                     if (document.readyState === "complete") {
-                        //preloaderOut();
+                        preloaderOut();
                     }
                 };
                 setTimeout(function(){
