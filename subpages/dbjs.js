@@ -116,10 +116,10 @@ $(document).ready(function () {
                         $('.sec1nav-brand .zoom').removeClass('animated fadeOut');
                         $('.sec1nav-brand .zoom').stop(true, true).addClass('animated fadeIn');
                         $('.sec1nav-brand .zoom').animate({
-                            width: '110px'
+                            width: '40px'
                         }, 200);
                         $('.sec1nav-brand hr').stop(true, true).animate({
-                            width: '175px',
+                            width: '110px',
                             opacity: '1'
                         }, 200);
                         $('.dd').removeClass('animated-fast fadeOutUp fadeInDown');

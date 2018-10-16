@@ -3,9 +3,10 @@
  * Copyright (c) 2016-2017 Tianxin Chu
  */
 
-var h = window.innerHeight;
-var w = window.innerWidth;
-var arrowOffset;
+let h = window.innerHeight,
+    w = window.innerWidth,
+    arrowOffset,
+    preloaderOutTimer
 if (w > 480)
     arrowOffset = 20;
 else
@@ -38,7 +39,7 @@ $(document).ready(function () {
         $('#sec1-content').css("opacity","0");
         //preloader effect
         $('.preloader-wrapper').css("display", "block");
-        setTimeout(function () {
+        preloaderOutTimer = setTimeout(function () {
             if (document.readyState === "complete") {
                 preloaderOut();
             } else {
@@ -81,8 +82,9 @@ $(document).ready(function () {
     }, 7000);*/
     $('.preloader-button').click(function (e) {
         e.preventDefault();
+        clearTimeout(preloaderOutTimer)
         $('.preloader-wrapper').addClass("animated fadeOut");
-        $(this).scrollTop(0);
+        // $(this).scrollTop(0);
         setTimeout(function () {
             $('.preloader-wrapper').css("display", "none");
             $('#sec1-content').addClass("animated-slow fadeInUp");
@@ -90,7 +92,8 @@ $(document).ready(function () {
                 $('.sec1nav-brand').addClass("animated bounceInDown");
             }, 150);
             setTimeout(function () {
-                $('#chu-menu').addClass("animated bounceInDown");
+                $('.nav-img-wrapper').addClass("animated bounceInDown");
+                // $('#chu-menu').addClass("animated bounceInDown");
             }, 200);
         }, 800);
         setTimeout(function () {
@@ -224,23 +227,23 @@ $(document).ready(function () {
 
             //*************** sec1 brand hover effect ***************//
             $('.sec1nav-brand').hover(function () {
-                    $('.dd').css("width", "180px");
+                    // $('.dd').css("width", "180px");
                     if (timer) {
                         clearTimeout(timer);
                         timer = null;
                     }
                     timer = setTimeout(function () {
                         $('.nav-img-wrapper').animate({
-                            left: '180px'
+                            left: '120px'
                         }, 200);
 
                         $('.sec1nav-brand .zoom').removeClass('animated fadeOut');
                         $('.sec1nav-brand .zoom').addClass('animated fadeIn');
                         $('.sec1nav-brand .zoom').animate({
-                            width: '110px'
+                            width: '40px'
                         }, 200);
                         $('.sec1nav-brand hr').stop(true, true).animate({
-                            width: '180px',
+                            width: '110px',
                             opacity: '1'
                         }, 200);
                         $('.dd').removeClass('animated-fast2 fadeOutUp fadeInDown');
@@ -259,16 +262,9 @@ $(document).ready(function () {
                         $('.sec1nav-brand .zoom').animate({
                             width: '0'
                         }, 200);
-                        setTimeout(function () {
-                            $('.dd').addClass('fadeOutUp');
-                            $('.dd').animate({
-                                width: '70px'
-                            }, 200);
-                        }, 200);
-                        setTimeout(function () {
-                            $('.nav-img-wrapper').animate({
-                                left: '40px'
-                            }, 200);
+                        $('.dd').addClass('fadeOutUp');
+                        $('.nav-img-wrapper').animate({
+                            left: '40px'
                         }, 200);
                         setTimeout(function () {
                             $('.dd').css("display", "none");

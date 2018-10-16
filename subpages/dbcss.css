@@ -92,9 +92,10 @@ img{
 }
 .dd {
     top: 60px;
-    width: 200px;
-    font-size: 18px;
-    text-align: justify
+    left: -5px;
+    padding: 0;
+    width: 120px;
+    font-size: 12px;
 }
 
 .li1 {
