@@ -1719,6 +1719,10 @@ form p{
 	font-size:16px;
 	text-align:left;
 }
+.p9flex{
+	display: flex;
+	justify-content: space-around;
+}
 
 /*============================================================
 	Google Maps
