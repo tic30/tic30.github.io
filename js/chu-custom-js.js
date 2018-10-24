@@ -292,35 +292,35 @@ $(document).ready(function () {
             });
 
             //*************** myTable link hover ***************//
-            $('.myTable .slider-item').hover(function (e) {
-                //e.preventDefault();
-                var t = $(this);
-                /*
-                if (timer) {
-                    clearTimeout(timer);
-                    timer = null;
-                }
-                timer = setTimeout(function () {*/
-                    t.find('.td-words').css("color", "#fff");
-                    t.find('img').addClass("img-inverted");
-                    if (t.find('.td-color').hasClass('td-o')) {
-                        t.addClass('charged-long-o');
-                    } else if (t.find('.td-color').hasClass('td-b')) {
-                        t.addClass('charged-long-b');
-                    } else if (t.find('.td-color').hasClass('td-g')) {
-                        t.addClass('charged-long-g');
-                    } else if (t.find('.td-color').hasClass('td-r')) {
-                        t.addClass('charged-long-r');
-                    }
+            // $('.myTable .slider-item').hover(function (e) {
+            //     //e.preventDefault();
+            //     var t = $(this);
+            //     /*
+            //     if (timer) {
+            //         clearTimeout(timer);
+            //         timer = null;
+            //     }
+            //     timer = setTimeout(function () {*/
+            //         t.find('.td-words').css("color", "#fff");
+            //         t.find('img').addClass("img-inverted");
+            //         if (t.find('.td-color').hasClass('td-o')) {
+            //             t.addClass('charged-long-o');
+            //         } else if (t.find('.td-color').hasClass('td-b')) {
+            //             t.addClass('charged-long-b');
+            //         } else if (t.find('.td-color').hasClass('td-g')) {
+            //             t.addClass('charged-long-g');
+            //         } else if (t.find('.td-color').hasClass('td-r')) {
+            //             t.addClass('charged-long-r');
+            //         }
 
-                //}, 50);
-            }, function () {
-                //mouse out
-                var t = $(this);
-                t.removeClass('charged-long-o charged-long-g charged-long-b charged-long-r');
-                t.find('.td-words').css("color", "#666");
-                t.find('img').removeClass("img-inverted");
-            });
+            //     //}, 50);
+            // }, function () {
+            //     //mouse out
+            //     var t = $(this);
+            //     t.removeClass('charged-long-o charged-long-g charged-long-b charged-long-r');
+            //     t.find('.td-words').css("color", "#666");
+            //     t.find('img').removeClass("img-inverted");
+            // });
 
             //*************** sec5 links hover ******************//
             $('.dropdown-toggle').hover(function () {

@@ -326,7 +326,8 @@ footer{
     height: 100%;
     margin-left: -400px;
 	overflow: hidden;
-    background-color: #ddd;
+	background-color: white;
+	box-shadow: 1px 1px 4px rgba(0,0,0,.2);
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -342,7 +343,7 @@ footer{
     width: 100%;
     height: 100%;
     background-color: black;
-    opacity: 0.6;
+	opacity: 0.3;
 }
 #sidebar-wrapper.toggled .page-overlay{
     display: block
@@ -359,14 +360,13 @@ footer{
     list-style: none;
 }
 .sidebar-nav > .sidebar-brand {
-	padding:10px 0 20px 0;
-    background-color: white;
+	padding:5px 0 15px 0;
     margin-bottom: 30px;
-    box-shadow: 0 1px 8px rgba(0,0,0,.3);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2)
 }
 .sidebar-nav > .sidebar-brand h2{
     font-size: 30px;
-	color: #666
+	/* color: white */
 }
 .sidebar-nav > .sidebar-brand hr{
 	opacity:0.7
@@ -401,38 +401,60 @@ footer{
 	width: 18px;
     float: left;
     margin: 15px 20px 0 25px;
-    opacity: 0.6
+	opacity: 0.5;
 }
 .myTable .td-words{
+	position: relative;
 	padding:10px 0 0 40px;
-	color:#666;
+	color:#777;
     font-size: 20px;
     text-align: left;
 	-webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	z-index: 2;
 }
-.myTable .td-color{
+.myTable .td-inner a{
+	position: relative;
+	z-index: 2;
+}
+.myTable .td-inner::after{
+	content: "";
 	position:absolute;
-	display:inline-block;
+	/* display:inline-block; */
 	left:0;
+	top: 0;
 	padding:0;
 	height:50px;
 	width:5px;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+	z-index: 1;
 }
-.td-o{
-	background-color:#f4c20d
+.myTable .td-inner.td-o::after{
+	background-color:#F4B400
 }
-.td-b{
+.myTable .td-inner.td-b::after{
 	background-color:#009EE3
 }
-.td-r{
+.myTable .td-inner.td-r::after{
 	background-color:#FC4E46
 }
-.td-g{
+.myTable .td-inner.td-g::after{
 	background-color:#00C045
 }
+.myTable .td-inner:hover::after{
+	width: 100%;
+}
+.myTable .td-inner:hover .td-words{
+	color: #fff;
+}
+.myTable .td-inner:hover img{
+	opacity: 1;
+	filter: invert(100%) brightness(300%)
+}
+
 .closeButton{
 	position:absolute;
 	top: 10px;
