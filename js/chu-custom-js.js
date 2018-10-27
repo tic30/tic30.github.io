@@ -38,7 +38,7 @@ $(document).ready(function () {
         $('.nav-img-wrapper').css("opacity","0");
         $('#sec1-content').css("opacity","0");
         //preloader effect
-        $('.preloader-wrapper').css("display", "block");
+        // $('.preloader-wrapper').css("display", "block");
         preloaderOutTimer = setTimeout(function () {
             if (document.readyState === "complete") {
                 preloaderOut();

@@ -823,9 +823,12 @@ footer{
 	background-color:#1a1a1a;
 	text-align:center;
 	z-index:10;
-    display: none
 }
-
+@media(max-width:1023px) {
+	.preloader-wrapper {
+		display: none;
+	}
+}
 @media(min-width:1024px) {
 	.preloader-wrapper img{
         position:absolute;
