@@ -362,25 +362,25 @@ $(document).ready(function () {
     }
 
     //*************** btn hover ******************//
-    var timer;
-    $('.btn1').hover(function () {
-        var thisbtn = $(this);
-        if (timer) {
-            clearTimeout(timer);
-            timer = null;
-        }
-        timer = setTimeout(function () {
-            thisbtn.removeClass('animated charged fadeInDown');
-            thisbtn.addClass('charged');
-            thisbtn.css("color", "#fff");
-        }, 50);
-    }, function () {
-        var thisbtn = $(this);
-        timer = setTimeout(function () {
-            thisbtn.removeClass('charged');
-            thisbtn.css("color", "#1a1a1a");
-        }, 100);
-    });
+    // var timer;
+    // $('.btn1').hover(function () {
+    //     var thisbtn = $(this);
+    //     if (timer) {
+    //         clearTimeout(timer);
+    //         timer = null;
+    //     }
+    //     timer = setTimeout(function () {
+    //         thisbtn.removeClass('animated charged fadeInDown');
+    //         thisbtn.addClass('charged');
+    //         thisbtn.css("color", "#fff");
+    //     }, 50);
+    // }, function () {
+    //     var thisbtn = $(this);
+    //     timer = setTimeout(function () {
+    //         thisbtn.removeClass('charged');
+    //         thisbtn.css("color", "#1a1a1a");
+    //     }, 100);
+    // });
 });
 
 function preloaderOut() {
