@@ -1,0 +1,49 @@
+/*!
+ * milucss.css
+ * Copyright (c) 2018 Tianxin Chu
+ */
+html,body{
+    height: 100%;
+}
+
+.sec1nav-brand,
+#sec1-content {
+    display: block;
+    opacity: 1;
+}
+
+.sec1nav-brand a {
+    opacity: 1;
+    font-size: 28px
+}
+
+.sec1nav div,
+.sec1nav hr {
+    color: #1a1a1a !important;
+    border-color: #1a1a1a !important;
+}
+
+.dd {
+    top: 60px;
+    left: -5px;
+    padding: 0;
+    width: 120px;
+    font-size: 12px;
+}
+
+#sec1{
+    height: 100%;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.title{
+    font-size: 10rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold
+}
+.subtitle{
+    font-size: 2rem;
+}
