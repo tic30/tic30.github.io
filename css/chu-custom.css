@@ -1067,13 +1067,10 @@ footer{
 }
 .slid-wrapper img{
 	position:relative;
-	height:500px;
-	width:500px;
 	margin:0;
 	padding:0;
 	border:none;
 	display:inline;
-	float:left;
 }
 .sec2mask{
 	position:absolute;
