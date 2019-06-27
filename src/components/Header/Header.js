@@ -9,14 +9,32 @@ class Header extends Component {
         super(props);
         this.state = {
             // preloaderShow: true
-        }
-        this.sec1nav = React.createRef("sec1nav")
+        };
+        this.nav = React.createRef();
+    }
+
+    componentDidMount() {
+        let lastScrollTop = 0,
+            myself = this;
+
+        // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+        document.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
+            let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+            if (st > lastScrollTop){
+                // downscroll code
+                myself.nav.current.classList.add("scrolled");
+            } else {
+                // upscroll code
+                myself.nav.current.classList.remove("scrolled");
+            }
+            lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+        }, false);
     }
 
     render() {
         // const { preloaderShow } = this.props;
         return (
-            <div className="nav" ref={this.sec1nav}>
+            <div className="nav" ref={this.nav}>
                 <Grid container className="nav-container">
                     <Grid item xs={12} sm>
                         <div className="nav-item">
@@ -25,7 +43,7 @@ class Header extends Component {
                     </Grid>
                     <Grid item xs={12} sm>
                         <div className="nav-item">
-                            <a href="#">Portfolio</a>
+                            <a href="#">Projects</a>
                         </div>
                     </Grid>
                     <Grid item xs={12} sm className="logo-wrapper">
