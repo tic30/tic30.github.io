@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import './Header.scss';
 
@@ -39,7 +40,7 @@ class Header extends Component {
                     </Grid>
                     <Grid item xs={12} sm>
                         <div className="nav-item">
-                            <Link to="https://drive.google.com/open?id=0B1dSWHM51dn-RGJBNlJZNFdaNW8" target="_blank" rel="noreferrer">Resume</Link>
+                            <Button href="https://drive.google.com/open?id=0B1dSWHM51dn-RGJBNlJZNFdaNW8" target="_blank" rel="noreferrer">Resume</Button>
                         </div>
                     </Grid>
                 </Grid>
