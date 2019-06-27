@@ -7,9 +7,6 @@ import './Header.scss';
 class Header extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            // preloaderShow: true
-        };
         this.nav = React.createRef();
         this.toggleMobileNav = this.toggleMobileNav.bind(this);
     }
@@ -42,7 +39,6 @@ class Header extends Component {
     }
 
     render() {
-        // const { preloaderShow } = this.props;
         return (
             <div className="nav" ref={this.nav}>
                 <Grid container className="nav-container">
