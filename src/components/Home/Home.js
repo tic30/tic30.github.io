@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Preloader from './Preloader';
-import '../../css/chu-custom.css';
+// import Header from '../Header';
 
 class Home extends Component {
 	constructor(props) {
@@ -10,10 +9,10 @@ class Home extends Component {
 		}
 	}
 	render() {
-		const { preloaderContinue, preloaderShow } = this.props
+		// const { preloaderContinue, preloaderShow } = this.props
 		return (
 			<React.Fragment>
-				{preloaderShow && (<Preloader continueEvent={preloaderContinue}></Preloader>)}
+				{/* {preloaderShow && (<Preloader continueEvent={preloaderContinue}></Preloader>)} */}
 				{/* section 1 */}
 				<section id="sec1" className="text-uppercase">
 					<div id="sec1-content">
