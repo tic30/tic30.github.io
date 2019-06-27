@@ -11,6 +11,7 @@ class Header extends Component {
             // preloaderShow: true
         };
         this.nav = React.createRef();
+        this.toggleMobileNav = this.toggleMobileNav.bind(this);
     }
 
     componentDidMount() {
@@ -29,6 +30,15 @@ class Header extends Component {
             }
             lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
         }, false);
+    }
+
+    toggleMobileNav() {
+        const navClasses = this.nav.current.classList;
+        if (navClasses.contains("stuck")) {
+            navClasses.remove("stuck");
+        } else {
+            navClasses.add("stuck");
+        }
     }
 
     render() {
@@ -62,6 +72,9 @@ class Header extends Component {
                         </div>
                     </Grid>
                 </Grid>
+                <div className="nav-hamburger" onClick={this.toggleMobileNav}>
+                    <div className="nav-hamburger-bars"></div>
+                </div>
             </div>
         );
     }
