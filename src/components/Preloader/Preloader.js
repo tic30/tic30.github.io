@@ -14,6 +14,7 @@ class Preloader extends Component {
             })        
         }, 2000);
     }
+    
     renderRedirect = () => {
         if (this.state.redirect) {
             this.props.history.push(`/home`)

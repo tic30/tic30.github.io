@@ -1,0 +1,124 @@
+@import "../variable";
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: $palette-white;
+    background-color: $palette-black;
+    z-index: 9;
+    opacity: 0.9;
+    &.scrolled {
+        box-shadow: 0 1px 8px #4b4b4b;
+    }
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.logo-wrapper {
+    @media (max-width: 600px) {
+        order: -1;
+    }
+}
+
+.nav-item {
+    text-align: center;
+    font-size: 1rem;
+    padding: 2rem 0;
+    animation-name: fadeInUp;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+
+    &.logo {
+        position: relative;
+        animation: none;
+        opacity: 1;
+        font-size: 2rem;
+        padding: 0;
+        height: 5.3125rem;
+
+        .logo-text {
+            position: relative;
+            width: 3rem;
+            animation-name: shrink;
+            animation-duration: 0.1s;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0.9s;
+            animation-fill-mode: forwards;
+            background-color: $palette-black;
+            z-index: 2;
+
+            &::after {
+                position: absolute;
+                content: "TC";
+                height: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                color: $palette-white;
+                width: 2.7rem;
+                animation-name: logoFadeInDown;
+                animation-duration: 1s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards;
+                padding: 1.3rem 0;
+            }
+        }
+
+        &::after {
+            position: absolute;
+            content: "";
+            height: 4rem;
+            width: 80px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid $palette-white;
+            border-radius: 5px;
+            z-index: 1;
+            animation-name: logoFadeInUp;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+    }
+
+    a, a:focus, a:visited {
+        color: $palette-grey-400;
+    }
+
+    a {
+        width: 100%;
+        height: 100%;
+    }
+
+    a:hover {
+        color: $palette-white;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {opacity: 0;transform: translateY(20px)}
+    100% {opacity: 1;transform: translateY(0)}
+}
+
+@keyframes logoFadeInDown {
+    0% {opacity: 0;transform: translate(-50%, -10px)}
+    90% {opacity: 1;transform: translate(-50%, 0)}
+    100% {opacity: 1;transform: translate(-50%, 0)}
+}
+
+@keyframes logoFadeInUp {
+    0% {opacity: 0;transform: translate(-50%, -30%);width: 80px;height: 4rem;border-width: 1px;}
+    90% {opacity: 1;transform: translate(-50%, -50%);width: 80px;height: 4rem;border-width: 1px;}
+    100% {opacity: 1;transform: translate(-50%, -50%);width: 65px;height: 3.2rem;border-width: 2px;}
+}
+
+@keyframes shrink {
+    0% {width: 4rem}
+    100% {width: 2.7rem}
+}

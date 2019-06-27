@@ -29,7 +29,7 @@ a.btn {
 }
 
 .preloader-header {
-    animation-name: fadeUp;
+    animation-name: fadeOutUpRight;
     animation-delay: 5s;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
@@ -130,7 +130,7 @@ a.btn {
     100% {width: 520px;}
 }
 
-@keyframes fadeUp {
+@keyframes fadeOutUpRight {
     0% {opacity: 1;transform: translate(0)}
     100% {opacity: 0;transform: translate(10px, -10px)}
 }

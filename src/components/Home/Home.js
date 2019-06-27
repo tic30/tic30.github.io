@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import Header from '../Header';
+import Header from '../Header';
+import './Home.scss';
 
 class Home extends Component {
 	constructor(props) {
@@ -14,6 +15,7 @@ class Home extends Component {
 			<React.Fragment>
 				{/* {preloaderShow && (<Preloader continueEvent={preloaderContinue}></Preloader>)} */}
 				{/* section 1 */}
+				<Header />
 				<section id="sec1" className="text-uppercase">
 					<div id="sec1-content">
 						<img id="chu-logo" src="imgs/icons/chu-logo.png" alt="Loading Logo..." />
@@ -24,6 +26,7 @@ class Home extends Component {
 					<div className="arrow_box"></div>
 				</section>
 				{/* /end of section 1 */}
+				<section></section>
 			</React.Fragment>
 		);
 	}
