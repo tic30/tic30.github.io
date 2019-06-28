@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
 import Header from '../Header';
 import Flyer from '../Flyer';
 import Texts from '../../texts';
@@ -10,7 +11,39 @@ class Home extends Component {
 		this.state = {
 			// preloaderShow:this.props.preloaderShow
 		}
+		this.hand = React.createRef();
+		this.smile = React.createRef();
+		this.logoHover = this.logoHover.bind(this);
+		this.logoHoverEnd = this.logoHoverEnd.bind(this);
 	}
+
+	logoHover() {
+		// $('#hand').removeClass('animated tada'); //hand-wave
+		// 	$('#hand, #smile3').stop(true, true).css("opacity", "1");
+		// 	$('#hand').addClass('animated tada');
+		this.hand.current.classList.remove("animated", "tada");
+		this.hand.current.classList.add("visible", "animated", "tada");
+		this.smile.current.classList.add("visible");
+	}
+
+	logoHoverEnd() {
+		const myself = this;
+		setTimeout(function () {
+			// $('#hand, #smile3').stop(true, true).css("opacity", "0");
+			// $('#hand').removeClass('animated tada');
+			myself.hand.current.classList.remove("visible", "animated", "tada");
+			myself.smile.current.classList.remove("visible");
+		}, 800);
+	}
+
+	componentDidMount() {
+		const myself = this;
+		setTimeout(function () {
+			myself.logoHover();
+			myself.logoHoverEnd();
+		}, 2000);
+	}
+
 	render() {
 		// const { preloaderContinue, preloaderShow } = this.props
 		return (
@@ -20,21 +53,28 @@ class Home extends Component {
 				<Header />
 				<section id="sec1">
 					<div className="container">
-						<div id="img-container">
+						<div id="img-container" onMouseEnter={this.logoHover} onMouseLeave={this.logoHoverEnd}>
 							<img id="chu-logo" src="/imgs/chu-logo.png" alt="Loading Logo..." />
-							<div id="hand"><img src="/imgs/hand.png" alt="Loading hand..." /></div>
-							<img id="smile3" src="/imgs/smile.png" alt="Loading smile..." />
+							<div id="hand" ref={this.hand}><img src="/imgs/hand.png" alt="Loading hand..." /></div>
+							<img id="smile" src="/imgs/smile.png" alt="Loading smile..." ref={this.smile} />
 						</div>
 						<h1>{Texts.Hero.title}</h1>
-						<p>{Texts.Hero.content}</p>
+						<p className="contentText">{Texts.Hero.content}</p>
+						<div className="ctaWrapper">
+							<Button href="https://www.linkedin.com/in/tim-chu-980881a4" target="_blank" rel="noreferrer">
+								<img src="/imgs/icons/linkedin.svg" alt="Loading icon..."/>
+							</Button>
+							<Button href="https://www.facebook.com/tianxin.chu" target="_blank" rel="noreferrer">
+								<img src="/imgs/icons/facebook.svg" alt="Loading icon..."/>
+							</Button>
+							<Button href="https://www.facebook.com/tianxin.chu" target="_blank" rel="noreferrer">
+								<img src="/imgs/icons/facebook.svg" alt="Loading icon..."/>
+							</Button>
+							<Button href="https://www.facebook.com/tianxin.chu" target="_blank" rel="noreferrer">
+								<img src="/imgs/icons/facebook.svg" alt="Loading icon..."/>
+							</Button>
+						</div>
 					</div>
-					{/* <div id="sec1-content">
-						<img id="chu-logo" src="imgs/icons/chu-logo.png" alt="Loading Logo..." />
-						<div id="hand"><img src="imgs/icons/hand.png" alt="Loading hand..." /></div>
-						<img id="smile3" src="imgs/icons/smile.png" alt="Loading smile..." />
-						<p id="sec1-p">I'M A <span className="sec1-p-span" id="coe" data-toggle="tooltip" data-placement="bottom" title="Now seeking 2019 full time opportunity.">Front End Engineer&nbsp;</span>FROM<span className="sec1-p-span" id="uiux" data-toggle="tooltip" data-placement="bottom" title="@ Mountain View, CA">&nbsp;CMU</span></p>
-					</div>
-					<div className="arrow_box"></div> */}
 				</section>
 				<section id="sec2">
 					<div className="container">

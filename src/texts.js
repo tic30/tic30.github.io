@@ -1,13 +1,7 @@
 export default {
     Hero: {
         title: "Hi, Welcome!",
-        content: "This is Tim Chu, I am an open-minded problem solver, UX explorer and front end coder.",
-        icons: [
-            {src:"icons/archery.svg"},
-            {src:"icons/pingpong.svg"},
-            {src:"icons/soccer.svg"},
-            {src:"icons/reading.svg"},
-        ]
+        content: "This is Tim Chu, I am an open-minded problem solver, UX explorer and front end coder."
     },
     SelfIntro: {
         title: "Hi, Welcome!",

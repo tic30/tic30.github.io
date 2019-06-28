@@ -1,0 +1,58 @@
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes tada {
+    from {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  
+    10%, 20% {
+      -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+      transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    }
+  
+    30%, 50%, 70%, 90% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+      transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+  
+    40%, 60%, 80% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+      transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+  
+    to {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+}
+
+.tada {
+    -webkit-animation-name: tada;
+    animation-name: tada;
+}
+
+@keyframes fadeInUp {
+    0% {opacity: 0;transform: translateY(20px)}
+    100% {opacity: 1;transform: translateY(0)}
+}
+
+@keyframes logoFadeInDown {
+    0% {opacity: 0;transform: translate(-50%, -10px)}
+    90% {opacity: 1;transform: translate(-50%, 0)}
+    100% {opacity: 1;transform: translate(-50%, 0)}
+}
+
+@keyframes logoFadeInUp {
+    0% {opacity: 0;width: 80px;height: 4rem;border-width: 1px;}
+    90% {opacity: 1;width: 80px;height: 4rem;border-width: 1px;}
+    100% {opacity: 1;width: 65px;height: 3.2rem;border-width: 2px;}
+}
+
+@keyframes headerLogoShrink {
+    0% {width: 4rem}
+    100% {width: 2.7rem}
+}
