@@ -1,6 +1,6 @@
 @import "../variable";
 
-html, body, #root, section {
+html, body, #root, section, .container {
     position: relative;
     width: 100%;
     height: 100%;
@@ -11,5 +11,41 @@ body {
 }
 
 #sec1 {
+    color: $palette-white;
     background-color: $palette-black;
+    display: flex;
+    align-items: flex-end;
+    .container {
+        height: 500px;
+    }
+    h1 {
+        font-size: 52px;
+    }
+    p {
+        font-size: 24px;
+    }
+}
+
+.slope {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(290deg, transparent 50%, $palette-grey-500 0) top left;
+    &::after {
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(290deg, transparent calc(50% + 2px), $palette-black 0) top left;
+        z-index: 1;
+    }
+}
+
+#sec2{
+    height: auto;
+    display: flex;
+    align-items: center;
+    .container {
+        height: 500px;
+    }
 }

@@ -21,3 +21,36 @@ $palette-blue-alt: #77c;
 
 $palette-orange: #ff5a1f;
 $palette-red: #db183f;
+
+// Breakpoints
+$screen-xs: 0;
+$screen-sm: 600px;
+$screen-md: 960px;
+$screen-lg: 1280px;
+$screen-xl: 1920px;
+
+@mixin xs {
+    @media (min-width: $screen-xs) {
+        @content;
+    }
+}
+@mixin sm {
+    @media (min-width: $screen-sm) {
+        @content;
+    }
+}
+@mixin md {
+    @media (min-width: $screen-md) {
+        @content;
+    }
+}
+@mixin lg {
+    @media (min-width: $screen-lg) {
+      @content;
+    }
+}
+@mixin xl {
+    @media (min-width: $screen-xl) {
+        @content;
+    }
+}
