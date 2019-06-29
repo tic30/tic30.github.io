@@ -1,0 +1,102 @@
+@import "../variable";
+
+$btn-width: 56px;
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, rgba(0,0,0,0), $palette-white);
+    z-index: 2;
+    // display: none;
+    &.show {
+        display: block;
+    }
+}
+
+.contact-bubble{
+    position: fixed;
+    right: 10%;
+    bottom: 4rem;
+    z-index: 9;
+}
+
+.contact-bubble-cta {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-bubble-popup-container {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 100%;
+    background-color: $palette-white;
+    border-radius: 30px;
+    width: $btn-width;
+    overflow: visible;
+    z-index: 0;
+}
+
+.contact-bubble-popup-item {
+    position: relative;
+    margin-bottom: 1rem;
+    cursor: pointer;
+
+    &#linkedin {
+        color: #007AB9;
+    }
+    &#email {
+        color: #F44336;
+    }
+    &#facebook {
+        color: #3B5998;
+    }
+    &#github img{
+        opacity: 0.6;
+    }
+}
+
+.contact-bubble-popup-item:hover {
+    img {
+        filter: grayscale(0);
+    }
+    &#github img{
+        opacity: 1;
+    }
+    .contact-bubble-popup-item-text {
+        width: 200px;
+    }
+}
+
+a.contact-bubble-popup-item-btn {
+    position: relative;
+    border-radius: 50%;
+    width: $btn-width;
+    height: $btn-width;
+    min-width: $btn-width;
+    overflow: hidden;
+    padding: 3px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        filter: grayscale(1);
+    }
+}
+
+.contact-bubble-popup-item-text {
+    position: absolute;
+    top: 0;
+    right: $btn-width;
+    height: $btn-width;
+    line-height: $btn-width;
+    white-space: nowrap;
+    margin: 0;
+    transition-duration: 0.2s;
+    text-align: right;
+    font-weight: 700;
+    width: 0;
+    overflow: hidden;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import Header from '../Header';
 import Flyer from '../Flyer';
+import ContactBubble from '../ContactBubble';
 import Texts from '../../texts';
 import './Home.scss';
 
@@ -51,6 +52,7 @@ class Home extends Component {
 				{/* {preloaderShow && (<Preloader continueEvent={preloaderContinue}></Preloader>)} */}
 				{/* section 1 */}
 				<Header />
+				<ContactBubble />
 				<section id="sec1">
 					<div className="container">
 						<div id="img-container" onMouseEnter={this.logoHover} onMouseLeave={this.logoHoverEnd}>
@@ -60,20 +62,6 @@ class Home extends Component {
 						</div>
 						<h1>{Texts.Hero.title}</h1>
 						<p className="contentText">{Texts.Hero.content}</p>
-						<div className="ctaWrapper">
-							<Button href="https://www.linkedin.com/in/tim-chu-980881a4" target="_blank" rel="noreferrer">
-								<img src="/imgs/icons/linkedin.svg" alt="Loading icon..."/>
-							</Button>
-							<Button href="https://www.facebook.com/tianxin.chu" target="_blank" rel="noreferrer">
-								<img src="/imgs/icons/facebook.svg" alt="Loading icon..."/>
-							</Button>
-							<Button href="https://www.facebook.com/tianxin.chu" target="_blank" rel="noreferrer">
-								<img src="/imgs/icons/facebook.svg" alt="Loading icon..."/>
-							</Button>
-							<Button href="https://www.facebook.com/tianxin.chu" target="_blank" rel="noreferrer">
-								<img src="/imgs/icons/facebook.svg" alt="Loading icon..."/>
-							</Button>
-						</div>
 					</div>
 				</section>
 				<section id="sec2">

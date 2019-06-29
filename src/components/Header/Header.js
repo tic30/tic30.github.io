@@ -44,12 +44,12 @@ class Header extends Component {
                 <Grid container className="nav-container">
                     <Grid item xs={12} sm>
                         <div className="nav-item">
-                            <a href="#">About Me</a>
+                            <Button href="#">About Me</Button>
                         </div>
                     </Grid>
                     <Grid item xs={12} sm>
                         <div className="nav-item">
-                            <a href="#">Projects</a>
+                            <Button href="#">Projects</Button>
                         </div>
                     </Grid>
                     <Grid item xs={12} sm className="logo-wrapper">
@@ -59,7 +59,7 @@ class Header extends Component {
                     </Grid>
                     <Grid item xs={12} sm>
                         <div className="nav-item">
-                            <a href="#">Contact</a>
+                            <Button href="#">Contact</Button>
                         </div>
                     </Grid>
                     <Grid item xs={12} sm>
