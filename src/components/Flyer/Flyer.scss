@@ -4,14 +4,11 @@
     position: absolute;
     top: 0;
     height: 100%;
-    z-index: 1;
-    color: $palette-black;
+    z-index: 0;
     display: flex;
-    align-items: center;
+    padding: 5rem 0;
+    background: $palette-grey-100;
 
-    &.noanimation {
-        color: $palette-white;
-    }
     &.noanimation::after {
         position: absolute;
         content: "";
@@ -28,36 +25,50 @@
 
 .flyer-left {
     left: 0;
-    width: 57%;
+    width: calc(50% + 92px);
     justify-content: flex-end;
-    background: linear-gradient(290deg, transparent 20%, $palette-grey-100 0) top left;
+    z-index: 4;
+    color: $palette-white;
+    &.noanimation {
+        position: relative;
+        z-index: 3;
+    }
     &.noanimation::after {
-        background: linear-gradient(290deg, transparent calc(20% + 2px), $palette-black 0) top left;
+        background: linear-gradient(290deg, transparent 25%, $palette-black 0) top left;
     }
 
     .flyer-inner {
-        padding-right: 10rem;
+        padding-right: 25%;
     }
 }
 
 .flyer-right {
-    right: 0;
-    width: 58%;
+    position: relative;
     justify-content: flex-start;
-    background: linear-gradient(110deg, transparent 20%, $palette-grey-100 0) top left;
-    &.noanimation::after {
-        background: linear-gradient(110deg, transparent calc(20% + 2px), $palette-black 0) top left;
+    z-index: 2;
+    flex-grow: 1;
+    color: $palette-black;
+    &.noanimation {
+        z-index: 1;
     }
 
     .flyer-inner {
-        padding-left: 10rem;
+        padding-right: 3rem;
     }
 }
 
 .flyer-inner {
     position: relative;
     z-index: 2;
-    max-width: 600px;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h3 {
+        margin-top: 0;
+        white-space: pre-line;
+    }
 }
 
 .flyer-icon {
@@ -71,15 +82,41 @@
     img {
         width: 40px;
         height: 40px;
-        filter: invert(0.9);
         transition-duration: 0.2s;
     }
 }
-.flyer-icon:hover {
-    background-color: $palette-grey-100;
+
+.flyer-left .flyer-icon {
     img {
-        width: 50px;
-        height: 50px;
-        filter: invert(0);
+        filter: invert(0.9);
+    }
+    &:hover {
+        background-color: $palette-grey-100;
+        img {
+            width: 50px;
+            height: 50px;
+            filter: invert(0);
+        }
+    }
+}
+.flyer-right .flyer-icon{
+    width: 130px;
+
+    img {
+        width: 80px;
+        height: auto;
+        filter: brightness(0)
+    }
+
+    &:first-child {//special alignment for indeed icon
+        padding-bottom: 0.5rem;
+    }
+
+    &:hover {
+        background-color: $palette-white;
+        img {
+            width: 100px;
+            filter: brightness(1)
+        }
     }
 }

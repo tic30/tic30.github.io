@@ -66,7 +66,6 @@ class Home extends Component {
 				</section>
 				<section id="sec2">
 					<div className="container">
-						<div className="slope"></div>
 						<Flyer direction="left" animated="false" content={Texts.SelfIntro} />
 						<Flyer direction="right" animated="false" content={Texts.Company} />
 					</div>

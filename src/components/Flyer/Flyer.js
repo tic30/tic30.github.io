@@ -34,7 +34,7 @@ class Flyer extends Component {
         return (
             <div className={"flyer flyer-" + direction + (animated==="true" ?"":" noanimation")}>
                 <div className="flyer-inner">
-                    <h1>{content.title}</h1>
+                    <h3>{content.title}</h3>
                     <div className="hr"></div>
                     <p>{content.content}</p>
                     <div className="icons">
