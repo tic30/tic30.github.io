@@ -10,7 +10,7 @@ $btn-width: 56px;
     height: 100%;
     background: linear-gradient(to bottom right, rgba(0,0,0,0), $palette-white);
     z-index: 2;
-    // display: none;
+    display: none;
     &.show {
         display: block;
     }
@@ -31,12 +31,20 @@ $btn-width: 56px;
 .contact-bubble-popup-container {
     position: absolute;
     bottom: 0;
-    padding-bottom: 100%;
+    padding-bottom: $btn-width;
     background-color: $palette-white;
     border-radius: 30px;
     width: $btn-width;
-    overflow: visible;
+    height: 0;
+    overflow: hidden;
+    transition-duration: 0.2s;
     z-index: 0;
+    &.show1 {
+        height: 345px;
+    }
+    &.show2 {
+        overflow: visible;
+    }
 }
 
 .contact-bubble-popup-item {
