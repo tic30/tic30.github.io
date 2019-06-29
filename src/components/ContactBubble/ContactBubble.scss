@@ -26,6 +26,14 @@ $btn-width: 56px;
 .contact-bubble-cta {
     position: relative;
     z-index: 1;
+    &::after {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        content: "";
+    }
 }
 
 .contact-bubble-popup-container {

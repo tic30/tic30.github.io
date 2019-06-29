@@ -56,6 +56,7 @@ body {
     p.contentText {
         font-size: 28px;
         line-height: 1.5;
+        max-width: 610px;
         animation-name: fadeInUp;
         animation-duration: 0.5s;
         animation-timing-function: ease-in-out;
