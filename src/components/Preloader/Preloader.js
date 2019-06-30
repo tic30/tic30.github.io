@@ -1,34 +1,38 @@
 import React, { Component } from 'react';
-// import { Link } from "react-router-dom";
+import  { Redirect } from 'react-router-dom';
 import './Preloader.scss';
 
 class Preloader extends Component {
     state = {
+        animationCount: 0,
         redirect: false
     }
 
     setRedirect = () => {
-        setTimeout(() => {
+        const { animationCount } = this.state;
+        if(animationCount>=2){
             this.setState({
                 redirect: true
-            })        
-        }, 1500);
-    }
-    
-    renderRedirect = () => {
-        if (this.state.redirect) {
-            this.props.history.push(`/home`)
+            });
+        } else {
+            this.setState({
+                animationCount: animationCount + 1
+            });
         }
     }
 
     render() {
+        const { redirect } = this.state;
+
+        if (redirect) {
+            return <Redirect to='/home' />
+        }
+
         return (
             <div className="preloader-wrapper">
-                {this.renderRedirect()}
                 <div className="preloader-header" onAnimationEnd={this.setRedirect}>
                     <div className="preloader-header-text">Hello, this is Tim Chu</div>
                 </div>
-                {/* <div className="preloader-button-wrapper"><Link className="btn preloader-button" to="/home">Continue...</Link></div> */}
             </div>
         );
     }

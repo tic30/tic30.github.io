@@ -21,6 +21,7 @@
 
     .icons {
         display: flex;
+        flex-wrap: wrap;
     }
 }
 
@@ -111,7 +112,8 @@
     }
 }
 .flyer-right .flyer-icon{
-    width: 130px;
+    width: 150px;
+    cursor: pointer;
 
     img {
         width: 80px;

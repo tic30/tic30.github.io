@@ -1,13 +1,7 @@
 @import "../variable";
 
-html, body, #root,
 .preloader-wrapper {
-    position: relative;
-    widows: 100%;
-    height: 100%;
-}
-
-.preloader-wrapper {
+    height: 100vh;
     background-color: $palette-black;
     color: $palette-white;
     overflow: hidden;

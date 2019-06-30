@@ -44,12 +44,12 @@ class Header extends Component {
                 <Grid container className="nav-container">
                     <Grid item xs={12} sm>
                         <div className="nav-item">
-                            <Button href="#">About Me</Button>
+                            <Button href="#sec2">About Me</Button>
                         </div>
                     </Grid>
                     <Grid item xs={12} sm>
                         <div className="nav-item">
-                            <Button href="#">Projects</Button>
+                            <Button href="#sec3">Projects</Button>
                         </div>
                     </Grid>
                     <Grid item xs={12} sm className="logo-wrapper">

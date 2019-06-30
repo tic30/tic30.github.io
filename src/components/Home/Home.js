@@ -14,21 +14,22 @@ class Home extends Component {
 		}
 		this.hand = React.createRef();
 		this.smile = React.createRef();
+		this.sec1Container = React.createRef();
 		this.logoHover = this.logoHover.bind(this);
 		this.logoHoverEnd = this.logoHoverEnd.bind(this);
 		this.callFlyer = this.callFlyer.bind(this);
 	}
 
 	logoHover() {
-		this.hand.current.classList.remove("animated", "tada");
-		this.hand.current.classList.add("visible", "animated", "tada");
+		this.hand.current.classList.remove("animated", "handTada");
+		this.hand.current.classList.add("visible", "animated", "handTada");
 		this.smile.current.classList.add("visible");
 	}
 
 	logoHoverEnd() {
 		const myself = this;
 		setTimeout(function () {
-			myself.hand.current.classList.remove("visible", "animated", "tada");
+			myself.hand.current.classList.remove("visible", "animated", "handTada");
 			myself.smile.current.classList.remove("visible");
 		}, 800);
 	}
@@ -47,6 +48,16 @@ class Home extends Component {
 			myself.logoHover();
 			myself.logoHoverEnd();
 		}, 2000);
+
+		document.addEventListener("scroll", () => {
+			const sec1Container = this.sec1Container.current;
+			if(window.pageYOffset > 0) {
+				sec1Container.classList.add("shrinked");
+			}else {
+				sec1Container.classList.remove("shrinked");
+			}
+
+		})
 	}
 
 	render() {
@@ -57,7 +68,7 @@ class Home extends Component {
 				<Header />
 				<ContactBubble />
 				<section id="sec1">
-					<div className="container">
+					<div className="container" ref={this.sec1Container}>
 						<div id="img-container" onMouseEnter={this.logoHover} onMouseLeave={this.logoHoverEnd}>
 							<img id="chu-logo" src="/imgs/chu-logo.png" alt="Loading Logo..." />
 							<div id="hand" ref={this.hand}><img src="/imgs/hand.png" alt="Loading hand..." /></div>
@@ -68,13 +79,22 @@ class Home extends Component {
 					</div>
 				</section>
 				<section id="sec2">
+					<div className="section-header">
+						<h2>About me</h2>
+					</div>
 					<div className="container">
 						{dynamicFlyer && <Flyer direction="left" animated="true" content={Texts[dynamicFlyer]} />}
 						<Flyer direction="left" animated="false" content={Texts.SelfIntro} />
 						<Flyer direction="right" animated="false" content={Texts.Company} callFlyer={this.callFlyer}/>
 					</div>
 				</section>
-				<section id="sec3"></section>
+				<section id="sec3">
+					<div className="section-header">
+						<h2>Projects</h2>
+					</div>
+					<div className="container">
+					</div>
+				</section>
 			</React.Fragment>
 		);
 	}
