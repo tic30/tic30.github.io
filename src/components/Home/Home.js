@@ -10,18 +10,16 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			// preloaderShow:this.props.preloaderShow
+			dynamicFlyer: ""
 		}
 		this.hand = React.createRef();
 		this.smile = React.createRef();
 		this.logoHover = this.logoHover.bind(this);
 		this.logoHoverEnd = this.logoHoverEnd.bind(this);
+		this.callFlyer = this.callFlyer.bind(this);
 	}
 
 	logoHover() {
-		// $('#hand').removeClass('animated tada'); //hand-wave
-		// 	$('#hand, #smile3').stop(true, true).css("opacity", "1");
-		// 	$('#hand').addClass('animated tada');
 		this.hand.current.classList.remove("animated", "tada");
 		this.hand.current.classList.add("visible", "animated", "tada");
 		this.smile.current.classList.add("visible");
@@ -37,8 +35,16 @@ class Home extends Component {
 		}, 800);
 	}
 
+	callFlyer(e) {
+		const data = e.currentTarget.getAttribute("data-target");
+		this.setState({
+			dynamicFlyer: data
+		})
+	}
+
 	componentDidMount() {
 		const myself = this;
+
 		setTimeout(function () {
 			myself.logoHover();
 			myself.logoHoverEnd();
@@ -46,11 +52,10 @@ class Home extends Component {
 	}
 
 	render() {
-		// const { preloaderContinue, preloaderShow } = this.props
+		const { dynamicFlyer } = this.state
+
 		return (
 			<React.Fragment>
-				{/* {preloaderShow && (<Preloader continueEvent={preloaderContinue}></Preloader>)} */}
-				{/* section 1 */}
 				<Header />
 				<ContactBubble />
 				<section id="sec1">
@@ -66,12 +71,12 @@ class Home extends Component {
 				</section>
 				<section id="sec2">
 					<div className="container">
+						{dynamicFlyer && <Flyer direction="left" animated="true" content={Texts[dynamicFlyer]} />}
 						<Flyer direction="left" animated="false" content={Texts.SelfIntro} />
-						<Flyer direction="right" animated="false" content={Texts.Company} />
+						<Flyer direction="right" animated="false" content={Texts.Company} callFlyer={this.callFlyer}/>
 					</div>
 				</section>
-				{/* /end of section 1 */}
-				<section></section>
+				<section id="sec3"></section>
 			</React.Fragment>
 		);
 	}

@@ -29,19 +29,21 @@ class Flyer extends Component {
     // }
 
     render() {
-        const { direction, animated, content } = this.props;
+        const { direction, animated, content, callFlyer } = this.props;
 
         return (
             <div className={"flyer flyer-" + direction + (animated==="true" ?"":" noanimation")}>
                 <div className="flyer-inner">
+                    {content.titleIcon &&<div className="flyer-title-icon">
+                        <img src={"/imgs/" + content.titleIcon} />
+                    </div>}
                     <h3>{content.title}</h3>
                     <div className="hr"></div>
                     <p>{content.content}</p>
                     <div className="icons">
                         {content.icons && content.icons.map((icon, index) => {
-
                             return (
-                                <div key={index} className="flyer-icon">
+                                <div key={index} className="flyer-icon" data-target={icon.dataTarget} onClick={callFlyer}>
                                     <img src={"/imgs/" + icon.src} />
                                 </div>
                             )

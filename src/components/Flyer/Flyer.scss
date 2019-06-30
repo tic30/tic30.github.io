@@ -5,11 +5,12 @@
     top: 0;
     height: 100%;
     z-index: 0;
-    display: flex;
+    display: inline-block;
+    vertical-align: top;
     padding: 5rem 0;
     background: $palette-grey-100;
 
-    &.noanimation::after {
+    &::after {
         position: absolute;
         content: "";
         top: 0;
@@ -26,27 +27,26 @@
 .flyer-left {
     left: 0;
     width: calc(50% + 92px);
-    justify-content: flex-end;
     z-index: 4;
     color: $palette-white;
     &.noanimation {
         position: relative;
         z-index: 3;
     }
-    &.noanimation::after {
+    &::after {
         background: linear-gradient(290deg, transparent 25%, $palette-black 0) top left;
     }
 
     .flyer-inner {
+        float: right;
         padding-right: 25%;
     }
 }
 
 .flyer-right {
     position: relative;
-    justify-content: flex-start;
+    width: calc(50% - 92px);
     z-index: 2;
-    flex-grow: 1;
     color: $palette-black;
     &.noanimation {
         z-index: 1;
@@ -119,4 +119,9 @@
             filter: brightness(1)
         }
     }
+}
+
+.flyer-title-icon img{
+    width: 150px;
+    filter: brightness(10);
 }

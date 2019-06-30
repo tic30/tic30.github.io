@@ -17,12 +17,28 @@ export default {
         title: "UX, Front end, \n and Fun",
         content: "Working at Indeed.com as a Design Technologist, I have hands on experience with UX research & design, front end prototyping and production level coding.",
         icons: [
-            {src:"icons/indeed.png"},
-            {src:"icons/deephow.png"},
-            {src:"icons/siemens.svg"},
-            {src:"icons/cmu.png"},
+            {src: "icons/indeed.png", dataTarget: "Indeed"},
+            {src: "icons/deephow.png", dataTarget: "Deephow"},
+            {src: "icons/siemens.svg", dataTarget: "Siemens"},
+            {src: "icons/cmu.png", dataTarget: "Cmu"}
         ]
-    }
+    },
+    Indeed: {
+        titleIcon: "icons/indeed.png",
+        content: "This is Tim Chu, an open-minded problem solver, UX explorer and front end coder."
+    },
+    Deephow: {
+        titleIcon: "icons/deephow.png",
+        content: "This is Tim Chu, an open-minded problem solver, UX explorer and front end coder."
+    },
+    Siemens: {
+        titleIcon: "icons/siemens.svg",
+        content: "This is Tim Chu, an open-minded problem solver, UX explorer and front end coder."
+    },
+    Cmu: {
+        titleIcon: "icons/cmu.png",
+        content: "This is Tim Chu, an open-minded problem solver, UX explorer and front end coder."
+    },
 }
 
 // I seek challenges, with-in and out of work. I embrace them, break them down into practical tasks and improve myself along the way. 
