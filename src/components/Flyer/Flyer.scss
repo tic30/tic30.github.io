@@ -2,7 +2,7 @@
 
 .flyer {
     position: absolute;
-    top: 0;
+    bottom: 0;
     height: 100%;
     z-index: 0;
     display: inline-block;
@@ -27,11 +27,22 @@
 .flyer-left {
     left: 0;
     width: calc(50% + 92px);
+    transform: translateX(-100%);
     z-index: 4;
     color: $palette-white;
+    overflow: hidden;
+    background: transparent;
+    animation-name: expandWidth;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
     &.noanimation {
         position: relative;
+        transform: translateX(0);
         z-index: 3;
+        animation-name: none;
+        background: $palette-grey-100;
     }
     &::after {
         background: linear-gradient(290deg, transparent 25%, $palette-black 0) top left;

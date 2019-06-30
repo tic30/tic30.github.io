@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Header from '../Header';
 import Flyer from '../Flyer';
 import ContactBubble from '../ContactBubble';
@@ -28,8 +28,6 @@ class Home extends Component {
 	logoHoverEnd() {
 		const myself = this;
 		setTimeout(function () {
-			// $('#hand, #smile3').stop(true, true).css("opacity", "0");
-			// $('#hand').removeClass('animated tada');
 			myself.hand.current.classList.remove("visible", "animated", "tada");
 			myself.smile.current.classList.remove("visible");
 		}, 800);

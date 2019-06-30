@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
 import './Flyer.scss';
 
 class Flyer extends Component {
@@ -35,7 +32,7 @@ class Flyer extends Component {
             <div className={"flyer flyer-" + direction + (animated==="true" ?"":" noanimation")}>
                 <div className="flyer-inner">
                     {content.titleIcon &&<div className="flyer-title-icon">
-                        <img src={"/imgs/" + content.titleIcon} />
+                        <img src={"/imgs/" + content.titleIcon} alt="Flyer Title Icon" />
                     </div>}
                     <h3>{content.title}</h3>
                     <div className="hr"></div>
@@ -44,7 +41,7 @@ class Flyer extends Component {
                         {content.icons && content.icons.map((icon, index) => {
                             return (
                                 <div key={index} className="flyer-icon" data-target={icon.dataTarget} onClick={callFlyer}>
-                                    <img src={"/imgs/" + icon.src} />
+                                    <img src={"/imgs/" + icon.src} alt="Flyer Icon" />
                                 </div>
                             )
                         })}

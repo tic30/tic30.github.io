@@ -56,3 +56,9 @@
     0% {width: 4rem}
     100% {width: 2.7rem}
 }
+
+@keyframes expandWidth {
+    0% {transform: translateX(-100%); filter: brightness(5)}
+    70% {transform: translateX(0); filter: brightness(1.5)}
+    100% {transform: translateX(0); filter: brightness(1)}
+}
