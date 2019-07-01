@@ -39,6 +39,28 @@ export default {
         titleIcon: "icons/cmu.png",
         content: "I received my degree of Master of Science in Software Engineering at Carnegie Mellon University(CMU) in 2018. CMU courses paved solid ground in engineering which I benefit from util today and encouraged me to pursue a life-long learning."
     },
+    //portfolio
+    ITS: {
+        title: "Intelligent Tutoring Systems",
+        imgUrl: "its.png",
+        subTitle: "An AR application that enhances in-class communication to help instructors collect student feedback and conduct efficient teaching.",
+        btnText: "Read more",
+        pageUrl: "/home"
+    },
+    DealFindMe: {
+        title: "DealFindMe",
+        imgUrl: "dealfindme.png",
+        subTitle: "Real-time coupon information at hand.",
+        btnText: "Read more",
+        pageUrl: "/home"
+    },
+    Milu: {
+        title: "Milu",
+        imgUrl: "milu.png",
+        subTitle: "A gallery search engine which enables image content search.",
+        btnText: "Read more",
+        pageUrl: "/home"
+    }
 }
 
 // I seek challenges, with-in and out of work. I embrace them, break them down into practical tasks and improve myself along the way. 

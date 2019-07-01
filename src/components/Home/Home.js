@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 // import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import Header from '../Header';
 import Flyer from '../Flyer';
 import ContactBubble from '../ContactBubble';
+import PortfolioCard from '../PortfolioCard';
 import Texts from '../../texts';
+import { isInViewport } from '../../util';
 import './Home.scss';
 
 class Home extends Component {
@@ -42,21 +45,33 @@ class Home extends Component {
 	}
 
 	componentDidMount() {
-		const myself = this;
+		const myself = this;			
+		const sec1Container = this.sec1Container.current;
+		const allCards = document.querySelectorAll(".portfolio-card");
 
 		setTimeout(function () {
 			myself.logoHover();
 			myself.logoHoverEnd();
 		}, 2000);
 
+		allCards.forEach((item) => {
+			if(isInViewport(item)) {
+				item.classList.add("come-in");
+			}
+		});
+
 		document.addEventListener("scroll", () => {
-			const sec1Container = this.sec1Container.current;
 			if(window.pageYOffset > 0) {
 				sec1Container.classList.add("shrinked");
 			}else {
 				sec1Container.classList.remove("shrinked");
 			}
 
+			allCards.forEach((item) => {
+				if(isInViewport(item)) {
+					item.classList.add("come-in");
+				}
+			});
 		})
 	}
 
@@ -93,6 +108,31 @@ class Home extends Component {
 						<h2>Projects</h2>
 					</div>
 					<div className="container">
+						<div className="container-inner">
+							<Grid container spacing={3} className="grid-container grid-container-left">
+								<Grid item xs={12}>
+									<PortfolioCard large content={Texts.ITS} />
+								</Grid>
+							</Grid>
+							<Grid container spacing={3} className="grid-container grid-container-right">
+								<Grid item xs={12}>
+									<PortfolioCard content={Texts.DealFindMe} />
+								</Grid>
+								<Grid item xs={12}>
+									<PortfolioCard content={Texts.Milu} />
+								</Grid>
+							</Grid>
+						</div>
+						<div className="container-inner">
+							<Grid container spacing={3} className="grid-container">
+								<Grid item xs={12} sm={6} md={4}>
+									<PortfolioCard content={Texts.ITS} />
+								</Grid>
+								<Grid item xs={12} sm={6} md={8}>
+									<PortfolioCard content={Texts.ITS} />
+								</Grid>
+							</Grid>
+						</div>
 					</div>
 				</section>
 			</React.Fragment>

@@ -1,0 +1,78 @@
+@import "../variable";
+
+.portfolio-card {
+    min-height: 20rem;
+    transform: translateY(150px);
+    overflow: hidden;
+    a {
+        color: $palette-black;
+    }
+    h4 {
+        position: relative;
+        font-weight: normal;
+        padding-bottom: 1.125rem;
+        margin: 0 0 1.25rem 0;
+        line-height: 1;
+        &::after {
+            position: absolute;
+            content: "";
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 3px;
+            transition-duration: 0.5s;
+            background-color: $palette-black;
+        }
+    }
+    img {
+        position: absolute;
+        height: 100%;
+        left: 50%;
+        top: 50%;
+        transition-duration: 0.5s;
+        transform: translate(-50%, -50%)
+    }
+    .portfolio-card-content {
+        display: flex;
+    }
+    p {
+        font-size: 1rem;
+        margin: 0 1rem 0 0;
+    }
+    .portfolio-card-btn {
+        height: 3rem;
+        min-width: 150px;
+        padding: 0.9rem 0;
+        line-height: 1;
+        text-align: center; 
+        border: 2px solid $palette-black;
+        text-transform: uppercase;
+    }
+
+    &:hover {
+        h4::after {
+            width: 10rem;
+        }
+        img{
+            height: 110%;
+        }
+        .portfolio-card-text-wrapper {
+            transform: translateY(0);
+        }
+    }
+}
+
+.portfolio-card-large {
+    height: 100%;
+}
+
+.portfolio-card-text-wrapper {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background-color: $palette-white;
+    transition-duration: 0.2s;
+    transform: translateY(5rem);
+}
