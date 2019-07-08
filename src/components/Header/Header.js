@@ -59,7 +59,7 @@ class Header extends Component {
                     </Grid>
                     <Grid item xs={12} sm>
                         <div className="nav-item">
-                            <Button href="#">Contact</Button>
+                            <Button href="#sec4">Contact</Button>
                         </div>
                     </Grid>
                     <Grid item xs={12} sm>

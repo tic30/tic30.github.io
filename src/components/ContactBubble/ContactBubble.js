@@ -42,7 +42,7 @@ class ContactBubble extends Component {
             backdropClasses.add("show");
             setTimeout(() => {
                 popupClasses.add("show2");
-            }, 300);
+            }, 100);
         }
     }
 

@@ -8,7 +8,7 @@ $btn-width: 56px;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom right, rgba(0,0,0,0), $palette-white);
+    background: linear-gradient(to bottom right, rgba(0,0,0,0), rgba($palette-white,0.2) 30%, rgba($palette-white,0.6) 60%, rgba($palette-white,0.9) 80%, $palette-white);
     z-index: 2;
     display: none;
     &.show {
@@ -52,6 +52,21 @@ $btn-width: 56px;
     }
     &.show2 {
         overflow: visible;
+        .contact-bubble-popup-item{
+            &#linkedin .contact-bubble-popup-item-text {
+                width: 180px;
+            }
+            &#email .contact-bubble-popup-item-text {
+                width: 200px;
+            }
+            &#facebook .contact-bubble-popup-item-text {
+                width: 90px;
+            }
+            &#github .contact-bubble-popup-item-text {
+                width: 185px;
+            }
+        }
+        
     }
 }
 
@@ -59,6 +74,9 @@ $btn-width: 56px;
     position: relative;
     margin-bottom: 1rem;
     cursor: pointer;
+    overflow: hidden;
+    width: 256px;
+    float: right;
 
     &#linkedin {
         color: #007AB9;
@@ -74,17 +92,17 @@ $btn-width: 56px;
     }
 }
 
-.contact-bubble-popup-item:hover {
-    img {
-        filter: grayscale(0);
-    }
-    &#github img{
-        opacity: 1;
-    }
-    .contact-bubble-popup-item-text {
-        width: 200px;
-    }
-}
+// .contact-bubble-popup-item:hover {
+//     img {
+//         filter: grayscale(0);
+//     }
+//     &#github img{
+//         opacity: 1;
+//     }
+//     .contact-bubble-popup-item-text {
+//         width: 200px;
+//     }
+// }
 
 a.contact-bubble-popup-item-btn {
     position: relative;
@@ -94,19 +112,17 @@ a.contact-bubble-popup-item-btn {
     min-width: $btn-width;
     overflow: hidden;
     padding: 3px;
+    float: right;
 
     img {
         width: 100%;
         height: 100%;
-        filter: grayscale(1);
+        // filter: grayscale(1);
     }
 }
 
 .contact-bubble-popup-item-text {
-    position: absolute;
-    top: 0;
-    right: $btn-width;
-    height: $btn-width;
+    float: right;
     line-height: $btn-width;
     white-space: nowrap;
     margin: 0;
@@ -115,4 +131,10 @@ a.contact-bubble-popup-item-btn {
     font-weight: 700;
     width: 0;
     overflow: hidden;
+}
+
+@for $i from 1 through 4 {
+    .contact-bubble-popup-item:nth-child(#{$i}n) .contact-bubble-popup-item-text{
+        transition-delay: #{$i * 0.1 - 0.1}s;
+    }
 }

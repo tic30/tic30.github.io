@@ -15,9 +15,11 @@ class Home extends Component {
 		this.state = {
 			dynamicFlyer: ""
 		}
+		this.contactBubble = React.createRef();
 		this.hand = React.createRef();
 		this.smile = React.createRef();
 		this.sec1Container = React.createRef();
+		this.footer = React.createRef();
 		this.logoHover = this.logoHover.bind(this);
 		this.logoHoverEnd = this.logoHoverEnd.bind(this);
 		this.callFlyer = this.callFlyer.bind(this);
@@ -72,6 +74,10 @@ class Home extends Component {
 					item.classList.add("come-in");
 				}
 			});
+
+			if((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !document.querySelector(".contact-bubble-popup-container").classList.contains("show1")){
+				this.contactBubble.current.togglePopup();
+			}
 		})
 	}
 
@@ -81,7 +87,7 @@ class Home extends Component {
 		return (
 			<React.Fragment>
 				<Header />
-				<ContactBubble />
+				<ContactBubble ref={this.contactBubble}/>
 				<section id="sec1">
 					<div className="container" ref={this.sec1Container}>
 						<div id="img-container" onMouseEnter={this.logoHover} onMouseLeave={this.logoHoverEnd}>
@@ -134,6 +140,13 @@ class Home extends Component {
 							</Grid>
 						</div>
 					</div>
+				</section>
+				<section id="sec4">
+					<div className="section-header">
+						<h2>Lets chat</h2>
+						<h1>I am open to<br/>creative ideas!</h1>
+					</div>
+					<footer ref={this.footer}>Copyright © 2016 - 2019 Chu, Tianxin. All rights reserved.</footer>
 				</section>
 			</React.Fragment>
 		);
