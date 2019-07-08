@@ -45,7 +45,6 @@ section {
     background-image:url(/imgs/bgsec1.jpg);
 	background-size: cover;
     background-repeat:no-repeat;
-    background-attachment: fixed;
     z-index: 0;
 
     &::after {
@@ -58,7 +57,7 @@ section {
         background: linear-gradient($palette-black, rgba($palette-black, 0.9) 20%, rgba($palette-black, 0.6) 40%, rgba($palette-black, 0.4))
     }
     .container {
-        position: fixed;
+        position: absolute;
         padding: 10rem 7rem 5rem;
         left: 50%;
         bottom: 0;
@@ -231,7 +230,7 @@ footer {
     margin: auto;
     padding: 0 7rem 1rem;
     color: $palette-grey-500;
-    z-index: 1;
+    z-index: 10;
     &:hover {
         color: $palette-white;
     }

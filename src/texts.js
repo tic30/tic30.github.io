@@ -33,7 +33,7 @@ export default {
     },
     Siemens: {
         titleIcon: "icons/siemens.svg",
-        content: "I had very rewarding experience at Siemens. As a UX Engineer, I worked in fast-paced iterations. Engineers and designers sync daily to enable development and design to run almost in parallel. Thanks to the close engagement with stake holder, I am able to test creative sometimes crazy ideas, collect feedback and iterate on not only functions and feature but also tools, platforms and service systems."
+        content: "The experience at Siemens is fast-paced. Engineers and designers sync daily to enable development and design to run in parallel. Thanks to the close engagement with stake holder, I am able to test creative sometimes crazy ideas, collect feedback and iterate quickly on not only functions and feature but also tools, platforms and service systems."
     },
     Cmu: {
         titleIcon: "icons/cmu.png",
@@ -50,15 +50,29 @@ export default {
     DealFindMe: {
         title: "DealFindMe",
         imgUrl: "dealfindme.png",
-        subTitle: "Real-time coupon information at hand.",
-        btnText: "Read more",
+        subTitle: "Coupon at hand for the store I am standing in.",
+        btnText: "Coming Soon",
         pageUrl: "/home"
     },
     Milu: {
         title: "Milu",
         imgUrl: "milu.png",
         subTitle: "A gallery search engine which enables image content search.",
-        btnText: "Read more",
+        btnText: "Coming Soon",
+        pageUrl: "/home"
+    },
+    EthereumWallet: {
+        title: "Ethereum Wallet",
+        imgUrl: "ethereumwallet.png",
+        subTitle: "A Chrome extension which supports Checkout w/ Ethereum.",
+        btnText: "Coming Soon",
+        pageUrl: "/home"
+    },
+    MovieEmodex: {
+        title: "Movie.Emodex",
+        imgUrl: "ethereumwallet.png",
+        subTitle: "New movie rating system based on emotional impact.",
+        btnText: "Coming Soon",
         pageUrl: "/home"
     }
 }

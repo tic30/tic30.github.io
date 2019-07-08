@@ -18,7 +18,6 @@ class Home extends Component {
 		this.contactBubble = React.createRef();
 		this.hand = React.createRef();
 		this.smile = React.createRef();
-		this.sec1Container = React.createRef();
 		this.footer = React.createRef();
 		this.logoHover = this.logoHover.bind(this);
 		this.logoHoverEnd = this.logoHoverEnd.bind(this);
@@ -47,8 +46,7 @@ class Home extends Component {
 	}
 
 	componentDidMount() {
-		const myself = this;			
-		const sec1Container = this.sec1Container.current;
+		const myself = this;
 		const allCards = document.querySelectorAll(".portfolio-card");
 
 		setTimeout(function () {
@@ -63,12 +61,6 @@ class Home extends Component {
 		});
 
 		document.addEventListener("scroll", () => {
-			if(window.pageYOffset > 0) {
-				sec1Container.classList.add("shrinked");
-			}else {
-				sec1Container.classList.remove("shrinked");
-			}
-
 			allCards.forEach((item) => {
 				if(isInViewport(item)) {
 					item.classList.add("come-in");
@@ -89,7 +81,7 @@ class Home extends Component {
 				<Header />
 				<ContactBubble ref={this.contactBubble}/>
 				<section id="sec1">
-					<div className="container" ref={this.sec1Container}>
+					<div className="container">
 						<div id="img-container" onMouseEnter={this.logoHover} onMouseLeave={this.logoHoverEnd}>
 							<img id="chu-logo" src="/imgs/chu-logo.png" alt="Loading Logo..." />
 							<div id="hand" ref={this.hand}><img src="/imgs/hand.png" alt="Loading hand..." /></div>
@@ -132,10 +124,10 @@ class Home extends Component {
 						<div className="container-inner">
 							<Grid container spacing={3} className="grid-container">
 								<Grid item xs={12} sm={6} md={4}>
-									<PortfolioCard content={Texts.ITS} />
+									<PortfolioCard content={Texts.EthereumWallet} />
 								</Grid>
 								<Grid item xs={12} sm={6} md={8}>
-									<PortfolioCard content={Texts.ITS} />
+									<PortfolioCard content={Texts.MovieEmodex} />
 								</Grid>
 							</Grid>
 						</div>
