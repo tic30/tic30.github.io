@@ -15,26 +15,9 @@ class ContactBubble extends Component {
         this.togglePopup = this.togglePopup.bind(this);
     }
 
-    // componentDidMount() {
-    //     let lastScrollTop = 0,
-    //         myself = this;
-
-    //     // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
-    //     document.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
-    //         let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-    //         if (st > lastScrollTop){
-    //             // downscroll code
-    //             myself.nav.current.classList.add("scrolled");
-    //         } else {
-    //             // upscroll code
-    //             myself.nav.current.classList.remove("scrolled");
-    //         }
-    //         lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-    //     }, false);
-    // }
-
     togglePopup() {
         const { open } = this.state;
+        if(!this.popup.current) return;
         const popupClasses = this.popup.current.classList;
 
         if (!open) {

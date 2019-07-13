@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Dij extends Component {
+class DFM extends Component {
   render() {
     return (
       <div>
@@ -10,4 +10,4 @@ class Dij extends Component {
   }
 }
 
-export default Dij;
+export default DFM;

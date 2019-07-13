@@ -54,6 +54,7 @@ class Home extends Component {
 		const { timeouts } = this.state
 		const myself = this;
 		const allCards = document.querySelectorAll(".portfolio-card");
+		const contactBubble = this.contactBubble.current;
 
 		const timeout2 = setTimeout(function () {
 			myself.logoHover();
@@ -73,7 +74,7 @@ class Home extends Component {
 
 		detectScrollDirection((dir)=> {
 			if(dir==="up" && (window.innerHeight + window.scrollY + 300) <= document.body.offsetHeight && document.querySelector(".contact-bubble-popup-container").classList.contains("show1")){
-				this.contactBubble.current.togglePopup();
+				contactBubble.togglePopup();
 			}
 		});
 	}

@@ -26,7 +26,7 @@ class ITS extends Component {
 		return (
 			<React.Fragment>
 				<Header />
-				<ContactBubble ref={this.contactBubble}/>
+				<ContactBubble />
 				<section id="its-sec1">
 					<div className="container">
 						<h1>{Texts.Hero.title}</h1>

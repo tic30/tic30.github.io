@@ -52,28 +52,28 @@ export default {
         imgUrl: "dealfindme.png",
         subTitle: "Coupon at hand for the store I am standing in.",
         btnText: "Coming Soon",
-        pageUrl: "/home"
+        pageUrl: "/dfm"
     },
     Milu: {
         title: "Milu",
         imgUrl: "milu.png",
         subTitle: "A gallery search engine which enables image content search.",
         btnText: "Coming Soon",
-        pageUrl: "/home"
+        pageUrl: "/milu"
     },
     EthereumWallet: {
         title: "Ethereum Wallet",
         imgUrl: "ethereumwallet.png",
         subTitle: "A Chrome extension which supports Checkout w/ Ethereum.",
         btnText: "Coming Soon",
-        pageUrl: "/home"
+        pageUrl: "/ethereumwallet"
     },
     MovieEmodex: {
         title: "Movie.Emodex",
         imgUrl: "movie.png",
         subTitle: "New movie rating system based on emotional impact.",
         btnText: "Coming Soon",
-        pageUrl: "/home"
+        pageUrl: "/movieemodex"
     }
 }
 
