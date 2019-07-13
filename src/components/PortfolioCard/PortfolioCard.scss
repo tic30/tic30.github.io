@@ -1,9 +1,15 @@
 @import "../variable";
 
-.portfolio-card {
+div.portfolio-card,
+.placeHolder-card {
     min-height: 20rem;
+}
+
+div.portfolio-card {
     transform: translateY(150px);
     overflow: hidden;
+    transition: left 0.5s, top 0.5s, width 1s, height 1s;
+
     a {
         color: $palette-black;
     }
@@ -63,8 +69,18 @@
     }
 }
 
+.portfolio-card.open{
+    position: fixed;
+    transform: translateY(0);
+    z-index: 4;
+}
+
 .portfolio-card-large {
     height: 100%;
+}
+
+.portfolio-card-container {
+    cursor: pointer;
 }
 
 .portfolio-card-text-wrapper {

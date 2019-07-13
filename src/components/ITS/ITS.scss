@@ -1,0 +1,233 @@
+@import "../variable";
+@import "../animation";
+
+.section-header {
+    position: relative;
+    margin: auto;
+    max-width: $screen-lg;
+    padding: 3rem 5.7rem 4rem;
+    &::after {
+        position: absolute;
+        top: 8.5rem;
+        content: "";
+        width: 5rem;
+        max-width: 50%;
+        height: 6px;
+        transition-duration: 0.2s;
+        background-color: $palette-black;
+    }
+
+    h2 {
+        margin: 1.5rem 0;
+    }
+}
+.section-header:hover {
+    &::after {
+        width: 20rem;
+    }
+}
+
+.container {
+    padding: 0 1.5rem;
+    max-width: $screen-lg;
+    margin: auto;
+}
+
+.visible {
+    opacity: 1 !important;
+}
+
+#sec1 {
+    color: $palette-white;
+    background-image:url(/imgs/bgsec1.jpg);
+	background-size: cover;
+    background-repeat:no-repeat;
+    z-index: 0;
+
+    &::after {
+        position:absolute;
+        content: "";
+        margin:0;
+        padding:0;
+        width:100%;
+        height:100%;
+        background: linear-gradient($palette-black, rgba($palette-black, 0.9) 20%, rgba($palette-black, 0.6) 40%, rgba($palette-black, 0.4))
+    }
+    .container {
+        position: absolute;
+        padding: 10rem 5.7rem 5rem;
+        left: 50%;
+        bottom: 0;
+        transition-duration: 0.3s;
+        transform: translateX(-50%) scale(1);
+        z-index: 1;
+        &.shrinked {
+            transform: translateX(-50%) scale(0.95);
+        }
+    }
+    h1 {
+        animation-name: fadeInUp;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-delay: 1.2s;
+        opacity: 0;
+    }
+    p.contentText {
+        font-size: 28px;
+        line-height: 1.5;
+        max-width: 610px;
+        animation-name: fadeInUp;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-delay: 1.4s;
+        opacity: 0;
+    }
+
+    p.ctaText {
+        font-size: 20px;
+        margin-top: 3rem;
+        animation-name: fadeInUp;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-delay: 3s;
+        opacity: 0;
+    }
+
+    #img-container{
+        position:relative;
+        height:200px;
+        display: inline-block;
+        text-align: center;
+        animation-name: fadeInUp;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-delay: 1s;
+        opacity: 0;
+    }
+    #chu-logo{
+        width:180px;
+        height:auto;
+    }
+    #hand{
+        position:absolute;
+        left:50%;
+        margin-top:-50px;
+        margin-left:-150px;
+        opacity:0;
+        -webkit-transition: all 0.1s ease-in;
+        -moz-transition: all 0.1s ease-in;
+        -o-transition: all 0.1s ease-in;
+        transition: all 0.1s ease-in;
+    }
+    #hand img{
+        position:relative;
+        width:60px;
+        height:auto
+    }
+    #smile{
+        position:absolute;
+        left:50%;
+        margin-top:125px;
+        width:30px;
+        height:auto;
+        opacity:0;
+        transition: all 0.2s ease-in;
+        margin-top:165px;
+        width:50px;
+        height:auto;
+        transform:scaleY(-1);
+        margin-left:-25px;
+    }
+}
+
+// .slope {
+//     position: absolute;
+//     height: 100%;
+//     width: 100%;
+//     background: linear-gradient(290deg, transparent 50%, $palette-grey-500 0) top left;
+//     &::after {
+//         position: absolute;
+//         content: "";
+//         height: 100%;
+//         width: 100%;
+//         background: linear-gradient(290deg, transparent calc(50% + 2px), $palette-black 0) top left;
+//         z-index: 1;
+//     }
+// }
+
+#sec2 {
+    height: auto;
+    min-height: 0;
+
+    .container {
+        height: 500px;
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+#sec3 {
+    .container {
+        padding: 0 1.5rem 100px;
+        overflow: hidden;
+    }
+    .container-inner {
+        display: flex;
+        padding: 12px 0;
+    }
+    .grid-container-left {
+        flex: 2;
+        margin-right: 12px;
+    }
+    .grid-container-right {
+        flex: 1
+    }
+}
+
+#sec4 {
+    background-image:url(/imgs/bgsec4.jpg);
+	background-size: cover;
+    background-repeat:no-repeat;
+    color: $palette-white;
+    &::after {
+        position:absolute;
+        content: "";
+        top: 0;
+        margin:0;
+        padding:0;
+        width:100%;
+        height:100%;
+        background: linear-gradient($palette-black, rgba($palette-black, 0.5) 20%, rgba($palette-black, 0))
+    }
+    .section-header {
+        z-index: 10;
+        padding-bottom: 0;
+    }
+    .section-header::after {
+        background-color: $palette-white;
+    }
+    .section-header h1 {
+        text-transform: uppercase;
+        margin-top: 2.5rem;
+        margin-bottom: 0;
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 1400px;
+    margin: auto;
+    padding: 0 7rem 1rem;
+    color: $palette-grey-500;
+    z-index: 10;
+    &:hover {
+        color: $palette-white;
+    }
+}

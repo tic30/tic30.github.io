@@ -12,7 +12,8 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			dynamicFlyer: ""
+			dynamicFlyer: "",
+			timeouts: []
 		}
 		this.contactBubble = React.createRef();
 		this.hand = React.createRef();
@@ -21,6 +22,7 @@ class Home extends Component {
 		this.logoHover = this.logoHover.bind(this);
 		this.logoHoverEnd = this.logoHoverEnd.bind(this);
 		this.callFlyer = this.callFlyer.bind(this);
+		this.scrollEvent = this.scrollEvent.bind(this);
 	}
 
 	logoHover() {
@@ -30,11 +32,15 @@ class Home extends Component {
 	}
 
 	logoHoverEnd() {
+		const { timeouts } = this.state
 		const myself = this;
-		setTimeout(function () {
+		const timeout1 = setTimeout(function () {
 			myself.hand.current.classList.remove("visible", "animated", "handTada");
 			myself.smile.current.classList.remove("visible");
 		}, 800);
+		this.setState({
+			timeouts: [...timeouts, timeout1]
+		})
 	}
 
 	callFlyer(e) {
@@ -45,13 +51,17 @@ class Home extends Component {
 	}
 
 	componentDidMount() {
+		const { timeouts } = this.state
 		const myself = this;
 		const allCards = document.querySelectorAll(".portfolio-card");
 
-		setTimeout(function () {
+		const timeout2 = setTimeout(function () {
 			myself.logoHover();
 			myself.logoHoverEnd();
 		}, 2000);
+		this.setState({
+			timeouts: [...timeouts, timeout2]
+		})
 
 		allCards.forEach((item) => {
 			if(isInViewport(item)) {
@@ -59,23 +69,35 @@ class Home extends Component {
 			}
 		});
 
-		document.addEventListener("scroll", () => {
-			allCards.forEach((item) => {
-				if(isInViewport(item)) {
-					item.classList.add("come-in");
-				}
-			});
-
-			if((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !document.querySelector(".contact-bubble-popup-container").classList.contains("show1")){
-				this.contactBubble.current.togglePopup();
-			}
-		})
+		document.addEventListener("scroll", this.scrollEvent, false)
 
 		detectScrollDirection((dir)=> {
 			if(dir==="up" && (window.innerHeight + window.scrollY + 300) <= document.body.offsetHeight && document.querySelector(".contact-bubble-popup-container").classList.contains("show1")){
 				this.contactBubble.current.togglePopup();
 			}
 		});
+	}
+
+	scrollEvent() {
+		const allCards = document.querySelectorAll(".portfolio-card");
+
+		allCards.forEach((item) => {
+			if(isInViewport(item)) {
+				item.classList.add("come-in");
+			}
+		});
+
+		if((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !document.querySelector(".contact-bubble-popup-container").classList.contains("show1")){
+			this.contactBubble.current.togglePopup();
+		}
+	}
+
+	componentWillUnmount() {
+		const { timeouts } = this.state
+		timeouts.forEach((item) => {
+			clearTimeout(item);
+		})
+		document.removeEventListener("scroll", this.scrollEvent, false);
 	}
 
 	render() {

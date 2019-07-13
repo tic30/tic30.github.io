@@ -45,7 +45,7 @@ export default {
         imgUrl: "its.png",
         subTitle: "An AR application that enhances in-class communication to help instructors collect student feedback and conduct efficient teaching.",
         btnText: "Read more",
-        pageUrl: "/home"
+        pageUrl: "/its"
     },
     DealFindMe: {
         title: "DealFindMe",

@@ -27,8 +27,8 @@ class App extends Component {
 				<React.Fragment>
 					<Route path="/" exact component={Preloader} />
 					<Route path="/home" component={Home} />
-					<Route path="/its/" component={ITS} />
-					<Route path="/siemens/" component={Dij} />
+					<Route path="/its" component={ITS} />
+					<Route path="/siemens" component={Dij} />
 				</React.Fragment>
 			</Router>
 		);
