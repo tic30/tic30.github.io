@@ -1,15 +1,11 @@
 @import "../variable";
 @import "../animation";
 
-section {
-    position: relative;
-    min-height: 100vh;
-}
 .section-header {
     position: relative;
-    max-width: 1400px;
     margin: auto;
-    padding: 3rem 7rem 4rem;
+    max-width: $screen-lg;
+    padding: 3rem 5.7rem 4rem;
     &::after {
         position: absolute;
         top: 8.5rem;
@@ -32,8 +28,9 @@ section {
 }
 
 .container {
-    position: relative;
-    width: 100%;
+    padding: 0 1.5rem;
+    max-width: $screen-lg;
+    margin: auto;
 }
 
 .visible {
@@ -58,12 +55,11 @@ section {
     }
     .container {
         position: absolute;
-        padding: 10rem 7rem 5rem;
+        padding: 10rem 5.7rem 5rem;
         left: 50%;
         bottom: 0;
         transition-duration: 0.3s;
         transform: translateX(-50%) scale(1);
-        max-width: 1400px;
         z-index: 1;
         &.shrinked {
             transform: translateX(-50%) scale(0.95);
@@ -169,13 +165,13 @@ section {
 
     .container {
         height: 500px;
+        max-width: 100%;
+        padding: 0;
     }
 }
 
 #sec3 {
     .container {
-        max-width: 1450px;
-        margin: auto;
         padding: 0 1.5rem 100px;
         overflow: hidden;
     }

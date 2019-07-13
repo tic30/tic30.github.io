@@ -70,7 +70,7 @@ export default {
     },
     MovieEmodex: {
         title: "Movie.Emodex",
-        imgUrl: "ethereumwallet.png",
+        imgUrl: "movie.png",
         subTitle: "New movie rating system based on emotional impact.",
         btnText: "Coming Soon",
         pageUrl: "/home"

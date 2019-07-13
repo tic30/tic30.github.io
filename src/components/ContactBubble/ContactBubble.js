@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import Fab from '@material-ui/core/Fab';
 import Button from '@material-ui/core/Button';
-import { ChatBubbleOutline } from '@material-ui/icons';
+import { ChatBubbleOutline, Clear } from '@material-ui/icons';
 import './ContactBubble.scss';
 
 class ContactBubble extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            open: false
+        }
         this.bubble = React.createRef();
         this.popup = React.createRef();
-        this.backdrop = React.createRef();
         this.togglePopup = this.togglePopup.bind(this);
     }
 
@@ -32,28 +34,35 @@ class ContactBubble extends Component {
     // }
 
     togglePopup() {
-        const popupClasses = this.popup.current.classList,
-            backdropClasses = this.backdrop.current.classList;
-        if (popupClasses.contains("show1")) {
-            popupClasses.remove("show1", "show2");
-            backdropClasses.remove("show");
-        } else {
-            popupClasses.add("show1");
-            backdropClasses.add("show");
+        const { open } = this.state;
+        const popupClasses = this.popup.current.classList;
+
+        if (!open) {
             setTimeout(() => {
                 popupClasses.add("show2");
             }, 100);
         }
+        this.setState({
+            open: !open
+        })
     }
 
     render() {
+        const { open } = this.state;
+        let button;
+        if (open) {
+            button = <Clear></Clear>;
+        } else {
+            button = <ChatBubbleOutline></ChatBubbleOutline>;
+        }
+
         return (
             <React.Fragment>
                 <div className="contact-bubble" ref={this.bubble}>
                     <Fab className="contact-bubble-cta" onClick={this.togglePopup}>
-                        <ChatBubbleOutline></ChatBubbleOutline>
+                        {button}
                     </Fab>
-                    <div className="contact-bubble-popup-container" ref={this.popup}>
+                    <div className={`contact-bubble-popup-container ${open?"show1":""}`} ref={this.popup}>
                         <div className="contact-bubble-popup-item" id="linkedin">
                             <Button className="contact-bubble-popup-item-btn" href="https://www.linkedin.com/in/tim-chu-980881a4" target="_blank" rel="noreferrer">
                                 <img src="/imgs/icons/linkedin.svg" alt="LinkedIn Icon" />
@@ -80,7 +89,7 @@ class ContactBubble extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="backdrop" ref={this.backdrop} onClick={this.togglePopup}></div>
+                <div className={`backdrop ${open?"show":""}`} onClick={this.togglePopup}></div>
             </React.Fragment>
         );
     }

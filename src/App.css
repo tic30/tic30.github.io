@@ -7,6 +7,16 @@ body {
     font-size: 16px;
 }
 
+section {
+    position: relative;
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
 *, *::after {
     box-sizing: border-box;
 }

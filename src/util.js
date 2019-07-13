@@ -10,3 +10,19 @@ export const isInViewport = (el) => {
 
     return (vertInView && horInView);    
 }
+
+window.lastScrollTop = 0;
+// element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+export const detectScrollDirection = (callback) => {
+    document.addEventListener("scroll", function(){
+        let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+        let dir = "";
+        if (st > window.lastScrollTop){
+            dir = "down";
+        } else {
+            dir = "up";
+        }
+        window.lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+        return callback(dir);
+    }, false);
+}

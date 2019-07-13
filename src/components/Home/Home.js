@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-// import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Header from '../Header';
 import Flyer from '../Flyer';
 import ContactBubble from '../ContactBubble';
 import PortfolioCard from '../PortfolioCard';
 import Texts from '../../texts';
-import { isInViewport } from '../../util';
+import { isInViewport, detectScrollDirection } from '../../util';
 import './Home.scss';
 
 class Home extends Component {
@@ -71,6 +70,12 @@ class Home extends Component {
 				this.contactBubble.current.togglePopup();
 			}
 		})
+
+		detectScrollDirection((dir)=> {
+			if(dir==="up" && (window.innerHeight + window.scrollY + 300) <= document.body.offsetHeight && document.querySelector(".contact-bubble-popup-container").classList.contains("show1")){
+				this.contactBubble.current.togglePopup();
+			}
+		});
 	}
 
 	render() {

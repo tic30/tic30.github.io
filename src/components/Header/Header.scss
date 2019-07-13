@@ -25,13 +25,14 @@
 }
 
 .nav-container {
-    max-width: 1300px;
+    max-width: $screen-lg;
     margin: auto;
 }
 
 .logo-wrapper {
-    @media (max-width: 600px) {
-        order: -1;
+    order: -1;
+    @include screen-sm {
+        order: 0;
     }
 }
 
@@ -156,7 +157,7 @@
         }
     }
 
-    @media (min-width: 600px) {
+    @include screen-sm {
         display: none;
     }
 }

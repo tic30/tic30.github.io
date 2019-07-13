@@ -29,27 +29,27 @@ $screen-md: 960px;
 $screen-lg: 1280px;
 $screen-xl: 1920px;
 
-@mixin xs {
+@mixin screen-xs {
     @media (min-width: $screen-xs) {
         @content;
     }
 }
-@mixin sm {
+@mixin screen-sm {
     @media (min-width: $screen-sm) {
         @content;
     }
 }
-@mixin md {
+@mixin screen-md {
     @media (min-width: $screen-md) {
         @content;
     }
 }
-@mixin lg {
+@mixin screen-lg {
     @media (min-width: $screen-lg) {
       @content;
     }
 }
-@mixin xl {
+@mixin screen-xl {
     @media (min-width: $screen-xl) {
         @content;
     }
