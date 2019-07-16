@@ -25,7 +25,7 @@ class Preloader extends Component {
         const { redirect } = this.state;
 
         if (redirect) {
-            return <Redirect to='/home' />
+            return <Redirect push to='/home' />
         }
 
         return (

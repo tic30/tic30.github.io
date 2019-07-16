@@ -92,4 +92,9 @@ div.portfolio-card {
     background-color: $palette-white;
     transition-duration: 0.2s;
     transform: translateY(5rem);
+
+    &.open {
+        transition-duration: 1s;
+        transform: translateY(100%) !important;
+    }
 }

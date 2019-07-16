@@ -29,8 +29,8 @@ class ITS extends Component {
 				<ContactBubble />
 				<section id="its-sec1">
 					<div className="container">
-						<h1>{Texts.Hero.title}</h1>
-						<p className="contentText">{Texts.Hero.content}</p>
+						<h2>{Texts.ITSHero.title}</h2>
+						<p className="contentText">{Texts.ITSHero.content}</p>
 					</div>
 				</section>
 				<section id="its-sec2">

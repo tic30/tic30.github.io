@@ -74,6 +74,11 @@ export default {
         subTitle: "New movie rating system based on emotional impact.",
         btnText: "Coming Soon",
         pageUrl: "/movieemodex"
+    },
+    //ITS page
+    ITSHero: {
+        title: "INTELLIGENT TUTORING SYSTEMS",
+        content: "Research Project @ CMU.HCII"
     }
 }
 

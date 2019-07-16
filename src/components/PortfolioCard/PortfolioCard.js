@@ -45,7 +45,7 @@ class PortfolioCard extends Component {
         const { open, redirect } = this.state;
 
         if (redirect!=="") {
-            return <Redirect to={redirect} />
+            return <Redirect push to={redirect} />
         }
         
         return (
@@ -53,7 +53,7 @@ class PortfolioCard extends Component {
                 <Paper className={`portfolio-card ${large?"portfolio-card-large":""} ${open?"open":""}`} ref={this.card}>
                     <div className="portfolio-card-container" onClick={() => this.clickCard(content.pageUrl)}>
                         <img src={"/imgs/" + content.imgUrl} alt="Portfolio"/>
-                        <div className="portfolio-card-text-wrapper">
+                        <div className={`portfolio-card-text-wrapper ${open?"open":""}`}>
                             <h4>{content.title}</h4>
                             <div className="portfolio-card-content">
                                 <p>{content.subTitle}</p>
