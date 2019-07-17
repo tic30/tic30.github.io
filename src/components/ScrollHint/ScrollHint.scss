@@ -1,0 +1,51 @@
+@import "../variable";
+
+.scrollHint-wrapper {
+    position: absolute;
+    bottom: 4rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    opacity: 0;
+    z-index: 1;
+    transition-duration: 1s;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-delay: 3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+    .hide {
+        opacity: 0;
+    }
+}
+
+.scrollHint {
+    position: relative;
+    height: 56px;
+    width: 35px;
+    border: 2px solid rgba($palette-white, 0.3);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+
+    &::after {
+        position: absolute;
+        content: "";
+        left: 50%;
+        transform: translateX(-50%);
+        height: 15px;
+        width: 4px;
+        border-radius: 2px;
+        background-color: $palette-white;
+        z-index: 1;
+        animation-name: scrollAndFade;
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+}

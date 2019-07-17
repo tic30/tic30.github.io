@@ -47,6 +47,7 @@
     &::after {
         position:absolute;
         content: "";
+        top: 0;
         margin:0;
         padding:0;
         width:100%;
@@ -54,18 +55,16 @@
         background: linear-gradient($palette-black, rgba($palette-black, 0.9) 20%, rgba($palette-black, 0.6) 40%, rgba($palette-black, 0.4))
     }
     .container {
-        position: absolute;
-        padding: 10rem 5.7rem 5rem;
-        left: 50%;
-        bottom: 0;
-        transition-duration: 0.3s;
-        transform: translateX(-50%) scale(1);
+        height: 100vh;
         z-index: 1;
-        &.shrinked {
-            transform: translateX(-50%) scale(0.95);
-        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
     h1 {
+        margin: 4rem 0 1rem;
         animation-name: fadeInUp;
         animation-duration: 0.5s;
         animation-timing-function: ease-in-out;
@@ -74,9 +73,10 @@
         opacity: 0;
     }
     p.contentText {
-        font-size: 28px;
+        font-size: 1.5rem;
         line-height: 1.5;
-        max-width: 610px;
+        max-width: 500px;
+        margin: 0 auto;
         animation-name: fadeInUp;
         animation-duration: 0.5s;
         animation-timing-function: ease-in-out;

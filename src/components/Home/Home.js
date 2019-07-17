@@ -4,6 +4,7 @@ import Header from '../Header';
 import Flyer from '../Flyer';
 import ContactBubble from '../ContactBubble';
 import PortfolioCard from '../PortfolioCard';
+import ScrollHint from '../ScrollHint';
 import Texts from '../../texts';
 import { isInViewport, detectScrollDirection } from '../../util';
 import './Home.scss';
@@ -118,6 +119,7 @@ class Home extends Component {
 						<h1>{Texts.Hero.title}</h1>
 						<p className="contentText">{Texts.Hero.content}</p>
 					</div>
+					<ScrollHint />
 				</section>
 				<section id="sec2">
 					<div className="section-header">
