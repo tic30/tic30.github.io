@@ -4,6 +4,7 @@ import Header from '../Header';
 import Flyer from '../Flyer';
 import ContactBubble from '../ContactBubble';
 import PortfolioCard from '../PortfolioCard';
+import ScrollHint from '../ScrollHint';
 import Texts from '../../texts';
 // import { isInViewport, detectScrollDirection } from '../../util';
 import './ITS.scss';
@@ -32,6 +33,7 @@ class ITS extends Component {
 						<h2>{Texts.ITSHero.title}</h2>
 						<p className="contentText">{Texts.ITSHero.content}</p>
 					</div>
+					<ScrollHint />
 				</section>
 				<section id="its-sec2">
 					<div className="section-header">
