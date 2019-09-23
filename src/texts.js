@@ -37,14 +37,14 @@ export default {
     },
     Cmu: {
         titleIcon: "icons/cmu.png",
-        content: "I received my degree of Master of Science in Software Engineering at Carnegie Mellon University(CMU) in 2018. CMU courses paved solid ground in engineering which I benefit from util today and encouraged me to pursue a life-long learning."
+        content: "I joined a group of HCI student to create AR application and study its social impact. I received my degree of Master of Science in Software Engineering at Carnegie Mellon University(CMU) in 2018. CMU courses paved solid ground in engineering which I benefit from util today and encouraged me to pursue a life-long learning."
     },
     //portfolio
     ITS: {
         title: "Intelligent Tutoring Systems",
         imgUrl: "its.png",
-        subTitle: "An AR application that enhances in-class communication to help instructors collect student feedback and conduct efficient teaching.",
-        btnText: "Read more",
+        subTitle: "Better teaching with AR.",
+        btnText: "Coming Soon",
         pageUrl: "/its"
     },
     DealFindMe: {

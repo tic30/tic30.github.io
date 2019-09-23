@@ -30,14 +30,6 @@ div.portfolio-card {
             background-color: $palette-black;
         }
     }
-    img {
-        position: absolute;
-        height: 100%;
-        left: 50%;
-        top: 50%;
-        transition-duration: 0.5s;
-        transform: translate(-50%, -50%)
-    }
     .portfolio-card-content {
         display: flex;
     }
@@ -48,10 +40,14 @@ div.portfolio-card {
         margin: 0 1rem 0 0;
         height: 48px;
         overflow: hidden;
-        display: block;
+        display: none;
         text-overflow: ellipsis;
         flex-grow: 1;
         background-color: $palette-white;
+
+        @include screen-md {
+            display: block;
+        }
     }
     .portfolio-card-btn {
         height: 3rem;
@@ -65,10 +61,10 @@ div.portfolio-card {
 
     &:hover {
         h4::after {
-            width: 10rem;
+            width: 150px;
         }
-        img{
-            height: 110%;
+        .portfolio-card-img{
+            transform: scale(1.1)
         }
         .portfolio-card-text-wrapper {
             transform: translateY(0);
@@ -87,7 +83,23 @@ div.portfolio-card {
 }
 
 .portfolio-card-container {
+    height: 100%;
     cursor: pointer;
+
+    .portfolio-card-img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        // left: 50%;
+        // top: 50%;
+        transition-duration: 0.5s;
+        // transform: translate(-50%, -50%)
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100%
+    }
 }
 
 .portfolio-card-text-wrapper {

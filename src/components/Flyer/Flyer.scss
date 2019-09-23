@@ -3,12 +3,14 @@
 .flyer {
     position: absolute;
     bottom: 0;
-    height: 100%;
+    height: 500px;
     z-index: 0;
-    display: inline-block;
     vertical-align: top;
     padding: 5rem 0;
     background: $palette-grey-100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &::after {
         position: absolute;
@@ -21,12 +23,23 @@
 
     .icons {
         display: flex;
+        flex-wrap: wrap;
+
+        @include screen-md {
+            flex-wrap: nowrap;
+        }
+    }
+
+    @include screen-md {
+        display: inline-block;
     }
 }
 
 .flyer-left {
+    height: 600px;
+    padding-top: 0rem;
     left: 0;
-    width: calc(50% + 92px);
+    width: 100%;
     transform: translateX(-100%);
     z-index: 4;
     color: $palette-white;
@@ -45,20 +58,34 @@
         background: $palette-grey-100;
     }
     &::after {
-        background: linear-gradient(290deg, transparent 25%, $palette-black 0) top left;
+        background: linear-gradient(352deg, transparent 20%, #1a1a1a 0) top left;
+
+        @include screen-md {
+            background: linear-gradient(290deg, transparent 25%, $palette-black 0) top left;
+        }
     }
 
     .flyer-inner {
         float: right;
-        padding-right: 25%;
         max-width: 800px;
-        padding-left: 1.5rem;
+
+        @include screen-md {
+            padding-right: 28%;
+            padding-left: 1.5rem;
+        }
+    }
+
+
+    @include screen-md {
+        height: 500px;
+        padding-top: 5rem;
+        width: calc(50% + 92px);
     }
 }
 
 .flyer-right {
     position: relative;
-    width: calc(50% - 92px);
+    width: 100%;
     z-index: 2;
     color: $palette-black;
     &.noanimation {
@@ -66,8 +93,15 @@
     }
 
     .flyer-inner {
-        padding-right: 3rem;
         max-width: 700px;
+
+        @include screen-md {
+            padding-right: 3rem;
+        }
+    }
+
+    @include screen-md {
+        width: calc(50% - 92px);
     }
 }
 

@@ -4,7 +4,7 @@ import Preloader from './components/Preloader';
 import Home from './components/Home';
 import ITS from './components/ITS';
 import DFM from './components/DFM';
-import './App.css';
+import './App.scss';
 
 class App extends Component {
 	render() {

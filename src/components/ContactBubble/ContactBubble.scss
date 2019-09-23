@@ -24,8 +24,12 @@ $btn-width: 56px;
 .contact-bubble{
     position: fixed;
     right: 10%;
-    bottom: 4rem;
+    bottom: 2rem;
     z-index: 9;
+
+    @include screen-md {
+        bottom: 4rem;
+    }
 }
 
 .contact-bubble button {

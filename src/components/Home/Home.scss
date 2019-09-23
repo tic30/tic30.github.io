@@ -5,20 +5,34 @@
     position: relative;
     margin: auto;
     max-width: $screen-lg;
-    padding: 3rem 5.7rem 4rem;
+    padding: 3rem 1.5rem 4rem;
     &::after {
         position: absolute;
-        top: 8.5rem;
+        top: 7rem;
         content: "";
         width: 5rem;
         max-width: 50%;
         height: 6px;
         transition-duration: 0.2s;
         background-color: $palette-black;
+
+        @include screen-sm {
+            top: 8.5rem;
+        }
     }
 
     h2 {
         margin: 1.5rem 0;
+    }
+
+    @include screen-sm {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+
+    @include screen-md {
+        padding-left: 7rem;
+        padding-right: 7rem;
     }
 }
 .section-header:hover {
@@ -79,16 +93,20 @@
         text-align: center;
     }
     h1 {
-        margin: 4rem 0 1rem;
+        margin: 2rem 0 1rem;
         animation-name: fadeInUp;
         animation-duration: 0.5s;
         animation-timing-function: ease-in-out;
         animation-fill-mode: forwards;
         animation-delay: 1.2s;
         opacity: 0;
+
+        @include screen-md {
+            margin-top: 4rem;
+        }
     }
     p.contentText {
-        font-size: 1.5rem;
+        font-size: 1.125rem;
         line-height: 1.5;
         max-width: 500px;
         margin: 0 auto;
@@ -98,6 +116,10 @@
         animation-fill-mode: forwards;
         animation-delay: 1.4s;
         opacity: 0;
+
+        @include screen-md {
+            font-size: 1.5rem;
+        }
     }
 
     p.ctaText {
@@ -159,29 +181,19 @@
     }
 }
 
-// .slope {
-//     position: absolute;
-//     height: 100%;
-//     width: 100%;
-//     background: linear-gradient(290deg, transparent 50%, $palette-grey-500 0) top left;
-//     &::after {
-//         position: absolute;
-//         content: "";
-//         height: 100%;
-//         width: 100%;
-//         background: linear-gradient(290deg, transparent calc(50% + 2px), $palette-black 0) top left;
-//         z-index: 1;
-//     }
-// }
-
 #sec2 {
     height: auto;
     min-height: 0;
 
     .container {
-        height: 500px;
         max-width: 100%;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+
+        @include screen-md {
+            flex-direction: row;
+        }
     }
 }
 
@@ -194,9 +206,25 @@
         display: flex;
         padding: 12px 0;
     }
+    .container-inner-wrap {
+        flex-direction: column;
+
+        @include screen-md {
+            flex-direction: row;
+        }
+    }
     .grid-container-left {
-        flex: 2;
+        flex: 1;
         margin-right: 12px;
+        margin-bottom: 12px;
+
+        @include screen-md {
+            margin-bottom: -12px;
+        }
+
+        @include screen-lg {
+            flex: 2
+        }
     }
     .grid-container-right {
         flex: 1
@@ -239,10 +267,18 @@ footer {
     right: 0;
     max-width: 1400px;
     margin: auto;
-    padding: 0 7rem 1rem;
+    padding: 0 1.5rem 1rem;
     color: $palette-grey-500;
     z-index: 10;
     &:hover {
         color: $palette-white;
+    }
+    
+    @include screen-sm {
+        padding-left: 2.5rem;
+    }
+
+    @include screen-md {
+        padding-left: 7rem;
     }
 }

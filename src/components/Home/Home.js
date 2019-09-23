@@ -136,27 +136,27 @@ class Home extends Component {
 						<h2>Projects</h2>
 					</div>
 					<div className="container">
-						<div className="container-inner">
+						<div className="container-inner container-inner-wrap">
 							<Grid container spacing={3} className="grid-container grid-container-left">
 								<Grid item xs={12}>
 									<PortfolioCard large content={Texts.ITS} />
 								</Grid>
 							</Grid>
 							<Grid container spacing={3} className="grid-container grid-container-right">
-								<Grid item xs={12}>
+								<Grid item xs={12} sm={6} md={12}>
 									<PortfolioCard content={Texts.DealFindMe} />
 								</Grid>
-								<Grid item xs={12}>
+								<Grid item xs={12} sm={6} md={12}>
 									<PortfolioCard content={Texts.Milu} />
 								</Grid>
 							</Grid>
 						</div>
 						<div className="container-inner">
 							<Grid container spacing={3} className="grid-container">
-								<Grid item xs={12} sm={6} md={4}>
+								<Grid item xs={12} sm={6} lg={4}>
 									<PortfolioCard content={Texts.EthereumWallet} />
 								</Grid>
-								<Grid item xs={12} sm={6} md={8}>
+								<Grid item xs={12} sm={6} lg={8}>
 									<PortfolioCard content={Texts.MovieEmodex} />
 								</Grid>
 							</Grid>

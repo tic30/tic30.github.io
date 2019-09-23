@@ -1,3 +1,5 @@
+@import "./components/variable";
+
 html, body {
     overflow-x: hidden;
 }
@@ -27,11 +29,23 @@ a, a:focus, a:visited {
 }
 
 h1 {
-    font-size: 5rem;
+    font-size: 2.5rem;
+
+    @include screen-sm {
+        font-size: 4rem;
+    }
+
+    @include screen-md {
+        font-size: 5rem;
+    }
 }
 
 h2{
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+
+    @include screen-sm {
+        font-size: 2.5rem;
+    }
 }
 
 h3 {
@@ -43,5 +57,9 @@ h4 {
 }
 
 p {
-    font-size: 1.125rem;
+    font-size: 1rem;
+
+    @include screen-sm {
+        font-size: 1.125rem;
+    }
 }
