@@ -23,6 +23,7 @@ class Home extends Component {
 		this.logoHover = this.logoHover.bind(this);
 		this.logoHoverEnd = this.logoHoverEnd.bind(this);
 		this.callFlyer = this.callFlyer.bind(this);
+		this.closeFlyer = this.closeFlyer.bind(this);
 		this.scrollEvent = this.scrollEvent.bind(this);
 	}
 
@@ -48,6 +49,12 @@ class Home extends Component {
 		const data = e.currentTarget.getAttribute("data-target");
 		this.setState({
 			dynamicFlyer: data
+		})
+	}
+
+	closeFlyer() {
+		this.setState({
+			dynamicFlyer: ""
 		})
 	}
 
@@ -89,7 +96,9 @@ class Home extends Component {
 			}
 		});
 
-		if((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !document.querySelector(".contact-bubble-popup-container").classList.contains("show1")){
+		if(window.innerWidth >=960
+			&& (window.innerHeight + window.scrollY) >= document.body.offsetHeight 
+			&& !document.querySelector(".contact-bubble-popup-container").classList.contains("show1")){
 			this.contactBubble.current.togglePopup();
 		}
 	}
@@ -126,9 +135,9 @@ class Home extends Component {
 						<h2>About me</h2>
 					</div>
 					<div className="container">
-						{dynamicFlyer && <Flyer direction="left" animated="true" content={Texts[dynamicFlyer]} />}
-						<Flyer direction="left" animated="false" content={Texts.SelfIntro} />
-						<Flyer direction="right" animated="false" content={Texts.Company} callFlyer={this.callFlyer}/>
+						{dynamicFlyer && <Flyer direction="left" animated={true} content={Texts[dynamicFlyer]} closeFlyer={this.closeFlyer}/>}
+						<Flyer direction="left" animated={false} content={Texts.SelfIntro} />
+						<Flyer direction="right" animated={false} content={Texts.Company} callFlyer={this.callFlyer}/>
 					</div>
 				</section>
 				<section id="sec3">

@@ -25,7 +25,7 @@ export default {
     },
     Indeed: {
         titleIcon: "icons/indeed.png",
-        content: "Design Technologist? This title means similar to UX Engineer but different. The major chord of my work includes studying user, creating solutions to tackle the real people problem and validating the effectiveness of the solutions through fast iterations of prototyping, testing, optimization and finally push to production."
+        content: "I am currently a Design Technologist, or some know as UX Engineer in Indeed. The motivation for me to go to work everyday is simply straightforward: to help people get jobs. The major chord of my work includes studying user, creating solutions and validating the effectiveness of the solutions through fast iterations of prototyping, testing, optimization and finally push to production."
     },
     Deephow: {
         titleIcon: "icons/deephow.png",

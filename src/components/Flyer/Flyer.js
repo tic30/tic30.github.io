@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Cancel from '@material-ui/icons/Cancel';
 import './Flyer.scss';
 
 class Flyer extends Component {
@@ -26,17 +27,17 @@ class Flyer extends Component {
     // }
 
     render() {
-        const { direction, animated, content, callFlyer } = this.props;
+        const { direction, animated, content, callFlyer, closeFlyer } = this.props;
 
         return (
-            <div className={"flyer flyer-" + direction + (animated==="true" ?"":" noanimation")}>
+            <div className={"flyer flyer-" + direction + (animated ? "" : " noanimation")}>
                 <div className="flyer-inner">
                     {content.titleIcon &&<div className="flyer-title-icon">
                         <img src={"/imgs/" + content.titleIcon} alt="Flyer Title Icon" />
                     </div>}
                     <h3>{content.title}</h3>
                     <div className="hr"></div>
-                    <p>{content.content}</p>
+                    <p className={animated ? "animated" : ""}>{content.content}</p>
                     <div className="icons">
                         {content.icons && content.icons.map((icon, index) => {
                             return (
@@ -47,6 +48,7 @@ class Flyer extends Component {
                         })}
                     </div>
                 </div>
+                {animated && <div className="closeBtn" onClick={closeFlyer}><Cancel /></div>}
             </div>
         );
     }

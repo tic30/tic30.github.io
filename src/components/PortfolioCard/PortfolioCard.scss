@@ -2,7 +2,11 @@
 
 div.portfolio-card,
 .placeHolder-card {
-    min-height: 20rem;
+    min-height: 15rem;
+
+    @include screen-sm {
+        min-height: 20rem;
+    }
 }
 
 div.portfolio-card {
@@ -92,10 +96,7 @@ div.portfolio-card {
         width: 100%;
         background-size: cover;
         background-position: center;
-        // left: 50%;
-        // top: 50%;
         transition-duration: 0.5s;
-        // transform: translate(-50%, -50%)
         flex-shrink: 0;
         min-width: 100%;
         min-height: 100%
