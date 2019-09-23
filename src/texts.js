@@ -57,21 +57,21 @@ export default {
     Milu: {
         title: "Milu",
         imgUrl: "milu.png",
-        subTitle: "A gallery search engine which enables image content search.",
+        subTitle: "An image content search engine.",
         btnText: "Coming Soon",
         pageUrl: "/milu"
     },
     EthereumWallet: {
         title: "Ethereum Wallet",
         imgUrl: "ethereumwallet.png",
-        subTitle: "A Chrome extension which supports Checkout w/ Ethereum.",
+        subTitle: "Checkout with Ethereum using this extension.",
         btnText: "Coming Soon",
         pageUrl: "/ethereumwallet"
     },
     MovieEmodex: {
         title: "Movie.Emodex",
         imgUrl: "movie.png",
-        subTitle: "New movie rating system based on emotional impact.",
+        subTitle: "New movie rating based on emotional impact.",
         btnText: "Coming Soon",
         pageUrl: "/movieemodex"
     },

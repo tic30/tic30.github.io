@@ -64,12 +64,6 @@ class ContactBubble extends Component {
                             </Button>
                             <p className="contact-bubble-popup-item-text">chutianxin@gmail.com&nbsp;&nbsp;&nbsp;</p>
                         </div>
-                        <div className="contact-bubble-popup-item" id="facebook">
-                            <Button className="contact-bubble-popup-item-btn" href="https://www.facebook.com/tianxin.chu" target="_blank" rel="noreferrer">
-                                <img src="/imgs/icons/facebook.svg" alt="FB Icon" />
-                            </Button>
-                            <p className="contact-bubble-popup-item-text">Tim Chu&nbsp;&nbsp;&nbsp;</p>
-                        </div>
                     </div>
                 </div>
                 <div className={`backdrop ${open?"show":""}`} onClick={this.togglePopup}></div>

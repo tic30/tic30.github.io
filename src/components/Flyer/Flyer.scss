@@ -21,7 +21,6 @@
 
     .icons {
         display: flex;
-        flex-wrap: wrap;
     }
 }
 
@@ -118,7 +117,7 @@
     cursor: pointer;
 
     img {
-        width: 80px;
+        width: 60%;
         height: auto;
         filter: brightness(0)
     }
@@ -130,7 +129,7 @@
     &:hover {
         background-color: $palette-white;
         img {
-            width: 100px;
+            width: 80%;
             filter: brightness(1)
         }
     }

@@ -42,9 +42,16 @@ div.portfolio-card {
         display: flex;
     }
     p {
+        position: relative;
         font-size: 1rem;
+        padding-top: 1px;
         margin: 0 1rem 0 0;
+        height: 48px;
+        overflow: hidden;
+        display: block;
+        text-overflow: ellipsis;
         flex-grow: 1;
+        background-color: $palette-white;
     }
     .portfolio-card-btn {
         height: 3rem;

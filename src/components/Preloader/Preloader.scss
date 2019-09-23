@@ -5,6 +5,9 @@
     background-color: $palette-black;
     color: $palette-white;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 a.btn {
@@ -36,7 +39,7 @@ a.btn {
     overflow: hidden;
     font-size: 40px;
     white-space: nowrap;
-    margin: 2rem 3rem;
+    margin-top: 2rem;
     text-transform: uppercase;
     animation-name: expand;
     animation-delay: 2s;
@@ -126,5 +129,5 @@ a.btn {
 
 @keyframes fadeOutUpRight {
     0% {opacity: 1;transform: translate(0)}
-    100% {opacity: 0;transform: translate(30px,0)}
+    100% {opacity: 0;transform: translate(0,-30px)}
 }

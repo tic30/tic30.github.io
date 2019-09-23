@@ -84,6 +84,11 @@
     100% {opacity: 1;}
 }
 
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
 @keyframes scrollAndFade {
     0% {transform: translate(-50%, -30px); opacity: 0;}
     // 10% {transform: translate(-50%, -30px); opacity: 1;}
