@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
+import Cancel from '@material-ui/icons/Cancel';
 import Header from '../Header';
 import Flyer from '../Flyer';
 import ContactBubble from '../ContactBubble';
@@ -135,8 +136,11 @@ class Home extends Component {
 						<h2>About me</h2>
 					</div>
 					<div className="container">
-						{dynamicFlyer && <Flyer direction="left" animated={true} content={Texts[dynamicFlyer]} closeFlyer={this.closeFlyer}/>}
+						{dynamicFlyer && <Flyer direction="left" animated={true} content={Texts[dynamicFlyer]}/>}
 						<Flyer direction="left" animated={false} content={Texts.SelfIntro} />
+						<div className="flyer-divider">                
+							{dynamicFlyer && <div className="closeBtn" onClick={this.closeFlyer}><Cancel /></div>}
+						</div>
 						<Flyer direction="right" animated={false} content={Texts.Company} callFlyer={this.callFlyer}/>
 					</div>
 				</section>

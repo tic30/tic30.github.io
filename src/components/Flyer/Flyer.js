@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Cancel from '@material-ui/icons/Cancel';
 import './Flyer.scss';
 
 class Flyer extends Component {
@@ -27,7 +26,7 @@ class Flyer extends Component {
     // }
 
     render() {
-        const { direction, animated, content, callFlyer, closeFlyer } = this.props;
+        const { direction, animated, content, callFlyer } = this.props;
 
         return (
             <div className={"flyer flyer-" + direction + (animated ? "" : " noanimation")}>
@@ -48,7 +47,6 @@ class Flyer extends Component {
                         })}
                     </div>
                 </div>
-                {animated && <div className="closeBtn" onClick={closeFlyer}><Cancel /></div>}
             </div>
         );
     }

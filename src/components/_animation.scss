@@ -63,10 +63,10 @@
     100% {transform: translateY(0)}
 }
 
-@keyframes expandWidthAndShine {
-    0% {transform: translateX(-100%); filter: brightness(5)}
-    70% {transform: translateX(0); filter: brightness(1.5)}
-    100% {transform: translateX(0); filter: brightness(1)}
+@keyframes expandWidth {
+    0% {transform: translateX(-100%)}
+    70% {transform: translateX(0)}
+    100% {transform: translateX(0)}
 }
 
 .come-in {

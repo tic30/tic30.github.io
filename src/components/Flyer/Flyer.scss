@@ -12,15 +12,6 @@
     align-items: flex-end;
     justify-content: center;
 
-    &::after {
-        position: absolute;
-        content: "";
-        top: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 1;
-    }
-
     .icons {
         display: flex;
         flex-wrap: wrap;
@@ -44,7 +35,6 @@
     left: 0;
     width: 100%;
     transform: translateY(-100%);
-    z-index: 2;
     color: $palette-black;
     background-color: $palette-grey-100;
     overflow: hidden;
@@ -52,32 +42,10 @@
     animation-duration: 0.8s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
-
-    &.noanimation {
-        position: relative;
-        transform: translateX(0);
-        z-index: 3;
-        animation-name: none;
-        color: $palette-white;
-        background: $palette-grey-100;
-        align-items: center;
-
-        &::after {
-            background: linear-gradient(352deg, transparent 20%, #1a1a1a 0) top left;
-
-            @include screen-md {
-                background: linear-gradient(290deg, transparent 25%, $palette-black 0) top left;
-            }
-        }
-    }
-    &::after {
-        @include screen-md {
-            background: linear-gradient(290deg, transparent 25%, $palette-black 0) top left;
-        }
-    }
+    display: flex;
+    z-index: 1;
 
     .flyer-inner {
-        float: right;
         max-width: 700px;
         padding: 0 1.5rem;
         
@@ -86,43 +54,66 @@
         }
 
         @include screen-md {
-            padding-right: 28%;
+            padding-right: 181px;
             padding-left: 1.5rem;
-            max-width: 800px;
+            max-width: 715px;
         }
     }
 
     @include screen-md {
         height: 500px;
         padding-top: 5rem;
-        width: calc(50% + 92px);
-        z-index: 4;
+        width: calc(50% + 91px);
         transform: translateX(-100%);
         color: $palette-white;
-        background: transparent;
-        animation-name: expandWidthAndShine;
+        background: $palette-black;
+        animation-name: expandWidth;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
+
+.flyer-left.noanimation {
+    position: relative;
+    transform: translateX(0);
+    animation-name: none;
+    color: $palette-white;
+    background: $palette-black;
+    align-items: center;
+    z-index: 2;
+
+    &::after {
+        z-index: 5;
+        background: linear-gradient(352deg, transparent 20%, #1a1a1a 0) top left;
+
+        @include screen-md {
+            background: $palette-grey-100;
+            transform: skewY(-70deg);
+            left: 50%;
+        }
+    }
+
+    @include screen-md {
+        z-index: 0;
     }
 }
 
 .flyer-right {
     position: relative;
     width: 100%;
-    z-index: 2;
     color: $palette-black;
     padding-top: 0;
     padding-bottom: 2.5rem;
-
-    &.noanimation {
-        z-index: 1;
-    }
+    z-index: 0;
 
     .flyer-inner {
         padding: 0 1.5rem;
         max-width: 700px;
 
         @include screen-md {
-            padding-left: 0;
+            padding-left: 1rem;
             padding-right: 3rem;
+            max-width: 558px;
         }
     }
 
@@ -132,13 +123,13 @@
 
     @include screen-md {
         padding-top: 5rem;
-        width: calc(50% - 92px);
+        width: calc(50% - 91px);
+        z-index: 3;
     }
 }
 
 .flyer-inner {
     position: relative;
-    z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -209,7 +200,38 @@
     }
 }
 
-.flyer .closeBtn {
+.flyer-divider {
+    position: absolute;
+    top: calc(50% - 80px);
+    left: 0;
+    height: 160px;
+    width: 100%;
+    z-index: 2;
+    overflow: hidden;
+
+    @include screen-md {
+        top: 0;
+        left: calc(50% - 91px);
+        height: 100%;
+        width: 182px;
+    }
+}
+.flyer-divider:after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    height: 100%;
+    width: 100%;
+    background: $palette-grey-100;
+    transform: skewY(-8deg);
+
+    @include screen-md {
+        transform: skewY(-70deg);
+    }
+}
+
+
+.flyer-divider .closeBtn {
     position: absolute;
     right: 0.5rem;
     bottom: 0rem;
@@ -224,7 +246,7 @@
     }
 
     @include screen-md {
-        right: 4rem;
+        right: 1rem;
         top: 0;
         bottom: auto;
         color: $palette-white;
