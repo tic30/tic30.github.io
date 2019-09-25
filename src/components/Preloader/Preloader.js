@@ -5,7 +5,7 @@ import './Preloader.scss';
 class Preloader extends Component {
     state = {
         animationCount: 0,
-        redirect: false
+        redirect: window.matchMedia('(max-width: 599px)').matches //Go directly to home on phone
     }
 
     setRedirect = () => {
