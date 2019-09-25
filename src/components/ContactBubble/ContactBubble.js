@@ -50,19 +50,19 @@ class ContactBubble extends Component {
                             <Button className="contact-bubble-popup-item-btn" href="https://www.linkedin.com/in/tim-chu-980881a4" target="_blank" rel="noreferrer">
                                 <img src="/imgs/icons/linkedin.svg" alt="LinkedIn Icon" />
                             </Button>
-                            <p className="contact-bubble-popup-item-text">Connect on LinkedIn&nbsp;&nbsp;&nbsp;</p>
+                            <p className="contact-bubble-popup-item-text">Connect</p>
                         </div>
                         <div className="contact-bubble-popup-item" id="github">
                             <Button className="contact-bubble-popup-item-btn" href="https://github.com/tic30" target="_blank" rel="noreferrer">
                                 <img src="/imgs/icons/github.svg" alt="GitHub Icon" />
                             </Button>
-                            <p className="contact-bubble-popup-item-text">Follow me on GitHub&nbsp;&nbsp;&nbsp;</p>
+                            <p className="contact-bubble-popup-item-text">Follow me: tic30</p>
                         </div>
                         <div className="contact-bubble-popup-item" id="email">
                             <Button className="contact-bubble-popup-item-btn" href="mailto:chutianxin@gmail.com">
                                 <img src="/imgs/icons/email.svg" alt="Email Icon" />
                             </Button>
-                            <p className="contact-bubble-popup-item-text">chutianxin@gmail.com&nbsp;&nbsp;&nbsp;</p>
+                            <p className="contact-bubble-popup-item-text">chutianxin@gmail.com</p>
                         </div>
                     </div>
                 </div>

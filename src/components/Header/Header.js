@@ -9,6 +9,7 @@ class Header extends Component {
         super(props);
         this.nav = React.createRef();
         this.toggleMobileNav = this.toggleMobileNav.bind(this);
+        this.logoClickHandler = this.logoClickHandler.bind(this);
     }
 
     componentDidMount() {
@@ -38,6 +39,19 @@ class Header extends Component {
         }
     }
 
+    logoClickHandler(e) {
+        const { pageId } = this.props;
+
+        if(pageId==="home") {
+            e.preventDefault();
+            window.scrollTo({
+                top: document.documentElement.offsetTop,
+                left: 0,
+                behavior: 'smooth',
+            });
+        }
+    }
+
     render() {
         return (
             <div className="nav" ref={this.nav}>
@@ -54,7 +68,7 @@ class Header extends Component {
                     </Grid>
                     <Grid item xs={12} sm className="logo-wrapper">
                         <div className="nav-item logo">
-                            <Link to="/home" className="logo-text"></Link>
+                            <Link to="/home" className="logo-text" onClick={this.logoClickHandler}></Link>
                         </div>
                     </Grid>
                     <Grid item xs={12} sm>

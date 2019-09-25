@@ -117,7 +117,7 @@ class Home extends Component {
 
 		return (
 			<React.Fragment>
-				<Header />
+				<Header pageId="home"/>
 				<ContactBubble ref={this.contactBubble}/>
 				<section id="sec1">
 					<div className="container">

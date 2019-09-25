@@ -37,7 +37,7 @@
 }
 .section-header:hover {
     &::after {
-        width: 20rem;
+        width: 11rem;
     }
 }
 
@@ -265,7 +265,7 @@
         background: linear-gradient($palette-black, rgba($palette-black, 0.5) 20%, rgba($palette-black, 0))
     }
     .section-header {
-        z-index: 10;
+        z-index: 1;
         padding-bottom: 0;
     }
     .section-header::after {

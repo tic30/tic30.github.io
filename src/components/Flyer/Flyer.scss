@@ -12,6 +12,10 @@
     align-items: flex-end;
     justify-content: center;
 
+    p {
+        line-height: 1.7
+    }
+
     .icons {
         display: flex;
         flex-wrap: wrap;
@@ -51,6 +55,10 @@
         
         p.animated {
             padding-bottom: 2rem;
+
+            @include screen-md {
+                padding-bottom: 0;
+            }
         }
 
         @include screen-md {
@@ -105,10 +113,12 @@
     padding-top: 0;
     padding-bottom: 2.5rem;
     z-index: 0;
+    display: flex;
 
     .flyer-inner {
         padding: 0 1.5rem;
         max-width: 700px;
+        overflow: hidden;
 
         @include screen-md {
             padding-left: 1rem;

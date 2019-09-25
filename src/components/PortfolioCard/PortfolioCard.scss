@@ -13,6 +13,7 @@ div.portfolio-card {
     transform: translateY(150px);
     overflow: hidden;
     transition: left 0.5s, top 0.5s, width 1s, height 1s;
+    box-shadow: 0px 2px 9px rgba(0,0,0,0.3);
 
     a {
         color: $palette-black;

@@ -5,7 +5,7 @@ export default {
     },
     SelfIntro: {
         title: "I seek challenges, \n within and without of work.",
-        content: "I embrace them, break them down into practical tasks and improve myself along the way. ",
+        content: "I embrace them, break them down into practical tasks and improve myself along the way.",
         icons: [
             {src:"icons/archery.svg"},
             {src:"icons/pingpong.svg"},
@@ -15,7 +15,7 @@ export default {
     },
     Company: {
         title: "UX, \n Front end, and Fun",
-        content: "Working at Indeed.com as a Design Technologist, I have hands on experience with UX research & design, front end prototyping and production level coding.",
+        content: "I have hands on experience with UX research & design, front end prototyping and production level coding.",
         icons: [
             {src: "icons/indeed.png", dataTarget: "Indeed"},
             {src: "icons/siemens.svg", dataTarget: "Siemens"},
@@ -25,7 +25,7 @@ export default {
     },
     Indeed: {
         titleIcon: "icons/indeed.png",
-        content: "I am currently a Design Technologist, or some know as UX Engineer in Indeed. The motivation for me to go to work everyday is simply straightforward: to help people get jobs. The major chord of my work includes studying user, creating solutions and validating the effectiveness of the solutions through fast iterations of prototyping, testing, optimization and finally push to production."
+        content: "I am working as a UX Developer at Indeed. The motivation for me to go to work everyday is simply straightforward: to help people get jobs. The major chord of my work includes studying user, creating solutions and validating the effectiveness of the solutions through fast iterations of prototyping, testing, optimization and finally push to production."
     },
     Deephow: {
         titleIcon: "icons/deephow.png",
