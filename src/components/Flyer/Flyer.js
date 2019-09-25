@@ -35,7 +35,6 @@ class Flyer extends Component {
                         <img src={"/imgs/" + content.titleIcon} alt="Flyer Title Icon" />
                     </div>}
                     <h3>{content.title}</h3>
-                    <div className="hr"></div>
                     <p className={animated ? "animated" : ""}>{content.content}</p>
                     <div className="icons">
                         {content.icons && content.icons.map((icon, index) => {

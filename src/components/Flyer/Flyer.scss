@@ -22,7 +22,7 @@
         width: calc(100% + 2rem);
         margin: 0 -1rem;
 
-        @include screen-md {
+        @include screen-sm {
             flex-wrap: nowrap;
         }
     }
@@ -54,7 +54,7 @@
         padding: 0 1.5rem;
         
         p.animated {
-            padding-bottom: 2rem;
+            padding-bottom: 1rem;
 
             @include screen-md {
                 padding-bottom: 0;
@@ -63,8 +63,12 @@
 
         @include screen-md {
             padding-right: 181px;
-            padding-left: 1.5rem;
+            padding-left: 3rem;
             max-width: 715px;
+        }
+
+        @include screen-lg {
+            padding-left: 1.5rem;
         }
     }
 
@@ -110,10 +114,9 @@
     position: relative;
     width: 100%;
     color: $palette-black;
-    padding-top: 0;
-    padding-bottom: 2.5rem;
     z-index: 0;
     display: flex;
+    align-items: center;
 
     .flyer-inner {
         padding: 0 1.5rem;
@@ -135,6 +138,7 @@
         padding-top: 5rem;
         width: calc(50% - 91px);
         z-index: 3;
+        justify-content: flex-start;
     }
 }
 
