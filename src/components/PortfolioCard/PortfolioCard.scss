@@ -10,6 +10,7 @@ div.portfolio-card,
 }
 
 div.portfolio-card {
+    position: relative;
     transform: translateY(150px);
     overflow: hidden;
     transition: left 0.5s, top 0.5s, width 1s, height 1s;

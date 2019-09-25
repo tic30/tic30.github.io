@@ -26,6 +26,8 @@ class Home extends Component {
 		this.callFlyer = this.callFlyer.bind(this);
 		this.closeFlyer = this.closeFlyer.bind(this);
 		this.scrollEvent = this.scrollEvent.bind(this);
+
+		this.myReq = null;
 	}
 
 	logoHover() {
@@ -59,6 +61,24 @@ class Home extends Component {
 		})
 	}
 
+	scrollEvent() {
+		const allCards = document.querySelectorAll(".portfolio-card");
+
+		allCards.forEach((item) => {
+			if(isInViewport(item)) {
+				item.classList.add("come-in");
+			}
+		});
+
+		if(window.innerWidth >=960
+			&& (window.innerHeight + window.scrollY) >= document.body.offsetHeight 
+			&& !document.querySelector(".contact-bubble-popup-container").classList.contains("show1")){
+			this.contactBubble.current.togglePopup();
+		}
+
+		this.myReq = window.requestAnimationFrame(this.scrollEvent);
+	}
+
 	componentDidMount() {
 		const { timeouts } = this.state
 		const myself = this;
@@ -79,7 +99,7 @@ class Home extends Component {
 			}
 		});
 
-		document.addEventListener("scroll", this.scrollEvent, false)
+		this.myReq = window.requestAnimationFrame(this.scrollEvent);
 
 		detectScrollDirection((dir)=> {
 			if(dir==="up" && (window.innerHeight + window.scrollY + 300) <= document.body.offsetHeight && document.querySelector(".contact-bubble-popup-container").classList.contains("show1")){
@@ -88,28 +108,12 @@ class Home extends Component {
 		});
 	}
 
-	scrollEvent() {
-		const allCards = document.querySelectorAll(".portfolio-card");
-
-		allCards.forEach((item) => {
-			if(isInViewport(item)) {
-				item.classList.add("come-in");
-			}
-		});
-
-		if(window.innerWidth >=960
-			&& (window.innerHeight + window.scrollY) >= document.body.offsetHeight 
-			&& !document.querySelector(".contact-bubble-popup-container").classList.contains("show1")){
-			this.contactBubble.current.togglePopup();
-		}
-	}
-
 	componentWillUnmount() {
 		const { timeouts } = this.state
 		timeouts.forEach((item) => {
 			clearTimeout(item);
 		})
-		document.removeEventListener("scroll", this.scrollEvent, false);
+		window.cancelAnimationFrame(this.myReq);
 	}
 
 	render() {
