@@ -26,8 +26,6 @@ class Home extends Component {
 		this.callFlyer = this.callFlyer.bind(this);
 		this.closeFlyer = this.closeFlyer.bind(this);
 		this.scrollEvent = this.scrollEvent.bind(this);
-
-		this.myReq = null;
 	}
 
 	logoHover() {
@@ -75,8 +73,6 @@ class Home extends Component {
 			&& !document.querySelector(".contact-bubble-popup-container").classList.contains("show1")){
 			this.contactBubble.current.togglePopup();
 		}
-
-		this.myReq = window.requestAnimationFrame(this.scrollEvent);
 	}
 
 	componentDidMount() {
@@ -99,7 +95,7 @@ class Home extends Component {
 			}
 		});
 
-		this.myReq = window.requestAnimationFrame(this.scrollEvent);
+		window.addEventListener("scroll", this.scrollEvent);
 
 		detectScrollDirection((dir)=> {
 			if(dir==="up" && (window.innerHeight + window.scrollY + 300) <= document.body.offsetHeight && document.querySelector(".contact-bubble-popup-container").classList.contains("show1")){
@@ -113,7 +109,7 @@ class Home extends Component {
 		timeouts.forEach((item) => {
 			clearTimeout(item);
 		})
-		window.cancelAnimationFrame(this.myReq);
+		window.removeEventListener("scroll", this.scrollEvent);
 	}
 
 	render() {
