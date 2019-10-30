@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Preloader from './components/Preloader';
 import Home from './components/Home';
 import ITS from './components/ITS';
@@ -11,10 +11,12 @@ class App extends Component {
 		return (
 			<Router>
 				<React.Fragment>
-					<Route path="/" exact component={Preloader} />
-					<Route path="/home" component={Home} />
-					<Route path="/its" component={ITS} />
-					<Route path="/dfm" component={DFM} />
+					<Switch>
+						<Route path="/" exact component={Preloader} />
+						<Route path="/home" component={Home} />
+						<Route path="/its" component={ITS} />
+						<Route path="/dfm" component={DFM} />
+					</Switch>
 				</React.Fragment>
 			</Router>
 		);
