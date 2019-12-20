@@ -19,11 +19,6 @@
     box-shadow: none;
 }
 
-.nav.stuck{
-    overflow: visible;
-    height: 26.5625rem;
-}
-
 .nav-container {
     max-width: $screen-lg;
     margin: auto;
@@ -120,16 +115,24 @@
 
 .nav-hamburger {
     cursor: pointer;
-    position: absolute;
-    right: 2rem;
+    position: fixed;
+    left: 2rem;
     top: 2rem;
     height: 1.2rem;
-    width: 1.5rem;
+    width: 1.3rem;
     z-index: 999;
+    opacity: 0;
+    transform: translateY(20px);
+    transition-duration: 0.3s;
+    animation-name: fadeInUp;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
 
     .nav-hamburger-bars {
         width: 100%;
-        height: 3px;
+        height: 2px;
         margin: 8px 0;
         background-color: $palette-white;
         position: relative;
@@ -140,7 +143,7 @@
             content: " ";
             display: block;
             width: 120%;
-            height: 3px;
+            height: 2px;
             background-color: $palette-white;
             position: absolute;
             z-index: -1;
@@ -157,13 +160,13 @@
             top: 8px;
         }
     }
-
-    @include screen-sm {
-        display: none;
-    }
 }
 
-.nav.stuck .nav-hamburger {
+.nav-hamburger.scrolled {
+    top: -5.3125rem;
+}
+
+.nav-hamburger.open {
     .nav-hamburger-bars {
         background-color: transparent;
 
@@ -177,7 +180,24 @@
         }
 
         &::after {
-            transform: rotate(-45deg) translate(9px, -19px);
+            transform: rotate(-45deg) translate(7px, -17px);
         }
+    }
+}
+
+.menu-item {
+    text-align: left;
+    width: 100%;
+
+    a {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: $palette-grey-400;
+        padding: 1.5rem 3rem;
+        text-transform: uppercase;
+    }
+
+    a:hover {
+        color: $palette-white;
     }
 }
