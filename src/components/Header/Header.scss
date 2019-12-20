@@ -120,7 +120,7 @@
     top: 2rem;
     height: 1.2rem;
     width: 1.3rem;
-    z-index: 999;
+    z-index: 12;
     opacity: 0;
     transform: translateY(20px);
     transition-duration: 0.3s;
@@ -167,6 +167,7 @@
 }
 
 .nav-hamburger.open {
+    z-index: 14;
     .nav-hamburger-bars {
         background-color: transparent;
 

@@ -7,7 +7,7 @@ import ContactBubble from '../ContactBubble';
 import PortfolioCard from '../PortfolioCard';
 import ScrollHint from '../ScrollHint';
 import Texts from '../../texts';
-import { isInViewport, detectScrollDirection } from '../../util';
+import { isInViewport } from '../../util';
 import './Home.scss';
 
 class Home extends Component {
@@ -67,19 +67,12 @@ class Home extends Component {
 				item.classList.add("come-in");
 			}
 		});
-
-		if(window.innerWidth >=960
-			&& (window.innerHeight + window.scrollY) >= document.body.offsetHeight 
-			&& !document.querySelector(".contact-bubble-popup-container").classList.contains("show1")){
-			this.contactBubble.current.togglePopup();
-		}
 	}
 
 	componentDidMount() {
 		const { timeouts } = this.state
 		const myself = this;
 		const allCards = document.querySelectorAll(".portfolio-card");
-		const contactBubble = this.contactBubble.current;
 
 		const timeout2 = setTimeout(function () {
 			myself.logoHover();
@@ -96,12 +89,6 @@ class Home extends Component {
 		});
 
 		window.addEventListener("scroll", this.scrollEvent);
-
-		detectScrollDirection((dir)=> {
-			if(dir==="up" && (window.innerHeight + window.scrollY + 300) <= document.body.offsetHeight && document.querySelector(".contact-bubble-popup-container").classList.contains("show1")){
-				contactBubble.togglePopup();
-			}
-		});
 	}
 
 	componentWillUnmount() {

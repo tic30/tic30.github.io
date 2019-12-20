@@ -7,15 +7,16 @@
     width: 0;
     overflow: hidden;
     background: $palette-black;
-    z-index: 11;
     transition-duration: 0.5s;
     display: flex;
     align-items: center;
     box-sizing: border-box;
+    z-index: 11;
 
     &.open {
         height: 100%;
         width: 100%;
+        z-index: 13;
     }
 }
 
@@ -27,8 +28,18 @@
     right: 0;
 }
 
-.global-menu-inner {
-    width: 100%;
-    padding: 10%;
+.global-menu.justify-left {
+    justify-content: flex-start;
+
+    .global-menu-inner {
+        margin-left: 10%;
+    }
 }
 
+.global-menu.justify-right {
+    justify-content: flex-end;
+
+    .global-menu-inner {
+        margin-right: 10%;
+    }
+}

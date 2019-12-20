@@ -2,26 +2,15 @@
 
 $btn-width: 56px;
 
-.backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: 8;
-    display: none;
-
-    &.show {
-        display: block;
-    }
-}
-
 .contact-bubble{
     position: fixed;
     right: 10%;
     bottom: 2rem;
-    z-index: 9;
+    z-index: 12;
+
+    &.open {
+        z-index: 14;
+    }
 
     @include screen-md {
         bottom: 4rem;
@@ -145,5 +134,19 @@ a.contact-bubble-popup-item-btn {
 @for $i from 1 through 4 {
     .contact-bubble-popup-item:nth-child(#{$i}n) .contact-bubble-popup-item-text{
         transition-delay: #{$i * 0.1 - 0.1}s;
+    }
+}
+
+.contact-wrapper .menu-item a {
+    padding-right: 0;
+
+    img{
+        position: relative;
+        height: 4rem;
+        filter: invert(1) grayscale(1) contrast(99) brightness(0.9);
+
+        &:hover {
+            filter: none;
+        }
     }
 }

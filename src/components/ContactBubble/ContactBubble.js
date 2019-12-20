@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Fab from '@material-ui/core/Fab';
-import Button from '@material-ui/core/Button';
 import { ChatBubbleOutline, Clear } from '@material-ui/icons';
+import MenuScreen from '../MenuScreen';
 import './ContactBubble.scss';
 
 class ContactBubble extends Component {
@@ -11,20 +11,12 @@ class ContactBubble extends Component {
             open: false
         }
         this.bubble = React.createRef();
-        this.popup = React.createRef();
         this.togglePopup = this.togglePopup.bind(this);
     }
 
     togglePopup() {
-        const { open } = this.state;
-        if(!this.popup.current) return;
-        const popupClasses = this.popup.current.classList;
+        const { open } = this.state; 
 
-        if (!open) {
-            setTimeout(() => {
-                popupClasses.add("show2");
-            }, 100);
-        }
         this.setState({
             open: !open
         })
@@ -40,34 +32,30 @@ class ContactBubble extends Component {
         }
 
         return (
-            <React.Fragment>
-                <div className="contact-bubble" ref={this.bubble}>
+            <div className="contact-wrapper">
+                <div className={`contact-bubble ${open ? 'open' : ''}`} ref={this.bubble}>
                     <Fab className="contact-bubble-cta" onClick={this.togglePopup}>
                         {button}
                     </Fab>
-                    <div className={`contact-bubble-popup-container ${open?"show1":""}`} ref={this.popup}>
-                        <div className="contact-bubble-popup-item" id="linkedin">
-                            <Button className="contact-bubble-popup-item-btn" href="https://www.linkedin.com/in/tim-chu-980881a4" target="_blank" rel="noreferrer">
-                                <img src="/imgs/icons/linkedin.svg" alt="LinkedIn Icon" />
-                            </Button>
-                            <p className="contact-bubble-popup-item-text">Connect</p>
-                        </div>
-                        <div className="contact-bubble-popup-item" id="github">
-                            <Button className="contact-bubble-popup-item-btn" href="https://github.com/tic30" target="_blank" rel="noreferrer">
-                                <img src="/imgs/icons/github.svg" alt="GitHub Icon" />
-                            </Button>
-                            <p className="contact-bubble-popup-item-text">Follow me: tic30</p>
-                        </div>
-                        <div className="contact-bubble-popup-item" id="email">
-                            <Button className="contact-bubble-popup-item-btn" href="mailto:chutianxin@gmail.com">
-                                <img src="/imgs/icons/email.svg" alt="Email Icon" />
-                            </Button>
-                            <p className="contact-bubble-popup-item-text">chutianxin@gmail.com</p>
-                        </div>
-                    </div>
                 </div>
-                <div className={`backdrop ${open?"show":""}`} onClick={this.togglePopup}></div>
-            </React.Fragment>
+                <MenuScreen open={open} openDirection="right" justifyDirection="right">
+                    <div className="menu-item">
+                        <a href="https://www.linkedin.com/in/tim-chu-980881a4" target="_blank" rel="noopener noreferrer" title="Connect with me on LinkedIn">
+                            <img src="/imgs/icons/linkedin.svg" alt="LinkedIn Icon" />
+                        </a>
+                    </div>
+                    <div className="menu-item">
+                        <a href="https://github.com/tic30" target="_blank" rel="noopener noreferrer" title="Connect with me on GitHub">
+                            <img src="/imgs/icons/github.svg" alt="GitHub Icon" />
+                        </a>
+                    </div>
+                    <div className="menu-item">
+                        <a href="mailto:173341277@qq.com?subject=Let\'s&nbsp;talk,&nbsp;Tim!" target="_blank" rel="noopener noreferrer"  title="Email me">
+                            <img src="/imgs/icons/email.svg" alt="Email Icon" />
+                        </a>
+                    </div>
+                </MenuScreen>
+            </div>
         );
     }
 }
