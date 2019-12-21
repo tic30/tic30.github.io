@@ -73,10 +73,10 @@ class Header extends Component {
                 </div>
                 <MenuScreen open={menuOpen} openDirection="left" justifyDirection="left">
                     <div className="menu-item">
-                        <HashLink to="#sec2" onClick={this.toggleMenuScreen}>About Me</HashLink>
+                        <HashLink to="/home#sec2" onClick={this.toggleMenuScreen}>About Me</HashLink>
                     </div>
                     <div className="menu-item">
-                        <HashLink to="#sec3" onClick={this.toggleMenuScreen}>Projects</HashLink>
+                        <HashLink to="/home#sec3" onClick={this.toggleMenuScreen}>Projects</HashLink>
                     </div>
                     <div className="menu-item">
                         <a href="https://drive.google.com/open?id=0B1dSWHM51dn-RGJBNlJZNFdaNW8" target="_blank" rel="noopener noreferrer" onClick={this.toggleMenuScreen}>Resume</a>
