@@ -51,7 +51,7 @@ class PortfolioCard extends Component {
         return (
             <React.Fragment>
                 <Paper className={`portfolio-card ${large?"portfolio-card-large":""} ${open?"open":""}`} ref={this.card}>
-                    <div className="portfolio-card-container"> {/* onClick={() => this.clickCard(content.pageUrl)} */}
+                    <div className="portfolio-card-container" onClick={() => this.clickCard(content.pageUrl)}>
                         <div className="portfolio-card-img" style={{backgroundImage: `url(/imgs/${content.imgUrl})`}} alt="Portfolio"></div>
                         <div className={`portfolio-card-text-wrapper ${open?"open":""}`}>
                             <h4>{content.title}</h4>

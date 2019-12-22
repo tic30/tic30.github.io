@@ -1,19 +1,31 @@
 import React, { Component } from 'react';
-import Grid from '@material-ui/core/Grid';
 import Header from '../Header';
-import Flyer from '../Flyer';
-import ContactBubble from '../ContactBubble';
-import PortfolioCard from '../PortfolioCard';
 import ScrollHint from '../ScrollHint';
+import YouTubePlayer from '../YouTubePlayer';
 import Texts from '../../texts';
-// import { isInViewport, detectScrollDirection } from '../../util';
+import { isInViewport } from '../../util';
 import './ITS.scss';
 
 class ITS extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			dynamicFlyer: ""
+			scrollLevel: 0
+		}
+		this.sec2Title = React.createRef();
+		this.player = React.createRef();
+		this.endOfSec2 = React.createRef();
+	}
+
+	scrollEvent = () => {
+		if (isInViewport(this.endOfSec2.current)) {
+			this.setState({ scrollLevel: 3 })
+		} else if (isInViewport(this.player.current)) {
+			this.setState({ scrollLevel: 2 })
+		} else if (isInViewport(this.sec2Title.current)) {
+			this.setState({ scrollLevel: 1 })
+		} else {
+			this.setState({ scrollLevel: 0 })
 		}
 	}
 
@@ -21,68 +33,97 @@ class ITS extends Component {
 		window.scrollTo(0,0);
 	}
 
+	componentDidMount() {
+		window.addEventListener("scroll", this.scrollEvent);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener("scroll", this.scrollEvent);
+	}
+
 	render() {
-		const { dynamicFlyer } = this.state
+		const { scrollLevel } = this.state
 
 		return (
 			<React.Fragment>
-				<Header />
-				<ContactBubble />
-				<section id="its-sec1">
-					<div className="container">
+				<Header pageId="its"/>
+				<section id="its-sec1" className={ scrollLevel===3 ? 'fade3' : (scrollLevel===2 ? 'fade2' : '')}>
+					<div className={`container ${scrollLevel>=1 ? 'fade1' : '' }`}>
 						<h2>{Texts.ITSHero.title}</h2>
 						<p className="contentText">{Texts.ITSHero.content}</p>
 					</div>
 					<ScrollHint />
 				</section>
+				<div id="its-sec1-placeholder"></div>
 				<section id="its-sec2">
-					<div className="section-header">
-						<h2>About me</h2>
-					</div>
 					<div className="container">
-						{dynamicFlyer && <Flyer direction="left" animated="true" content={Texts[dynamicFlyer]} />}
-						<Flyer direction="left" animated="false" content={Texts.SelfIntro} />
-						<Flyer direction="right" animated="false" content={Texts.Company} callFlyer={this.callFlyer}/>
+						<h3 ref={this.sec2Title}>To improve the<br/><span className="text-blue">effectiveness</span> of teaching<br/>meets teachers' urgent need.</h3>
+						<p className="subheader">Students get lost fast in class. Teachers want to track students' response as much as their own teaching pace. Doing so will significantly improve the efficiency of teaching and learning. But they need help when facing large number of students.</p>
+						<div className="playerStart" ref={this.player}></div>
+						<YouTubePlayer />
+						<div className="endOfSec2" ref={this.endOfSec2}></div>
 					</div>
 				</section>
 				<section id="its-sec3">
 					<div className="section-header">
-						<h2>Projects</h2>
+						<h2>User Study</h2>
 					</div>
 					<div className="container">
-						<div className="container-inner">
-							<Grid container spacing={3} className="grid-container grid-container-left">
-								<Grid item xs={12}>
-									<PortfolioCard large content={Texts.ITS} />
-								</Grid>
-							</Grid>
-							<Grid container spacing={3} className="grid-container grid-container-right">
-								<Grid item xs={12}>
-									<PortfolioCard content={Texts.DealFindMe} />
-								</Grid>
-								<Grid item xs={12}>
-									<PortfolioCard content={Texts.Milu} />
-								</Grid>
-							</Grid>
-						</div>
-						<div className="container-inner">
-							<Grid container spacing={3} className="grid-container">
-								<Grid item xs={12} sm={6} md={4}>
-									<PortfolioCard content={Texts.EthereumWallet} />
-								</Grid>
-								<Grid item xs={12} sm={6} md={8}>
-									<PortfolioCard content={Texts.MovieEmodex} />
-								</Grid>
-							</Grid>
-						</div>
+						<p className="lead">Teacher: I want <span className="text-orange">super power</span>!</p>
+						<p>The table below shows pairwise comparison matrix summarizing teachers’ preferences between "superpowers". Each row shows a superpower that appeared in at least two teachers’ hierarchies, and each column shows a different superpower against which it is being compared (cells on the diagonal represent self-comparisons, and are blacked-out). Cell shade indicates the number of teachers who ranked the row superpower higher than the column superpower, with darker shades indicating greater agreement (minimum observed value is 0, and maximum is 4). “Be able to engage students” is highlighted in grey to indicate that this superpower was not present in all five teachers’ card stacks (by the time a teacher first generated this card, no synonyms were available among the cards generated by previous teachers).</p>
+						<img className="img-its img-its1" src="/imgs/its-1.jpg" alt="Superpower chart"/>
 					</div>
 				</section>
 				<section id="its-sec4">
 					<div className="section-header">
-						<h2>Lets chat</h2>
-						<h1>I am open to<br/>creative ideas!</h1>
+						<h2>Our proposal</h2>
 					</div>
-					<footer ref={this.footer}>Copyright © 2016 - 2019 Chu, Tianxin. All rights reserved.</footer>
+					<div className="container">
+						<p className="lead">Use <span className="text-orange-light">Augmented Reality</span> to enrich visible info</p>
+						<p>Based on carefully conducted user case study and detailed research about competitive teaching-aid tools on the market, we believe augmented reality will give teachers maximum interaction to virtual data while keeping environmental awareness and keeping their hands free to minimize the impact on their regular teaching behavior. As shown above, the HoloLens software should function as a monitor to all students and report their learning behavior with explicit visual feedback to the teacher. For example, the "hand-up" figure shows that student stuck at someplace. Colored "hand" shows multi-level urgency for student's need for help. And "Zzz" figure shows up after certain student's PC does not record any input behavior for a certain time. These sample figures help the teacher quickly identifies those who need help but may be too shy to raise their hands, or reminds the student who is idling behind the screen to guide them back to proper learning status.</p>
+					</div>
+				</section>
+				<section id="its-sec5">
+					<div className="section-header">
+						<h2>Design</h2>
+					</div>
+					<div className="container">
+						<img className="img-its img-its2" src="/imgs/its-2.jpg" alt="Illustation Overall"/>
+						<img className="img-its img-its3" src="/imgs/its-3.jpg" alt="Illustation Stats"/>
+						<p>Eliciting and synthesizing teachers’ design requirements for intelligent real-time supports.</p>
+					</div>
+				</section>
+				<section id="its-sec6">
+					<div className="section-header">
+						<h2>Technology</h2>
+					</div>
+					<div className="container">
+
+					</div>
+				</section>
+				<section id="its-sec7">
+					<div className="section-header">
+						<h2>Implementation</h2>
+					</div>
+					<div className="container">
+
+					</div>
+				</section>
+				<section id="its-sec8">
+					<div className="section-header">
+						<h2>Outcome</h2>
+					</div>
+					<div className="container">
+
+					</div>
+				</section>
+				<section id="its-sec9">
+					<div className="section-header">
+						<h2>Acknowledgment</h2>
+					</div>
+					<div className="container">
+
+					</div>
 				</section>
 			</React.Fragment>
 		);

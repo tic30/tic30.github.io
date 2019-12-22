@@ -67,4 +67,25 @@ p {
     @include screen-sm {
         font-size: 1.125rem;
     }
+
+    &.lead {
+        font-size: 1.25rem;
+        font-weight: bold;
+
+        @include screen-sm {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.text-blue {
+    color: $palette-blue-500;
+}
+
+.text-orange {
+    color: $palette-orange;
+}
+
+.text-orange-light {
+    color: $palette-orange-light;
 }
