@@ -195,18 +195,13 @@
 
 #its-sec4 {
     z-index: 2;
-    background: linear-gradient(to bottom left, $palette-grey-700, $palette-black);
-    color: $palette-white;
+    background: $palette-grey-100;
     box-sizing: border-box;
     overflow: hidden;
     min-height: 0;
 
     .section-header{
         margin-top: 2rem;
-
-        &::after {
-            background-color: $palette-white;
-        }
     }
 
     .container {
@@ -315,7 +310,7 @@
         }
 
         &:last-child {
-            margin-bottom: 0rem;
+            margin-bottom: 10rem;
         }
 
         &.lead {
@@ -331,7 +326,7 @@
 
 #its-sec8 {
     z-index: 2;
-    background: $palette-white;
+    background: $palette-grey-100;
     box-sizing: border-box;
     overflow: hidden;
     min-height: 0;
@@ -373,7 +368,7 @@
 
 #its-sec9 {
     z-index: 2;
-    background: $palette-grey-100;
+    background: $palette-white;
     box-sizing: border-box;
     overflow: hidden;
     min-height: 0;
@@ -399,4 +394,5 @@
 footer {
     position: relative;
     padding-top: 1rem;
+    color: $palette-grey-400;
 }
