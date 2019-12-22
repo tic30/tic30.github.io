@@ -262,6 +262,89 @@
     }
 
     p {
+        margin: 0;
+        line-height: 2rem;
+        width: 65%;
+    }
+
+    .tech-imgs-wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-left: -0.5rem;
+        width: calc(100% + 1rem);
+        margin-top: 7rem;
+        margin-bottom: 7rem;
+    }
+
+    .tech-imgs {
+        height: 50px;
+        flex-shrink: 0;
+        flex-grow: 0;
+        margin: 0.5rem;
+        transition-duration: 0.2s;
+        filter: grayscale(1) brightness(0) contrast(0.2);
+
+        &:hover {
+            filter: none;
+        }
+    }
+
+}
+
+#its-sec7 {
+    z-index: 2;
+    background: $palette-white;
+    box-sizing: border-box;
+    overflow: hidden;
+    min-height: 0;
+
+    .section-header{
+        margin-top: 5rem;
+    }
+
+    .container {
+        padding: 0 7rem;
+    }
+
+    p {
+        margin: 0 0 5rem;
+       
+        &:first-child {
+            width: 65%;
+        }
+
+        &:last-child {
+            margin-bottom: 0rem;
+        }
+
+        &.lead {
+            margin: 0 0 1.5rem;
+        } 
+    }
+
+    .imp-imgs {
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+}
+
+#its-sec8 {
+    z-index: 2;
+    background: $palette-white;
+    box-sizing: border-box;
+    overflow: hidden;
+    min-height: 0;
+
+    .section-header{
+        margin-top: 5rem;
+    }
+
+    .container {
+        padding: 0 7rem;
+    }
+
+    p {
         margin: 0 0 5rem;
 
         &.lead {
@@ -269,4 +352,51 @@
         } 
     }
 
+    .outcome-imgs-wrapper {
+        position: relative;
+        width: 70%;
+        margin-left: 15%;
+        margin-bottom: 5rem;
+        box-shadow: 0 5px 8px #eee;
+        border-radius: 5px;
+
+        &:last-child {
+            margin-bottom: 10rem;
+            box-shadow: none;
+        }
+    }
+
+    .outcome-imgs {
+        width: 100%;
+    }
+}
+
+#its-sec9 {
+    z-index: 2;
+    background: $palette-grey-100;
+    box-sizing: border-box;
+    overflow: hidden;
+    min-height: 0;
+
+    .section-header{
+        margin-top: 5rem;
+    }
+
+    .container {
+        padding: 0 7rem;
+    }
+
+    p {
+        margin: 0 0 10rem;
+
+        &.lead {
+            margin: 0 0 1.5rem;
+        } 
+    }
+
+}
+
+footer {
+    position: relative;
+    padding-top: 1rem;
 }

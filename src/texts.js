@@ -79,7 +79,29 @@ export default {
     ITSHero: {
         title: "INTELLIGENT TUTORING SYSTEMS",
         content: "Research Project @ CMU.HCII"
-    }
+    },
+    ITSTech: [
+        {
+            src: "/imgs/icons/hololens.png",
+            alt: "Hololens"
+        },
+        {
+            src: "/imgs/icons/unity.png",
+            alt: "Unity"
+        },
+        {
+            src: "/imgs/icons/vuforia.png",
+            alt: "Vuforia"
+        },
+        {
+            src: "/imgs/icons/node.png",
+            alt: "NodeJS"
+        },
+        {
+            src: "/imgs/icons/mongo.png",
+            alt: "MongoDB"
+        }
+    ]
 }
 
 // I seek challenges, with-in and out of work. I embrace them, break them down into practical tasks and improve myself along the way. 

@@ -168,7 +168,7 @@ class Home extends Component {
 						<h2>Lets chat</h2>
 						<h1>I am open to<br/>creative ideas!</h1>
 					</div>
-					<footer ref={this.footer}>Copyright © 2016 - 2019 Chu, Tianxin. All rights reserved.</footer>
+					<footer ref={this.footer}>Copyright © 2016 - 2020 Chu, Tianxin. All rights reserved.</footer>
 				</section>
 			</React.Fragment>
 		);

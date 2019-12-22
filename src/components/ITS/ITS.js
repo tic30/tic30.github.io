@@ -98,7 +98,12 @@ class ITS extends Component {
 						<h2>Technology</h2>
 					</div>
 					<div className="container">
-
+						<p>The core technology we use is <b className="text-orange">Microsoft HoloLens</b>. We use <b className="text-blue">Node</b> and <b className="text-blue">MongoDB</b> to handle data I/O, storage and calculations as a support.</p>
+						<div className="tech-imgs-wrapper">
+							{Texts.ITSTech.map((item, index) => {
+								return <img className="tech-imgs" src={item.src} alt={item.alt} key={index}/>
+							})}
+						</div>
 					</div>
 				</section>
 				<section id="its-sec7">
@@ -106,7 +111,12 @@ class ITS extends Component {
 						<h2>Implementation</h2>
 					</div>
 					<div className="container">
-
+						<p>My job is to <b className="text-orange">prototype a web application</b> for displaying and testing data flows, to <b className="text-blue">initiate the construction of virtual world in Unity</b> and to integrate Unity build with HoloLen emulator in Visual Studio. The following diagrams present basic data structures for both front end interface and Holographic display implementation.</p>
+						<p className="lead">Web application Structure</p>
+						<img className="imp-imgs" src="/imgs/its-6.png" alt="Web application Structure"/>
+						<p className="lead">AR Implementation Structure</p>
+						<img className="imp-imgs" src="/imgs/its-7.png" alt="AR Implementation Structure"/>
+						<p>During my short stay, I mostly focused on Unity coding, aiming to create an AR environment that deliver visual information. We setup the database as a streaming source and use the headset as the front-end interface that receives and displays data. The data collection and database population coding is most accomplished by the time I joined the team. For the first phase of my work, I spent a short period of time learning the codebase built with Node.js and Ember.js. This step is important for me to understand how the database is connected to front end and how the web interface functions in order to migrant web data to hologram and visualize information. After that, I started to “translate” web language to hologram language to be displayed in HoloLens headset. I spent time reading papers about AR visual design guidelines and testing automated and gesture-triggerd 3D model behaviors. On the other hand, we tested data streaming in various approaches aiming to seamlessly integrate code and data. We also harmonized the coding style for code reuse.</p>
 					</div>
 				</section>
 				<section id="its-sec8">
@@ -114,7 +124,10 @@ class ITS extends Component {
 						<h2>Outcome</h2>
 					</div>
 					<div className="container">
-
+						<p>By the end of my stay, our team has finished designing and constructing the database and pre-scan the designated classroom for testing purpose. We also finished visualizing data with web interface, making Unity interact with database, dynamically generating and placing objects based on retrived data, and rendering simple visual effects and animations. The image below is a demo web interface.</p>
+						<div className="outcome-imgs-wrapper"><img className="outcome-imgs" src="/imgs/its-4.jpg" alt="Outcome web app"/></div>
+						<p>In the visual world, I built figures which simulate visual feedback to remind teacher the learning status for specific student, made them dynamically generated and rendered based on local database input. The object behavior is also optimized to interact with camera movement and gesture.</p>
+						<div className="outcome-imgs-wrapper"><img className="outcome-imgs" src="/imgs/its-5.png" alt="Outcome AR"/></div>
 					</div>
 				</section>
 				<section id="its-sec9">
@@ -122,9 +135,11 @@ class ITS extends Component {
 						<h2>Acknowledgment</h2>
 					</div>
 					<div className="container">
-
+						<p className="lead">To Carnegie Mellon University <b className="text-cmu">HCI Institute</b></p>
+						<p>I remember the first day when I met Kenneth Holstein, PhD student at HCII back in 2017, he described to me about what people do at HCII as “researching about cutting edge and ahead of time technologies that will have huge market impact in the future” and he gave me an example of mobile touchscreen research sponsored by Apple at early 21st century, which was more than five years before the first generation of iPhone hit the market. Looking back at the project I worked on during this short three months, I could not agree more. I appreciate all the guidance and help from Dr. Bruce McLaren, Dr. Vincent Aleven as well as admission and support staffs from HCI Institute. I enjoyed working closely with Kenneth Holstein, Zac Yu and all other team members. Finally, I sincerely wish them the best in the future development of Intelligent Tutoring Systems project.</p>
 					</div>
 				</section>
+				<footer>Copyright © 2016 - 2020 Chu, Tianxin. All rights reserved.</footer>
 			</React.Fragment>
 		);
 	}
