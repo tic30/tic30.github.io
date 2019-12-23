@@ -79,7 +79,7 @@ class ITS extends Component {
 						<h2>Our proposal</h2>
 					</div>
 					<div className="container">
-						<p className="lead">Use <span className="text-orange-light">Augmented Reality</span> to enrich visible info</p>
+						<p className="lead">Use <span className="text-orange">Augmented Reality</span> to enrich visible info</p>
 						<p>Based on carefully conducted user case study and detailed research about competitive teaching-aid tools on the market, we believe augmented reality will give teachers maximum interaction to virtual data while keeping environmental awareness and keeping their hands free to minimize the impact on their regular teaching behavior. As shown above, the HoloLens software should function as a monitor to all students and report their learning behavior with explicit visual feedback to the teacher. For example, the "hand-up" figure shows that student stuck at someplace. Colored "hand" shows multi-level urgency for student's need for help. And "Zzz" figure shows up after certain student's PC does not record any input behavior for a certain time. These sample figures help the teacher quickly identifies those who need help but may be too shy to raise their hands, or reminds the student who is idling behind the screen to guide them back to proper learning status.</p>
 					</div>
 				</section>
@@ -124,9 +124,9 @@ class ITS extends Component {
 						<h2>Outcome</h2>
 					</div>
 					<div className="container">
-						<p>By the end of my stay, our team has finished designing and constructing the database and pre-scan the designated classroom for testing purpose. We also finished visualizing data with web interface, making Unity interact with database, dynamically generating and placing objects based on retrived data, and rendering simple visual effects and animations. The image below is a demo web interface.</p>
+						<p>By the end of my stay, our team has finished designing and constructing the database and pre-scan the designated classroom for testing purpose. We also <b className="text-orange">finished visualizing data with web interface</b>, making Unity interact with database, <b className="text-blue">dynamically generating and placing objects in vitual world</b> based on retrived data, and rendering simple visual effects and animations. The image below is a demo web interface.</p>
 						<div className="outcome-imgs-wrapper"><img className="outcome-imgs" src="/imgs/its-4.jpg" alt="Outcome web app"/></div>
-						<p>In the visual world, I built figures which simulate visual feedback to remind teacher the learning status for specific student, made them dynamically generated and rendered based on local database input. The object behavior is also optimized to interact with camera movement and gesture.</p>
+						<p>In the visual world, I built <b className="text-orange">figures which simulate visual feedback</b> to remind teacher the learning status for specific student, made them dynamically generated and rendered based on local database input. The object behavior is also optimized to interact with camera movement and gesture.</p>
 						<div className="outcome-imgs-wrapper"><img className="outcome-imgs" src="/imgs/its-5.png" alt="Outcome AR"/></div>
 					</div>
 				</section>

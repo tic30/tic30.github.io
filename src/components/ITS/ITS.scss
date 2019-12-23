@@ -352,12 +352,15 @@
         width: 70%;
         margin-left: 15%;
         margin-bottom: 5rem;
-        box-shadow: 0 5px 8px #eee;
-        border-radius: 5px;
+        box-shadow: 0 5px 8px $palette-grey-400;
+        background-color: $palette-white;
+        border-radius: 9px;
+        overflow: hidden;
 
         &:last-child {
             margin-bottom: 10rem;
             box-shadow: none;
+            background-color: transparent;
         }
     }
 
