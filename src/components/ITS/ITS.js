@@ -80,7 +80,7 @@ class ITS extends Component {
 					</div>
 					<div className="container">
 						<p className="lead">Use <span className="text-orange">Augmented Reality</span> to enrich visible info</p>
-						<p>Based on carefully conducted user case study and detailed research about competitive teaching-aid tools on the market, we believe augmented reality will give teachers maximum interaction to virtual data while keeping environmental awareness and keeping their hands free to minimize the impact on their regular teaching behavior. As shown above, the HoloLens software should function as a monitor to all students and report their learning behavior with explicit visual feedback to the teacher. For example, the "hand-up" figure shows that student stuck at someplace. Colored "hand" shows multi-level urgency for student's need for help. And "Zzz" figure shows up after certain student's PC does not record any input behavior for a certain time. These sample figures help the teacher quickly identifies those who need help but may be too shy to raise their hands, or reminds the student who is idling behind the screen to guide them back to proper learning status.</p>
+						<p>Based on carefully conducted user case study and detailed research about competitive teaching-aid tools on the market, we believe augmented reality will give teachers maximum interaction to virtual data while keeping environmental awareness。 The benefits of head-mounted wearable device also includes keeping teachers' hands free to minimize the impact on their regular teaching behavior.</p>
 					</div>
 				</section>
 				<section id="its-sec5">
@@ -90,7 +90,7 @@ class ITS extends Component {
 					<div className="container">
 						<img className="img-its img-its2" src="/imgs/its-2.jpg" alt="Illustation Overall"/>
 						<img className="img-its img-its3" src="/imgs/its-3.jpg" alt="Illustation Stats"/>
-						<p>Eliciting and synthesizing teachers’ design requirements for intelligent real-time supports.</p>
+						<p>As shown above, the HoloLens software should function as a monitor to all students and report their learning behavior with explicit visual feedback to the teacher. For example, the "hand-up" figure shows that student stuck at someplace. Colored "hand" shows multi-level urgency for student's need for help. And "Zzz" figure shows up after certain student's PC does not record any input behavior for a certain time. These sample figures help the teacher quickly identifies those who need help but may be too shy to raise their hands, or reminds the student who is idling behind the screen to guide them back to proper active learning status.</p>
 					</div>
 				</section>
 				<section id="its-sec6">
@@ -128,6 +128,7 @@ class ITS extends Component {
 						<div className="outcome-imgs-wrapper"><img className="outcome-imgs" src="/imgs/its-4.jpg" alt="Outcome web app"/></div>
 						<p>In the visual world, I built <b className="text-orange">figures which simulate visual feedback</b> to remind teacher the learning status for specific student, made them dynamically generated and rendered based on local database input. The object behavior is also optimized to interact with camera movement and gesture.</p>
 						<div className="outcome-imgs-wrapper"><img className="outcome-imgs" src="/imgs/its-5.png" alt="Outcome AR"/></div>
+						<p>Meanwhile, the steaming is tested seperately. With intention to bring our product online, more issues like network accessibility and security need to be taken into consideration. In the near future, field testing will be conducted and more information can be collected to aid the decision-making progress.</p>
 					</div>
 				</section>
 				<section id="its-sec9">

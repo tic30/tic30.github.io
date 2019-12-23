@@ -233,7 +233,7 @@
     }
 
     p {
-        margin: 0 0 5rem;
+        margin: 5rem 0 10rem;
 
         &.lead {
             margin: 0 0 1.5rem;
@@ -344,7 +344,11 @@
 
         &.lead {
             margin: 0 0 1.5rem;
-        } 
+        }
+
+        &:last-child {
+            margin-bottom: 10rem;
+        }
     }
 
     .outcome-imgs-wrapper {
@@ -358,7 +362,6 @@
         overflow: hidden;
 
         &:last-child {
-            margin-bottom: 10rem;
             box-shadow: none;
             background-color: transparent;
         }
