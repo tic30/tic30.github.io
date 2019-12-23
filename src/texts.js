@@ -44,7 +44,7 @@ export default {
         title: "Intelligent Tutoring Systems",
         imgUrl: "its.png",
         subTitle: "Better teaching with AR.",
-        btnText: "Coming Soon",
+        btnText: "Read more",
         pageUrl: "/its"
     },
     DealFindMe: {
@@ -52,28 +52,28 @@ export default {
         imgUrl: "dealfindme.png",
         subTitle: "Coupon at hand for the store I am standing in.",
         btnText: "Coming Soon",
-        pageUrl: "/dfm"
+        pageUrl: ""//"/dfm"
     },
     Milu: {
         title: "Milu",
         imgUrl: "milu.png",
         subTitle: "An image content search engine.",
         btnText: "Coming Soon",
-        pageUrl: "/milu"
+        pageUrl: ""//"/milu"
     },
     EthereumWallet: {
         title: "Ethereum Wallet",
         imgUrl: "ethereumwallet.png",
         subTitle: "Checkout with Ethereum using this extension.",
         btnText: "Coming Soon",
-        pageUrl: "/ethereumwallet"
+        pageUrl: ""//"/ethereumwallet"
     },
     MovieEmodex: {
         title: "Movie.Emodex",
         imgUrl: "movie.png",
         subTitle: "New movie rating based on emotional impact.",
         btnText: "Coming Soon",
-        pageUrl: "/movieemodex"
+        pageUrl: ""//"/movieemodex"
     },
     //ITS page
     ITSHero: {

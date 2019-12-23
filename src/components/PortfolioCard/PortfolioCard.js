@@ -16,6 +16,7 @@ class PortfolioCard extends Component {
     }
 
     clickCard(pageUrl) {
+        if(!pageUrl) return;
         const {x, y, width, height} = this.card.current.getBoundingClientRect();
         const thisCard = this.card.current;
         const myself = this;
@@ -36,7 +37,7 @@ class PortfolioCard extends Component {
                 myself.setState({
                     redirect: pageUrl
                 })
-            }, 1000);
+            }, 800);
         }, 200)
     }
 
