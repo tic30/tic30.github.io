@@ -3,14 +3,15 @@ import Header from '../Header';
 import ScrollHint from '../ScrollHint';
 import YouTubePlayer from '../YouTubePlayer';
 import Texts from '../../texts';
-import { isInViewport } from '../../util';
+import { isInOrPassedViewport } from '../../util';
 import './ITS.scss';
 
 class ITS extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			scrollLevel: 0
+			scrollLevel: 0,
+			mobile: window.matchMedia('(max-width: 959px)').matches
 		}
 		this.sec2Title = React.createRef();
 		this.player = React.createRef();
@@ -18,16 +19,22 @@ class ITS extends Component {
 	}
 
 	scrollEvent = () => {
-		if (isInViewport(this.endOfSec2.current)) {
+		if (isInOrPassedViewport(this.endOfSec2.current)) {
 			this.setState({ scrollLevel: 3 })
-		} else if (isInViewport(this.player.current)) {
+		} else if (isInOrPassedViewport(this.player.current)) {
 			this.setState({ scrollLevel: 2 })
-		} else if (isInViewport(this.sec2Title.current)) {
+		} else if (isInOrPassedViewport(this.sec2Title.current)) {
 			this.setState({ scrollLevel: 1 })
 		} else {
 			this.setState({ scrollLevel: 0 })
 		}
 	}
+
+	windowResizeHandler = () => {
+        this.setState({
+            mobile: window.matchMedia('(max-width: 959px)').matches
+        });
+    }
 
 	componentWillMount() {
 		window.scrollTo(0,0);
@@ -35,14 +42,16 @@ class ITS extends Component {
 
 	componentDidMount() {
 		window.addEventListener("scroll", this.scrollEvent);
+		window.addEventListener('resize', this.windowResizeHandler);
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener("scroll", this.scrollEvent);
+		window.removeEventListener('resize', this.windowResizeHandler);
 	}
 
 	render() {
-		const { scrollLevel } = this.state
+		const { scrollLevel, mobile } = this.state
 
 		return (
 			<React.Fragment>
@@ -101,7 +110,7 @@ class ITS extends Component {
 						<p>The core technology we use is <b className="text-orange">Microsoft HoloLens</b>. We use <b className="text-blue">Node</b> and <b className="text-blue">MongoDB</b> to handle data I/O, storage and calculations as a support.</p>
 						<div className="tech-imgs-wrapper">
 							{Texts.ITSTech.map((item, index) => {
-								return <img className="tech-imgs" src={item.src} alt={item.alt} key={index}/>
+								return <img className="tech-imgs" src={ mobile ? item.msrc : item.src} alt={item.alt} key={index}/>
 							})}
 						</div>
 					</div>

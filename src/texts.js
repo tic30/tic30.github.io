@@ -83,22 +83,27 @@ export default {
     ITSTech: [
         {
             src: "/imgs/icons/hololens.png",
+            msrc: "/imgs/icons/hololens_m.png",
             alt: "Hololens"
         },
         {
             src: "/imgs/icons/unity.png",
+            msrc: "/imgs/icons/unity_m.png",
             alt: "Unity"
         },
         {
             src: "/imgs/icons/vuforia.png",
+            msrc: "/imgs/icons/vuforia_m.png",
             alt: "Vuforia"
         },
         {
             src: "/imgs/icons/node.png",
+            msrc: "/imgs/icons/node.png",
             alt: "NodeJS"
         },
         {
             src: "/imgs/icons/mongo.png",
+            msrc: "/imgs/icons/mongo_m.png",
             alt: "MongoDB"
         }
     ]
