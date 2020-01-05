@@ -1,6 +1,29 @@
 @import "../variable";
 @import "../animation";
 
+section[id*="its-"] {
+    .section-header {
+        @include screen-sm {
+            margin-top: 5rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        @include screen-md {
+            padding-left: 7rem;
+            padding-right: 7rem;
+        }
+    }
+
+    .container {
+        @include screen-md {
+            padding: 0 7rem;
+        }
+    }
+}
+
+
+
 #its-sec1 {
     position: fixed;
     width: 100%;
@@ -45,6 +68,7 @@
         }
     }
     h2 {
+        text-align: center;
         margin-bottom: 0;
         animation-name: fadeInUp;
         animation-duration: 0.5s;
@@ -137,19 +161,27 @@
 
 #its-sec2 {
     z-index: 3;
+    min-height: 0;
 
     .container{
         background: $palette-white;
-        padding: 3rem 7rem;
         border-radius: 5px;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
+        padding-top: 3rem;
+
+        @include screen-md {
+            padding-top: 7rem;
+        }
+
+        @include screen-md {
+            padding-left: 5rem;
+            padding-right: 7rem;
+        }
     }
 
     .subheader {
-        width: 65%;
+        @include screen-md {
+            width: 65%;
+        }
     }
 
     .playerStart {
@@ -177,7 +209,11 @@
     }
 
     .container {
-        padding: 0 7rem 10rem;
+        padding-bottom: 5rem;
+
+        @include screen-md {
+            padding-bottom: 10rem;
+        }
     }
 
     p {
@@ -200,20 +236,20 @@
     overflow: hidden;
     min-height: 0;
 
-    .section-header{
-        margin-top: 2rem;
-    }
-
     .container {
-        padding: 0 7rem 2rem;
+        padding-bottom: 5rem;
     }
 
     p {
-        margin: 0 0 5rem;
+        margin: 0;
 
         &.lead {
             margin: 0 0 1.5rem;
         } 
+
+        @include screen-sm {
+            margin-bottom: 5rem;
+        }
     }
 }
 
@@ -224,20 +260,16 @@
     overflow: hidden;
     min-height: 0;
 
-    .section-header{
-        margin-top: 5rem;
-    }
-
-    .container {
-        padding: 0 7rem;
-    }
-
     p {
-        margin: 5rem 0 10rem;
+        margin: 5rem 0;
 
         &.lead {
             margin: 0 0 1.5rem;
-        } 
+        }
+
+        @include screen-sm {
+            margin-bottom: 10rem;
+        }
     }
 
     .img-its2 {
@@ -255,24 +287,29 @@
     overflow: hidden;
     min-height: 0;
 
-    .container {
-        padding: 0 7rem;
-    }
-
     p {
         margin: 0;
         line-height: 2rem;
-        width: 65%;
+        @include screen-sm {
+            width: 65%;
+        }
     }
 
     .tech-imgs-wrapper {
         display: flex;
-        justify-content: space-between;
         flex-wrap: wrap;
-        margin-left: -0.5rem;
-        width: calc(100% + 1rem);
-        margin-top: 7rem;
-        margin-bottom: 7rem;
+        justify-content: space-between;
+        margin: 2rem 0 5rem -0.5rem;
+        
+        @include screen-sm {
+            width: 65%;
+            margin-top: 7rem;
+            margin-bottom: 8rem;
+        }
+
+        @include screen-md {
+            width: calc(100% + 1rem);
+        }
     }
 
     .tech-imgs {
@@ -286,6 +323,10 @@
         &:hover {
             filter: none;
         }
+
+        @include screen-md {
+            justify-content: space-between;
+        }
     }
 
 }
@@ -297,23 +338,19 @@
     overflow: hidden;
     min-height: 0;
 
-    .section-header{
-        margin-top: 5rem;
-    }
-
-    .container {
-        padding: 0 7rem;
-    }
-
     p {
         margin: 0 0 5rem;
        
         &:first-child {
-            width: 65%;
+            @include screen-sm {
+                width: 65%;
+            }
         }
 
         &:last-child {
-            margin-bottom: 10rem;
+            @include screen-sm {
+                margin-bottom: 10rem;
+            }
         }
 
         &.lead {
@@ -334,14 +371,6 @@
     overflow: hidden;
     min-height: 0;
 
-    .section-header{
-        margin-top: 5rem;
-    }
-
-    .container {
-        padding: 0 7rem;
-    }
-
     p {
         margin: 0 0 5rem;
 
@@ -350,14 +379,14 @@
         }
 
         &:last-child {
-            margin-bottom: 10rem;
+            @include screen-sm {
+                margin-bottom: 10rem;
+            }
         }
     }
 
     .outcome-imgs-wrapper {
         position: relative;
-        width: 70%;
-        margin-left: 15%;
         margin-bottom: 5rem;
         box-shadow: 0 5px 8px $palette-grey-400;
         background-color: $palette-white;
@@ -367,6 +396,11 @@
         &:last-child {
             box-shadow: none;
             background-color: transparent;
+        }
+
+        @include screen-md {
+            width: 70%;
+            margin-left: 15%;
         }
     }
 
@@ -382,26 +416,23 @@
     overflow: hidden;
     min-height: 0;
 
-    .section-header{
-        margin-top: 5rem;
-    }
-
-    .container {
-        padding: 0 7rem;
-    }
-
     p {
-        margin: 0 0 10rem;
+        margin: 0 0 5rem;
 
         &.lead {
             margin: 0 0 1.5rem;
-        } 
-    }
+        }
 
+        @include screen-sm {
+            margin-bottom: 10rem;
+        }
+    }
 }
 
-footer {
+.its-footer {
     position: relative;
     padding-top: 1rem;
     color: $palette-grey-400;
+    background-color: $palette-black;
+    max-width: none;
 }
