@@ -189,16 +189,21 @@
 .menu-item {
     text-align: left;
     width: 100%;
+    margin-bottom: 0.5rem;
 
     a {
         font-size: 1.5rem;
         font-weight: bold;
         color: $palette-grey-400;
-        padding: 1.5rem 3rem;
+        padding: 1rem 3rem;
         text-transform: uppercase;
+        border-radius: 30px;
+        transition-duration: 0.3s;
+        width: 100%;
     }
 
     a:hover {
         color: $palette-white;
+        background: $palette-grey-700;
     }
 }

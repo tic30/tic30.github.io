@@ -8,7 +8,7 @@
     padding: 3rem 1.5rem 4rem;
     &::after {
         position: absolute;
-        top: 7rem;
+        top: 8rem;
         content: "";
         width: 5rem;
         max-width: 50%;
@@ -204,25 +204,37 @@
     min-height: 0;
 
     .container {
-        max-width: 100%;
         padding: 0;
+        margin: 0 1rem;
         display: flex;
         flex-direction: column;
+        border-radius: 20px;
+        overflow: hidden;;
+        width: auto;
+        box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.3);
 
         @include screen-md {
             flex-direction: row;
+        }
+
+        @include screen-lg {
+            margin: auto;
         }
     }
 }
 
 #sec3 {
     .container {
-        padding: 0 1.5rem 100px;
-        overflow: hidden;
+        padding: 0 1rem 100px;
     }
     .container-inner {
         display: flex;
         padding: 12px 0;
+
+        @include screen-lg {
+            width: calc(100% + 2rem);
+            margin-left: -1rem;
+        }
     }
     .container-inner-wrap {
         flex-direction: column;
