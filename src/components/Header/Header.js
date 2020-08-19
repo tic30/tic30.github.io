@@ -63,13 +63,14 @@ class Header extends Component {
         return (
             <React.Fragment>
                 <div className={`nav ${scrolled ? 'scrolled' : ''}`}>
-                    <div className="nav-container">
+                    {/* <div className="nav-container">
                         <div className="logo-wrapper">
                             <div className="nav-item logo">
                                 <HashLink to="/home" className="logo-text" onClick={this.logoClickHandler}></HashLink>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
+                    <HashLink to="/home" className="nav-logo" onClick={this.logoClickHandler}></HashLink>
                 </div>
                 <MenuScreen open={menuOpen} openDirection="left" justifyDirection="left">
                     <div className="menu-item">
