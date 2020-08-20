@@ -29,7 +29,7 @@ export default {
     },
     Deephow: {
         titleIcon: "icons/deephow.png",
-        content: "This AI start-up is incubated in Techstar by the hands of talents from Siemens UX team. I lead the front end architecture design and MVP development in early phase of the company. During the short journey I established a component-based, highly-reusable and efficient development ecosystem, introduced a fully automated process from coding, testing, building, to deployment and toubleshooting, and I advocated code ownership to boost productivity."
+        content: "This AI start-up is incubated in Techstar by the hands of talents from Siemens UX team. I lead the front end architecture design and MVP development. During the short journey I established a highly-reusable and efficient development ecosystem, introduced a fully automated process from coding, testing, building, to deployment, and I advocated code ownership to boost productivity."
     },
     Siemens: {
         titleIcon: "icons/siemens.svg",

@@ -196,7 +196,6 @@
         opacity:0;
         transition: all 0.2s ease-in;
         height:auto;
-        transform:scaleY(-1);
         margin-left:-17px;
 
         @include screen-md {  
