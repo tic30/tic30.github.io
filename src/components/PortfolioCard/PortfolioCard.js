@@ -57,11 +57,11 @@ class PortfolioCard extends Component {
                         <div className={`portfolio-card-text-wrapper ${open?"open":""}`}>
                             <h4>{content.title}</h4>
                             <div className="portfolio-card-content">
-                                <p>{content.subTitle}</p>
-                                <div className="portfolio-card-btn">
-                                    {content.btnText}
-                                    {content.pageUrl && <img src="/imgs/icons/arrow-right.svg" alt="Arrow right" height="14px"/>}
-                                </div>
+                                <p className={content.pageUrl ? "" : "mobile-show"}>{content.subTitle}</p>
+                                {content.pageUrl ? <div className="portfolio-card-btn">
+                                    {content.btnText || "Read more"}
+                                    <img src="/imgs/icons/arrow-right.svg" alt="Arrow right" height="14px"/>
+                                </div> : <div className="portfolio-card-btn-placeholder"></div>}
                             </div>
                         </div>
                     </div>

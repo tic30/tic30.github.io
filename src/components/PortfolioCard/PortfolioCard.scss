@@ -51,6 +51,10 @@ div.portfolio-card {
         flex-grow: 1;
         background-color: $palette-white;
 
+        &.mobile-show {
+            display: block;
+        }
+
         @include screen-md {
             display: block;
         }
@@ -70,6 +74,11 @@ div.portfolio-card {
         img {
             margin-left: 0.5rem;
         }
+    }
+
+    .portfolio-card-btn-placeholder {
+        width: 0;
+        height: 3rem;
     }
 
     &:hover {
