@@ -3,24 +3,24 @@
 .flyer {
     position: absolute;
     bottom: 0;
-    height: 450px;
     z-index: 0;
     vertical-align: top;
-    padding: 5rem 0;
+    padding: 4rem 0;
     background: $palette-grey-100;
     display: flex;
     align-items: flex-end;
     justify-content: center;
 
     p {
-        line-height: 1.7
+        line-height: 1.7;
+        margin-bottom: 2rem;
     }
 
     .icons {
         display: flex;
-        flex-wrap: wrap;
-        width: calc(100% + 2rem);
-        margin: 0 -1rem;
+        flex-wrap: wrap-reverse;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
 
         @include screen-sm {
             flex-wrap: nowrap;
@@ -34,9 +34,6 @@
 }
 
 .flyer-left {
-    height: 600px;
-    padding-top: 0rem;
-    padding-bottom: 0rem;
     left: 0;
     width: 100%;
     transform: translateY(-100%);
@@ -55,11 +52,7 @@
         padding: 0 1.5rem;
         
         p.animated {
-            padding-bottom: 1rem;
-
-            @include screen-md {
-                padding-bottom: 0;
-            }
+            margin-bottom: 0;
         }
 
         @include screen-md {
@@ -89,7 +82,6 @@
 
 .flyer-left.noanimation {
     position: relative;
-    padding-bottom: 5rem;
     transform: translateX(0);
     animation-name: none;
     color: $palette-white;
@@ -138,6 +130,7 @@
     }
 
     @include screen-md {
+        height: 500px;
         padding-top: 5rem;
         width: calc(50% - 91px);
         z-index: 3;
@@ -178,12 +171,23 @@
     img {
         filter: invert(0.9);
     }
-    &:hover {
+    &:hover,
+    &:last-child {
         background-color: $palette-grey-100;
         img {
             width: 50px;
             height: 50px;
             filter: invert(0);
+        }
+    }
+
+    &:hover ~ .flyer-icon{
+        background-color: transparent;
+
+        img {
+            width: 40px;
+            height: 40px;
+            filter: invert(0.9);
         }
     }
 }
@@ -201,11 +205,21 @@
         padding-bottom: 0.5rem;
     }
 
-    &:hover {
+    &:hover,
+    &:last-child {
         background-color: $palette-white;
         img {
             width: 75%;
             filter: brightness(1)
+        }
+    }
+
+    &:hover ~ .flyer-icon{
+        background-color: transparent;
+
+        img {
+            width: 60%;
+            filter: brightness(0)
         }
     }
 }
@@ -221,7 +235,7 @@
 
 .flyer-divider {
     position: absolute;
-    top: calc(50% - 80px);
+    top: calc(50% - 100px);
     left: 0;
     height: 160px;
     width: 100%;

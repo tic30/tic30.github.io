@@ -115,7 +115,7 @@ class Home extends Component {
 						<h1>{Texts.Hero.title}</h1>
 						<p className="contentText">{Texts.Hero.content}</p>
 					</div>
-					<div className="section-header">
+					<div className="section-header" id="self-intro">
 						<h2>About me</h2>
 					</div>
 					<div className="container container-flyer">

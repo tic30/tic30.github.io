@@ -7,20 +7,20 @@ export default {
         title: "I seek challenges, \n within and without of work.",
         content: "I embrace them, break them down into practical tasks and improve myself along the way.",
         icons: [
-            {src:"icons/archery.svg"},
-            {src:"icons/pingpong.svg"},
-            {src:"icons/soccer.svg"},
             {src:"icons/reading.svg"},
+            {src:"icons/soccer.svg"},
+            {src:"icons/pingpong.svg"},
+            {src:"icons/archery.svg"}
         ]
     },
     Company: {
         title: "UX, \n Front end, and Fun",
         content: "I have hands on experience with UX research & design, front end prototyping and production level coding.",
         icons: [
-            {src: "icons/indeed.png", dataTarget: "Indeed"},
-            {src: "icons/siemens.svg", dataTarget: "Siemens"},
+            {src: "icons/cmu.png", dataTarget: "Cmu"},
             {src: "icons/deephow.png", dataTarget: "Deephow"},
-            {src: "icons/cmu.png", dataTarget: "Cmu"}
+            {src: "icons/siemens.svg", dataTarget: "Siemens"},
+            {src: "icons/indeed.png", dataTarget: "Indeed"}
         ]
     },
     Indeed: {

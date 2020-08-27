@@ -74,7 +74,7 @@ class Header extends Component {
                 </div>
                 <MenuScreen open={menuOpen} openDirection="left" justifyDirection="left">
                     <div className="menu-item">
-                        <HashLink to="/home#sec2" onClick={this.toggleMenuScreen}>About Me</HashLink>
+                        <HashLink to="/home#self-intro" onClick={this.toggleMenuScreen}>About Me</HashLink>
                     </div>
                     <div className="menu-item">
                         <HashLink to="/home#sec3" onClick={this.toggleMenuScreen}>Projects</HashLink>
