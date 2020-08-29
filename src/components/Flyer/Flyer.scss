@@ -39,9 +39,9 @@
 }
 
 .flyer-left {
-    padding-bottom: 160px;
     left: 0;
     width: 100%;
+    min-height: 50%;
     transform: translateY(-100%);
     color: $palette-black;
     background-color: $palette-grey-100;
@@ -94,6 +94,7 @@
     background: $palette-black;
     align-items: center;
     z-index: 2;
+    padding-bottom: 160px;
 
     &::after {
         z-index: 5;
