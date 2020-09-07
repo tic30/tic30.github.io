@@ -16,7 +16,7 @@
         max-width: 50%;
         height: 6px;
         transition-duration: 0.2s;
-        background-color: $palette-black;
+        background-color: $palette-orange;
 
         @include screen-sm {
             top: 8.5rem;
@@ -111,7 +111,7 @@
     }
     p.contentText {
         font-size: 1.125rem;
-        line-height: 1.5;
+        line-height: 1.4;
         max-width: 500px;
         margin: 0 auto;
         animation-name: fadeInUp;
@@ -123,6 +123,11 @@
 
         @include screen-md {
             font-size: 1.5rem;
+        }
+
+        span {
+            color: $palette-blue-600;
+            font-weight: bold;
         }
     }
 
@@ -301,7 +306,7 @@
         padding-bottom: 0;
     }
     .section-header::after {
-        background-color: $palette-white;
+        background-color: $palette-orange-light;
     }
     .section-header h1 {
         text-transform: uppercase;

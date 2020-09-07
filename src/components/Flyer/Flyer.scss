@@ -64,11 +64,12 @@
         @include screen-md {
             padding-right: 181px;
             padding-left: 3rem;
-            max-width: 715px;
+            max-width: 590px;
         }
 
         @include screen-lg {
-            padding-left: 1.5rem;
+            padding-left: 3rem;
+            max-width: 715px;
         }
     }
 
@@ -109,6 +110,7 @@
 
     @include screen-md {
         z-index: 0;
+        padding-bottom: 5rem;
     }
 }
 

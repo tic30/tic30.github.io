@@ -34,10 +34,6 @@ h1 {
     @include screen-sm {
         font-size: 4rem;
     }
-
-    @include screen-md {
-        font-size: 5rem;
-    }
 }
 
 h2{

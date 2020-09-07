@@ -1,7 +1,6 @@
 export default {
     Hero: {
-        title: "Hi, Welcome!",
-        content: "This is Tim Chu, an open-minded problem solver, UX explorer and front end coder."
+        title: "Hi, Welcome!"
     },
     SelfIntro: {
         title: "I seek challenges, \n within and without of work.",

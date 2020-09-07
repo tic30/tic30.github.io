@@ -113,7 +113,7 @@ class Home extends Component {
 							<img id="smile" src="/imgs/smile.png" alt="Loading smile..." ref={this.smile} />
 						</div>
 						<h1>{Texts.Hero.title}</h1>
-						<p className="contentText">{Texts.Hero.content}</p>
+						<p className="contentText">This is <span>Tim Chu</span>, an open-minded problem solver, UX explorer and front end coder.</p>
 					</div>
 					<div className="section-header" id="self-intro">
 						<h2>About me</h2>
