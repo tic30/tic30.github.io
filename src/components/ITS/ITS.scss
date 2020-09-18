@@ -27,32 +27,12 @@ section[id*="its-"] {
 #its-sec1 {
     position: fixed;
     width: 100%;
-    background-image:url(/imgs/its.png);
-    background-size: auto 110%;
-    background-position: center;
-    background-repeat:no-repeat;
     z-index: 0;
     opacity: 1;
     transition-duration: 0.3s;
     color: $palette-white;
+    background-color: $palette-black;
 
-    &::after {
-        position:absolute;
-        content: "";
-        top: 0;
-        margin:0;
-        padding:0;
-        width:100%;
-        height:100%;
-        animation-name: fadeIn;
-        animation-duration: 0.5s;
-        animation-delay: 0.5s;
-        animation-timing-function: ease-in-out;
-        animation-fill-mode: forwards;
-        background-color: $palette-black;
-        opacity: 0;
-        // background: linear-gradient($palette-white, rgba($palette-white, 0.9) 20%, rgba($palette-white, 0.6) 40%, rgba($palette-white, 0.4))
-    }
     .container {
         display: flex;
         flex-direction: column;

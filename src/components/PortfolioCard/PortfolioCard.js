@@ -8,7 +8,8 @@ class PortfolioCard extends Component {
         super(props);
         this.state = {
             open: false,
-            redirect: ""
+            redirect: "",
+            fadeOut: false
         }
         this.card = React.createRef();
         this.backdrop = React.createRef();
@@ -35,15 +36,20 @@ class PortfolioCard extends Component {
         
             setTimeout(()=>{
                 myself.setState({
-                    redirect: pageUrl
+                    fadeOut: true
                 })
+                setTimeout(()=>{
+                    myself.setState({
+                        redirect: pageUrl
+                    })
+                }, 500);
             }, 800);
         }, 200)
     }
 
     render() {
         const { large, content } = this.props;
-        const { open, redirect } = this.state;
+        const { open, redirect, fadeOut } = this.state;
 
         if (redirect!=="") {
             return <Redirect push to={redirect} />
@@ -51,7 +57,7 @@ class PortfolioCard extends Component {
         
         return (
             <React.Fragment>
-                <Paper className={`portfolio-card ${large?"portfolio-card-large":""} ${open?"open":""}`} ref={this.card}>
+                <Paper className={`portfolio-card ${large?"portfolio-card-large":""} ${open?"open":""} ${fadeOut?"fadeOut":""}`} ref={this.card}>
                     <div className="portfolio-card-container" onClick={() => this.clickCard(content.pageUrl)}>
                         <div className="portfolio-card-img" style={{backgroundImage: `url(/imgs/${content.imgUrl})`}} alt="Portfolio"></div>
                         <div className={`portfolio-card-text-wrapper ${open?"open":""}`}>
