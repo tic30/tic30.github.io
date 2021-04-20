@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import Maintenance from './components/Maintenance';
 import Preloader from './components/Preloader';
 import Home from './components/Home';
 import ITS from './components/ITS';
@@ -12,7 +13,8 @@ class App extends Component {
 			<Router>
 				<React.Fragment>
 					<Switch>
-						<Route path="/" exact component={Preloader} />
+						<Route path="/" exact component={Maintenance} />
+						<Route path="/pre" exact component={Preloader} />
 						<Route path="/home" component={Home} />
 						<Route path="/its" component={ITS} />
 						<Route path="/dfm" component={DFM} />

@@ -1,0 +1,56 @@
+@import "../variable";
+@import "../animation";
+
+.maintenance-page {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.maintenance-logo-button {
+    cursor: pointer;
+    outline: none;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    box-shadow: 
+        8px 8px 12px 0 rgba(0, 0, 0, 0.15),
+        -8px -8px 12px 0 rgba(0, 0, 0, 0.10),
+        rgba(0, 0, 0, 0.05) 0 0 12px inset,
+        rgba(0, 0, 0, 0.05) 12px 12px 16px inset;
+}
+
+.maintenance-logo-button-back {
+    flex-direction: column;
+
+    * {
+        margin: 0.1rem;
+    }
+}
+
+.eyeball {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: $palette-black;
+    border-radius: 50%;
+    top: 172px;
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.eyeball-left {
+    left: 105px;
+}
+.eyeball-right {
+    left: 180px;
+}
