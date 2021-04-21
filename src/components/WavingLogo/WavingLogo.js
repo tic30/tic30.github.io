@@ -30,11 +30,15 @@ const WavingLogo = ({ disabled }) => {
 		updateTimeouts([...timeouts, timeout1]);
 	};
 
+    const fragmentStyle = {
+        display: disabled ? 'none' : 'block'
+    }
+
     return (
         <div id="img-container" onMouseEnter={logoHover} onMouseLeave={logoHoverEnd}>
             <img id="chu-logo" src="/imgs/chu-logo.png" alt="Loading Logo..." />
-            <div id="hand" ref={hand}><img src="/imgs/hand.png" alt="Loading hand..." /></div>
-            <img id="smile" src="/imgs/smile.png" alt="Loading smile..." ref={smile} />
+            <div id="hand" ref={hand} style={fragmentStyle}><img src="/imgs/hand.png" alt="Loading hand..." /></div>
+            <img id="smile" src="/imgs/smile.png" alt="Loading smile..." ref={smile} style={fragmentStyle} />
         </div>
     );
 };
