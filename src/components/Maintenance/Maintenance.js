@@ -40,7 +40,7 @@ const Maintenance = () => {
         <div className="maintenance-page">
             <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
                 <button className="maintenance-logo-button maintenance-logo-button-front" onClick={() => updateIsFlipped(!isFlipped)} ref={buttonRef}>
-                    <WavingLogo />
+                    <WavingLogo disabled={isFlipped}/>
                     <div className="eyeball eyeball-left" style={transformedStyle}></div>
                     <div className="eyeball eyeball-right" style={transformedStyle}></div>
                 </button>

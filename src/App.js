@@ -18,7 +18,7 @@ class App extends Component {
 						<Route path="/home" component={Home} />
 						<Route path="/its" component={ITS} />
 						<Route path="/dfm" component={DFM} />
-						<Redirect to="/home" />
+						<Redirect to="/" />
 					</Switch>
 				</React.Fragment>
 			</Router>
