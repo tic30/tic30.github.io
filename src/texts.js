@@ -105,7 +105,43 @@ export default {
             msrc: "/imgs/icons/mongo_m.png",
             alt: "MongoDB"
         }
-    ]
+    ],
+    //Indeed page
+    IP: [{
+        title: "UX Developer",
+        subtitle: "My current job title is UX Developer. I play a role of front end contributer and design-engineering coordinator in the team. My work supports the front end feature iterations, drive adoption of company-wide UX & FE directions and guidelines, and coordinate across teams.",
+        contents: [{
+            title: "For every employer",
+            content: "In employer team, I focus on presenting easy to use flow and features for employers to post a job and manage postings. I build onboarding pagees that boost initial engagement from small, medium businesses and enterprises; I craft story-telling features in employers' job dashboard to increase employers' awareness of Indeed features and help them quickly navigate to the right action to get the most hires.",
+            illustration: "/imgs/indeed-illstration1.png",
+        }, {
+            title: "One Experience",
+            content: "Working in UX org, I push towards consistent user experience across Indeed products. I advocate the adoption of the latest design and UI libraies across teams, identify broken experiences and coordinate with engineers and other UX Developers to fix them. My believe is that the best way to build customer trust and brand recognition is through consistent visual presentation, high quality content, and productive features.",
+            illustration: "/imgs/indeed-illstration2.png",
+        }, {
+            title: "UI Library @ Indeed community",
+            content: "I maintain one of the mostly adopted Indeed internal UI libraies. It is community based and I am there to encourage contribution and guide contributors. In adition, I work with maintainer team to review code, refresh repository and manage releases. We made sure each library has clear documentation, is generally reusable, has no feature overlap, and passes the highest standard of performance and accessibility check",
+            illustration: "/imgs/icons/gears.png"
+        }, {
+            title: "Engineering efficiency",
+            content: "As an developer, I constantly look for ways to improve code quality and dev experience. I adopt patterns, technologies and introduce tools to help speed up engineering process. I work with QA engineers to increase test coverage, create test plans, automate pipelines and document ways to track error and monitor performance.",
+            illustration: "/imgs/icons/arrows.png"
+        }, {
+            title: "Exploration & giving back",
+            content: "3rd party open source libraries contribute to Indeed front end code base and I actively research on useful new gadges and bring them to the company. Meanwhile, I give back to the community.",
+            illustration: "/imgs/icons/high-five.png"
+        }]
+    }, {
+        title: "Design Technologist",
+        subtitle: "In my early career, I was a Design Technologist(DT) where I supported the product lifecycle by iterating on user study, prototyping and AB testing.",
+        contents: [],
+        icons: [
+            "/imgs/icons/research.png",
+            "/imgs/icons/strategy.png",
+            "/imgs/icons/next-button.png",
+            "/imgs/icons/switch.png"
+        ]
+    }]
 }
 
 // I seek challenges, with-in and out of work. I embrace them, break them down into practical tasks and improve myself along the way. 

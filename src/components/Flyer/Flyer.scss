@@ -123,9 +123,9 @@
     align-items: center;
 
     .flyer-inner {
+        width: 100%;
         padding: 0 1.5rem;
         max-width: 700px;
-        overflow: hidden;
 
         @include screen-md {
             padding-left: 1rem;
@@ -180,8 +180,7 @@
     img {
         filter: invert(0.9);
     }
-    &:hover,
-    &:last-child {
+    &:hover {
         background-color: $palette-grey-100;
         img {
             width: 50px;
@@ -216,18 +215,36 @@
     &:hover,
     &:last-child {
         background-color: $palette-white;
+        box-shadow: inset 3px 3px 9px $palette-grey-300,
+            inset -3px -3px 9px $palette-grey-200;
         img {
             width: 75%;
             filter: brightness(1)
         }
     }
 
+    &:last-child::after {
+        position: absolute;
+        content: "";
+        background: url(/imgs/icons/arrows-down.png);
+        background-size: contain;
+        background-repeat:no-repeat;
+        width: 20px;
+        height: 40px;
+        bottom: -60px;
+    }
+
     &:hover ~ .flyer-icon{
         background-color: transparent;
+        box-shadow: none;
 
         img {
             width: 60%;
             filter: brightness(0)
+        }
+
+        &::after {
+            content: none;
         }
     }
 }

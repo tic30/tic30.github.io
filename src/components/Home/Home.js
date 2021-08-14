@@ -5,6 +5,7 @@ import Header from '../Header';
 import Flyer from '../Flyer';
 import ContactBubble from '../ContactBubble';
 import PortfolioCard from '../PortfolioCard';
+import IndeedPage from '../IndeedPage';
 import Texts from '../../texts';
 import { isInViewport } from '../../util';
 import './Home.scss';
@@ -13,7 +14,7 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			dynamicFlyer: "",
+			dynamicFlyer: "Indeed",
 			timeouts: []
 		}
 		this.contactBubble = React.createRef();
@@ -54,7 +55,7 @@ class Home extends Component {
 
 	closeFlyer() {
 		this.setState({
-			dynamicFlyer: ""
+			dynamicFlyer: "Indeed"
 		})
 	}
 
@@ -119,14 +120,19 @@ class Home extends Component {
 						<h2>About me</h2>
 					</div>
 					<div className="container container-flyer">
-						{dynamicFlyer && <Flyer direction="left" animated={true} content={Texts[dynamicFlyer]}/>}
+						{dynamicFlyer && dynamicFlyer !== 'Indeed' && <Flyer direction="left" animated={true} content={Texts[dynamicFlyer]}/>}
 						<Flyer direction="left" animated={false} content={Texts.SelfIntro} />
 						<div className="flyer-divider">                
-							{dynamicFlyer && <div className="closeBtn" onClick={this.closeFlyer}><Cancel /></div>}
+							{dynamicFlyer && dynamicFlyer !== 'Indeed' && <div className="closeBtn" onClick={this.closeFlyer}><Cancel /></div>}
 						</div>
 						<Flyer direction="right" animated={false} content={Texts.Company} callFlyer={this.callFlyer}/>
 					</div>
 				</section>
+				{dynamicFlyer === 'Indeed' && (
+					<section id="sec2">
+						<IndeedPage />
+					</section>
+				)}
 				<section id="sec3">
 					<div className="section-header">
 						<h2>Projects</h2>
