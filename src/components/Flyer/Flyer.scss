@@ -231,7 +231,11 @@
         background-repeat:no-repeat;
         width: 20px;
         height: 40px;
-        bottom: -60px;
+        bottom: -10px;
+
+        @include screen-sm {
+            bottom: -60px;
+        }
     }
 
     &:hover ~ .flyer-icon{
