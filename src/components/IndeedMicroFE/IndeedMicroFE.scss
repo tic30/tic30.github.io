@@ -1,0 +1,43 @@
+@import "../variable";
+
+#indeed-sec1 {
+    width: 100%;
+    z-index: 0;
+    opacity: 1;
+    transition-duration: 0.3s;
+    color: $palette-white;
+    background-color: $palette-black;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    h1 {
+        margin-bottom: 0;
+    }
+}
+
+#indeed-sec2 {
+    background-color: $palette-black;
+    min-height: auto;
+}
+
+.indeed-illustration {
+    z-index: 1;
+    margin-top: -200px;
+    padding-top: 600px;
+    background-image: url(/imgs/indeed-oh1.png);
+    background-size: 60%;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+#indeed-sec3 {
+    .container {
+        padding: 100px 1rem;
+    }
+}

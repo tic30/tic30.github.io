@@ -148,7 +148,12 @@ export default {
             "/imgs/icons/next-button.png",
             "/imgs/icons/switch.png"
         ]
-    }]
+    }],
+    IndeedMicroFE: {
+        title: "Migrate to Micro Frontend with Indeed Design System and Module Federation",
+        subtitle: "@ Indeed",
+        hero: "Upon the arrival of Webpack 5, we see an opportunity to significantly boost the page performance, enhance branding and user experience throughout the Indeed products, increase our system's rebustness, and clearly define the ownership across teams. To achieve this goal, we refactored our company's entire front end infrustructure."
+    }
 }
 
 // I seek challenges, with-in and out of work. I embrace them, break them down into practical tasks and improve myself along the way. 
