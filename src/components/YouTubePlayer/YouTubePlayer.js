@@ -39,7 +39,7 @@ class YouTubePlayer extends Component {
 
         return (
             <div className="player-wrapper">
-                <div class={`player-cover ${started ? 'hide' : ''}`} type="button" onClick={this.playVideo}>
+                <div className={`player-cover ${started ? 'hide' : ''}`} type="button" onClick={this.playVideo}>
                     <div className="player-cover-title">Q</div>
                     <hr />
                     <div className="player-cover-text">What problem to solve?</div>

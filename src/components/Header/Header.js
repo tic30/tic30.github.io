@@ -10,6 +10,7 @@ class Header extends Component {
             menuOpen: false,
             scrolled: false
         }
+        this.scrollListener = null;
         this.toggleMenuScreen = this.toggleMenuScreen.bind(this);
         this.logoClickHandler = this.logoClickHandler.bind(this);
     }
@@ -19,7 +20,7 @@ class Header extends Component {
             mySelf = this;
 
         // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
-        document.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
+        this.scrollListener = () => { // or window.addEventListener("scroll"....
             let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
             if (st > lastScrollTop){
                 // downscroll code
@@ -33,7 +34,13 @@ class Header extends Component {
                 })
             }
             lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-        }, false);
+        }
+
+        document.addEventListener("scroll", this.scrollListener, false);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener("scroll", this.scrollListener);
     }
 
     toggleMenuScreen() {

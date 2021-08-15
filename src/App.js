@@ -3,6 +3,7 @@ import { HashRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 import Preloader from './components/Preloader';
 import Home from './components/Home';
 import ITS from './components/ITS';
+import IndeedOneHost from './components/IndeedOneHost';
 // import Maintenance from './components/Maintenance';
 // import DFM from './components/DFM';
 import './App.scss';
@@ -16,6 +17,7 @@ class App extends Component {
 						<Route path="/" exact component={Preloader} />
 						<Route path="/home" component={Home} />
 						<Route path="/its" component={ITS} />
+						<Route path="/microfe" exact component={IndeedOneHost} />
 						{/* <Route path="/m" exact component={Maintenance} /> */}
 						{/* <Route path="/dfm" component={DFM} /> */}
 						<Redirect to="/" />

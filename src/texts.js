@@ -39,6 +39,13 @@ export default {
         content: "I joined a group of HCI student to create AR application and study its social impact. I received my degree of Master of Science in Software Engineering at Carnegie Mellon University(CMU) in 2018. CMU courses paved solid ground in engineering which I benefit from util today and encouraged me to pursue a life-long learning."
     },
     //portfolio
+    OH: {
+        title: "Micro Frontend Migration @ Indeed",
+        imgUrl: "indeed-oh.png",
+        subTitle: "Design and migrate to Webpack 5 based micro frontend architecture.",
+        btnText: "Read more",
+        pageUrl: "/microfe"
+    },
     ITS: {
         title: "Intelligent Tutoring Systems",
         imgUrl: "its.png",
