@@ -18,11 +18,21 @@
 
     h1 {
         margin-bottom: 0;
+        font-size: 2rem;
+        text-align: center;
+        
+        @include screen-sm {
+            font-size: 4rem;
+        }
     }
 
     .disclaimer {
-        font-size: 11px;
+        font-size: 9px;
         margin-top: 100px;
+
+        @include screen-sm {
+            font-size: 11px;    
+        }
 
         &::before {
             position: relative;
@@ -38,19 +48,35 @@
 
 .indeed-illustration {
     z-index: 1;
-    margin-top: -270px;
-    padding-top: 600px;
     background-image: url(/imgs/indeed-oh1.png);
-    background-size: 60%;
+    margin-top: -200px;
+    padding-top: 250px;
+    background-size: 90%;
     background-position: top center;
     background-repeat: no-repeat;
+
+    @include screen-md {
+        padding-top: 560px;
+        margin-top: -430px;
+        background-size: 70%;
+    }
+
+    @include screen-lg {
+        padding-top: 600px;
+        margin-top: -270px;
+        background-size: 60%;
+    }
 }
 
 #indeed-sec3 {
     .container {
-        padding: 100px 1rem;
+        padding: 50px 1rem;
         display: flex;
         flex-direction: column;
+
+        @include screen-sm {
+            padding: 100px 5rem;
+        }
 
         * {
             line-height: 1.6;
@@ -65,19 +91,33 @@
             }
         }
 
+        h4 {
+            font-size: 1.25rem;
+
+            @include screen-sm {
+                font-size: 1.5rem;
+            }
+        }
+
         img {
             margin: 3rem 0 1rem;
             align-self: center;
+            width: 100%;
             max-width: 800px;
         }
 
         p, li {
-            font-size: 1.25rem;
+            @include screen-sm {
+                font-size: 1.25rem;
+            }
         }
 
         ul {
             margin: 0;
-            padding-left: 4rem;
+
+            @include screen-sm {
+                padding-left: 4rem;
+            }
         }
 
         li {
