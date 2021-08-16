@@ -152,7 +152,9 @@ export default {
     IndeedMicroFE: {
         title: "Migrate to Micro Frontend with Indeed Design System and Module Federation",
         subtitle: "@ Indeed",
-        hero: "Upon the arrival of Webpack 5, we see an opportunity to significantly boost the page performance, enhance branding and user experience throughout the Indeed products, increase our system's rebustness, and clearly define the ownership across teams. To achieve this goal, we refactored our company's entire front end infrustructure."
+        disclaimer: "This is a personal narrative, not an Indeed publication, does not represent company voice and should not be quoted or republished for any reason.",
+        hero: "Upon the arrival of Webpack 5, we see an opportunity to significantly boost the page performance, enhance branding and user experience throughout the Indeed products, increase our system's robustness, and clearly define the ownership across teams. To achieve this goal, we refactored our company's entire front end infrastructure.",
+        p1: "Nobody likes heavy and slow websites. As Indeed grows and more features are added, performance of our pages decreases, UI inconsistency and broken experiences show up. UXers worked with engineers to apply patches to make improvements but at a certain point, we knew that starting from scratch would make more sense, especially when more powerful tools and concepts are introduced."
     }
 }
 

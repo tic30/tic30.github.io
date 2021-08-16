@@ -19,6 +19,16 @@
     h1 {
         margin-bottom: 0;
     }
+
+    .disclaimer {
+        font-size: 11px;
+        margin-top: 100px;
+
+        &::before {
+            position: relative;
+            content: "* ";
+        }
+    }
 }
 
 #indeed-sec2 {
@@ -28,7 +38,7 @@
 
 .indeed-illustration {
     z-index: 1;
-    margin-top: -200px;
+    margin-top: -270px;
     padding-top: 600px;
     background-image: url(/imgs/indeed-oh1.png);
     background-size: 60%;
@@ -39,5 +49,39 @@
 #indeed-sec3 {
     .container {
         padding: 100px 1rem;
+        display: flex;
+        flex-direction: column;
+
+        * {
+            line-height: 1.6;
+        }
+
+        a {
+            border-bottom: 2px solid $palette-grey-500;
+            color: $palette-black;
+
+            &:hover {
+                border-bottom: 2px solid $palette-black;
+            }
+        }
+
+        img {
+            margin: 3rem 0 1rem;
+            align-self: center;
+            max-width: 800px;
+        }
+
+        p, li {
+            font-size: 1.25rem;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 4rem;
+        }
+
+        li {
+            padding-bottom: 1rem;
+        }
     }
 }

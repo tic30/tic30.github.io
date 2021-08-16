@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header';
+import Footer from '../Footer';
 import ScrollHint from '../ScrollHint';
 import YouTubePlayer from '../YouTubePlayer';
 import Texts from '../../texts';
@@ -149,9 +150,7 @@ class ITS extends Component {
 						<p>I remember the first day when I met Kenneth Holstein, PhD student at HCII back in 2017, he described to me about what people do at HCII as “researching about cutting edge and ahead of time technologies that will have huge market impact in the future” and he gave me an example of mobile touchscreen research sponsored by Apple at early 21st century, which was more than five years before the first generation of iPhone hit the market. Looking back at the project I worked on during this short three months, I could not agree more. I appreciate all the guidance and help from Dr. Bruce McLaren, Dr. Vincent Aleven as well as admission and support staffs from HCI Institute. I enjoyed working closely with Kenneth Holstein, Zac Yu and all other team members. Finally, I sincerely wish them the best in the future development of Intelligent Tutoring Systems project.</p>
 					</div>
 				</section>
-				<footer className="its-footer">
-					<div className="container">Copyright © 2016 - 2020 Chu, Tianxin. All rights reserved.</div>
-				</footer>
+				<Footer />
 			</React.Fragment>
 		);
 	}
