@@ -21,19 +21,13 @@ div.portfolio-card {
     }
     h4 {
         position: relative;
-        font-weight: normal;
-        padding-bottom: 1.125rem;
-        margin: 0 0 1.25rem 0;
+        margin: 0 0 1rem 0;
         line-height: 1;
-        &::after {
-            position: absolute;
-            content: "";
-            left: 0;
-            bottom: -3px;
-            width: 0;
-            height: 3px;
-            transition-duration: 0.5s;
-            background-color: $palette-black;
+        color: $palette-grey-600;
+        font-size: 1rem;
+
+        @include screen-sm {
+            font-size: 1.5rem;
         }
     }
     .portfolio-card-content {
@@ -41,26 +35,30 @@ div.portfolio-card {
     }
     p {
         position: relative;
-        font-size: 1rem;
+        font-size: 0.875rem;
         padding-top: 1px;
-        margin: 0 1rem 0 0;
-        height: 48px;
+        margin: 0;
         overflow: hidden;
         display: none;
         text-overflow: ellipsis;
+        height: 1rem;
         flex-grow: 1;
-        background-color: $palette-white;
 
         &.mobile-show {
             display: block;
         }
 
-        @include screen-md {
+        @include screen-sm {
+            height: 2rem;
             display: block;
+        }
+
+        @include screen-md {
+            font-size: 1rem;
         }
     }
     .portfolio-card-btn {
-        height: 3rem;
+        height: 2rem;
         min-width: 150px;
         line-height: 1;
         text-align: center; 
@@ -70,26 +68,32 @@ div.portfolio-card {
         display: flex;
         justify-content: center;
         align-items: center;
+        font-size: 0.8rem;
 
         img {
             margin-left: 0.5rem;
+        }
+
+        @include screen-sm {
+            font-size: 1rem;
         }
     }
 
     .portfolio-card-btn-placeholder {
         width: 0;
-        height: 3rem;
+        height: 2rem;
     }
 
     &:hover {
-        h4::after {
-            width: 150px;
+        h4 {
+            color: $palette-black;
         }
         .portfolio-card-img{
             transform: scale(1.1)
         }
         .portfolio-card-text-wrapper {
             transform: translateY(0);
+            background-color: $palette-white;
         }
     }
 }
@@ -104,8 +108,14 @@ div.portfolio-card {
     border-radius: 20px;
 }
 
-.portfolio-card-large {
+div.portfolio-card-large {
     height: 100%;
+
+    p {
+        @include screen-lg {
+            font-size: 1.125rem;
+        }
+    }
 }
 
 .portfolio-card-container {
@@ -130,10 +140,10 @@ div.portfolio-card {
     left: 0;
     bottom: 0;
     width: 100%;
-    padding: 1.5rem;
-    background-color: $palette-white;
+    padding: 1rem 1.5rem;
+    background-color: rgba($palette-white, 0.8);
     transition-duration: 0.2s;
-    transform: translateY(5rem);
+    transform: translateY(3rem);
 
     &.open {
         transition-duration: 1s;

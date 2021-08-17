@@ -30,8 +30,8 @@ div.job-container {
 .job-container-inner {
     padding: 1.5rem;
     border-radius: 8px;
-    border: 1px solid $palette-grey-400;
     margin-bottom: 1.5rem;
+    box-shadow: 0px 2px 8px rgba($palette-grey-500,0.6);
 
     @include screen-sm {
         padding: 3rem;

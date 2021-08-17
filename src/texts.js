@@ -134,8 +134,8 @@ export default {
             content: "As a developer, I constantly look for ways to improve code quality and dev experience. I adopt patterns, technologies and introduce tools to help speed up the engineering process. I work with QA engineers to increase test coverage, create test plans, automate pipelines and document ways to track error and monitor performance.",
             illustration: "/imgs/icons/arrows.png"
         }, {
-            title: "Exploration & giving back",
-            content: "3rd party open source libraries contribute to Indeed front end code base and I actively research on useful new gadgets and bring them to the company. Meanwhile, I give back to the community.",
+            title: "Exploration, learning and growth",
+            content: "3rd party open source libraries contribute to Indeed front end code base and I actively research on useful new gadgets and bring them to the company. Meanwhile, I organize ad hoc training and knowledge sharing sessions to onboard new members, learn from each other and share insights towards the future of front end.",
             illustration: "/imgs/icons/high-five.png"
         }]
     }, {
