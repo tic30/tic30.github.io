@@ -17,10 +17,8 @@ const IndeedMicroFE = () => {
                     <h1>{Texts.IndeedMicroFE.title}</h1>
                     <h4 className="contentText">{Texts.IndeedMicroFE.subtitle}</h4>
                     <p className="disclaimer">{Texts.IndeedMicroFE.disclaimer}</p>
+                    <img className="indeed-illustration" src="/imgs/indeed-oh1.png" alt="Illustration" aria-hidden/>
                 </div>
-            </section>
-            <section id="indeed-sec2">
-                <div className="container indeed-illustration"></div>
             </section>
             <section id="indeed-sec3">
                 <div className="container">
