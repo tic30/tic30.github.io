@@ -8,6 +8,7 @@ import PortfolioCard from '../PortfolioCard';
 import IndeedPage from '../IndeedPage';
 import Texts from '../../texts';
 import { isInViewport } from '../../util';
+import { animateScroll } from 'react-scroll'
 import './Home.scss';
 
 class Home extends Component {
@@ -50,6 +51,10 @@ class Home extends Component {
 		const data = e.currentTarget.getAttribute("data-target");
 		this.setState({
 			dynamicFlyer: data
+		}, () => {
+			if(data === 'Indeed') {
+				animateScroll.scrollTo(document.querySelector('#sec2').offsetTop - 50, { duration: 400 });
+			}
 		})
 	}
 
