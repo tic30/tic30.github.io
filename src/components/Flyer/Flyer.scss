@@ -213,7 +213,7 @@
     }
 
     &:hover,
-    &:last-child {
+    &.flyer-icon-active {
         background-color: $palette-white;
         box-shadow: 3px 3px 9px $palette-grey-300,
             -3px -3px 9px $palette-grey-200;
@@ -223,7 +223,7 @@
         }
     }
 
-    &:last-child::after {
+    &.flyer-icon-active:last-child::after {
         position: absolute;
         content: "";
         background: url(/imgs/icons/arrows-down.png);

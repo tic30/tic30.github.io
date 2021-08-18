@@ -3,7 +3,7 @@ import './Flyer.scss';
 
 class Flyer extends Component {
     render() {
-        const { direction, animated, content, callFlyer } = this.props;
+        const { direction, animated, content, callFlyer, current } = this.props;
 
         return (
             <div className={"flyer flyer-" + direction + (animated ? "" : " noanimation")}>
@@ -15,8 +15,10 @@ class Flyer extends Component {
                     <p className={animated ? "animated" : ""}>{content.content}</p>
                     <div className="icons">
                         {content.icons && content.icons.map((icon, index) => {
+                            const active = current === icon.dataTarget;
+
                             return (
-                                <div key={index} className="flyer-icon" data-target={icon.dataTarget} onClick={callFlyer}>
+                                <div key={index} className={`flyer-icon${active ? " flyer-icon-active" : ""}`} data-target={icon.dataTarget} onClick={callFlyer}>
                                     <img src={"/imgs/" + icon.src} alt="Flyer Icon" />
                                 </div>
                             )

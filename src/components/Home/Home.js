@@ -106,6 +106,7 @@ class Home extends Component {
 
 	render() {
 		const { dynamicFlyer } = this.state
+		const flyerActive = !!dynamicFlyer && dynamicFlyer !== 'Indeed';
 
 		return (
 			<React.Fragment>
@@ -125,12 +126,12 @@ class Home extends Component {
 						<h2>About me</h2>
 					</div>
 					<div className="container container-flyer">
-						{dynamicFlyer && dynamicFlyer !== 'Indeed' && <Flyer direction="left" animated={true} content={Texts[dynamicFlyer]}/>}
+						{flyerActive && <Flyer direction="left" animated={true} content={Texts[dynamicFlyer]}/>}
 						<Flyer direction="left" animated={false} content={Texts.SelfIntro} />
 						<div className="flyer-divider">                
-							{dynamicFlyer && dynamicFlyer !== 'Indeed' && <div className="closeBtn" onClick={this.closeFlyer}><Cancel /></div>}
+							{flyerActive && <div className="closeBtn" onClick={this.closeFlyer}><Cancel /></div>}
 						</div>
-						<Flyer direction="right" animated={false} content={Texts.Company} callFlyer={this.callFlyer}/>
+						<Flyer direction="right" animated={false} content={Texts.Company} callFlyer={this.callFlyer} current={dynamicFlyer}/>
 					</div>
 				</section>
 				{dynamicFlyer === 'Indeed' && (
