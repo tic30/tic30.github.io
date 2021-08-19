@@ -237,20 +237,6 @@
             bottom: -60px;
         }
     }
-
-    &:hover ~ .flyer-icon{
-        background-color: transparent;
-        box-shadow: none;
-
-        img {
-            width: 60%;
-            filter: brightness(0)
-        }
-
-        &::after {
-            content: none;
-        }
-    }
 }
 
 .flyer-title-icon img{
