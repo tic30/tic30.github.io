@@ -84,16 +84,26 @@ div.portfolio-card {
         height: 2rem;
     }
 
-    &:hover {
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            h4 {
+                color: $palette-black;
+            }
+            .portfolio-card-img{
+                transform: scale(1.1)
+            }
+            .portfolio-card-text-wrapper {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &:focus-within {
         h4 {
             color: $palette-black;
         }
-        .portfolio-card-img{
-            transform: scale(1.1)
-        }
         .portfolio-card-text-wrapper {
             transform: translateY(0);
-            background-color: $palette-white;
         }
     }
 }
@@ -141,7 +151,7 @@ div.portfolio-card-large {
     bottom: 0;
     width: 100%;
     padding: 1rem 1.5rem;
-    background-color: rgba($palette-white, 0.8);
+    background-color: $palette-white;
     transition-duration: 0.2s;
     transform: translateY(3rem);
 
