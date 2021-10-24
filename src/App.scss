@@ -60,6 +60,7 @@ h4 {
 
 p {
     font-size: 1rem;
+    line-height: 1.5;
 
     @include screen-sm {
         font-size: 1.125rem;
@@ -85,4 +86,10 @@ p {
 
 .text-cmu {
     color: #991b1e;
+}
+
+a.publication {
+    font-style: italic;
+    color: $palette-grey-700;
+    text-decoration: underline;
 }

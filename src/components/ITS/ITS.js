@@ -126,7 +126,13 @@ class ITS extends Component {
 						<img className="imp-imgs" src="/imgs/its-6.png" alt="Web application Structure"/>
 						<p className="lead">AR Implementation Structure</p>
 						<img className="imp-imgs" src="/imgs/its-7.png" alt="AR Implementation Structure"/>
-						<p>During my short stay, I mostly focused on Unity coding, aiming to create an AR environment that deliver visual information. We setup the database as a streaming source and use the headset as the front-end interface that receives and displays data. The data collection and database population coding is most accomplished by the time I joined the team. For the first phase of my work, I spent a short period of time learning the codebase built with Node.js and Ember.js. This step is important for me to understand how the database is connected to front end and how the web interface functions in order to migrant web data to hologram and visualize information. After that, I started to “translate” web language to hologram language to be displayed in HoloLens headset. I spent time reading papers about AR visual design guidelines and testing automated and gesture-triggerd 3D model behaviors. On the other hand, we tested data streaming in various approaches aiming to seamlessly integrate code and data. We also harmonized the coding style for code reuse.</p>
+						<p>During my short stay, I mostly focused on Unity coding, aiming to create an AR environment that deliver visual information. We setup the database as a streaming source and use the headset as the front-end interface that receives and displays data. The data collection and database population coding is most accomplished by the time I joined the team. For the first phase of my work, I spent a short period of time learning the codebase built with Node.js and Ember.js. This step is important for me to understand how the database is connected to front end and how the web interface functions in order to migrant web data to hologram and visualize information. After that, I started to “translate” web language to hologram language to be displayed in HoloLens headset. I spent time reading papers about AR visual design guidelines and testing automated and gesture-triggerd 3D model behaviors. On the other hand, we tested data streaming in various approaches aiming to seamlessly integrate code and data. </p>
+						<p className="lead">Interfaces</p>
+						<div className="imp-imgs multi-imgs-wrapper">
+							<img src="/imgs/its-4.jpg" alt="Outcome web app"/>
+							<img src="/imgs/its-5.png" alt="Outcome AR"/>
+						</div>
+						<p>The above is a demo web interface which visualizes statistics data. Based on retrieved data, we can render simple visual effects and animations in AR view. In the visual world, I built <b className="text-orange">figures which simulate visual feedback</b> to remind teacher the learning status for specific student, made them dynamically generated and rendered based on local database input. The object behavior is also optimized to interact with camera movement and gesture. Meanwhile, the steaming is tested separately. With intention to bring our product online, more issues like network accessibility and security need to be taken into consideration. In the near future, field testing will be conducted and more information can be collected to aid the decision-making progress.</p>
 					</div>
 				</section>
 				<section id="its-sec8">
@@ -134,11 +140,12 @@ class ITS extends Component {
 						<h2>Outcome</h2>
 					</div>
 					<div className="container">
-						<p>By the end of my stay, our team has finished designing and constructing the database and pre-scan the designated classroom for testing purpose. We also <b className="text-orange">finished visualizing data with web interface</b>, making Unity interact with database, <b className="text-blue">dynamically generating and placing objects in vitual world</b> based on retrived data, and rendering simple visual effects and animations. The image below is a demo web interface.</p>
-						<div className="outcome-imgs-wrapper"><img className="outcome-imgs" src="/imgs/its-4.jpg" alt="Outcome web app"/></div>
-						<p>In the visual world, I built <b className="text-orange">figures which simulate visual feedback</b> to remind teacher the learning status for specific student, made them dynamically generated and rendered based on local database input. The object behavior is also optimized to interact with camera movement and gesture.</p>
-						<div className="outcome-imgs-wrapper"><img className="outcome-imgs" src="/imgs/its-5.png" alt="Outcome AR"/></div>
-						<p>Meanwhile, the steaming is tested seperately. With intention to bring our product online, more issues like network accessibility and security need to be taken into consideration. In the near future, field testing will be conducted and more information can be collected to aid the decision-making progress.</p>
+						<p>By the end of my stay, the ITS is still an ongoing research project. My work concluded at a milestone where I set a foundation of AR interface and allowed in-depth construction to begin.</p>
+						<p>The following are publications that I collected later when I created this page. The scope of ITS did not stop at AR assistant tools and went multimedia and cross-discipline directions to pursue comprehensively optimal solutions to improve teaching efficiency.</p>
+						<p>
+							<a className="publication" href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.92.5216&rep=rep1&type=pdf">- Intelligent Tutoring Systems, Handbook of Human-Computer Interaction, Second, Completely Revised Edition in M., Helander, T. K. Landauer, P. Prabhu (Eds), Elsevier Science B. V., ©1997, Chapter 37</a>
+							<a className="publication" href="https://www.researchgate.net/profile/Riichiro-Mizoguchi/publication/221413511_How_Can_We_Form_Effective_Collaborative_Learning_Groups/links/5eb88995a6fdcc1f1dcff2a4/How-Can-We-Form-Effective-Collaborative-Learning-Groups.pdf#page=20">- Adaptive Hypermedia: From Intelligent Tutoring Systems to Web-Based Education, Peter Brusilovsky</a>
+						</p>
 					</div>
 				</section>
 				<section id="its-sec9">

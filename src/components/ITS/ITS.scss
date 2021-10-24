@@ -352,13 +352,15 @@ section[id*="its-"] {
     min-height: 0;
 
     p {
-        margin: 0 0 5rem;
+        margin: 0 0 0.5rem;
 
         &.lead {
             margin: 0 0 1.5rem;
         }
 
         &:last-child {
+            margin: 0 0 5rem;
+
             @include screen-sm {
                 margin-bottom: 10rem;
             }
@@ -406,5 +408,14 @@ section[id*="its-"] {
         @include screen-sm {
             margin-bottom: 10rem;
         }
+    }
+}
+
+.multi-imgs-wrapper {
+    display: flex;
+    margin: 4rem 0;
+
+    img {
+        max-width: 50%;
     }
 }
