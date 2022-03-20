@@ -18,10 +18,10 @@ $btn-width: 56px;
 }
 
 .contact-bubble button {
-    background-color: $palette-grey-200;
+    background-color: $palette-white;
 
     &:hover {
-        background-color: $palette-white;
+        background-color: $palette-grey-100;
     }
 }
 
@@ -143,7 +143,7 @@ a.contact-bubble-popup-item-btn {
     img{
         position: relative;
         height: 4rem;
-        filter: invert(1) grayscale(1) contrast(99) brightness(0.9);
+        filter: invert(1) grayscale(1) contrast(99);
 
         &:hover {
             filter: none;

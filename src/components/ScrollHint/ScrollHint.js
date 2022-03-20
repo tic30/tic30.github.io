@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-// import Fab from '@material-ui/core/Fab';
-// import Button from '@material-ui/core/Button';
-// import { ChatBubbleOutline, Clear } from '@material-ui/icons';
+// import Fab from '@mui/material/Fab';
+// import Button from '@mui/material/Button';
+// import { ChatBubbleOutline, Clear } from '@mui/icons-material';
 import './ScrollHint.scss';
 
 class ScrollHint extends Component {

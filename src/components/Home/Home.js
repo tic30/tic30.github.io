@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Grid from '@material-ui/core/Grid';
-import Cancel from '@material-ui/icons/Cancel';
+import { Box, Grid } from '@mui/material';
+import Cancel from '@mui/icons-material/Cancel';
 import Header from '../Header';
 import Flyer from '../Flyer';
 import ContactBubble from '../ContactBubble';
 import PortfolioCard from '../PortfolioCard';
 import IndeedPage from '../IndeedPage';
+import Footer from '../Footer';
 import Texts from '../../texts';
 import { isInViewport } from '../../util';
 import { animateScroll } from 'react-scroll'
@@ -112,39 +113,39 @@ class Home extends Component {
 			<React.Fragment>
 				<Header pageId="home"/>
 				<ContactBubble ref={this.contactBubble}/>
-				<section id="sec1">
-					<div className="container">
-						<div id="img-container" onMouseEnter={this.logoHover} onMouseLeave={this.logoHoverEnd}>
+				<Box component="section" id="sec1">
+					<Box className="container">
+						<Box id="img-container" onMouseEnter={this.logoHover} onMouseLeave={this.logoHoverEnd}>
 							<img id="chu-logo" src="/imgs/chu-logo.png" alt="Loading Logo..." />
-							<div id="hand" ref={this.hand}><img src="/imgs/hand.png" alt="Loading hand..." /></div>
+							<Box id="hand" ref={this.hand}><img src="/imgs/hand.png" alt="Loading hand..." /></Box>
 							<img id="smile" src="/imgs/smile.png" alt="Loading smile..." ref={this.smile} />
-						</div>
+						</Box>
 						<h1>{Texts.Hero.title}</h1>
 						<p className="contentText">This is <span className="text-blue">Tim Chu</span>, an open-minded problem solver, UX explorer and front end coder.</p>
-					</div>
-					<div className="section-header" id="self-intro">
+					</Box>
+					<Box className="section-header" id="self-intro">
 						<h2>About me</h2>
-					</div>
-					<div className="container container-flyer">
+					</Box>
+					<Box className="container container-flyer">
 						{flyerActive && <Flyer direction="left" animated={true} content={Texts[dynamicFlyer]}/>}
 						<Flyer direction="left" animated={false} content={Texts.SelfIntro} />
-						<div className="flyer-divider">                
-							{flyerActive && <div className="closeBtn" onClick={this.closeFlyer}><Cancel /></div>}
-						</div>
+						<Box className="flyer-divider">                
+							{flyerActive && <Box className="closeBtn" onClick={this.closeFlyer}><Cancel /></Box>}
+						</Box>
 						<Flyer direction="right" animated={false} content={Texts.Company} callFlyer={this.callFlyer} current={dynamicFlyer}/>
-					</div>
-				</section>
+					</Box>
+				</Box>
 				{dynamicFlyer === 'Indeed' && (
-					<section id="sec2">
+					<Box component="section" id="sec2">
 						<IndeedPage />
-					</section>
+					</Box>
 				)}
-				<section id="sec3">
-					<div className="section-header">
+				<Box component="section" id="sec3">
+					<Box className="section-header">
 						<h2>Projects</h2>
-					</div>
-					<div className="container">
-						<div className="container-inner container-inner-wrap">
+					</Box>
+					<Box className="container">
+						<Box className="container-inner container-inner-wrap">
 							<Grid container spacing={3} className="grid-container grid-container-left">
 								<Grid item xs={12}>
 									<PortfolioCard large content={Texts.OH} />
@@ -158,8 +159,8 @@ class Home extends Component {
 									<PortfolioCard content={Texts.DealFindMe} />
 								</Grid>
 							</Grid>
-						</div>
-						<div className="container-inner">
+						</Box>
+						<Box className="container-inner">
 							<Grid container spacing={3} className="grid-container">
 								<Grid item xs={12} sm={6} lg={4}>
 									<PortfolioCard content={Texts.Milu} />
@@ -168,16 +169,28 @@ class Home extends Component {
 									<PortfolioCard content={Texts.MovieEmodex} />
 								</Grid>
 							</Grid>
-						</div>
-					</div>
-				</section>
-				<section id="sec4">
-					<div className="section-header">
+						</Box>
+					</Box>
+				</Box>
+				<Box component="section" id="sec4" sx={{
+					display: ['flex', 'flex', 'block'],
+					flexDirection: 'column'
+				}}>
+					<Box className="section-header">
 						<h2>Lets chat</h2>
-						<h1>I am open to<br/>creative ideas!</h1>
-					</div>
-					<footer ref={this.footer}>Copyright © 2016 - 2020 Chu, Tianxin. All rights reserved.</footer>
-				</section>
+						<h1>I am open to<br/><span className="text-blue">creative</span> ideas!</h1>
+					</Box>
+					<Box component="img" src="/imgs/bgsec4.jpeg" alt="idea" sx={{
+						position: ['relative', 'relative', 'absolute'],
+						right: ['0', '0', '50px', '200px'],
+						top: 0,
+						bottom: 0,
+						margin: 'auto',
+						mb: [6, 6, 'auto'],
+						maxHeight: ['200px', '300px']
+					}}/>
+				</Box>
+				<Footer />
 			</React.Fragment>
 		);
 	}

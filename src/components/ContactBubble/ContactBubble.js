@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Fab from '@material-ui/core/Fab';
-import { ChatBubbleOutline, Clear } from '@material-ui/icons';
+import Fab from '@mui/material/Fab';
+import { ChatBubbleOutline, Clear } from '@mui/icons-material';
 import MenuScreen from '../MenuScreen';
 import './ContactBubble.scss';
 

@@ -286,56 +286,18 @@
 }
 
 #sec4 {
-    background-image:url(/imgs/bgsec4.jpg);
-	background-size: cover;
-    background-repeat:no-repeat;
-    color: $palette-white;
-    &::after {
-        position:absolute;
-        content: "";
-        top: 0;
-        margin:0;
-        padding:0;
-        width:100%;
-        height:100%;
-        background: linear-gradient($palette-black, rgba($palette-black, 0.5) 20%, rgba($palette-black, 0))
-    }
+    min-height: auto;
     .section-header {
         z-index: 1;
-        padding-bottom: 0;
     }
     .section-header::after {
         background-color: $palette-orange-light;
     }
     .section-header h1 {
-        text-transform: uppercase;
-        margin-top: 2.5rem;
-        margin-bottom: 0;
-    }
-}
+        margin: 2.5rem 0 0;
 
-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    max-width: 1280px;
-    margin: auto;
-    padding: 0 1.5rem 0.5rem;
-    color: $palette-grey-500;
-    font-size: 0.65rem;
-    z-index: 10;
-    &:hover {
-        color: $palette-white;
-    }
-
-    @include screen-sm {
-        padding-left: 2.5rem;
-    }
-
-    @include screen-md {
-        font-size: 1rem;
-        padding-left: 7rem;
-        padding-bottom: 1rem;
+        @include screen-md {
+            margin: 2.5rem 0;
+        }
     }
 }

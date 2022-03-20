@@ -86,23 +86,6 @@ div.job-container {
     }
 }
 
-.jobcontent-bottom {
-    justify-content: space-around;
-    margin-top: 1rem;
-
-    @include screen-sm {
-        margin-top: 5rem;
-    }
-
-    @include screen-md {
-        display: flex;
-    }
-
-    & > div {
-        flex-basis: 28.3%;
-    }
-}
-
 .job-container-icons {
     display: flex;
     margin-bottom: 1rem;

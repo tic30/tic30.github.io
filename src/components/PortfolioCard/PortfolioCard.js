@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import  { Redirect } from 'react-router-dom';
-import Paper from '@material-ui/core/Paper';
+import Paper from '@mui/material/Paper';
 import './PortfolioCard.scss';
 
 class PortfolioCard extends Component {
