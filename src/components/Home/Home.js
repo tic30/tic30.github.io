@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
-import { Box, Grid } from '@mui/material';
+import { Box, Container, Grid } from '@mui/material';
 import Cancel from '@mui/icons-material/Cancel';
 import Header from '../Header';
 import Flyer from '../Flyer';
 import ContactBubble from '../ContactBubble';
 import PortfolioCard from '../PortfolioCard';
-import IndeedPage from '../IndeedPage';
+import IndeedPage, { ropeSx } from '../IndeedPage';
 import Footer from '../Footer';
 import Texts from '../../texts';
 import { isInViewport } from '../../util';
 import { animateScroll } from 'react-scroll'
+import { grey } from '@mui/material/colors';
 import './Home.scss';
+
+const shuttersSx = {
+	borderBottomLeftRadius: '10px',
+	borderBottomRightRadius: '10px',
+	m: 'auto',
+	height: '10px' 
+};
 
 class Home extends Component {
 	constructor(props) {
@@ -134,9 +142,19 @@ class Home extends Component {
 						</Box>
 						<Flyer direction="right" animated={false} content={Texts.Company} callFlyer={this.callFlyer} current={dynamicFlyer}/>
 					</Box>
+					{dynamicFlyer !== 'Indeed' && (
+						<Container sx={{ position: 'absolute', top: '100%', left: '0', right: '0'}}>
+							<Box sx={{ width: '98%', backgroundColor: grey[200], ...shuttersSx }}></Box>
+							<Box sx={{ width: '95%', backgroundColor: grey[300], ...shuttersSx }}></Box>
+						</Container>
+					)}
 				</Box>
 				{dynamicFlyer === 'Indeed' && (
 					<Box component="section" id="sec2">
+						<Box className="container" sx={{ position: 'absolute', top: '-100px', width: '100%', display: 'flex', justifyContent: 'space-between', py: '0 !important', left: 0, right: 0, px: ['1rem', '1rem', '1rem', 0] }}>
+							<Box sx={{ ml: '20%', height: '100px', ...ropeSx }}></Box>
+							<Box sx={{ mr: '20%', height: '100px', ...ropeSx }}></Box>
+						</Box>
 						<IndeedPage />
 					</Box>
 				)}
