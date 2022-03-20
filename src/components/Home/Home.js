@@ -3,7 +3,7 @@ import { Box, Container, Grid } from '@mui/material';
 import Cancel from '@mui/icons-material/Cancel';
 import Header from '../Header';
 import Flyer from '../Flyer';
-import ContactBubble from '../ContactBubble';
+// import ContactBubble from '../ContactBubble';
 import PortfolioCard from '../PortfolioCard';
 import IndeedPage, { ropeSx } from '../IndeedPage';
 import Footer from '../Footer';
@@ -27,7 +27,7 @@ class Home extends Component {
 			dynamicFlyer: "Indeed",
 			timeouts: []
 		}
-		this.contactBubble = React.createRef();
+		// this.contactBubble = React.createRef();
 		this.hand = React.createRef();
 		this.smile = React.createRef();
 		this.footer = React.createRef();
@@ -120,7 +120,7 @@ class Home extends Component {
 		return (
 			<React.Fragment>
 				<Header pageId="home"/>
-				<ContactBubble ref={this.contactBubble}/>
+				{/* <ContactBubble ref={this.contactBubble}/> */}
 				<Box component="section" id="sec1">
 					<Box className="container">
 						<Box id="img-container" onMouseEnter={this.logoHover} onMouseLeave={this.logoHoverEnd}>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { HashLink } from 'react-router-hash-link';
+import MediaIcons from '../MediaIcons';
 import MenuScreen from '../MenuScreen';
 import './Header.scss';
 
@@ -22,7 +23,7 @@ class Header extends Component {
         // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
         this.scrollListener = () => { // or window.addEventListener("scroll"....
             let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-            if (st > lastScrollTop){
+            if (st > lastScrollTop) {
                 // downscroll code
                 mySelf.setState({
                     scrolled: true
@@ -47,14 +48,14 @@ class Header extends Component {
         const { menuOpen } = this.state;
 
         this.setState({
-            menuOpen:!menuOpen
+            menuOpen: !menuOpen
         });
     }
 
     logoClickHandler(e) {
         const { pageId } = this.props;
 
-        if(pageId==="home") {
+        if (pageId === "home") {
             e.preventDefault();
             window.scrollTo({
                 top: document.documentElement.offsetTop,
@@ -89,6 +90,7 @@ class Header extends Component {
                     <div className="menu-item">
                         <a href="https://drive.google.com/open?id=0B1dSWHM51dn-RGJBNlJZNFdaNW8" target="_blank" rel="noopener noreferrer" onClick={this.toggleMenuScreen}>Resume</a>
                     </div>
+                    <MediaIcons />
                 </MenuScreen>
                 <div className={`nav-hamburger ${menuOpen ? 'open' : ''} ${scrolled && !menuOpen ? 'scrolled' : ''}`} onClick={this.toggleMenuScreen}>
                     <div className="nav-hamburger-bars"></div>
