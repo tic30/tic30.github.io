@@ -93,33 +93,29 @@
         text-align: center;
 
         @include screen-md {
-            padding-top: 12rem;
+            padding-top: 11rem;
         }
     }
     h1 {
-        margin: 2rem 0 1rem;
+        margin: 0;
         animation-name: fadeInUp;
         animation-duration: 0.5s;
         animation-timing-function: ease-in-out;
         animation-fill-mode: forwards;
         animation-delay: 1.2s;
         opacity: 0;
-
-        @include screen-md {
-            margin-top: 4rem;
-        }
     }
+
     p.contentText {
         font-size: 1.125rem;
         line-height: 1.4;
-        max-width: 500px;
-        margin: 0 auto;
         animation-name: fadeInUp;
         animation-duration: 0.5s;
         animation-timing-function: ease-in-out;
         animation-fill-mode: forwards;
         animation-delay: 1.4s;
         opacity: 0;
+        color: $palette-grey-500;
 
         @include screen-md {
             font-size: 1.5rem;

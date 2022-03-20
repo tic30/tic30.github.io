@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Box, Container, Grid } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import Cancel from '@mui/icons-material/Cancel';
 import Header from '../Header';
 import Flyer from '../Flyer';
@@ -17,7 +17,7 @@ const shuttersSx = {
 	borderBottomLeftRadius: '10px',
 	borderBottomRightRadius: '10px',
 	m: 'auto',
-	height: '10px' 
+	height: '10px'
 };
 
 class Home extends Component {
@@ -61,7 +61,7 @@ class Home extends Component {
 		this.setState({
 			dynamicFlyer: data
 		}, () => {
-			if(data === 'Indeed') {
+			if (data === 'Indeed') {
 				animateScroll.scrollTo(document.querySelector('#sec2').offsetTop - 50, { duration: 400 });
 			}
 		})
@@ -77,7 +77,7 @@ class Home extends Component {
 		const allCards = document.querySelectorAll(".portfolio-card");
 
 		allCards.forEach((item) => {
-			if(isInViewport(item)) {
+			if (isInViewport(item)) {
 				item.classList.add("come-in");
 			}
 		});
@@ -97,7 +97,7 @@ class Home extends Component {
 		})
 
 		allCards.forEach((item) => {
-			if(isInViewport(item)) {
+			if (isInViewport(item)) {
 				item.classList.add("come-in");
 			}
 		});
@@ -119,7 +119,7 @@ class Home extends Component {
 
 		return (
 			<React.Fragment>
-				<Header pageId="home"/>
+				<Header pageId="home" />
 				{/* <ContactBubble ref={this.contactBubble}/> */}
 				<Box component="section" id="sec1">
 					<Box className="container">
@@ -128,22 +128,25 @@ class Home extends Component {
 							<Box id="hand" ref={this.hand}><img src="/imgs/hand.png" alt="Loading hand..." /></Box>
 							<img id="smile" src="/imgs/smile.png" alt="Loading smile..." ref={this.smile} />
 						</Box>
-						<h1>{Texts.Hero.title}</h1>
-						<p className="contentText">This is <span className="text-blue">Tim Chu</span>, an open-minded problem solver, UX explorer and front end coder.</p>
+						<Box sx={{ maxWidth: '350px', mt: [4, 8], mb: 5 }}>
+							<Typography className='contentText' sx={{ textTransform: 'uppercase' }}>Hey there, I'm</Typography>
+							<Box component="h1" sx={{ textTransform: 'uppercase' }}>Tim Chu</Box>
+							<Typography className='contentText'>An open-minded problem solver, UX explorer and front end coder.</Typography>
+						</Box>
 					</Box>
 					<Box className="section-header" id="self-intro">
 						<h2>About me</h2>
 					</Box>
 					<Box className="container container-flyer">
-						{flyerActive && <Flyer direction="left" animated={true} content={Texts[dynamicFlyer]}/>}
+						{flyerActive && <Flyer direction="left" animated={true} content={Texts[dynamicFlyer]} />}
 						<Flyer direction="left" animated={false} content={Texts.SelfIntro} />
-						<Box className="flyer-divider">                
+						<Box className="flyer-divider">
 							{flyerActive && <Box className="closeBtn" onClick={this.closeFlyer}><Cancel /></Box>}
 						</Box>
-						<Flyer direction="right" animated={false} content={Texts.Company} callFlyer={this.callFlyer} current={dynamicFlyer}/>
+						<Flyer direction="right" animated={false} content={Texts.Company} callFlyer={this.callFlyer} current={dynamicFlyer} />
 					</Box>
 					{dynamicFlyer !== 'Indeed' && (
-						<Container sx={{ position: 'absolute', top: '100%', left: '0', right: '0'}}>
+						<Container sx={{ position: 'absolute', top: '100%', left: '0', right: '0' }}>
 							<Box sx={{ width: '98%', backgroundColor: grey[200], ...shuttersSx }}></Box>
 							<Box sx={{ width: '95%', backgroundColor: grey[300], ...shuttersSx }}></Box>
 						</Container>
@@ -196,17 +199,28 @@ class Home extends Component {
 				}}>
 					<Box className="section-header">
 						<h2>Lets chat</h2>
-						<h1>I am open to<br/><span className="text-blue">creative</span> ideas!</h1>
+						<h1>I am open to<br /><span className="text-blue">creative</span> ideas!</h1>
 					</Box>
-					<Box component="img" src="/imgs/bgsec4.jpeg" alt="idea" sx={{
-						position: ['relative', 'relative', 'absolute'],
-						right: ['0', '0', '50px', '200px'],
-						top: 0,
-						bottom: 0,
-						margin: 'auto',
-						mb: [6, 6, 'auto'],
-						maxHeight: ['200px', '300px']
-					}}/>
+					<Box className="container"
+						sx={{
+							position: ['relative', 'relative', 'absolute'],
+							right: ['0', '0', '50px', '200px'],
+							height: '100%',
+							top: 0,
+							left: 0,
+							right: 0,
+							margin: 'auto',
+							mb: [6, 6, 'auto'],
+							p: 0,
+							display: 'flex',
+							justifyContent: ['center', 'center', 'end'],
+							alignItems: 'center'
+						}}
+					>
+						<Box component="img" src="/imgs/bgsec4.jpeg" alt="idea" sx={{
+							height: ['200px', '300px']
+						}} />
+					</Box>
 				</Box>
 				<Footer />
 			</React.Fragment>
