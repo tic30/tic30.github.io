@@ -6,13 +6,13 @@ const WavingLogo = ({ disabled }) => {
     const hand = useRef(null);
     const smile = useRef(null);
 
-    useEffect(() => {
-        return () => {
+    useEffect(() => 
+         () => {
             timeouts.forEach((item) => {
                 clearTimeout(item);
             });
         } // eslint-disable-next-line
-    }, []);
+    , []);
 
     const logoHover = () => {
         if(disabled) return;
@@ -23,7 +23,7 @@ const WavingLogo = ({ disabled }) => {
 
 	const logoHoverEnd = () => {
         if(disabled) return;
-		const timeout1 = setTimeout(function () {
+		const timeout1 = setTimeout(() => {
 			hand.current.classList.remove("visible", "animated", "handTada");
 			smile.current.classList.remove("visible");
 		}, 800);

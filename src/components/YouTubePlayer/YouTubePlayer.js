@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useRef } from 'react';
 import YouTube from 'react-youtube';
 import './YouTubePlayer.scss';
 
@@ -10,49 +10,35 @@ const opts = {
     }
 };
 
-class YouTubePlayer extends Component {
-    constructor(props) {
-        super(props);
-        this.player = null;
-		this.state = {
-            width: 0,
-			started: false
-        }
-    }
-    
-    _onReady = (event) => {
+const YouTubePlayer = () => {
+    const [started, setStarted] = useState(false);
+    const player = useRef(null);
+
+    const onReady = (event) => {
         // access to player in all event handlers via event.target
-        this.player = event.target;
-    }
+        player.current = event.target;
+    };
 
-    playVideo = () => {
-        this.setState({started: true});
-        this.player.playVideo();
-    }
+    const playVideo = () => {
+        setStarted(true);
+        player.current.playVideo();
+    };
 
-    _onEnd = () => {
-        this.setState({started: false});
-    }
-
-    render() {
-        const { started } = this.state;
-
-        return (
-            <div className="player-wrapper">
-                <div className={`player-cover ${started ? 'hide' : ''}`} type="button" onClick={this.playVideo}>
-                    <div className="player-cover-title">Q</div>
-                    <hr />
-                    <div className="player-cover-text">What problem to solve?</div>
-                </div>
-                <YouTube
-                    videoId="b4Ro7i9c2QE"
-                    opts={opts}
-                    onReady={this._onReady}
-                    onEnd={this._onEnd}
-                />
+    return (
+        <div className="player-wrapper">
+            <div className={`player-cover ${started ? 'hide' : ''}`} type="button" onClick={playVideo}>
+                <div className="player-cover-title">Q</div>
+                <hr />
+                <div className="player-cover-text">What problem to solve?</div>
             </div>
-        );
-    }
-}
+            <YouTube
+                videoId="b4Ro7i9c2QE"
+                opts={opts}
+                onReady={onReady}
+                onEnd={() => setStarted(false)}
+            />
+        </div>
+    );
+};
 
 export default YouTubePlayer;

@@ -11,15 +11,13 @@ export const isInViewport = (el) => {
     return (vertInView && horInView);    
 }
 
-export const isInOrPassedViewport = (el) => {
-    return isInViewport(el) || el.getBoundingClientRect().y < 0;
-}
+export const isInOrPassedViewport = (el) => isInViewport(el) || el.getBoundingClientRect().y < 0
 
 window.lastScrollTop = 0;
 // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
 export const detectScrollDirection = (callback) => {
-    document.addEventListener("scroll", function(){
-        let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+    document.addEventListener("scroll", ()=> {
+        const st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
         let dir = "";
         if (st > window.lastScrollTop){
             dir = "down";

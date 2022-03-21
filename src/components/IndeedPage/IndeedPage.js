@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import Texts from '../../texts';
 import { grey } from '@mui/material/colors';
+import Texts from '../../texts';
 import './IndeedPage.scss';
 
 export const ropeSx = {
@@ -13,8 +13,8 @@ const IndeedPage = () => (
         {Texts.IP.map((job, i) => (
             <Box key={i}>
                 <Box sx={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-                    <Box sx={{ ml: '20%', height: '1.5rem', ...ropeSx }}></Box>
-                    <Box sx={{ mr: '20%', height: '1.5rem', ...ropeSx }}></Box>
+                    <Box sx={{ ml: '20%', height: '1.5rem', ...ropeSx }} />
+                    <Box sx={{ mr: '20%', height: '1.5rem', ...ropeSx }} />
                 </Box>
                 <Box className="job-container-inner">
                     <Box sx={{

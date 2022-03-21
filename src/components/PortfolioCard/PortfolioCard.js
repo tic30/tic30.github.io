@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import  { Redirect } from 'react-router-dom';
-import Paper from '@mui/material/Paper';
+import  { Navigate } from 'react-router-dom';
+import { Box, Paper } from '@mui/material';
 import './PortfolioCard.scss';
 
 class PortfolioCard extends Component {
@@ -52,28 +52,28 @@ class PortfolioCard extends Component {
         const { open, redirect, fadeOut } = this.state;
 
         if (redirect!=="") {
-            return <Redirect push to={redirect} />
+            return <Navigate push to={redirect} />
         }
         
         return (
-            <React.Fragment>
+            <>
                 <Paper className={`portfolio-card ${large?"portfolio-card-large":""} ${open?"open":""} ${fadeOut?"fadeOut":""}`} ref={this.card} tabIndex={0}>
-                    <div className="portfolio-card-container" onClick={() => this.clickCard(content.pageUrl)}>
-                        <div className="portfolio-card-img" style={{backgroundImage: `url(/imgs/${content.imgUrl})`}} alt="Portfolio"></div>
-                        <div className={`portfolio-card-text-wrapper ${open?"open":""}`}>
+                    <Box className="portfolio-card-container" onClick={() => this.clickCard(content.pageUrl)}>
+                        <Box className="portfolio-card-img" style={{backgroundImage: `url(/imgs/${content.imgUrl})`}} alt="Portfolio" />
+                        <Box className={`portfolio-card-text-wrapper ${open?"open":""}`}>
                             <h4>{content.title}</h4>
-                            <div className="portfolio-card-content">
+                            <Box className="portfolio-card-content">
                                 <p className={content.pageUrl ? "" : "mobile-show"}>{content.subTitle}</p>
-                                {content.pageUrl ? <div className="portfolio-card-btn">
+                                {content.pageUrl ? <Box className="portfolio-card-btn">
                                     {content.btnText || "Read more"}
                                     <img src="/imgs/icons/arrow-right.svg" alt="Arrow right" height="14px"/>
-                                </div> : <div className="portfolio-card-btn-placeholder"></div>}
-                            </div>
-                        </div>
-                    </div>
+                                </Box> : <Box className="portfolio-card-btn-placeholder" />}
+                            </Box>
+                        </Box>
+                    </Box>
                 </Paper>
-                {open?<div className="placeHolder-card"></div>:""}
-            </React.Fragment>
+                {open?<Box className="placeHolder-card" />:""}
+            </>
         );
     }
 }

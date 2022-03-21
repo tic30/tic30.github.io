@@ -38,7 +38,7 @@ export default {
         titleIcon: "icons/cmu.png",
         content: "I joined a group of HCI student to create AR application and study its social impact. I received my degree of Master of Science in Software Engineering at Carnegie Mellon University(CMU) in 2018. CMU courses paved solid ground in engineering which I benefit from util today and encouraged me to pursue a life-long learning."
     },
-    //portfolio
+    // portfolio
     OH: {
         title: "Micro Frontend Migration @ Indeed",
         imgUrl: "indeed-oh.png",
@@ -58,30 +58,30 @@ export default {
         imgUrl: "dealfindme.png",
         subTitle: "Coupon at hand for the store I am standing in.",
         btnText: "Coming Soon",
-        pageUrl: ""//"/dfm"
+        pageUrl: ""// "/dfm"
     },
     Milu: {
         title: "Milu",
         imgUrl: "milu.png",
         subTitle: "An image content search engine.",
         btnText: "Coming Soon",
-        pageUrl: ""//"/milu"
+        pageUrl: ""// "/milu"
     },
     EthereumWallet: {
         title: "Ethereum Wallet",
         imgUrl: "ethereumwallet.png",
         subTitle: "Checkout with Ethereum using this extension.",
         btnText: "Coming Soon",
-        pageUrl: ""//"/ethereumwallet"
+        pageUrl: ""// "/ethereumwallet"
     },
     MovieEmodex: {
         title: "Movie.Emodex",
         imgUrl: "movie.png",
         subTitle: "New movie rating based on emotional impact.",
         btnText: "Coming Soon",
-        pageUrl: ""//"/movieemodex"
+        pageUrl: ""// "/movieemodex"
     },
-    //ITS page
+    // ITS page
     ITSHero: {
         title: "INTELLIGENT TUTORING SYSTEMS",
         content: "Research Project @ CMU.HCII"
@@ -113,7 +113,7 @@ export default {
             alt: "MongoDB"
         }
     ],
-    //Indeed page
+    // Indeed page
     IP: [{
         title: "UX Developer",
         subtitle: "My current job title is UX Developer. I play a role of front end contributor and design-engineering coordinator in the team. My work supports the front end feature iterations, drive adoption of company-wide UX & FE directions and guidelines, and coordinate across teams.",
@@ -159,5 +159,5 @@ export default {
 }
 
 // I seek challenges, with-in and out of work. I embrace them, break them down into practical tasks and improve myself along the way. 
-//My efforts in studying user, creating solutions to tackle the real people problem and validating the effectiveness of the solutions through fast iterations of prototyping, testing and optimization form the major chord of my work. 
+// My efforts in studying user, creating solutions to tackle the real people problem and validating the effectiveness of the solutions through fast iterations of prototyping, testing and optimization form the major chord of my work. 
 // As a detail oriented person, I demonstrate front end products that express creative design language with clean and reusable code.

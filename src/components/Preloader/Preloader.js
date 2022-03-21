@@ -1,41 +1,33 @@
-import React, { Component } from 'react';
-import  { Redirect } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import  { useNavigate } from 'react-router-dom';
 import './Preloader.scss';
 
-class Preloader extends Component {
-    state = {
-        animationCount: 0,
-        redirect: window.matchMedia('(max-width: 599px)').matches //Go directly to home on phone
-    }
+const Preloader = () => {
+    const navigate = useNavigate();
+    const [animationCount, setAnimationCount] = useState(0);
+    const [redirect, setRedirect] = useState(window.matchMedia('(max-width: 599px)').matches); // Go directly to home on phone
 
-    setRedirect = () => {
-        const { animationCount } = this.state;
+    const updateRedirect = () => {
         if(animationCount>=2){
-            this.setState({
-                redirect: true
-            });
+            setRedirect(true);
         } else {
-            this.setState({
-                animationCount: animationCount + 1
-            });
+            setAnimationCount(animationCount + 1);
         }
     }
 
-    render() {
-        const { redirect } = this.state;
-
+    useEffect(() => {
         if (redirect) {
-            return <Redirect push to='/home' />
+            navigate('/home');
         }
+    }, [redirect]);
 
-        return (
-            <div className="preloader-wrapper">
-                <div className="preloader-header" onAnimationEnd={this.setRedirect}>
-                    <div className="preloader-header-text">Hello, this is Tim Chu</div>
-                </div>
+    return (
+        <div className="preloader-wrapper">
+            <div className="preloader-header" onAnimationEnd={updateRedirect}>
+                <div className="preloader-header-text">Hello, this is Tim Chu</div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Preloader;

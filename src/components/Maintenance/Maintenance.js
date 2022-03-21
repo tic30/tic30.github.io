@@ -39,12 +39,12 @@ const Maintenance = () => {
     return (
         <div className="maintenance-page">
             <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-                <button className="maintenance-logo-button maintenance-logo-button-front" onClick={() => updateIsFlipped(!isFlipped)} ref={buttonRef}>
+                <button className="maintenance-logo-button maintenance-logo-button-front" onClick={() => updateIsFlipped(!isFlipped)} ref={buttonRef} type="button">
                     <WavingLogo disabled={isFlipped}/>
-                    <div className="eyeball eyeball-left" style={transformedStyle}></div>
-                    <div className="eyeball eyeball-right" style={transformedStyle}></div>
+                    <div className="eyeball eyeball-left" style={transformedStyle} />
+                    <div className="eyeball eyeball-right" style={transformedStyle} />
                 </button>
-                <button className="maintenance-logo-button maintenance-logo-button-back" onClick={() => updateIsFlipped(!isFlipped)}>
+                <button className="maintenance-logo-button maintenance-logo-button-back" onClick={() => updateIsFlipped(!isFlipped)} type="button">
                     <h1>Closed</h1>
                     <h4>I'll see you when I see you</h4>
                 </button>

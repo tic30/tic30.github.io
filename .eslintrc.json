@@ -1,0 +1,32 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:jest/recommended",
+        "prettier"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "prettier",
+        "jest"
+    ],
+    "rules": {
+        "react/no-array-index-key": "off",
+        "react/no-unescaped-entities": "off",
+        "react/prefer-stateless-function": "off",
+        "react/destructuring-assignment": "off",
+        "no-nested-ternary": "off",
+        "react/prop-types": "off",
+        // a11y stuff, fix later
+        "jsx-a11y/no-static-element-interactions": "off",
+        "jsx-a11y/click-events-have-key-events": "off"
+    }
+}

@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import React, { Component } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import MediaIcons from '../MediaIcons';
@@ -17,12 +18,12 @@ class Header extends Component {
     }
 
     componentDidMount() {
-        let lastScrollTop = 0,
-            mySelf = this;
+        let lastScrollTop = 0;
+            const mySelf = this;
 
         // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
         this.scrollListener = () => { // or window.addEventListener("scroll"....
-            let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+            const st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
             if (st > lastScrollTop) {
                 // downscroll code
                 mySelf.setState({
@@ -69,16 +70,11 @@ class Header extends Component {
         const { menuOpen, scrolled } = this.state;
 
         return (
-            <React.Fragment>
+            <>
                 <div className={`nav ${scrolled ? 'scrolled' : ''}`}>
-                    {/* <div className="nav-container">
-                        <div className="logo-wrapper">
-                            <div className="nav-item logo">
-                                <HashLink to="/home" className="logo-text" onClick={this.logoClickHandler}></HashLink>
-                            </div>
-                        </div>
-                    </div> */}
-                    <HashLink to="/home" className="nav-logo" onClick={this.logoClickHandler}></HashLink>
+                    <Box component={HashLink} to="/home" className="nav-logo" onClick={this.logoClickHandler} sx={{
+                        backgroundImage: 'url(/favicon.png)'
+                    }} />
                 </div>
                 <MenuScreen open={menuOpen} openDirection="left" justifyDirection="left">
                     <div className="menu-item">
@@ -93,9 +89,9 @@ class Header extends Component {
                     <MediaIcons />
                 </MenuScreen>
                 <div className={`nav-hamburger ${menuOpen ? 'open' : ''} ${scrolled && !menuOpen ? 'scrolled' : ''}`} onClick={this.toggleMenuScreen}>
-                    <div className="nav-hamburger-bars"></div>
+                    <div className="nav-hamburger-bars" />
                 </div>
-            </React.Fragment>
+            </>
         );
     }
 }

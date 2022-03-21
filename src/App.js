@@ -1,5 +1,6 @@
 import React from 'react';
-import { HashRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { ThemeProvider, createTheme } from '@mui/material';
 import Preloader from './components/Preloader';
 import Home from './components/Home';
 import ITS from './components/ITS';
@@ -7,7 +8,6 @@ import IndeedMicroFE from './components/IndeedMicroFE';
 // import Maintenance from './components/Maintenance';
 // import DFM from './components/DFM';
 import './App.scss';
-import { ThemeProvider, createTheme } from '@mui/material';
 
 const theme = createTheme({
 	typography: {
@@ -18,17 +18,15 @@ const theme = createTheme({
 const App = () => (
 	<ThemeProvider theme={theme}>
 		<Router>
-			<React.Fragment>
-				<Switch>
-					<Route path="/" exact component={Preloader} />
-					<Route path="/home" component={Home} />
-					<Route path="/its" component={ITS} />
-					<Route path="/microfe" exact component={IndeedMicroFE} />
-					{/* <Route path="/m" exact component={Maintenance} /> */}
-					{/* <Route path="/dfm" component={DFM} /> */}
-					<Redirect to="/" />
-				</Switch>
-			</React.Fragment>
+			<Routes>
+				<Route path="/" exact element={<Preloader />} />
+				<Route path="/home" element={<Home />} />
+				<Route path="/its" element={<ITS />} />
+				<Route path="/microfe" element={<IndeedMicroFE />} />
+				{/* <Route path="/m" exact element={Maintenance} /> */}
+				{/* <Route path="/dfm" element={DFM} /> */}
+				<Route path="*" element={<Navigate to="/" />} />
+			</Routes>
 		</Router>
 	</ThemeProvider>
 );

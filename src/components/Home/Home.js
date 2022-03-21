@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Box, Container, Grid, Typography } from '@mui/material';
 import Cancel from '@mui/icons-material/Cancel';
+import { animateScroll } from 'react-scroll'
+import { grey } from '@mui/material/colors';
 import Header from '../Header';
 import Flyer from '../Flyer';
 // import ContactBubble from '../ContactBubble';
@@ -9,8 +11,6 @@ import IndeedPage, { ropeSx } from '../IndeedPage';
 import Footer from '../Footer';
 import Texts from '../../texts';
 import { isInViewport } from '../../util';
-import { animateScroll } from 'react-scroll'
-import { grey } from '@mui/material/colors';
 import './Home.scss';
 
 const shuttersSx = {
@@ -21,6 +21,16 @@ const shuttersSx = {
 };
 
 class Home extends Component {
+	static scrollEvent() {
+		const allCards = document.querySelectorAll(".portfolio-card");
+
+		allCards.forEach((item) => {
+			if (isInViewport(item)) {
+				item.classList.add("come-in");
+			}
+		});
+	}
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -35,52 +45,6 @@ class Home extends Component {
 		this.logoHoverEnd = this.logoHoverEnd.bind(this);
 		this.callFlyer = this.callFlyer.bind(this);
 		this.closeFlyer = this.closeFlyer.bind(this);
-		this.scrollEvent = this.scrollEvent.bind(this);
-	}
-
-	logoHover() {
-		this.hand.current.classList.remove("animated", "handTada");
-		this.hand.current.classList.add("visible", "animated", "handTada");
-		this.smile.current.classList.add("visible");
-	}
-
-	logoHoverEnd() {
-		const { timeouts } = this.state
-		const myself = this;
-		const timeout1 = setTimeout(function () {
-			myself.hand.current.classList.remove("visible", "animated", "handTada");
-			myself.smile.current.classList.remove("visible");
-		}, 800);
-		this.setState({
-			timeouts: [...timeouts, timeout1]
-		})
-	}
-
-	callFlyer(e) {
-		const data = e.currentTarget.getAttribute("data-target");
-		this.setState({
-			dynamicFlyer: data
-		}, () => {
-			if (data === 'Indeed') {
-				animateScroll.scrollTo(document.querySelector('#sec2').offsetTop - 50, { duration: 400 });
-			}
-		})
-	}
-
-	closeFlyer() {
-		this.setState({
-			dynamicFlyer: "Indeed"
-		})
-	}
-
-	scrollEvent() {
-		const allCards = document.querySelectorAll(".portfolio-card");
-
-		allCards.forEach((item) => {
-			if (isInViewport(item)) {
-				item.classList.add("come-in");
-			}
-		});
 	}
 
 	componentDidMount() {
@@ -88,7 +52,7 @@ class Home extends Component {
 		const myself = this;
 		const allCards = document.querySelectorAll(".portfolio-card");
 
-		const timeout2 = setTimeout(function () {
+		const timeout2 = setTimeout(() => {
 			myself.logoHover();
 			myself.logoHoverEnd();
 		}, 2000);
@@ -113,12 +77,47 @@ class Home extends Component {
 		window.removeEventListener("scroll", this.scrollEvent);
 	}
 
+	callFlyer(e) {
+		const data = e.currentTarget.getAttribute("data-target");
+		this.setState({
+			dynamicFlyer: data
+		}, () => {
+			if (data === 'Indeed') {
+				animateScroll.scrollTo(document.querySelector('#sec2').offsetTop - 50, { duration: 400 });
+			}
+		})
+	}
+
+	closeFlyer() {
+		this.setState({
+			dynamicFlyer: "Indeed"
+		})
+	}
+
+	logoHoverEnd() {
+		const { timeouts } = this.state
+		const myself = this;
+		const timeout1 = setTimeout(() => {
+			myself.hand.current.classList.remove("visible", "animated", "handTada");
+			myself.smile.current.classList.remove("visible");
+		}, 800);
+		this.setState({
+			timeouts: [...timeouts, timeout1]
+		})
+	}
+	
+	logoHover() {
+		this.hand.current.classList.remove("animated", "handTada");
+		this.hand.current.classList.add("visible", "animated", "handTada");
+		this.smile.current.classList.add("visible");
+	}
+
 	render() {
 		const { dynamicFlyer } = this.state
 		const flyerActive = !!dynamicFlyer && dynamicFlyer !== 'Indeed';
 
 		return (
-			<React.Fragment>
+			<>
 				<Header pageId="home" />
 				{/* <ContactBubble ref={this.contactBubble}/> */}
 				<Box component="section" id="sec1">
@@ -138,7 +137,7 @@ class Home extends Component {
 						<h2>About me</h2>
 					</Box>
 					<Box className="container container-flyer">
-						{flyerActive && <Flyer direction="left" animated={true} content={Texts[dynamicFlyer]} />}
+						{flyerActive && <Flyer direction="left" animated content={Texts[dynamicFlyer]} />}
 						<Flyer direction="left" animated={false} content={Texts.SelfIntro} />
 						<Box className="flyer-divider">
 							{flyerActive && <Box className="closeBtn" onClick={this.closeFlyer}><Cancel /></Box>}
@@ -147,16 +146,16 @@ class Home extends Component {
 					</Box>
 					{dynamicFlyer !== 'Indeed' && (
 						<Container sx={{ position: 'absolute', top: '100%', left: '0', right: '0' }}>
-							<Box sx={{ width: '98%', backgroundColor: grey[200], ...shuttersSx }}></Box>
-							<Box sx={{ width: '95%', backgroundColor: grey[300], ...shuttersSx }}></Box>
+							<Box sx={{ width: '98%', backgroundColor: grey[200], ...shuttersSx }} />
+							<Box sx={{ width: '95%', backgroundColor: grey[300], ...shuttersSx }} />
 						</Container>
 					)}
 				</Box>
 				{dynamicFlyer === 'Indeed' && (
 					<Box component="section" id="sec2">
 						<Box className="container" sx={{ position: 'absolute', top: '-100px', width: '100%', display: 'flex', justifyContent: 'space-between', py: '0 !important', left: 0, right: 0, px: ['1rem', '1rem', '1rem', 0] }}>
-							<Box sx={{ ml: '20%', height: '100px', ...ropeSx }}></Box>
-							<Box sx={{ mr: '20%', height: '100px', ...ropeSx }}></Box>
+							<Box sx={{ ml: '20%', height: '100px', ...ropeSx }} />
+							<Box sx={{ mr: '20%', height: '100px', ...ropeSx }} />
 						</Box>
 						<IndeedPage />
 					</Box>
@@ -204,7 +203,6 @@ class Home extends Component {
 					<Box className="container"
 						sx={{
 							position: ['relative', 'relative', 'absolute'],
-							right: ['0', '0', '50px', '200px'],
 							height: '100%',
 							top: 0,
 							left: 0,
@@ -223,7 +221,7 @@ class Home extends Component {
 					</Box>
 				</Box>
 				<Footer />
-			</React.Fragment>
+			</>
 		);
 	}
 }

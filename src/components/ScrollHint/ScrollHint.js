@@ -18,7 +18,7 @@ class ScrollHint extends Component {
     render() {
         return (
             <div className="scrollHint-wrapper">
-                <div className="scrollHint"></div>
+                <div className="scrollHint" />
             </div>
         );
     }

@@ -26,9 +26,9 @@ class ContactBubble extends Component {
         const { open } = this.state;
         let button;
         if (open) {
-            button = <Clear></Clear>;
+            button = <Clear />;
         } else {
-            button = <ChatBubbleOutline></ChatBubbleOutline>;
+            button = <ChatBubbleOutline />;
         }
 
         return (
