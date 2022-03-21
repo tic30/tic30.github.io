@@ -7,6 +7,7 @@
 This is a React webapp, you need `node 14` to run it. Start up local dev server with
 
 ```
+git checkout react-refactor
 npm install
 npm start
 ```
