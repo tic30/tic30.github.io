@@ -3,7 +3,6 @@ import { Box, Container, Grid, Typography } from '@mui/material';
 import Cancel from '@mui/icons-material/Cancel';
 import { animateScroll } from 'react-scroll'
 import { grey } from '@mui/material/colors';
-import Header from '../Header';
 import Flyer from '../Flyer';
 // import ContactBubble from '../ContactBubble';
 import PortfolioCard from '../PortfolioCard';
@@ -118,7 +117,6 @@ class Home extends Component {
 
 		return (
 			<>
-				<Header pageId="home" />
 				{/* <ContactBubble ref={this.contactBubble}/> */}
 				<Box component="section" id="sec1">
 					<Box className="container">

@@ -44,7 +44,6 @@ const ITS = () => {
 
 	return (
 		<>
-			<Header pageId="its" />
 			<section id="its-sec1" className={scrollLevel === 3 ? 'fade3' : (scrollLevel === 2 ? 'fade2' : '')}>
 				<div className={`container ${scrollLevel >= 1 ? 'fade1' : ''}`}>
 					<h2>{Texts.ITSHero.title}</h2>

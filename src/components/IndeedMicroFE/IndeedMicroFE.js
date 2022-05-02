@@ -11,7 +11,6 @@ const IndeedMicroFE = () => {
 
     return (
         <>
-            <Header pageId="microfe"/>
             <section id="indeed-sec1">
                 <div className="container">
                     <h1>{Texts.IndeedMicroFE.title}</h1>
