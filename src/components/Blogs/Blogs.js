@@ -59,7 +59,11 @@ export default function Blogs() {
             {blogList.map((blog, id) => {
                 const accordionId = `blog-accordion-${id}`
                 return (
-                    <Accordion expanded={expanded === accordionId} onChange={handleChange(accordionId)}>
+                    <Accordion
+                        key={accordionId}
+                        expanded={expanded === accordionId}
+                        onChange={handleChange(accordionId)}
+                    >
                         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                             <Typography>{blog.title}</Typography>
                         </AccordionSummary>

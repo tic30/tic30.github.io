@@ -47,7 +47,7 @@ const IndeedMicroFE = () => {
                     <p>The outcome is rewarding. Performance for almost all pages increased and error rates were down. We fixed dozens of UI inconsistencies and broken experiences along the way, so that employers on Indeed can focus on hiring with a more pleasant journey and higher productivity.</p>
                 </div>
             </section>
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 };

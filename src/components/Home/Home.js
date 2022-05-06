@@ -345,7 +345,7 @@ const Home = ({
 					}} />
 				</Box>
 			</Box>
-			<Footer />
+			{/* <Footer /> */}
 		</>
 	);
 }
