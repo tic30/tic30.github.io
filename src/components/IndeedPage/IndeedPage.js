@@ -11,11 +11,11 @@ export const ropeSx = {
 const IndeedPage = () => (
     <Box className="container job-container">
         {Texts.IP.map((job, i) => (
-            <Box key={i}>
-                <Box sx={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
+            <Box key={i} sx={{ mb: '1.5rem' }}>
+                {/* <Box sx={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
                     <Box sx={{ ml: '20%', height: '1.5rem', ...ropeSx }} />
                     <Box sx={{ mr: '20%', height: '1.5rem', ...ropeSx }} />
-                </Box>
+                </Box> */}
                 <Box className="job-container-inner">
                     <Box sx={{
                         display: 'flex',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider, createTheme, Box } from '@mui/material';
 import Preloader from './components/Preloader';
@@ -16,25 +16,29 @@ const theme = createTheme({
 	}
 });
 
-const App = () => (
-	<ThemeProvider theme={theme}>
-		<Router>
-			<Box sx={{ display: 'flex', position: 'fixed', width: '100%', height: '100%', overflow: 'hidden', pt: '4.5rem' }}>
-				<Header />
-				<Box sx={{ width: '100%', overflowY: 'auto' }}>
-					<Routes>
-						<Route path="/" exact element={<Preloader />} />
-						<Route path="/home" element={<Home />} />
-						<Route path="/its" element={<ITS />} />
-						<Route path="/microfe" element={<IndeedMicroFE />} />
-						{/* <Route path="/m" exact element={Maintenance} /> */}
-						{/* <Route path="/dfm" element={DFM} /> */}
-						<Route path="*" element={<Navigate to="/" />} />
-					</Routes>
+const App = () => {
+	const scrollAreaRef = useRef(null);
+
+	return (
+		<ThemeProvider theme={theme}>
+			<Router>
+				<Box sx={{ display: 'flex', position: 'fixed', width: '100%', height: '100%', overflow: 'hidden', pt: '4.5rem' }}>
+					<Header />
+					<Box ref={scrollAreaRef} sx={{ width: '100%', overflowY: 'auto' }}>
+						<Routes>
+							<Route path="/" exact element={<Preloader />} />
+							<Route path="/home" element={<Home scrollAreaRef={scrollAreaRef}/>} />
+							<Route path="/its" element={<ITS />} />
+							<Route path="/microfe" element={<IndeedMicroFE />} />
+							{/* <Route path="/m" exact element={Maintenance} /> */}
+							{/* <Route path="/dfm" element={DFM} /> */}
+							<Route path="*" element={<Navigate to="/" />} />
+						</Routes>
+					</Box>
 				</Box>
-			</Box>
-		</Router>
-	</ThemeProvider>
-);
+			</Router>
+		</ThemeProvider>
+	);
+};
 
 export default App;

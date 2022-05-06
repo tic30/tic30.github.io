@@ -3,12 +3,53 @@ import { HashLink } from 'react-router-hash-link';
 import { Box, colors } from '@mui/material';
 import WorkspacesIcon from '@mui/icons-material/Workspaces';
 import PersonIcon from '@mui/icons-material/Person';
-import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import EmailIcon from '@mui/icons-material/Email';
+import DesignServicesIcon from '@mui/icons-material/DesignServices';
+import SummarizeIcon from '@mui/icons-material/Summarize';
+import BatchPredictionIcon from '@mui/icons-material/BatchPrediction';
+import CoffeeIcon from '@mui/icons-material/Coffee';
 import MenuScreen from '../MenuScreen';
 import Texts from '../../texts';
+
+const menuList = [{
+    icon: <PersonIcon />,
+    text: 'About Me',
+    link: '/home#self-intro'
+}, {
+    icon: <DesignServicesIcon />,
+    text: 'My work',
+    link: '/home#work'
+}, {
+    icon: <BatchPredictionIcon />,
+    text: 'Blog',
+    link: '/home#blog'
+}, {
+    icon: <WorkspacesIcon />,
+    text: 'Projects',
+    link: '/home#projects',
+    subMenuItems: [Texts.OH, Texts.ITS, { title: 'Others', pageUrl: '/home#sec3' }]
+}, {
+    icon: <CoffeeIcon />,
+    text: 'Connect',
+    link: '/home#connect',
+    subMenuItems: [{
+        icon: <SummarizeIcon />,
+        title: 'Resume',
+        pageUrl: 'https://drive.google.com/open?id=0B1dSWHM51dn-RGJBNlJZNFdaNW8',
+        external: true
+    }, {
+        icon: <LinkedInIcon />,
+        title: 'LinkedIn',
+        pageUrl: 'https://www.linkedin.com/in/tim-chu-980881a4',
+        external: true
+    }, {
+        icon: <GitHubIcon />,
+        title: 'GitHub',
+        pageUrl: 'https://github.com/tic30',
+        external: true
+    }]
+}];
 
 class Header extends Component {
     constructor(props) {
@@ -74,43 +115,6 @@ class Header extends Component {
     render() {
         const { menuOpen } = this.state;
 
-        const menuList = [{
-            icon: <PersonIcon />,
-            text: 'About Me',
-            link: '/home#self-intro'
-        }, {
-            icon: <WorkspacesIcon />,
-            text: 'Projects',
-            link: '/home#sec3',
-            subMenuItems: [Texts.OH, Texts.ITS, { title: 'Others', pageUrl: '/home#sec3' }].map((page, id) => (
-                <Box
-                    key={`menu-submenu-item-${id}`}
-                    component={HashLink}
-                    to={page.pageUrl}
-                >{page.title}</Box>
-            ))
-        }, {
-            icon: <HistoryEduIcon />,
-            text: 'Resume',
-            link: 'https://drive.google.com/open?id=0B1dSWHM51dn-RGJBNlJZNFdaNW8',
-            external: true
-        }, {
-            icon: <LinkedInIcon />,
-            text: 'LinkedIn',
-            link: 'https://www.linkedin.com/in/tim-chu-980881a4',
-            external: true
-        }, {
-            icon: <GitHubIcon />,
-            text: 'GitHub',
-            link: 'https://github.com/tic30',
-            external: true
-        }, {
-            icon: <EmailIcon />,
-            text: 'Email',
-            link: 'mailto:173341277@qq.com?subject=Let\'s&nbsp;talk,&nbsp;Tim!',
-            external: true
-        }]
-
         return (
             <>
                 <Box sx={{
@@ -125,10 +129,10 @@ class Header extends Component {
                     transitionDuration: '0.2s',
                     display: 'flex',
                     alignItems: 'center',
-                    pl: menuOpen ? '14rem' : '7.5rem',
+                    pl: menuOpen ? '24rem' : '7.5rem',
                     transition: 'padding 0.2s',
                 }}>
-                    <Box 
+                    {/* <Box 
                         component={HashLink}
                         to="/home"
                         onClick={this.logoClickHandler} 
@@ -139,7 +143,7 @@ class Header extends Component {
                             backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat'
                         }}
-                    />
+                    /> */}
                 </Box>
                 <MenuScreen open={menuOpen} setOpen={this.toggleMenuScreen} openDirection="left" justifyDirection="left" menuList={menuList} />
             </>

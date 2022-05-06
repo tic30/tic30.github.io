@@ -22,6 +22,9 @@ const MenuScreen = ({
         mb: open ? 3 : 1,
         height: open ? '2.5rem' : '3.5rem',
         width: open ? 'auto' : '4.25rem',
+        '&:hover': {
+            cursor: 'pointer'
+        },
         '&, &:focus': {
             display: 'flex'
         },
@@ -40,7 +43,7 @@ const MenuScreen = ({
     return (
         <Box sx={{
             height: 'calc(100% + 4.5rem)',
-            width: open ? '12rem' : '5.5rem',
+            width: open ? '22rem' : '5.5rem',
             backgroundColor: colors.grey[900],
             mt: '-4.5rem',
             p: 1,
@@ -108,8 +111,8 @@ const MenuScreen = ({
                     key={`menu-item-${id}`}
                     sx={{
                         position: 'relative',
-                        '&:hover > a': {
-                            backgroundColor: colors.grey[100],
+                        '&:hover > *:first-child': {
+                            backgroundColor: colors.grey[50],
                             '> svg, > span': {
                                 color: colors.grey[900]
                             },
@@ -121,7 +124,7 @@ const MenuScreen = ({
                         } : {})
                     }}
                 >
-                    {item.external ? (
+                    {item.link ? item.external ? (
                         <Box component="a" href={item.link} target="_blank" rel="noopener noreferrer" sx={innerSx}>
                             {item.icon}
                             <Typography component="span">{item.text}</Typography>
@@ -131,39 +134,62 @@ const MenuScreen = ({
                             {item.icon}
                             <Typography component="span">{item.text}</Typography>
                         </Box>
+                    ) : (
+                        <Box sx={innerSx}>
+                            {item.icon}
+                            <Typography component="span">{item.text}</Typography>
+                        </Box>
                     )}
                     {item.subMenuItems && (
                         <Box
                             id={`menu-submenu-item-${id}`}
                             sx={{
-                                position: 'absolute',
-                                left: 'calc(100% - 1rem)',
+                                position: open ? 'relative' : 'absolute',
+                                left: open ?  0 : 'calc(100% - 1rem)',
                                 pl: '2rem',
                                 top: 0,
-                                display: 'none',
+                                display: open ? 'flex' : 'none',
                                 zIndex: 1,
+                                mb: 3
                             }}
                         >
                             <Box sx={{
                                 display: 'flex',
+                                flexGrow: 1,
                                 flexDirection: 'column',
-                                minWidth: '15rem',
-                                backgroundColor: 'white',
-                                borderRadius: 2,
-                                boxShadow: `0 1px 8px ${colors.grey[400]}`,
-                                overflow: 'hidden',
+                                borderLeft: open ? `1px solid ${colors.grey[400]}` : 'none',
+                                pl: open ? '0.4rem' : 0,
                                 '> a': {
-                                    color: colors.grey[900],
-                                    fontSize: '1rem',
-                                    p: 3,
-                                    borderBottom: `1px solid ${colors.grey[200]}`
+                                    backgroundColor: open ? 'none' : 'white',
+                                    color: open ? 'white' : colors.grey[900],
+                                    fontSize: '0.875rem',
+                                    py: open ? 1 : 2,
+                                    px: 3,
+                                    mb: 1,
+                                    whiteSpace: 'nowrap',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    borderRadius: 1,
+                                    boxShadow: open ? 'none' : `1px 1px 5px ${colors.grey[400]}`,
+                                },
+                                '> a > *:not(:last-child)': {
+                                    mr: 2
                                 },
                                 '> a:hover': {
-                                    backgroundColor: colors.grey[500],
-                                    color: 'white',
+                                    backgroundColor: open ? colors.grey[50] : colors.grey[900],
+                                    color: open ? colors.grey[900] : 'white',
                                 },
                             }}>
-                                {item.subMenuItems}
+                                {item.subMenuItems.map((page, id) => (
+                                    <Box
+                                        key={`menu-submenu-item-${id}`}
+                                        component={HashLink}
+                                        to={page.pageUrl}
+                                    >
+                                        {page.icon}
+                                        <Typography component="span">{page.title}</Typography>
+                                    </Box>
+                                ))}
                             </Box>
                         </Box>
                     )}

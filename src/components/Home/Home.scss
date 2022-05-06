@@ -19,7 +19,7 @@
         background-color: $palette-orange;
 
         @include screen-sm {
-            top: 8.5rem;
+            top: 7.5rem;
         }
     }
 
@@ -27,15 +27,15 @@
         margin: 1.5rem 0;
     }
 
-    @include screen-sm {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
-    }
+    // @include screen-sm {
+    //     padding-left: 2.5rem;
+    //     padding-right: 2.5rem;
+    // }
 
-    @include screen-md {
-        padding-left: 7rem;
-        padding-right: 7rem;
-    }
+    // @include screen-md {
+    //     padding-left: 7rem;
+    //     padding-right: 7rem;
+    // }
 }
 .section-header:hover {
     &::after {
@@ -47,17 +47,17 @@
     padding: 0 1.5rem;
     max-width: $screen-lg;
     margin: auto;
+
+    @include screen-md {
+        padding: 0;
+    }
 }
 
 .visible {
     opacity: 1 !important;
 }
 
-#sec1 {
-    min-height: 0;
-    z-index: 0;
-    margin-bottom: 100px;
-
+#self-intro {
     &::before {
         position:absolute;
         content: "";
@@ -83,28 +83,16 @@
         height:100%;
         // background: linear-gradient($palette-black, rgba($palette-black, 0.9) 20%, rgba($palette-black, 0.6) 40%, rgba($palette-black, 0.4))
     }
-    .container {
-        padding-top: 10rem;
-        z-index: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
 
-        @include screen-md {
-            padding-top: 11rem;
-        }
-    }
-    h1 {
-        margin: 0;
-        animation-name: fadeInUp;
-        animation-duration: 0.5s;
-        animation-timing-function: ease-in-out;
-        animation-fill-mode: forwards;
-        animation-delay: 1.2s;
-        opacity: 0;
-    }
+    // h1 {
+    //     margin: 0;
+    //     animation-name: fadeInUp;
+    //     animation-duration: 0.5s;
+    //     animation-timing-function: ease-in-out;
+    //     animation-fill-mode: forwards;
+    //     animation-delay: 1.2s;
+    //     opacity: 0;
+    // }
 
     p.contentText {
         font-size: 1.125rem;
@@ -150,7 +138,7 @@
         opacity: 0;
 
         @include screen-md {
-            height:200px;
+            height:300px;
         }
 
         * {
@@ -162,7 +150,7 @@
         height:auto;
 
         @include screen-md {
-            width:180px;
+            width:250px;
         }
     }
     #hand{
@@ -241,20 +229,15 @@
     }
 }
 
-#sec3 {
-    background: $palette-grey-100;
-
-    .container {
-        padding: 0 1rem 100px;
-    }
+#projects {
     .container-inner {
         display: flex;
         padding: 12px 0;
 
-        @include screen-lg {
-            width: calc(100% + 2rem);
-            margin-left: -1rem;
-        }
+        // @include screen-lg {
+        //     width: calc(100% + 2rem);
+        //     margin-left: -1rem;
+        // }
     }
     .container-inner-wrap {
         flex-direction: column;
@@ -281,19 +264,13 @@
     }
 }
 
-#sec4 {
+#connect {
+    padding-top: 100px;
     min-height: auto;
     .section-header {
         z-index: 1;
     }
-    .section-header::after {
-        background-color: $palette-orange-light;
-    }
-    .section-header h1 {
-        margin: 2.5rem 0 0;
-
-        @include screen-md {
-            margin: 2.5rem 0;
-        }
+    .section-header h3 {
+        margin-bottom: 4rem
     }
 }

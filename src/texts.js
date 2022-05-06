@@ -3,8 +3,7 @@ export default {
         title: "Hi, Welcome!"
     },
     SelfIntro: {
-        title: "I seek challenges, \n within and without of work.",
-        content: "I embrace them, break them down into practical tasks and improve myself along the way.",
+        content: "Embrace difference, seek innovative solutions, execute with broken-down practical tasks and improve myself along the way.",
         icons: [
             {src:"icons/reading.svg"},
             {src:"icons/soccer.svg"},
@@ -13,8 +12,7 @@ export default {
         ]
     },
     Company: {
-        title: "UX, \n Front end, and Fun",
-        content: "I have hands on experience with UX research & design, front end prototyping and production level coding.",
+        content: "Bridge design and engineering, iterate on ideas with front end prototyping and production code management.",
         icons: [
             {src: "icons/cmu.png", dataTarget: "Cmu"},
             {src: "icons/deephow.png", dataTarget: "Deephow"},
