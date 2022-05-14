@@ -9,6 +9,9 @@ import DesignServicesIcon from '@mui/icons-material/DesignServices';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import BatchPredictionIcon from '@mui/icons-material/BatchPrediction';
 import CoffeeIcon from '@mui/icons-material/Coffee';
+import MemoryIcon from '@mui/icons-material/Memory';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import MenuScreen from '../MenuScreen';
 import Texts from '../../texts';
 
@@ -28,7 +31,17 @@ const menuList = [{
     icon: <WorkspacesIcon />,
     text: 'Projects',
     link: '/home#projects',
-    subMenuItems: [Texts.OH, Texts.ITS, { title: 'Others', pageUrl: '/home#sec3' }]
+    subMenuItems: [{
+        ...Texts.OH,
+        icon: <MemoryIcon />
+    }, {
+        ...Texts.ITS,
+        icon: <VisibilityIcon />
+    }, { 
+        title: 'Others',
+        pageUrl: '/home#projects',
+        icon: <MoreHorizIcon />
+    }]
 }, {
     icon: <CoffeeIcon />,
     text: 'Connect',

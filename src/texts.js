@@ -16,7 +16,7 @@ export default {
         icons: [
             {src: "icons/cmu.png", dataTarget: "Cmu"},
             {src: "icons/deephow.png", dataTarget: "Deephow"},
-            {src: "icons/siemens.svg", dataTarget: "Siemens"},
+            {src: "icons/siemens.png", dataTarget: "Siemens"},
             {src: "icons/indeed.png", dataTarget: "Indeed"}
         ]
     },
@@ -29,7 +29,7 @@ export default {
         content: "This AI start-up is incubated in Techstar by the hands of talents from Siemens UX team. I lead the front end architecture design and MVP development. During the short journey I established a highly-reusable and efficient development ecosystem, introduced a fully automated process from coding, testing, building, to deployment, and I advocated code ownership to boost productivity."
     },
     Siemens: {
-        titleIcon: "icons/siemens.svg",
+        titleIcon: "icons/siemens.png",
         content: "The experience at Siemens is fast-paced. Engineers and designers sync daily to enable development and design to run in parallel. Thanks to the close engagement with stake holder, I am able to test creative sometimes crazy ideas, collect feedback and iterate quickly on not only functions and feature but also tools, platforms and service systems."
     },
     Cmu: {

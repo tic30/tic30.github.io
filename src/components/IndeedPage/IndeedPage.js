@@ -9,9 +9,9 @@ export const ropeSx = {
 };
 
 const IndeedPage = () => (
-    <Box className="container job-container">
+    <Box className="job-container">
         {Texts.IP.map((job, i) => (
-            <Box key={i} sx={{ mb: '1.5rem' }}>
+            <Box key={i} sx={{ mb: '1.5rem' }} className="come-in-container">
                 {/* <Box sx={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
                     <Box sx={{ ml: '20%', height: '1.5rem', ...ropeSx }} />
                     <Box sx={{ mr: '20%', height: '1.5rem', ...ropeSx }} />

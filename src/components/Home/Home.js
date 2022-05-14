@@ -1,5 +1,5 @@
 import React, { Component, useEffect } from 'react';
-import { Box, colors, Container, Grid, Paper, Typography } from '@mui/material';
+import { Container, Box, colors, Grid, Paper, Typography } from '@mui/material';
 import Cancel from '@mui/icons-material/Cancel';
 import { animateScroll } from 'react-scroll'
 import { grey } from '@mui/material/colors';
@@ -37,6 +37,7 @@ const introCardSx = {
 		minWidth: '300px',
 		width: '35%',
 		backgroundColor: 'rgba(255,255,255,0.98)',
+		borderRadius: 2,
 		boxShadow: `0 0 12px ${colors.grey[300]}`
 	},
 	inner: {
@@ -156,7 +157,7 @@ const Home = ({
 	scrollAreaRef
 }) => {
 	const scrollEvent = () => {
-		const allCards = document.querySelectorAll(".portfolio-card");
+		const allCards = document.querySelectorAll(".come-in-container");
 
 		allCards.forEach((item) => {
 			if (isInViewport(item)) {
@@ -184,7 +185,7 @@ const Home = ({
 				flexDirection: 'column',
 				justifyContent: 'space-evenly'
 			}}>
-				<Box className="container" sx={{
+				<Container sx={{
 					my: 0,
 					display: 'flex',
 					flexDirection: 'column',
@@ -212,8 +213,8 @@ const Home = ({
 						<Box id="hand" ref={this.hand}><img src="/imgs/hand.png" alt="Loading hand..." /></Box>
 						<img id="smile" src="/imgs/smile.png" alt="Loading smile..." ref={this.smile} />
 					</Box> */}
-				</Box>
-				<Box className="container" sx={{ my: 0, display: 'flex', gap: '2rem' }}>
+				</Container>
+				<Container sx={{ my: 0, display: 'flex', gap: '2rem' }}>
 					<Paper sx={introCardSx.outer}>
 						<Typography variant="h5">I seek challenges,<br/>in and out of work.</Typography>
 						<Typography>{Texts.SelfIntro.content}</Typography>
@@ -250,7 +251,7 @@ const Home = ({
 							{flyerActive && <Box className="closeBtn" onClick={this.closeFlyer}><Cancel /></Box>}
 						</Box>
 						<Flyer direction="right" animated={false} content={Texts.Company} callFlyer={this.callFlyer} current={dynamicFlyer} /> */}
-				</Box>
+				</Container>
 				{/* {dynamicFlyer !== 'Indeed' && (
 						<Container sx={{ position: 'absolute', top: '100%', left: '0', right: '0' }}>
 							<Box sx={{ width: '98%', backgroundColor: grey[200], ...shuttersSx }} />
@@ -267,29 +268,31 @@ const Home = ({
 			</Box>
 			{/* {dynamicFlyer === 'Indeed' && ( */}
 			<Box component="section" id="work" sx={{ pb: '5rem' }}>
-				{/* <Box className="container" sx={{ position: 'absolute', top: '-100px', width: '100%', display: 'flex', justifyContent: 'space-between', py: '0 !important', left: 0, right: 0, px: ['1rem', '1rem', '1rem', 0] }}>
+				{/* <Container sx={{ position: 'absolute', top: '-100px', width: '100%', display: 'flex', justifyContent: 'space-between', py: '0 !important', left: 0, right: 0, px: ['1rem', '1rem', '1rem', 0] }}>
 						<Box sx={{ ml: '20%', height: '100px', ...ropeSx }} />
 						<Box sx={{ mr: '20%', height: '100px', ...ropeSx }} />
 					</Box> */}
-				<Box className="section-header">
+				<Container className="section-header">
 					<Typography variant="h3">Work at Indeed</Typography>
-				</Box>
-				<IndeedPage />
+				</Container>
+				<Container>
+					<IndeedPage />
+				</Container>
 			</Box>
 			{/* )} */}
 			<Box component="section" id="blog" sx={{ minHeight: 'auto', pb: '7rem' }}>
-				<Box className="section-header">
+				<Container className="section-header">
 					<Typography variant="h3">Blog</Typography>
-				</Box>
-				<Box className="container">
+				</Container>
+				<Container>
 					<Blogs />
-				</Box>
+				</Container>
 			</Box>
 			<Box component="section" id="projects">
 				<Box className="section-header">
 					<Typography variant="h3">Projects</Typography>
 				</Box>
-				<Box className="container">
+				<Container>
 					<Box className="container-inner container-inner-wrap">
 						<Grid container spacing={3} className="grid-container grid-container-left">
 							<Grid item xs={12}>
@@ -315,7 +318,7 @@ const Home = ({
 							</Grid>
 						</Grid>
 					</Box>
-				</Box>
+				</Container>
 			</Box>
 			<Box component="section" id="connect" sx={{
 				display: ['flex', 'flex', 'block'],
@@ -325,7 +328,7 @@ const Home = ({
 					<Typography variant="h3">Lets chat</Typography>
 					<Typography variant="h2">I am open to<br /><span className="text-blue">creative</span> ideas!</Typography>
 				</Box>
-				<Box className="container"
+				<Container
 					sx={{
 						position: ['relative', 'relative', 'absolute'],
 						height: '100%',
@@ -343,7 +346,7 @@ const Home = ({
 					<Box component="img" src="/imgs/bgsec4.jpeg" alt="idea" sx={{
 						height: ['200px', '300px']
 					}} />
-				</Box>
+				</Container>
 			</Box>
 			{/* <Footer /> */}
 		</>

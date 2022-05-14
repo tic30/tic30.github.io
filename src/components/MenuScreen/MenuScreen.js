@@ -43,7 +43,7 @@ const MenuScreen = ({
     return (
         <Box sx={{
             height: 'calc(100% + 4.5rem)',
-            width: open ? '22rem' : '5.5rem',
+            width: open ? '24rem' : '5.5rem',
             backgroundColor: colors.grey[900],
             mt: '-4.5rem',
             p: 1,

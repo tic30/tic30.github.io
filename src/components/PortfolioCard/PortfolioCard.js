@@ -57,7 +57,7 @@ class PortfolioCard extends Component {
         
         return (
             <>
-                <Paper className={`portfolio-card ${large?"portfolio-card-large":""} ${open?"open":""} ${fadeOut?"fadeOut":""}`} ref={this.card} tabIndex={0}>
+                <Paper className={`portfolio-card ${large?"portfolio-card-large":""} ${open?"open":""} ${fadeOut?"fadeOut":""} come-in-container`} ref={this.card} tabIndex={0}>
                     <Box className="portfolio-card-container" onClick={() => this.clickCard(content.pageUrl)}>
                         <Box className="portfolio-card-img" style={{backgroundImage: `url(/imgs/${content.imgUrl})`}} alt="Portfolio" />
                         <Box className={`portfolio-card-text-wrapper ${open?"open":""}`}>
