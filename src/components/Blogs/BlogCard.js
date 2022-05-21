@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button, Card, CardContent, CardActionArea, CardActions, CardMedia, Typography } from '@mui/material';
+import { Button, Card, CardContent, CardActionArea, CardActions, CardMedia, Typography, colors } from '@mui/material';
 
 export default function BlogCard({
     blog
 }) {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345, boxShadow: `0 0 12px ${colors.grey[200]}`, borderRadius: 2 }}>
             <CardActionArea disabled={!blog.link} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', height: '100%' }}>
                 <CardMedia
                     component="img"
