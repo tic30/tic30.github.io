@@ -38,7 +38,7 @@ const introCardSx = {
 		width: '35%',
 		backgroundColor: 'rgba(255,255,255,0.98)',
 		borderRadius: 2,
-		boxShadow: `0 0 12px ${colors.grey[300]}`
+		boxShadow: `0 0 12px ${colors.grey[200]}`
 	},
 	inner: {
 		display: 'flex',
@@ -176,7 +176,7 @@ const Home = ({
 		<>
 			{/* <ContactBubble ref={this.contactBubble}/> */}
 			<Box component="section" id="self-intro" sx={{
-				minHeight: 'calc(100vh - 4.5rem)',
+				minHeight: '100vh',
 				backgroundImage: 'url(/imgs/bgsec1.png)',
 				backgroundSize: 'cover',
 				backgroundRepeat: 'no-repeat',
@@ -326,6 +326,7 @@ const Home = ({
 			}}>
 				<Box className="section-header">
 					<Typography variant="h3">Lets chat</Typography>
+					{/* <Box sx={{ display: 'flex', justifyContent: 'space-between'}}> */}
 					<Typography variant="h2">I am open to<br /><span className="text-blue">creative</span> ideas!</Typography>
 				</Box>
 				<Container
@@ -337,16 +338,18 @@ const Home = ({
 						right: 0,
 						margin: 'auto',
 						mb: [6, 6, 'auto'],
-						p: 0,
+						p: [0, 0, 6],
 						display: 'flex',
 						justifyContent: ['center', 'center', 'end'],
-						alignItems: 'center'
+						alignItems: 'end'
 					}}
 				>
 					<Box component="img" src="/imgs/bgsec4.jpeg" alt="idea" sx={{
 						height: ['200px', '300px']
 					}} />
+					{/* </Box> */}
 				</Container>
+				{/* </Box> */}
 			</Box>
 			{/* <Footer /> */}
 		</>

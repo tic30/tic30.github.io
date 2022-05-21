@@ -34,7 +34,7 @@ const Footer = ({
                     backgroundColor: 'transparent',
                     color: colors.blue[800],
                     '> div': {
-                        border: `2px solid ${colors.blue[800]}`
+                        boxShadow: `0 0 12px ${colors.grey[300]}`,
                     }
                 }
             }}
@@ -48,7 +48,7 @@ const Footer = ({
                     p: '.25rem',
                     mb: 1,
                     width: '4rem',
-                    border: `2px solid ${colors.grey[300]}`,
+                    boxShadow: `0 0 12px ${colors.grey[200]}`,
                     borderRadius: 2
                 }}
             >

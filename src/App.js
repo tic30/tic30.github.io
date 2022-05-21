@@ -23,7 +23,7 @@ const App = () => {
 	return (
 		<ThemeProvider theme={theme}>
 			<Router>
-				<Box sx={{ display: 'flex', position: 'fixed', width: '100%', height: '100%', overflow: 'hidden', pt: '4.5rem' }}>
+				<Box sx={{ display: 'flex', position: 'fixed', width: '100%', height: '100%', overflow: 'hidden' }}>
 					<Header />
 					<Box ref={scrollAreaRef} sx={{ width: '100%', overflowY: 'auto' }}>
 						<Routes>

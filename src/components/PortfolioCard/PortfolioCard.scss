@@ -14,28 +14,27 @@ div.portfolio-card {
     transform: translateY(150px);
     overflow: hidden;
     transition: left 0.5s, top 0.5s, width 1s, height 1s;
-    box-shadow: 0px 2px 9px rgba(0,0,0,0.3);
 
     a {
         color: $palette-black;
     }
-    h4 {
+    h5 {
         position: relative;
         margin: 0 0 1rem 0;
         line-height: 1;
-        color: $palette-grey-600;
-        font-size: 1rem;
+        // color: $palette-grey-600;
+        // font-size: 1rem;
 
-        @include screen-sm {
-            font-size: 1.5rem;
-        }
+        // @include screen-sm {
+        //     font-size: 1.5rem;
+        // }
     }
     .portfolio-card-content {
         display: flex;
     }
     p {
         position: relative;
-        font-size: 0.875rem;
+        // font-size: 0.875rem;
         padding-top: 1px;
         margin: 0;
         overflow: hidden;
@@ -53,17 +52,17 @@ div.portfolio-card {
             display: block;
         }
 
-        @include screen-md {
-            font-size: 1rem;
-        }
+        // @include screen-md {
+        //     font-size: 1rem;
+        // }
     }
     .portfolio-card-btn {
         height: 2rem;
-        min-width: 150px;
+        padding: 0 1rem;
         line-height: 1;
         text-align: center; 
         text-transform: uppercase;
-        border-radius: 10px;
+        border-radius: 4px;
         background-color: $palette-grey-100;
         display: flex;
         justify-content: center;
@@ -77,11 +76,6 @@ div.portfolio-card {
         @include screen-sm {
             font-size: 1rem;
         }
-    }
-
-    .portfolio-card-btn-placeholder {
-        width: 0;
-        height: 2rem;
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -114,23 +108,18 @@ div.portfolio-card {
     z-index: 4;
 }
 
-.portfolio-card.MuiPaper-rounded {
-    border-radius: 20px;
-}
-
 div.portfolio-card-large {
     height: 100%;
 
-    p {
-        @include screen-lg {
-            font-size: 1.125rem;
-        }
-    }
+    // p {
+    //     @include screen-lg {
+    //         font-size: 1.125rem;
+    //     }
+    // }
 }
 
 .portfolio-card-container {
     height: 100%;
-    cursor: pointer;
 
     .portfolio-card-img {
         position: absolute;

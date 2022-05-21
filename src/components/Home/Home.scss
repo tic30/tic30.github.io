@@ -71,6 +71,7 @@
         animation-duration: 0.5s;
         animation-timing-function: ease-in-out;
         animation-fill-mode: forwards;
+        z-index: 1;
     }
 
     &::after {
@@ -252,7 +253,7 @@
         margin-bottom: 12px;
 
         @include screen-md {
-            margin-bottom: -12px;
+            margin-bottom: 0;
         }
 
         @include screen-lg {
@@ -272,5 +273,8 @@
     }
     .section-header h3 {
         margin-bottom: 4rem
+    }
+    .section-header h2 {
+        margin: 0
     }
 }

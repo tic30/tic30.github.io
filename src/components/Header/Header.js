@@ -134,7 +134,7 @@ class Header extends Component {
                     position: 'fixed',
                     top: 0,
                     left: 0,
-                    width: '100%',
+                    width: menuOpen ? '24rem' : '5.5rem',
                     height: '4.5rem',
                     backgroundColor: 'white',
                     boxShadow: `0 1px 5px ${colors.grey[300]}`,
@@ -142,7 +142,7 @@ class Header extends Component {
                     transitionDuration: '0.2s',
                     display: 'flex',
                     alignItems: 'center',
-                    pl: menuOpen ? '24rem' : '7.5rem',
+                    // pl: menuOpen ? '24rem' : '7.5rem',
                     transition: 'padding 0.2s',
                 }}>
                     {/* <Box 

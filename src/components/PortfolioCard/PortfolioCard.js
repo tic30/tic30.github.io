@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import  { Navigate } from 'react-router-dom';
-import { Box, Paper } from '@mui/material';
+import { Box, Button, colors, Paper, Typography } from '@mui/material';
 import './PortfolioCard.scss';
 
 class PortfolioCard extends Component {
@@ -57,17 +57,22 @@ class PortfolioCard extends Component {
         
         return (
             <>
-                <Paper className={`portfolio-card ${large?"portfolio-card-large":""} ${open?"open":""} ${fadeOut?"fadeOut":""} come-in-container`} ref={this.card} tabIndex={0}>
-                    <Box className="portfolio-card-container" onClick={() => this.clickCard(content.pageUrl)}>
+                <Paper className={`portfolio-card ${large?"portfolio-card-large":""} ${open?"open":""} ${fadeOut?"fadeOut":""} come-in-container`} ref={this.card} tabIndex={0} sx={{
+                    borderRadius: 2,
+                    boxShadow: `0 0 12px ${colors.grey[200]}`
+                }}>
+                    <Box className="portfolio-card-container" sx={content.pageUrl ? { cursor: 'pointer' }: {}} onClick={() => this.clickCard(content.pageUrl)}>
                         <Box className="portfolio-card-img" style={{backgroundImage: `url(/imgs/${content.imgUrl})`}} alt="Portfolio" />
                         <Box className={`portfolio-card-text-wrapper ${open?"open":""}`}>
-                            <h4>{content.title}</h4>
-                            <Box className="portfolio-card-content">
-                                <p className={content.pageUrl ? "" : "mobile-show"}>{content.subTitle}</p>
-                                {content.pageUrl ? <Box className="portfolio-card-btn">
-                                    {content.btnText || "Read more"}
-                                    <img src="/imgs/icons/arrow-right.svg" alt="Arrow right" height="14px"/>
-                                </Box> : <Box className="portfolio-card-btn-placeholder" />}
+                            <Typography variant="h5">{content.title}</Typography>
+                            <Box className="portfolio-card-content" sx={{ alignItems: 'baseline' }}>
+                                <Typography variant="body2" color="text.secondary" className={content.pageUrl ? "" : "mobile-show"}>{content.subTitle}</Typography>
+                                {content.pageUrl ? (
+                                    <Button size="small" color="primary">
+                                        {content.btnText || "Read more"}
+                                        {/* <img src="/imgs/icons/arrow-right.svg" alt="Arrow right" height="14px"/> */}
+                                    </Button>
+                                ) : <Box className="portfolio-card-btn-placeholder" />}
                             </Box>
                         </Box>
                     </Box>

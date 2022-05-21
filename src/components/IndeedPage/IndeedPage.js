@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, colors, Typography } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import Texts from '../../texts';
 import './IndeedPage.scss';
@@ -16,7 +16,9 @@ const IndeedPage = () => (
                     <Box sx={{ ml: '20%', height: '1.5rem', ...ropeSx }} />
                     <Box sx={{ mr: '20%', height: '1.5rem', ...ropeSx }} />
                 </Box> */}
-                <Box className="job-container-inner">
+                <Box className="job-container-inner" sx={{
+                    boxShadow: `0 0 12px ${colors.grey[200]}`
+                }}>
                     <Box sx={{
                         display: 'flex',
                         flexDirection: 'column',
