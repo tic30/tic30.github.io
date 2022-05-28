@@ -8,7 +8,7 @@ const blogList = [{
     // link: '#',
     img: '/imgs/a11y.gif'
 }, {
-    title: 'Think our of the box - design systems',
+    title: 'Think out of the <Box> - reflect on using design systems',
     description: 'Build a design system that is both complete and extentively flexible.',
     img: '/imgs/design-system.png'
 }];
