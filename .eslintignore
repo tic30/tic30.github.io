@@ -1,9 +1,0 @@
-package-lock.json
-src/i18n
-dist/
-build/
-coverage/
-stats/
-.jest-cache/
-node_modules/
-serviceWorker.js
