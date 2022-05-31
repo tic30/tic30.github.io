@@ -77,7 +77,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
       <Box
         onClick={() => setOpen(!open)}
         sx={{
-          boxSizing: 'border-box',
+          boxSizing: "border-box",
           height: "4.5rem",
           width: "calc(100% + 1rem)",
           transition: "width 0.2s",

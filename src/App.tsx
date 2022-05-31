@@ -7,11 +7,11 @@ import {
 } from "react-router-dom";
 import { ThemeProvider, createTheme, Box } from "@mui/material";
 // import Preloader from './components/Preloader';
-// import Home from './components/Home';
+import Home from "./components/Home";
 // import ITS from './components/ITS';
 // import IndeedMicroFE from './components/IndeedMicroFE';
 import Header from "./components/Header";
-import Footer from './components/Footer';
+import Footer from "./components/Footer";
 // import Maintenance from './components/Maintenance';
 // import DFM from './components/DFM';
 
@@ -39,9 +39,9 @@ const App: React.FC = () => {
           <Header />
           <Box ref={scrollAreaRef} sx={{ width: "100%", overflowY: "auto" }}>
             <Routes>
-              {/* <Route path="/" exact element={<Preloader />} />
-							<Route path="/home" element={<Home scrollAreaRef={scrollAreaRef} />} />
-							<Route path="/its" element={<ITS />} />
+              {/* <Route path="/" exact element={<Preloader />} /> */}
+              <Route path="/home" element={<Home />} />
+              {/* <Route path="/its" element={<ITS />} />
 							<Route path="/microfe" element={<IndeedMicroFE />} /> */}
               {/* <Route path="/m" exact element={Maintenance} /> */}
               {/* <Route path="/dfm" element={DFM} /> */}

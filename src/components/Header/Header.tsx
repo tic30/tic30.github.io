@@ -7,7 +7,7 @@ import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import SummarizeIcon from "@mui/icons-material/Summarize";
 import BatchPredictionIcon from "@mui/icons-material/BatchPrediction";
 import CoffeeIcon from "@mui/icons-material/Coffee";
-import MemoryIcon from "@mui/icons-material/Memory";
+import DeveloperBoardIcon from '@mui/icons-material/DeveloperBoard';
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import MenuScreen, { MenuItemType } from "../MenuScreen";
@@ -36,7 +36,7 @@ const menuList: MenuItemType[] = [
     subMenuItems: [
       {
         ...Texts.OH,
-        icon: <MemoryIcon />,
+        icon: <DeveloperBoardIcon />,
       },
       {
         ...Texts.ITS,
@@ -78,15 +78,15 @@ const menuList: MenuItemType[] = [
 ];
 
 const Header: React.FC = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    return (
-        <MenuScreen
-          open={menuOpen}
-          setOpen={() => setMenuOpen(open => !open)}
-          menuList={menuList}
-        />
-    );
+  return (
+    <MenuScreen
+      open={menuOpen}
+      setOpen={() => setMenuOpen((open) => !open)}
+      menuList={menuList}
+    />
+  );
 };
 
 export default Header;
