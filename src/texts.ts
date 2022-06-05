@@ -123,7 +123,7 @@ const Text = {
     {
       title: "UX Developer",
       subtitle:
-        "My current job title is UX Developer. I play a role of front end contributor and design-engineering coordinator in the team. My work supports the front end feature iterations, drive adoption of company-wide UX & FE directions and guidelines, and coordinate across teams.",
+        "I work at Indeed as a UX Developer. I play a role of front end contributor and design-engineering coordinator in the team. My work supports the front end feature iterations, drive adoption of company-wide UX & FE directions and guidelines, and coordinate across teams.",
       contents: [
         {
           title: "For every employer",

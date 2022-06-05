@@ -7,7 +7,7 @@ import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import SummarizeIcon from "@mui/icons-material/Summarize";
 import BatchPredictionIcon from "@mui/icons-material/BatchPrediction";
 import CoffeeIcon from "@mui/icons-material/Coffee";
-import DeveloperBoardIcon from '@mui/icons-material/DeveloperBoard';
+import DeveloperBoardIcon from "@mui/icons-material/DeveloperBoard";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import MenuScreen, { MenuItemType } from "../MenuScreen";

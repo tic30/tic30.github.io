@@ -1,6 +1,6 @@
 import { Container, Box, colors, Grid, Paper, Typography } from "@mui/material";
 // import PortfolioCard from '../PortfolioCard';
-// import IndeedPage from '../IndeedPage';
+import IndeedPage from "../IndeedPage";
 import Blogs from "../Blogs";
 import Texts from "../../texts";
 import { connectBgSx, introCardSx, sectionHeaderSX } from "./Home.style";
@@ -55,9 +55,16 @@ const Home: React.FC = () => (
             lineHeight: 1.8,
           }}
         >
-          An innovative <Box component="span" sx={{ color: colors.amber[800] }}>problem solver</Box>
+          An innovative{" "}
+          <Box component="span" sx={{ color: colors.amber[800] }}>
+            problem solver
+          </Box>
           <br />
-		  and <Box component="span" sx={{ color: colors.blue[800] }}>front end</Box> craftsman.
+          and{" "}
+          <Box component="span" sx={{ color: colors.blue[800] }}>
+            front end
+          </Box>{" "}
+          craftsman.
         </Typography>
       </Container>
       <Container sx={{ my: 0, display: "flex", gap: "2rem" }}>
@@ -105,7 +112,9 @@ const Home: React.FC = () => (
       <Container sx={sectionHeaderSX}>
         <Typography variant="h3">Work at Indeed</Typography>
       </Container>
-      <Container>{/* <IndeedPage /> */}</Container>
+      <Container>
+        <IndeedPage />
+      </Container>
     </Box>
     <Box component="section" id="blog" sx={{ minHeight: "auto", pb: "7rem" }}>
       <Container sx={sectionHeaderSX}>
@@ -166,11 +175,13 @@ const Home: React.FC = () => (
     >
       <Container sx={sectionHeaderSX}>
         <Typography variant="h3">Lets chat</Typography>
-        {/* <Box sx={{ display: 'flex', justifyContent: 'space-between'}}> */}
         <Typography variant="h2" sx={{ mt: 4 }}>
           I am open to
           <br />
-          <Box component="span" sx={{ color: colors.blue[800] }}>creative</Box> ideas!
+          <Box component="span" sx={{ color: colors.blue[800] }}>
+            creative
+          </Box>{" "}
+          ideas!
         </Typography>
       </Container>
       <Container sx={connectBgSx}>
