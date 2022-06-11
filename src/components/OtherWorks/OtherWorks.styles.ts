@@ -13,10 +13,9 @@ export const boxContainerStyle = {
   gap: 1,
   borderRadius: 5,
   pb: 1,
-  boxShadow: 3,
+  boxShadow: 2,
   backgroundColor: colors.grey[50],
-  transitionDuration: "500ms",
-  transitionProperty: "background-color",
+  transitionDuration: "1s",
   "&:hover, &:focus": {
     backgroundColor: colors.grey[900],
   },
@@ -38,4 +37,5 @@ export const boxStyle = {
 export const roleTitleStyle = {
   color: colors.grey[800],
   textAlign: "center",
+  transitionDuration: "500ms",
 };

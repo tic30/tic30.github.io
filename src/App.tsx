@@ -21,15 +21,21 @@ import Footer from "./components/Footer";
 // import Maintenance from './components/Maintenance';
 // import DFM from './components/DFM';
 
+const headingFont = {
+  fontFamily: "'Lato', sans-serif",
+  fontWeight: 700
+};
 const theme = createTheme({
   typography: {
     fontFamily: "'Roboto', sans-serif",
+    h1: headingFont,
+    h2: headingFont
   },
   shadows: [
     "none",
     `0 0 12px ${colors.grey[100]}`,
     `0 0 12px ${colors.grey[200]}`,
-    `0 0 12px ${colors.grey[300]}`,
+    `5px 5px 20px ${colors.grey[300]}`,
     ...Array<string>(21).fill("none"),
   ] as ThemeOptions["shadows"],
 });

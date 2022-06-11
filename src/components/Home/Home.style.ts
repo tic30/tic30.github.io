@@ -45,21 +45,5 @@ export const connectBgSx = {
 } as SystemStyleObject;
 
 export const sectionHeaderSX = {
-  position: "relative",
-  py: 8,
-  "&::after": {
-    position: "absolute",
-    top: "8rem",
-    content: '""',
-    width: "5rem",
-    maxWidth: "50%",
-    height: "6px",
-    transitionDuration: "0.2s",
-    backgroundColor: colors.amber[800],
-  },
-  "&:hover": {
-    "&::after": {
-      width: "11rem",
-    },
-  },
+  py: 8
 };

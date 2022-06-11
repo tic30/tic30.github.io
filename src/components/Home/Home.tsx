@@ -45,6 +45,7 @@ const Home: React.FC = () => (
           sx={{
             lineHeight: 1,
             mb: 2,
+            color: colors.grey[700]
           }}
         >
           Tim Chu
@@ -111,7 +112,7 @@ const Home: React.FC = () => (
     </Box>
     <Box component="section" id="work" sx={{ pb: "5rem" }}>
       <Container sx={sectionHeaderSX}>
-        <Typography variant="h3">Work at Indeed</Typography>
+        <Typography variant="h2">Work at Indeed</Typography>
       </Container>
       <Container>
         <IndeedPage />
@@ -120,7 +121,7 @@ const Home: React.FC = () => (
     </Box>
     <Box component="section" id="blog" sx={{ minHeight: "auto", pb: "7rem" }}>
       <Container sx={sectionHeaderSX}>
-        <Typography variant="h3">Blog</Typography>
+        <Typography variant="h2">Blog</Typography>
       </Container>
       <Container>
         <Blogs />
@@ -128,7 +129,7 @@ const Home: React.FC = () => (
     </Box>
     <Box component="section" id="projects">
       <Container sx={sectionHeaderSX}>
-        <Typography variant="h3">Projects</Typography>
+        <Typography variant="h2">Projects</Typography>
       </Container>
       <Container>
         <Box className="container-inner container-inner-wrap">
@@ -176,8 +177,8 @@ const Home: React.FC = () => (
       }}
     >
       <Container sx={sectionHeaderSX}>
-        <Typography variant="h3">Lets chat</Typography>
-        <Typography variant="h2" sx={{ mt: 4 }}>
+        <Typography variant="h2">Lets chat</Typography>
+        <Typography variant="h3" sx={{ mt: 4, lineHeight: 1.6 }}>
           I am open to
           <br />
           <Box component="span" sx={{ color: colors.blue[800] }}>
