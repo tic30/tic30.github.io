@@ -5,7 +5,13 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { ThemeProvider, createTheme, Box } from "@mui/material";
+import {
+  ThemeProvider,
+  createTheme,
+  Box,
+  colors,
+  ThemeOptions,
+} from "@mui/material";
 // import Preloader from './components/Preloader';
 import Home from "./components/Home";
 // import ITS from './components/ITS';
@@ -19,6 +25,13 @@ const theme = createTheme({
   typography: {
     fontFamily: "'Roboto', sans-serif",
   },
+  shadows: [
+    "none",
+    `0 0 12px ${colors.grey[100]}`,
+    `0 0 12px ${colors.grey[200]}`,
+    `0 0 12px ${colors.grey[300]}`,
+    ...Array<string>(21).fill("none"),
+  ] as ThemeOptions["shadows"],
 });
 
 const App: React.FC = () => {

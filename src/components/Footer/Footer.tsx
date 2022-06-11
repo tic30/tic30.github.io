@@ -47,7 +47,7 @@ const Footer: React.FC<FooterType> = ({ scrollAreaRef }) => (
           p: ".25rem",
           mb: 1,
           width: "4rem",
-          boxShadow: `0 0 12px ${colors.grey[200]}`,
+          boxShadow: 2,
           borderRadius: 2,
         }}
       >
