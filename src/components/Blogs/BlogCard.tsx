@@ -23,7 +23,7 @@ const BlogCard: React.FC<BlogCardType> = ({ blog }) => (
   <Card
     sx={{
       maxWidth: 345,
-      boxShadow: `0 0 12px ${colors.grey[200]}`,
+      boxShadow: 2,
       borderRadius: 2,
     }}
   >

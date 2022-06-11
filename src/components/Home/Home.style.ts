@@ -11,7 +11,7 @@ export const introCardSx = {
     width: "30%",
     backgroundColor: "rgba(255,255,255,0.98)",
     borderRadius: 2,
-    boxShadow: `0 0 12px ${colors.grey[200]}`,
+    boxShadow: 2,
   },
   inner: {
     display: "flex",

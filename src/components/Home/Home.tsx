@@ -1,7 +1,8 @@
 import { Container, Box, colors, Grid, Paper, Typography } from "@mui/material";
-// import PortfolioCard from '../PortfolioCard';
 import IndeedPage from "../IndeedPage";
+import OtherWorks from "../OtherWorks";
 import Blogs from "../Blogs";
+// import PortfolioCard from '../PortfolioCard';
 import Texts from "../../texts";
 import { connectBgSx, introCardSx, sectionHeaderSX } from "./Home.style";
 
@@ -114,6 +115,7 @@ const Home: React.FC = () => (
       </Container>
       <Container>
         <IndeedPage />
+        <OtherWorks />
       </Container>
     </Box>
     <Box component="section" id="blog" sx={{ minHeight: "auto", pb: "7rem" }}>

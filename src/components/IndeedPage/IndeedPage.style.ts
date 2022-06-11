@@ -5,7 +5,7 @@ export const topStorySx = {
     display: "flex",
     p: 6,
     borderRadius: 2,
-    boxShadow: `0 0 12px ${colors.grey[200]}`,
+    boxShadow: 2,
     mb: 6,
     alignItems: "center",
   },
