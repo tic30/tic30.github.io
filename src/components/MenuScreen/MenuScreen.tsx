@@ -210,7 +210,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
                     borderRadius: 1,
                     boxShadow: open
                       ? "none"
-                      : `1px 1px 5px ${colors.grey[400]}`,
+                      : 3,
                   },
                   "> a > *:not(:last-child)": {
                     mr: 2,

@@ -23,7 +23,7 @@ const BlogCard: React.FC<BlogCardType> = ({ blog }) => (
   <Card
     sx={{
       maxWidth: 345,
-      boxShadow: 2,
+      boxShadow: 3,
       borderRadius: 2,
     }}
   >
@@ -52,6 +52,7 @@ const BlogCard: React.FC<BlogCardType> = ({ blog }) => (
       </CardContent>
       <CardActions>
         <Button
+          component="div"
           size="small"
           color="primary"
           disableRipple
