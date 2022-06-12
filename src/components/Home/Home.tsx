@@ -1,10 +1,19 @@
-import { Container, Box, colors, Paper, Typography } from "@mui/material";
+import {
+  Container,
+  Box,
+  colors,
+  Paper,
+  Typography,
+  Button,
+} from "@mui/material";
+import { ArrowForward } from "@mui/icons-material";
 import IndeedPage from "../IndeedPage";
 import OtherWorks from "../OtherWorks";
 import Blogs from "../Blogs";
 import PortfolioCard from "../PortfolioCard";
 import Texts from "../../texts";
 import { connectBgSx, introCardSx, sectionHeaderSX } from "./Home.style";
+import { LINKEDIN } from "../../constants";
 
 const Home: React.FC = () => (
   <>
@@ -150,14 +159,24 @@ const Home: React.FC = () => (
     >
       <Container sx={sectionHeaderSX}>
         <Typography variant="h2">Lets chat</Typography>
-        <Typography variant="h3" sx={{ mt: 4, lineHeight: 1.6 }}>
+        <Typography variant="h3" sx={{ my: 4, lineHeight: 1.6 }}>
           I am open to
           <br />
-          <Box component="span" sx={{ color: colors.blue[800] }}>
+          <Box component="span" sx={{ color: colors.amber[800] }}>
             creative
           </Box>{" "}
           ideas!
         </Typography>
+        <Button
+          sx={{ ml: -1, textTransform: "none" }}
+          endIcon={<ArrowForward />}
+          component="a"
+          href={LINKEDIN}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Send me a LinkedIn message
+        </Button>
       </Container>
       <Container sx={connectBgSx}>
         <Box
