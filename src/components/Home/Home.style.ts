@@ -1,4 +1,3 @@
-import { colors } from "@mui/material";
 import { SystemStyleObject } from "@mui/system";
 
 export const introCardSx = {

@@ -59,8 +59,8 @@ const MenuScreen: React.FC<MenuScreenType> = ({
         opacity: openDelay ? 1 : 0,
       },
     }),
-    [openDelay]
-  ); // eslint-disable-line react-hooks/exhaustive-deps
+    [openDelay] // eslint-disable-line react-hooks/exhaustive-deps
+  );
 
   return (
     <Box

@@ -1,4 +1,4 @@
-import { Container, Box, colors, Grid, Paper, Typography } from "@mui/material";
+import { Container, Box, colors, Paper, Typography } from "@mui/material";
 import IndeedPage from "../IndeedPage";
 import OtherWorks from "../OtherWorks";
 import Blogs from "../Blogs";
