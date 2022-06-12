@@ -12,6 +12,7 @@ import DeveloperBoardIcon from "@mui/icons-material/DeveloperBoard";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import MenuScreen, { MenuItemType } from "../MenuScreen";
 import Texts from "../../texts";
+import { LINKEDIN } from "../../constants";
 
 const menuList: MenuItemType[] = [
   {
@@ -64,7 +65,7 @@ const menuList: MenuItemType[] = [
       {
         icon: <LinkedInIcon />,
         title: "LinkedIn",
-        pageUrl: "https://www.linkedin.com/in/tim-chu-980881a4",
+        pageUrl: LINKEDIN,
         external: true,
       },
       {
