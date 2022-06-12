@@ -8,7 +8,7 @@ import SummarizeIcon from "@mui/icons-material/Summarize";
 import BatchPredictionIcon from "@mui/icons-material/BatchPrediction";
 import CoffeeIcon from "@mui/icons-material/Coffee";
 import DeveloperBoardIcon from "@mui/icons-material/DeveloperBoard";
-import VisibilityIcon from "@mui/icons-material/Visibility";
+// import VisibilityIcon from "@mui/icons-material/Visibility";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import MenuScreen, { MenuItemType } from "../MenuScreen";
 import Texts from "../../texts";
@@ -38,10 +38,10 @@ const menuList: MenuItemType[] = [
         ...Texts.OH,
         icon: <DeveloperBoardIcon />,
       },
-      {
-        ...Texts.ITS,
-        icon: <VisibilityIcon />,
-      },
+      // {
+      //   ...Texts.ITS,
+      //   icon: <VisibilityIcon />,
+      // },
       {
         title: "Others",
         pageUrl: "/home#projects",
