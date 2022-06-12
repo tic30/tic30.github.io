@@ -58,9 +58,21 @@ const MenuScreen: React.FC<MenuScreenType> = ({
         display: openDelay ? "block" : "none",
         opacity: openDelay ? 1 : 0,
       },
+      "&:hover, &:focus": {
+        backgroundColor: colors.grey[50],
+        "> svg, > span": {
+          color: colors.grey[900],
+        },
+      },
     }),
     [openDelay] // eslint-disable-line react-hooks/exhaustive-deps
   );
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>): void => {
+    if (e.code === "Space" || e.code === "Enter") {
+      setOpen(!open);
+    }
+  };
 
   return (
     <Box
@@ -75,6 +87,8 @@ const MenuScreen: React.FC<MenuScreenType> = ({
       }}
     >
       <Box
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
         onClick={() => setOpen(!open)}
         sx={{
           boxSizing: "border-box",
@@ -138,45 +152,16 @@ const MenuScreen: React.FC<MenuScreenType> = ({
           key={`menu-item-${id}`}
           sx={{
             position: "relative",
-            "&:hover > *:first-child": {
-              backgroundColor: colors.grey[50],
-              "> svg, > span": {
-                color: colors.grey[900],
+            [`&:hover #menu-submenu-item-${id}, &:focus-within #menu-submenu-item-${id}`]:
+              {
+                display: "flex",
               },
-            },
-            ...(item.subMenuItems
-              ? {
-                  [`:hover #menu-submenu-item-${id}`]: {
-                    display: "flex",
-                  },
-                }
-              : {}),
           }}
         >
-          {item.link ? (
-            item.external ? (
-              <Box
-                component="a"
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={innerSx}
-              >
-                {item.icon}
-                <Typography component="span">{item.text}</Typography>
-              </Box>
-            ) : (
-              <Box component={HashLink} to={item.link} sx={innerSx}>
-                {item.icon}
-                <Typography component="span">{item.text}</Typography>
-              </Box>
-            )
-          ) : (
-            <Box sx={innerSx}>
-              {item.icon}
-              <Typography component="span">{item.text}</Typography>
-            </Box>
-          )}
+          <Box component={HashLink} to={item.link} sx={innerSx}>
+            {item.icon}
+            <Typography component="span">{item.text}</Typography>
+          </Box>
           {item.subMenuItems && (
             <Box
               id={`menu-submenu-item-${id}`}
@@ -213,22 +198,35 @@ const MenuScreen: React.FC<MenuScreenType> = ({
                   "> a > *:not(:last-child)": {
                     mr: 2,
                   },
-                  "> a:hover": {
+                  "> a:hover, > a:focus": {
                     backgroundColor: open ? colors.grey[50] : colors.grey[900],
                     color: open ? colors.grey[900] : "white",
                   },
                 }}
               >
-                {item.subMenuItems.map((page, id) => (
-                  <Box
-                    key={`menu-submenu-item-${id}`}
-                    component={HashLink}
-                    to={page.pageUrl}
-                  >
-                    {page.icon}
-                    <Typography component="span">{page.title}</Typography>
-                  </Box>
-                ))}
+                {item.subMenuItems.map((page, id) =>
+                  page.external ? (
+                    <Box
+                      key={`menu-submenu-item-${id}`}
+                      component="a"
+                      href={page.pageUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {page.icon}
+                      <Typography component="span">{page.title}</Typography>
+                    </Box>
+                  ) : (
+                    <Box
+                      key={`menu-submenu-item-${id}`}
+                      component={HashLink}
+                      to={page.pageUrl}
+                    >
+                      {page.icon}
+                      <Typography component="span">{page.title}</Typography>
+                    </Box>
+                  )
+                )}
               </Box>
             </Box>
           )}

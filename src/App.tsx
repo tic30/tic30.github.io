@@ -65,7 +65,7 @@ const App: React.FC = () => {
 							<Route path="/microfe" element={<IndeedMicroFE />} /> */}
               {/* <Route path="/m" exact element={Maintenance} /> */}
               {/* <Route path="/dfm" element={DFM} /> */}
-              <Route path="*" element={<Navigate to="/" />} />
+              <Route path="*" element={<Navigate to="/home" />} />
             </Routes>
             <Footer scrollAreaRef={scrollAreaRef} />
           </Box>
