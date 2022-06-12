@@ -15,12 +15,12 @@ export const boxContainerStyle = {
   pb: 1,
   boxShadow: 2,
   backgroundColor: colors.grey[50],
-  transitionDuration: "1s",
+  transitionDuration: "0.5s",
   "&:hover, &:focus": {
-    backgroundColor: colors.grey[900],
+    backgroundColor: colors.grey[200],
   },
-  "&:hover p, &:focus p": {
-    color: colors.grey[50],
+  "&:hover > div, &:focus > div": {
+    backgroundColor: colors.grey[50],
   },
 };
 
@@ -32,6 +32,8 @@ export const boxStyle = {
   justifyContent: "center",
   alignItems: "center",
   borderRadius: 4,
+  transitionDuration: "0.5s",
+  transitionProperty: "background-color",
 };
 
 export const roleTitleStyle = {
