@@ -208,9 +208,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
                     display: "flex",
                     alignItems: "center",
                     borderRadius: 1,
-                    boxShadow: open
-                      ? "none"
-                      : 3,
+                    boxShadow: open ? "none" : 3,
                   },
                   "> a > *:not(:last-child)": {
                     mr: 2,

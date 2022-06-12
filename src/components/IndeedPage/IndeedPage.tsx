@@ -23,7 +23,7 @@ const indeedStories = [
 const IndeedPage: React.FC = () => (
   <>
     <Typography variant="h4" sx={{ pb: 4 }}>
-      UX Developer
+      UX Developer @ Indeed
     </Typography>
     <Typography sx={{ mb: 5 }}>
       I work at Indeed as a UX Developer. I play a role of front end contributor

@@ -2,7 +2,7 @@ import { Container, Box, colors, Grid, Paper, Typography } from "@mui/material";
 import IndeedPage from "../IndeedPage";
 import OtherWorks from "../OtherWorks";
 import Blogs from "../Blogs";
-// import PortfolioCard from '../PortfolioCard';
+import PortfolioCard from "../PortfolioCard";
 import Texts from "../../texts";
 import { connectBgSx, introCardSx, sectionHeaderSX } from "./Home.style";
 
@@ -45,7 +45,7 @@ const Home: React.FC = () => (
           sx={{
             lineHeight: 1,
             mb: 2,
-            color: colors.grey[700]
+            color: colors.grey[800],
           }}
         >
           Tim Chu
@@ -112,7 +112,7 @@ const Home: React.FC = () => (
     </Box>
     <Box component="section" id="work" sx={{ pb: "5rem" }}>
       <Container sx={sectionHeaderSX}>
-        <Typography variant="h2">Work at Indeed</Typography>
+        <Typography variant="h2">My work</Typography>
       </Container>
       <Container>
         <IndeedPage />
@@ -127,44 +127,16 @@ const Home: React.FC = () => (
         <Blogs />
       </Container>
     </Box>
-    <Box component="section" id="projects">
+    <Box component="section" id="projects" sx={{ pb: "7rem" }}>
       <Container sx={sectionHeaderSX}>
         <Typography variant="h2">Projects</Typography>
       </Container>
-      <Container>
-        <Box className="container-inner container-inner-wrap">
-          <Grid
-            container
-            spacing={3}
-            className="grid-container grid-container-left"
-          >
-            <Grid item xs={12}>
-              {/* <PortfolioCard large content={Texts.OH} /> */}
-            </Grid>
-          </Grid>
-          <Grid
-            container
-            spacing={3}
-            className="grid-container grid-container-right"
-          >
-            <Grid item xs={12} sm={6} md={12}>
-              {/* <PortfolioCard content={Texts.ITS} /> */}
-            </Grid>
-            <Grid item xs={12} sm={6} md={12}>
-              {/* <PortfolioCard content={Texts.DealFindMe} /> */}
-            </Grid>
-          </Grid>
-        </Box>
-        <Box className="container-inner">
-          <Grid container spacing={3} className="grid-container">
-            <Grid item xs={12} sm={6} lg={4}>
-              {/* <PortfolioCard content={Texts.Milu} /> */}
-            </Grid>
-            <Grid item xs={12} sm={6} lg={8}>
-              {/* <PortfolioCard content={Texts.MovieEmodex} /> */}
-            </Grid>
-          </Grid>
-        </Box>
+      <Container sx={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
+        <PortfolioCard wide content={Texts.OH} />
+        {/* <PortfolioCard content={Texts.ITS} /> */}
+        <PortfolioCard content={Texts.DealFindMe} />
+        <PortfolioCard content={Texts.Milu} />
+        <PortfolioCard content={Texts.MovieEmodex} />
       </Container>
     </Box>
     <Box

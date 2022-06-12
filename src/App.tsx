@@ -23,13 +23,14 @@ import Footer from "./components/Footer";
 
 const headingFont = {
   fontFamily: "'Lato', sans-serif",
-  fontWeight: 700
+  fontWeight: 700,
 };
 const theme = createTheme({
   typography: {
     fontFamily: "'Roboto', sans-serif",
     h1: headingFont,
-    h2: headingFont
+    h2: headingFont,
+    h4: headingFont,
   },
   shadows: [
     "none",

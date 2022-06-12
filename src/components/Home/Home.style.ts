@@ -10,7 +10,7 @@ export const introCardSx = {
     minWidth: "300px",
     width: "30%",
     backgroundColor: "rgba(255,255,255,0.98)",
-    borderRadius: 2,
+    borderRadius: 3,
     boxShadow: 2,
   },
   inner: {
@@ -45,5 +45,5 @@ export const connectBgSx = {
 } as SystemStyleObject;
 
 export const sectionHeaderSX = {
-  py: 8
+  py: 8,
 };

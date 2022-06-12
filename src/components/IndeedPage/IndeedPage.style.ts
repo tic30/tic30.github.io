@@ -4,7 +4,7 @@ export const topStorySx = {
   outer: {
     display: "flex",
     p: 6,
-    borderRadius: 2,
+    borderRadius: 3,
     boxShadow: 3,
     mb: 6,
     alignItems: "center",
@@ -40,15 +40,15 @@ export const storiesSx = {
     mb: 2,
     "&::after": {
       content: '""',
-      position: 'absolute',
+      position: "absolute",
       left: 0,
-      top: '-1.5rem',
-      height: '4rem',
-      width: '2rem',
+      top: "-1.5rem",
+      height: "4rem",
+      width: "2rem",
       backgroundColor: colors.amber[800],
       opacity: 0.3,
-      borderBottomLeftRadius: '0.5rem',
-      borderBottomRightRadius: '0.5rem'
+      borderBottomLeftRadius: "0.5rem",
+      borderBottomRightRadius: "0.5rem",
     },
     img: {
       width: "3rem",

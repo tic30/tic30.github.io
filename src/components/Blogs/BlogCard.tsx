@@ -6,7 +6,6 @@ import {
   CardActions,
   CardMedia,
   Typography,
-  colors,
 } from "@mui/material";
 
 export interface BlogType {
@@ -24,7 +23,7 @@ const BlogCard: React.FC<BlogCardType> = ({ blog }) => (
     sx={{
       maxWidth: 345,
       boxShadow: 3,
-      borderRadius: 2,
+      borderRadius: 3,
     }}
   >
     <CardActionArea
