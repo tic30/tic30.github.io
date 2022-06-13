@@ -42,12 +42,10 @@ const BlogCard: React.FC<BlogCardType> = ({ blog }) => (
         alt="blog image"
       />
       <CardContent sx={{ flexGrow: 1 }}>
-        <Typography variant="h5" sx={{ lineHeight: 1.1, mb: 2 }}>
+        <Typography variant="h5" sx={{ mb: 2 }}>
           {blog.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {blog.description}
-        </Typography>
+        <Typography>{blog.description}</Typography>
       </CardContent>
       <CardActions>
         <Button

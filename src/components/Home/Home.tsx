@@ -72,7 +72,7 @@ const Home: React.FC = () => (
           </Box>
           <br />
           and{" "}
-          <Box component="span" sx={{ color: colors.blue[800] }}>
+          <Box component="span" sx={{ color: colors.green[700] }}>
             front end
           </Box>{" "}
           craftsman.
