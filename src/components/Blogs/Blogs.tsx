@@ -10,7 +10,7 @@ const blogList: BlogType[] = [
     img: "/imgs/a11y.gif",
   },
   {
-    title: "Think out of the <Box> - reflect on using design systems",
+    title: "Build flexible UI system and component library",
     description:
       "Build a design system that is both complete and extentively flexible.",
     img: "/imgs/design-system.png",

@@ -1,7 +1,6 @@
 export const baseCardStyle = {
   width: ["100%", "50%", "31%"],
   flexGrow: 1,
-  // maxWidth: 357,
   boxShadow: 3,
   borderRadius: 3,
 };
@@ -22,6 +21,7 @@ export const cardActionAreaDefaultStyle = {
   flexDirection: "column",
   alignItems: "flex-start",
   height: "100%",
+  justifyContent: "flex-start",
 };
 
 export const cardActionAreaWideStyle = {

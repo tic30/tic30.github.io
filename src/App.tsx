@@ -31,6 +31,9 @@ const theme = createTheme({
     h1: headingFont,
     h2: headingFont,
     h4: headingFont,
+    body1: {
+      color: colors.grey[600],
+    },
   },
   shadows: [
     "none",

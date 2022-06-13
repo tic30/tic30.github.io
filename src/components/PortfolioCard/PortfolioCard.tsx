@@ -67,9 +67,7 @@ const PortfolioCard: React.FC<PortfolioCardType> = ({
             <Typography variant="h5" sx={{ lineHeight: 1.1, mb: 2 }}>
               {content.title}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {content.subTitle}
-            </Typography>
+            <Typography>{content.subTitle}</Typography>
           </Box>
           {content.pageUrl && (
             <Button

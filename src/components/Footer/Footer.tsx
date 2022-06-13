@@ -31,7 +31,7 @@ const Footer: React.FC<FooterType> = ({ scrollAreaRef }) => (
         color: colors.grey[500],
         ":hover": {
           backgroundColor: "transparent",
-          color: colors.blue[800],
+          color: colors.green[700],
           "> div": {
             boxShadow: `0 0 12px ${colors.grey[300]}`,
           },

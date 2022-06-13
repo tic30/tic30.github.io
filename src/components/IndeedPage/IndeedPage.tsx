@@ -1,20 +1,23 @@
 import React from "react";
-import { Box, colors, Paper, Typography } from "@mui/material";
+import { Box, Chip, colors, Paper, Stack, Typography } from "@mui/material";
 import { topStorySx, storiesSx, storyDivider } from "./IndeedPage.style";
 
 const indeedStories = [
   {
-    title: "Maintain UI Library @Indeed community",
+    title: "Maintain UI Component Library @Indeed",
+    chips: ["Community"],
     content:
       "I maintain one of the mostly adopted Indeed internal UI libraries. It is community based and I am there to encourage and guide contributors. We made sure each library has clear documentation and passes the highest standard of code quality, performance and accessibility check.",
   },
   {
     title: "Improve engineering efficiency",
+    chips: ["Productivity"],
     content:
       "As a developer, I constantly look for ways to improve code quality and dev experience. I adopt patterns, technologies and introduce tools to help speed up the engineering process, increase test coverage, create test plans, automate pipelines, track errors and monitor performance.",
   },
   {
     title: "Explore, learn and grow together",
+    chips: ["Leadership"],
     content:
       "I actively research on useful new gadgets in open source community and bring them to the company. Meanwhile, I organize ad hoc training and knowledge sharing sessions to onboard new members, learn from each other and share insights towards the future of front end.",
   },
@@ -35,7 +38,7 @@ const IndeedPage: React.FC = () => (
       <Box sx={{ mr: 6 }}>
         <Typography variant="h5" sx={{ mb: 4 }}>
           Build the platform for{" "}
-          <Box component="span" sx={{ color: colors.blue[800] }}>
+          <Box component="span" sx={{ color: colors.green[700] }}>
             every employer
           </Box>
         </Typography>
@@ -83,11 +86,11 @@ const IndeedPage: React.FC = () => (
         sx={{ ...topStorySx.img, maxWidth: "50%", mr: 5 }}
       />
       <Box>
-        <Typography
-          variant="h5"
-          sx={{ fontSize: ["1.5rem", "1.5rem", "2rem"], mb: 4 }}
-        >
-          One Experience
+        <Typography variant="h5" sx={{ mb: 4 }}>
+          <Box component="span" sx={{ color: colors.green[700] }}>
+            One
+          </Box>{" "}
+          Experience
         </Typography>
         <Typography sx={{ mb: 3 }}>
           Working in UX org, I push towards consistent user experience across
@@ -102,17 +105,17 @@ const IndeedPage: React.FC = () => (
           My believe is that the best way to build customer trust and brand
           recognition is through{" "}
           <Box component="span" sx={{ color: colors.amber[800] }}>
-            consistent visual presentation
-          </Box>
-          ,{" "}
-          <Box component="span" sx={{ color: colors.blue[800] }}>
-            high quality content
-          </Box>
-          , and{" "}
+            consistent
+          </Box>{" "}
+          visual presentation,{" "}
           <Box component="span" sx={{ color: colors.amber[800] }}>
-            productive features
-          </Box>
-          .
+            high quality
+          </Box>{" "}
+          content, and{" "}
+          <Box component="span" sx={{ color: colors.amber[800] }}>
+            productive
+          </Box>{" "}
+          features.
         </Typography>
       </Box>
     </Paper>
@@ -123,6 +126,17 @@ const IndeedPage: React.FC = () => (
       {indeedStories.map((story, i) => (
         <Paper sx={storiesSx.paper} key={i}>
           <Box sx={storiesSx.titleWrapper}>
+            <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
+              {story.chips.map((chip, id) => (
+                <Chip
+                  key={`chip-${id}`}
+                  label={chip}
+                  size="small"
+                  color="success"
+                  variant="outlined"
+                />
+              ))}
+            </Stack>
             <Typography variant="h5">{story.title}</Typography>
           </Box>
           <Typography>{story.content}</Typography>
