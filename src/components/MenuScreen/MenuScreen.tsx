@@ -194,7 +194,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
                     alignItems: "center",
                     borderRadius: 1,
                     boxShadow: open ? "none" : 3,
-                    textDecoration: 'none'
+                    textDecoration: "none",
                   },
                   "> a > *:not(:last-child)": {
                     mr: 2,
@@ -202,8 +202,8 @@ const MenuScreen: React.FC<MenuScreenType> = ({
                   "> a:hover, > a:hover span, > a:focus, > a:focus span": {
                     backgroundColor: open ? colors.grey[50] : colors.grey[900],
                     color: open ? colors.grey[900] : "white",
-                    textDecoration: 'underline'
-                  }
+                    textDecoration: "underline",
+                  },
                 }}
               >
                 {item.subMenuItems.map((page, id) =>
