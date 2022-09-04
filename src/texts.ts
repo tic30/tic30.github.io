@@ -1,20 +1,20 @@
 const Text = {
-  Hero: {
-    title: "Hi, Welcome!",
-  },
-  SelfIntro: {
-    content:
-      "Embrace difference, seek innovative solutions, execute with broken-down practical tasks and improve myself along the way.",
-    icons: [
-      { src: "icons/reading.svg" },
-      { src: "icons/soccer.svg" },
-      { src: "icons/pingpong.svg" },
-      { src: "icons/archery.svg" },
-    ],
-  },
+  // Hero: {
+  //   title: "Hi, Welcome!",
+  // },
+  // SelfIntro: {
+  //   content:
+  //     "Embrace difference, seek innovative solutions, execute with broken-down practical tasks and improve myself along the way.",
+  //   icons: [
+  //     { src: "icons/reading.svg" },
+  //     { src: "icons/soccer.svg" },
+  //     { src: "icons/pingpong.svg" },
+  //     { src: "icons/archery.svg" },
+  //   ],
+  // },
   Company: {
-    content:
-      "Bridge design and engineering, iterate on ideas with front end prototyping and production code management.",
+    // content:
+    //   "Bridge design and engineering, iterate on ideas with front end prototyping and production code management.",
     icons: [
       { src: "icons/cmu.png", dataTarget: "Cmu" },
       { src: "icons/deephow.png", dataTarget: "Deephow" },
@@ -44,10 +44,10 @@ const Text = {
   // },
   // portfolio
   OH: {
-    title: "Micro Frontend Migration @ Indeed",
+    title: "Micro Frontend @ Indeed",
     imgUrl: "indeed-oh.png",
     subTitle:
-      "Design and migrate to Webpack 5 based micro frontend architecture.",
+      "Design, construct and migrate to Webpack 5 based micro frontend architecture.",
     btnText: "Read more",
     pageUrl: "/microfe",
   },

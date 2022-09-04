@@ -1,5 +1,3 @@
-import { colors } from "@mui/material";
-
 export const topStorySx = {
   outer: {
     display: "flex",
@@ -36,21 +34,7 @@ export const storiesSx = {
     display: "flex",
     flexDirection: "column",
     gap: 1,
-    // height: "4rem",
-    // pl: 7,
     mb: 2,
-    // "&::after": {
-    //   content: '""',
-    //   position: "absolute",
-    //   left: 0,
-    //   top: "-1.5rem",
-    //   height: "4rem",
-    //   width: "2rem",
-    //   backgroundColor: colors.green[700],
-    //   opacity: 0.5,
-    //   borderBottomLeftRadius: "0.5rem",
-    //   borderBottomRightRadius: "0.5rem",
-    // },
     img: {
       width: "3rem",
       height: "3rem",

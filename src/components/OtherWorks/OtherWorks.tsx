@@ -1,6 +1,4 @@
 import { Box, colors, Paper, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
 import {
   rolesContainerStyle,
   boxContainerStyle,
@@ -8,6 +6,7 @@ import {
   roleTitleStyle,
 } from "./OtherWorks.styles";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import LightTooltip from "../Misc/LightTooltip";
 
 interface PreviousRoleType {
   companyLogo: string;
@@ -40,29 +39,6 @@ const previousRoles: PreviousRoleType[] = [
       "I joined a group of HCI student to create AR application and study its social impact. I received my degree of Master of Science in Software Engineering at Carnegie Mellon University(CMU) in 2018. CMU courses paved solid ground in engineering which I benefit from util today and encouraged me to pursue a life-long learning.",
   },
 ];
-
-const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
-  <Tooltip
-    classes={{ popper: className }}
-    arrow
-    placement="bottom-start"
-    {...props}
-  />
-))(({ theme }) => ({
-  [`& .${tooltipClasses.tooltip}`]: {
-    backgroundColor: theme.palette.common.white,
-    color: colors.grey[800],
-    boxShadow: theme.shadows[3],
-    fontSize: 16,
-    lineHeight: 2,
-    borderRadius: 8,
-    padding: 24,
-  },
-  [`& .${tooltipClasses.arrow}::before`]: {
-    backgroundColor: theme.palette.common.white,
-    boxShadow: theme.shadows[3],
-  },
-}));
 
 const OtherWorks: React.FC = () => {
   return (

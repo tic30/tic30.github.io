@@ -14,6 +14,11 @@ import PortfolioCard from "../PortfolioCard";
 import Texts from "../../texts";
 import { connectBgSx, introCardSx, sectionHeaderSX } from "./Home.style";
 import { LINKEDIN } from "../../constants";
+import EnergySavingsLeafOutlinedIcon from '@mui/icons-material/EnergySavingsLeafOutlined';
+import AutorenewIcon from '@mui/icons-material/Autorenew';
+import Diversity2OutlinedIcon from '@mui/icons-material/Diversity2Outlined';
+import SpaOutlinedIcon from '@mui/icons-material/SpaOutlined';
+import LightTooltip from "../Misc/LightTooltip";
 
 const Home: React.FC = () => (
   <>
@@ -81,13 +86,15 @@ const Home: React.FC = () => (
       <Container sx={{ my: 0, display: "flex", gap: "2rem" }}>
         <Paper sx={introCardSx.outer}>
           <Typography variant="h5">
-            I seek challenges,
+            A journey
             <br />
-            in and out of work.
+            forward, together
           </Typography>
-          <Typography>{Texts.SelfIntro.content}</Typography>
+          <Typography>
+            Seek innovations, embrace difference, make practical impact, influence on things that makes social difference as I search for value of life.
+          </Typography>
           <Box sx={introCardSx.inner}>
-            {Texts.SelfIntro.icons.map((item, id) => (
+            {/* {Texts.SelfIntro.icons.map((item, id) => (
               <Box
                 component="img"
                 key={`flyer-left-icon${id}`}
@@ -95,16 +102,43 @@ const Home: React.FC = () => (
                 alt="Flyer Icon"
                 sx={introCardSx.img1}
               />
-            ))}
+            ))} */}
+            <LightTooltip
+              title="Energy efficiency"
+              tabIndex={0}
+            >
+              <EnergySavingsLeafOutlinedIcon fontSize="large" />
+            </LightTooltip>
+            <LightTooltip
+              title="Recycle"
+              tabIndex={0}
+            >
+            <AutorenewIcon fontSize="large" />
+            </LightTooltip>
+            <LightTooltip
+              title="Wellness"
+              tabIndex={0}
+            >
+            <SpaOutlinedIcon fontSize="large" />
+            </LightTooltip>
+            <LightTooltip
+              title="Inclusion"
+              tabIndex={0}
+            >
+            <Diversity2OutlinedIcon fontSize="large" />
+            </LightTooltip>
+
           </Box>
         </Paper>
         <Paper sx={introCardSx.outer}>
           <Typography variant="h5">
             UX,
             <br />
-            Front end, and Fun
+            front end, and perfection
           </Typography>
-          <Typography>{Texts.Company.content}</Typography>
+          <Typography>
+            Bridge design and engineering, craft comprehensive ux-eng-quality guidelines and galvanize team towards product vision.
+          </Typography>
           <Box sx={introCardSx.inner}>
             {Texts.Company.icons.map((item, id) => (
               <Box
