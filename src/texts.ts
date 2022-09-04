@@ -49,7 +49,7 @@ const Text = {
     subTitle:
       "Design, construct and migrate to Webpack 5 based micro frontend architecture.",
     btnText: "Read more",
-    pageUrl: "/microfe",
+    pageUrl: "tbd", ///microfe
   },
   ITS: {
     title: "Intelligent Tutoring Systems",

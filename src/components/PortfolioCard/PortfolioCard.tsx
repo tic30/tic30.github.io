@@ -23,7 +23,6 @@ interface PortfolioCardContentType {
   title: string;
   imgUrl: string;
   subTitle: string;
-  btnText: string;
   pageUrl: string;
 }
 
@@ -76,10 +75,10 @@ const PortfolioCard: React.FC<PortfolioCardType> = ({
               color="primary"
               disableRipple
               tabIndex={-1}
-              disabled={!content.pageUrl}
+              disabled={content.pageUrl === "tbd"}
               sx={btnStyle}
             >
-              Read more
+              {content.pageUrl === "tbd" ? "Coming soon" : "Read more"}
             </Button>
           )}
         </CardContent>
