@@ -83,7 +83,7 @@ const Home: React.FC = () => (
           craftsman.
         </Typography>
       </Container>
-      <Container sx={{ mt: 3, display: "flex", gap: 3, flexWrap: 'wrap' }}>
+      <Container sx={{ mt: 3, display: "flex", gap: 3, flexWrap: "wrap" }}>
         <Paper sx={introCardSx.outer}>
           <Typography variant="h5">
             A journey

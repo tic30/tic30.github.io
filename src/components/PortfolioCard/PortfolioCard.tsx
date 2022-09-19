@@ -39,7 +39,7 @@ const PortfolioCard: React.FC<PortfolioCardType> = ({
   sx,
   ...rest
 }) => {
-  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
+  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
 
   return (
     <Card
@@ -52,7 +52,9 @@ const PortfolioCard: React.FC<PortfolioCardType> = ({
       <CardActionArea
         disabled={!content.pageUrl}
         sx={{
-          ...(wide && isSmUp ? cardActionAreaWideStyleDesktop : cardActionAreaDefaultStyle),
+          ...(wide && isSmUp
+            ? cardActionAreaWideStyleDesktop
+            : cardActionAreaDefaultStyle),
         }}
       >
         <CardMedia
@@ -63,7 +65,9 @@ const PortfolioCard: React.FC<PortfolioCardType> = ({
         />
         <CardContent
           sx={{
-            ...(wide && isSmUp ? cardContentWideStyleDesktop : cardContentDefaultStyle),
+            ...(wide && isSmUp
+              ? cardContentWideStyleDesktop
+              : cardContentDefaultStyle),
           }}
         >
           <Box>

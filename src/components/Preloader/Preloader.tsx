@@ -138,7 +138,7 @@ const Preloader: React.FC = () => {
   return (
     <PreloaderScreen>
       <PreloaderContent onAnimationEnd={updateRedirect}>
-        <PreloaderText>{'Hello, this is Tim Chu'}</PreloaderText>
+        <PreloaderText>{"Hello, this is Tim Chu"}</PreloaderText>
       </PreloaderContent>
     </PreloaderScreen>
   );
