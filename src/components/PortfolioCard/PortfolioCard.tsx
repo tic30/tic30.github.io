@@ -8,15 +8,17 @@ import {
   Typography,
   CardProps,
   Box,
+  useMediaQuery,
+  Theme,
 } from "@mui/material";
 import {
   baseCardStyle,
   btnStyle,
   cardActionAreaDefaultStyle,
-  cardActionAreaWideStyle,
+  cardActionAreaWideStyleDesktop,
   cardContentDefaultStyle,
-  cardContentWideStyle,
-  wideCardStyle,
+  cardContentWideStyleDesktop,
+  wideCardStyleDesktop,
 } from "./PortfolioCard.styles";
 
 interface PortfolioCardContentType {
@@ -37,10 +39,12 @@ const PortfolioCard: React.FC<PortfolioCardType> = ({
   sx,
   ...rest
 }) => {
+  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
+
   return (
     <Card
       sx={{
-        ...(wide ? wideCardStyle : baseCardStyle),
+        ...(wide && isSmUp ? wideCardStyleDesktop : baseCardStyle),
         ...sx,
       }}
       {...rest}
@@ -48,7 +52,7 @@ const PortfolioCard: React.FC<PortfolioCardType> = ({
       <CardActionArea
         disabled={!content.pageUrl}
         sx={{
-          ...(wide ? cardActionAreaWideStyle : cardActionAreaDefaultStyle),
+          ...(wide && isSmUp ? cardActionAreaWideStyleDesktop : cardActionAreaDefaultStyle),
         }}
       >
         <CardMedia
@@ -59,7 +63,7 @@ const PortfolioCard: React.FC<PortfolioCardType> = ({
         />
         <CardContent
           sx={{
-            ...(wide ? cardContentWideStyle : cardContentDefaultStyle),
+            ...(wide && isSmUp ? cardContentWideStyleDesktop : cardContentDefaultStyle),
           }}
         >
           <Box>

@@ -13,6 +13,7 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import MenuScreen, { MenuItemType } from "../MenuScreen";
 import Texts from "../../texts";
 import { LINKEDIN } from "../../constants";
+import { MenuScreenType } from "../MenuScreen/MenuScreen";
 
 const menuList: MenuItemType[] = [
   {
@@ -78,7 +79,7 @@ const menuList: MenuItemType[] = [
   },
 ];
 
-const Header: React.FC = () => {
+const Header: React.FC<Pick<MenuScreenType, "scrollAreaRef">> = (props) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -86,6 +87,7 @@ const Header: React.FC = () => {
       open={menuOpen}
       setOpen={() => setMenuOpen((open) => !open)}
       menuList={menuList}
+      {...props}
     />
   );
 };

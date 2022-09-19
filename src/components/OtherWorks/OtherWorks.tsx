@@ -43,7 +43,7 @@ const previousRoles: PreviousRoleType[] = [
 const OtherWorks: React.FC = () => {
   return (
     <>
-      <Typography variant="h4" sx={{ mt: 5, pb: 4 }}>
+      <Typography variant="h4" sx={{ mt: 5 }}>
         My previous roles
       </Typography>
       <Box sx={rolesContainerStyle}>

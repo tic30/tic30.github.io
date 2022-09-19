@@ -11,6 +11,8 @@ import {
   Box,
   colors,
   ThemeOptions,
+  useMediaQuery,
+  Theme,
 } from "@mui/material";
 import Preloader from "./components/Preloader";
 import Home from "./components/Home";
@@ -44,22 +46,23 @@ const theme = createTheme({
   ] as ThemeOptions["shadows"],
 });
 
-const App: React.FC = () => {
+const PageContent: React.FC = () => {
   const scrollAreaRef = useRef(null);
+  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
 
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Box
+    <>
+    <Box
           sx={{
             display: "flex",
             position: "fixed",
             width: "100%",
             height: "100%",
             overflow: "hidden",
+            flexDirection: isSmUp ? 'row' : 'column'
           }}
         >
-          <Header />
+          <Header scrollAreaRef={scrollAreaRef} />
           <Box ref={scrollAreaRef} sx={{ width: "100%", overflowY: "auto" }}>
             <Routes>
               <Route path="/" element={<Preloader />} />
@@ -73,9 +76,16 @@ const App: React.FC = () => {
             <Footer scrollAreaRef={scrollAreaRef} />
           </Box>
         </Box>
+    </>
+  )
+};
+
+const App: React.FC = () => (
+    <ThemeProvider theme={theme}>
+      <Router>
+        <PageContent />
       </Router>
     </ThemeProvider>
-  );
-};
+);
 
 export default App;

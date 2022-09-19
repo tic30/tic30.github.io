@@ -3,6 +3,11 @@ import { colors } from "@mui/material";
 export const rolesContainerStyle = {
   display: "flex",
   gap: 6,
+  ml: -2,
+  pl: 2,
+  py: 4,
+  maxWidth: '100%',
+  overflowX: 'auto'
 };
 
 export const boxContainerStyle = {
