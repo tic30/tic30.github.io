@@ -1,6 +1,7 @@
 import React from "react";
-import { Box, Chip, colors, Paper, Stack, Typography } from "@mui/material";
+import { Box, Chip, colors, Paper, Stack, Typography, useMediaQuery } from "@mui/material";
 import { topStorySx, storiesSx, storyDivider } from "./IndeedPage.style";
+import { Theme } from "@mui/system";
 
 const indeedStories = [
   {
@@ -23,127 +24,155 @@ const indeedStories = [
   },
 ];
 
-const IndeedPage: React.FC = () => (
-  <>
-    <Typography variant="h4" sx={{ pb: 4 }}>
-      UX Developer @ Indeed
-    </Typography>
-    <Typography sx={{ mb: 5 }}>
-      I work at Indeed as a UX Developer. I play a role of front end contributor
-      and design-engineering coordinator in the team. My work supports the front
-      end feature iterations, drive adoption of company-wide UX & FE directions
-      and guidelines, and coordinate across teams.
-    </Typography>
-    <Paper sx={topStorySx.outer}>
-      <Box sx={{ mr: 6 }}>
-        <Typography variant="h5" sx={{ mb: 4 }}>
-          Build the platform for{" "}
-          <Box component="span" sx={{ color: colors.green[700] }}>
-            every employer
-          </Box>
-        </Typography>
-        <Typography sx={{ mb: 3 }}>
-          In employer team, I focus on presenting{" "}
-          <Box component="span" sx={{ color: colors.amber[800] }}>
-            easy to use
-          </Box>{" "}
-          flow and features for employers to post a job and manage postings.
-        </Typography>
-        <Typography sx={{ mb: 3 }}>
-          I build onboarding pages that boost initial{" "}
-          <Box component="span" sx={{ color: colors.amber[800] }}>
-            engagement
-          </Box>{" "}
-          from small, medium businesses and enterprises.
-        </Typography>
-        <Typography>
-          I craft story-telling features in employers' job dashboard to increase
-          employers'{" "}
-          <Box component="span" sx={{ color: colors.amber[800] }}>
-            awareness
-          </Box>{" "}
-          of Indeed features and help them quickly{" "}
-          <Box component="span" sx={{ color: colors.amber[800] }}>
-            navigate
-          </Box>{" "}
-          to the right action to get the most hires.
-        </Typography>
+const IndeedPage: React.FC = () => {
+  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
+  const paperSx = {
+    ...topStorySx.outer,
+    ...(isSmUp ? {} : {
+      p: 2,
+      flexDirection: 'column'
+    })
+  };
+  const imgSx = {
+    ...topStorySx.img,
+    ...(isSmUp ? {} : {
+      maxWidth: '100%'
+    })
+  };
+
+  return (
+    <>
+      <Typography variant="h4" sx={{ pb: 4 }}>
+        UX Developer @ Indeed
+      </Typography>
+      <Typography sx={{ mb: 5 }}>
+        I work at Indeed as a UX Developer. I play a role of front end contributor
+        and design-engineering coordinator in the team. My work supports the front
+        end feature iterations, drive adoption of company-wide UX & FE directions
+        and guidelines, and coordinate across teams.
+      </Typography>
+      <Paper sx={paperSx}>
+        <Box>
+          <Typography variant="h5" sx={{ mb: 4 }}>
+            Build the platform for{" "}
+            <Box component="span" sx={{ color: colors.green[700] }}>
+              every employer
+            </Box>
+          </Typography>
+          <Typography sx={{ mb: 3 }}>
+            In employer team, I focus on presenting{" "}
+            <Box component="span" sx={{ color: colors.amber[800] }}>
+              easy to use
+            </Box>{" "}
+            flow and features for employers to post a job and manage postings.
+          </Typography>
+          <Typography sx={{ mb: 3 }}>
+            I build onboarding pages that boost initial{" "}
+            <Box component="span" sx={{ color: colors.amber[800] }}>
+              engagement
+            </Box>{" "}
+            from small, medium businesses and enterprises.
+          </Typography>
+          <Typography>
+            I craft story-telling features in employers' job dashboard to increase
+            employers'{" "}
+            <Box component="span" sx={{ color: colors.amber[800] }}>
+              awareness
+            </Box>{" "}
+            of Indeed features and help them quickly{" "}
+            <Box component="span" sx={{ color: colors.amber[800] }}>
+              navigate
+            </Box>{" "}
+            to the right action to get the most hires.
+          </Typography>
+        </Box>
+        <Box
+          component="img"
+          src="/imgs/indeed-illstration1.png"
+          alt="indeed"
+          aria-hidden
+          sx={imgSx}
+        />
+      </Paper>
+      <Paper sx={paperSx}>
+        <Box
+          component="img"
+          src="/imgs/indeed-illstration2.png"
+          alt="indeed"
+          aria-hidden
+          sx={{ 
+            ...imgSx,
+            ...(isSmUp ? {} : { 
+              order: 1, mx: -2, maxWidth: "calc(100% + 2rem)" 
+            })
+          }}
+        />
+        <Box>
+          <Typography variant="h5" sx={{ mb: 4 }}>
+            <Box component="span" sx={{ color: colors.green[700] }}>
+              One
+            </Box>{" "}
+            Experience
+          </Typography>
+          <Typography sx={{ mb: 3 }}>
+            Working in UX org, I push towards consistent user experience across
+            Indeed products.
+          </Typography>
+          <Typography sx={{ mb: 3 }}>
+            I advocate the adoption of the latest design and UI libraries across
+            teams, identify broken experiences and coordinate with engineers and
+            other UX Developers to fix them.
+          </Typography>
+          <Typography>
+            My believe is that the best way to build customer trust and brand
+            recognition is through{" "}
+            <Box component="span" sx={{ color: colors.amber[800] }}>
+              consistent
+            </Box>{" "}
+            visual presentation,{" "}
+            <Box component="span" sx={{ color: colors.amber[800] }}>
+              high quality
+            </Box>{" "}
+            content, and{" "}
+            <Box component="span" sx={{ color: colors.amber[800] }}>
+              productive
+            </Box>{" "}
+            features.
+          </Typography>
+        </Box>
+      </Paper>
+      <Typography variant="h5" sx={storyDivider}>
+        I've also been doing...
+      </Typography>
+      <Box sx={{
+        ...storiesSx.wrapper,
+        ...(isSmUp ? {} : {
+          flexDirection: 'column',
+          mb: 0
+        })
+      }}>
+        {indeedStories.map((story, i) => (
+          <Paper sx={storiesSx.paper} key={i}>
+            <Box sx={storiesSx.titleWrapper}>
+              <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
+                {story.chips.map((chip, id) => (
+                  <Chip
+                    key={`chip-${id}`}
+                    label={chip}
+                    size="small"
+                    color="success"
+                    variant="outlined"
+                  />
+                ))}
+              </Stack>
+              <Typography variant="h5">{story.title}</Typography>
+            </Box>
+            <Typography>{story.content}</Typography>
+          </Paper>
+        ))}
       </Box>
-      <Box
-        component="img"
-        src="/imgs/indeed-illstration1.png"
-        alt="indeed"
-        aria-hidden
-        sx={topStorySx.img}
-      />
-    </Paper>
-    <Paper sx={{ ...topStorySx.outer, pl: 2 }}>
-      <Box
-        component="img"
-        src="/imgs/indeed-illstration2.png"
-        alt="indeed"
-        aria-hidden
-        sx={{ ...topStorySx.img, maxWidth: "50%", mr: 5 }}
-      />
-      <Box>
-        <Typography variant="h5" sx={{ mb: 4 }}>
-          <Box component="span" sx={{ color: colors.green[700] }}>
-            One
-          </Box>{" "}
-          Experience
-        </Typography>
-        <Typography sx={{ mb: 3 }}>
-          Working in UX org, I push towards consistent user experience across
-          Indeed products.
-        </Typography>
-        <Typography sx={{ mb: 3 }}>
-          I advocate the adoption of the latest design and UI libraries across
-          teams, identify broken experiences and coordinate with engineers and
-          other UX Developers to fix them.
-        </Typography>
-        <Typography>
-          My believe is that the best way to build customer trust and brand
-          recognition is through{" "}
-          <Box component="span" sx={{ color: colors.amber[800] }}>
-            consistent
-          </Box>{" "}
-          visual presentation,{" "}
-          <Box component="span" sx={{ color: colors.amber[800] }}>
-            high quality
-          </Box>{" "}
-          content, and{" "}
-          <Box component="span" sx={{ color: colors.amber[800] }}>
-            productive
-          </Box>{" "}
-          features.
-        </Typography>
-      </Box>
-    </Paper>
-    <Typography variant="h5" sx={storyDivider}>
-      I've also been doing...
-    </Typography>
-    <Box sx={storiesSx.wrapper}>
-      {indeedStories.map((story, i) => (
-        <Paper sx={storiesSx.paper} key={i}>
-          <Box sx={storiesSx.titleWrapper}>
-            <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
-              {story.chips.map((chip, id) => (
-                <Chip
-                  key={`chip-${id}`}
-                  label={chip}
-                  size="small"
-                  color="success"
-                  variant="outlined"
-                />
-              ))}
-            </Stack>
-            <Typography variant="h5">{story.title}</Typography>
-          </Box>
-          <Typography>{story.content}</Typography>
-        </Paper>
-      ))}
-    </Box>
-  </>
-);
+    </>
+  );
+};
 
 export default IndeedPage;

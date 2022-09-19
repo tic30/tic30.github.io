@@ -5,7 +5,7 @@ export const baseCardStyle = {
   borderRadius: 3,
 };
 
-export const wideCardStyle = {
+export const wideCardStyleDesktop = {
   ...baseCardStyle,
   flexBasis: "100%",
   maxWidth: "none",
@@ -24,7 +24,7 @@ export const cardActionAreaDefaultStyle = {
   justifyContent: "flex-start",
 };
 
-export const cardActionAreaWideStyle = {
+export const cardActionAreaWideStyleDesktop = {
   ...cardActionAreaDefaultStyle,
   flexDirection: "row",
 };
@@ -35,7 +35,7 @@ export const cardContentDefaultStyle = {
   justifyContent: "space-between",
 };
 
-export const cardContentWideStyle = {
+export const cardContentWideStyleDesktop = {
   ...cardContentDefaultStyle,
   alignSelf: "center",
   pl: 5,

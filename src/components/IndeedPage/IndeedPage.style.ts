@@ -4,7 +4,8 @@ export const topStorySx = {
     p: 6,
     borderRadius: 3,
     boxShadow: 3,
-    mb: 6,
+    mb: 5,
+    gap: 5,
     alignItems: "center",
   },
   img: {
@@ -24,9 +25,9 @@ export const storiesSx = {
   },
   paper: {
     ...topStorySx.outer,
+    mb: 0,
     boxShadow: 2,
     p: 3,
-    flexBasis: "100%",
     flexDirection: "column",
   },
   titleWrapper: {

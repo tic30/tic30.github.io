@@ -83,7 +83,7 @@ const Home: React.FC = () => (
           craftsman.
         </Typography>
       </Container>
-      <Container sx={{ my: 0, display: "flex", gap: "2rem" }}>
+      <Container sx={{ mt: 3, display: "flex", gap: 3, flexWrap: 'wrap' }}>
         <Paper sx={introCardSx.outer}>
           <Typography variant="h5">
             A journey
@@ -164,7 +164,7 @@ const Home: React.FC = () => (
       <Container sx={sectionHeaderSX}>
         <Typography variant="h2">Projects</Typography>
       </Container>
-      <Container sx={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
+      <Container sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
         <PortfolioCard wide content={Texts.OH} />
         {/* <PortfolioCard content={Texts.ITS} /> */}
         <PortfolioCard content={Texts.DealFindMe} />

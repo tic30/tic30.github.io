@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Box, colors, Typography } from "@mui/material";
+import { Box, colors, Theme, Typography, useMediaQuery } from "@mui/material";
 import { HashLink } from "react-router-hash-link";
+import { SystemStyleObject } from "@mui/system";
+import useScrollDirection from "../../hooks/useScrollDirection";
 
 export interface SubMenuItemType {
   icon?: React.ReactNode;
@@ -19,14 +21,18 @@ export interface MenuScreenType {
   open: boolean;
   setOpen: (newStatus: boolean) => void;
   menuList: MenuItemType[];
+  scrollAreaRef: React.RefObject<HTMLDivElement>;
 }
 
 const MenuScreen: React.FC<MenuScreenType> = ({
   open,
   setOpen,
   menuList = [],
+  scrollAreaRef
 }) => {
   const [openDelay, setOpenDelay] = useState(false);
+  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
+  const scrollDir = useScrollDirection(scrollAreaRef.current);
 
   useEffect(() => {
     setOpenDelay(false);
@@ -37,6 +43,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
     () => ({
       flexDirection: open ? "row" : "column",
       alignItems: "center",
+      ...(isSmUp ? { justifyContent: "center" } : {}),
       borderRadius: 1,
       p: open ? "0.5rem 0.35rem" : 1,
       mb: open ? 3 : 1,
@@ -65,7 +72,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
         },
       },
     }),
-    [openDelay] // eslint-disable-line react-hooks/exhaustive-deps
+    [openDelay, isSmUp] // eslint-disable-line react-hooks/exhaustive-deps
   );
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>): void => {
@@ -74,16 +81,39 @@ const MenuScreen: React.FC<MenuScreenType> = ({
     }
   };
 
+  const wrapperMobileStyle = {
+    overflow: 'hidden',
+    height: open ? "100%" : "3.5rem",
+    width: open ? "100%" : "5.5rem",
+    marginTop: scrollDir === "DOWN" ? "-3.5rem" : 0
+  } as SystemStyleObject;
+
+  const wrapperSmUpStyle = {
+    height: "100%",
+    width: open ? "24rem" : "5.5rem",
+  } as SystemStyleObject;
+
+  const hambergurSmUpStyle = {
+    "&:hover": {
+      backgroundColor: colors.grey[900],
+      "> div": {
+        backgroundColor: open ? colors.grey[900] : colors.grey[100],
+      },
+      "> div::after": {
+        backgroundColor: colors.grey[100],
+      },
+    }
+  } as SystemStyleObject;
+
   return (
     <Box
       sx={{
-        height: "100%",
-        width: open ? "24rem" : "5.5rem",
         backgroundColor: colors.grey[900],
         p: 1,
-        transition: "width 0.2s",
+        transition: "0.2s",
         flexShrink: 0,
         zIndex: 10,
+        ...(isSmUp ? wrapperSmUpStyle : wrapperMobileStyle)
       }}
     >
       <Box
@@ -100,15 +130,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
           mb: 2,
           p: 3,
           backgroundColor: "white",
-          "&:hover": {
-            backgroundColor: colors.grey[900],
-            "> div": {
-              backgroundColor: open ? colors.grey[900] : colors.grey[100],
-            },
-            "> div::after": {
-              backgroundColor: colors.grey[100],
-            },
-          },
+          ...(isSmUp ? hambergurSmUpStyle : {}),
           ...(open
             ? {
                 backgroundColor: colors.grey[900],
