@@ -6,8 +6,8 @@ export const rolesContainerStyle = {
   ml: -2,
   pl: 2,
   py: 4,
-  maxWidth: '100%',
-  overflowX: 'auto'
+  maxWidth: "100%",
+  overflowX: "auto",
 };
 
 export const boxContainerStyle = {

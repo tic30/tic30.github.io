@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, Chip, colors, Paper, Stack, Typography, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Chip,
+  colors,
+  Paper,
+  Stack,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import { topStorySx, storiesSx, storyDivider } from "./IndeedPage.style";
 import { Theme } from "@mui/system";
 
@@ -25,19 +33,23 @@ const indeedStories = [
 ];
 
 const IndeedPage: React.FC = () => {
-  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
+  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
   const paperSx = {
     ...topStorySx.outer,
-    ...(isSmUp ? {} : {
-      p: 2,
-      flexDirection: 'column'
-    })
+    ...(isSmUp
+      ? {}
+      : {
+          p: 2,
+          flexDirection: "column",
+        }),
   };
   const imgSx = {
     ...topStorySx.img,
-    ...(isSmUp ? {} : {
-      maxWidth: '100%'
-    })
+    ...(isSmUp
+      ? {}
+      : {
+          maxWidth: "100%",
+        }),
   };
 
   return (
@@ -46,10 +58,11 @@ const IndeedPage: React.FC = () => {
         UX Developer @ Indeed
       </Typography>
       <Typography sx={{ mb: 5 }}>
-        I work at Indeed as a UX Developer. I play a role of front end contributor
-        and design-engineering coordinator in the team. My work supports the front
-        end feature iterations, drive adoption of company-wide UX & FE directions
-        and guidelines, and coordinate across teams.
+        I work at Indeed as a UX Developer. I play a role of front end
+        contributor and design-engineering coordinator in the team. My work
+        supports the front end feature iterations, drive adoption of
+        company-wide UX & FE directions and guidelines, and coordinate across
+        teams.
       </Typography>
       <Paper sx={paperSx}>
         <Box>
@@ -74,8 +87,8 @@ const IndeedPage: React.FC = () => {
             from small, medium businesses and enterprises.
           </Typography>
           <Typography>
-            I craft story-telling features in employers' job dashboard to increase
-            employers'{" "}
+            I craft story-telling features in employers' job dashboard to
+            increase employers'{" "}
             <Box component="span" sx={{ color: colors.amber[800] }}>
               awareness
             </Box>{" "}
@@ -100,11 +113,15 @@ const IndeedPage: React.FC = () => {
           src="/imgs/indeed-illstration2.png"
           alt="indeed"
           aria-hidden
-          sx={{ 
+          sx={{
             ...imgSx,
-            ...(isSmUp ? {} : { 
-              order: 1, mx: -2, maxWidth: "calc(100% + 2rem)" 
-            })
+            ...(isSmUp
+              ? {}
+              : {
+                  order: 1,
+                  mx: -2,
+                  maxWidth: "calc(100% + 2rem)",
+                }),
           }}
         />
         <Box>
@@ -144,13 +161,17 @@ const IndeedPage: React.FC = () => {
       <Typography variant="h5" sx={storyDivider}>
         I've also been doing...
       </Typography>
-      <Box sx={{
-        ...storiesSx.wrapper,
-        ...(isSmUp ? {} : {
-          flexDirection: 'column',
-          mb: 0
-        })
-      }}>
+      <Box
+        sx={{
+          ...storiesSx.wrapper,
+          ...(isSmUp
+            ? {}
+            : {
+                flexDirection: "column",
+                mb: 0,
+              }),
+        }}
+      >
         {indeedStories.map((story, i) => (
           <Paper sx={storiesSx.paper} key={i}>
             <Box sx={storiesSx.titleWrapper}>

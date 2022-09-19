@@ -48,44 +48,44 @@ const theme = createTheme({
 
 const PageContent: React.FC = () => {
   const scrollAreaRef = useRef(null);
-  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
+  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
 
   return (
     <>
-    <Box
-          sx={{
-            display: "flex",
-            position: "fixed",
-            width: "100%",
-            height: "100%",
-            overflow: "hidden",
-            flexDirection: isSmUp ? 'row' : 'column'
-          }}
-        >
-          <Header scrollAreaRef={scrollAreaRef} />
-          <Box ref={scrollAreaRef} sx={{ width: "100%", overflowY: "auto" }}>
-            <Routes>
-              <Route path="/" element={<Preloader />} />
-              <Route path="/home" element={<Home />} />
-              {/* <Route path="/its" element={<ITS />} />
+      <Box
+        sx={{
+          display: "flex",
+          position: "fixed",
+          width: "100%",
+          height: "100%",
+          overflow: "hidden",
+          flexDirection: isSmUp ? "row" : "column",
+        }}
+      >
+        <Header scrollAreaRef={scrollAreaRef} />
+        <Box ref={scrollAreaRef} sx={{ width: "100%", overflowY: "auto" }}>
+          <Routes>
+            <Route path="/" element={<Preloader />} />
+            <Route path="/home" element={<Home />} />
+            {/* <Route path="/its" element={<ITS />} />
 							<Route path="/microfe" element={<IndeedMicroFE />} /> */}
-              {/* <Route path="/m" exact element={Maintenance} /> */}
-              {/* <Route path="/dfm" element={DFM} /> */}
-              <Route path="*" element={<Navigate to="/home" />} />
-            </Routes>
-            <Footer scrollAreaRef={scrollAreaRef} />
-          </Box>
+            {/* <Route path="/m" exact element={Maintenance} /> */}
+            {/* <Route path="/dfm" element={DFM} /> */}
+            <Route path="*" element={<Navigate to="/home" />} />
+          </Routes>
+          <Footer scrollAreaRef={scrollAreaRef} />
         </Box>
+      </Box>
     </>
-  )
+  );
 };
 
 const App: React.FC = () => (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <PageContent />
-      </Router>
-    </ThemeProvider>
+  <ThemeProvider theme={theme}>
+    <Router>
+      <PageContent />
+    </Router>
+  </ThemeProvider>
 );
 
 export default App;

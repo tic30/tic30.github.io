@@ -28,10 +28,10 @@ const MenuScreen: React.FC<MenuScreenType> = ({
   open,
   setOpen,
   menuList = [],
-  scrollAreaRef
+  scrollAreaRef,
 }) => {
   const [openDelay, setOpenDelay] = useState(false);
-  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
+  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
   const scrollDir = useScrollDirection(scrollAreaRef.current);
 
   useEffect(() => {
@@ -82,10 +82,10 @@ const MenuScreen: React.FC<MenuScreenType> = ({
   };
 
   const wrapperMobileStyle = {
-    overflow: 'hidden',
+    overflow: "hidden",
     height: open ? "100%" : "3.5rem",
     width: open ? "100%" : "5.5rem",
-    marginTop: scrollDir === "DOWN" ? "-3.5rem" : 0
+    marginTop: scrollDir === "DOWN" ? "-3.5rem" : 0,
   } as SystemStyleObject;
 
   const wrapperSmUpStyle = {
@@ -102,7 +102,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
       "> div::after": {
         backgroundColor: colors.grey[100],
       },
-    }
+    },
   } as SystemStyleObject;
 
   return (
@@ -113,7 +113,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
         transition: "0.2s",
         flexShrink: 0,
         zIndex: 10,
-        ...(isSmUp ? wrapperSmUpStyle : wrapperMobileStyle)
+        ...(isSmUp ? wrapperSmUpStyle : wrapperMobileStyle),
       }}
     >
       <Box

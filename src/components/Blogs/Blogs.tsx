@@ -18,16 +18,20 @@ const blogList: BlogType[] = [
 ];
 
 export default function Blogs() {
-  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
+  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
 
   return (
-    <Box sx={{ 
-      display: "flex",
-      gap: 3,
-      ...(isSmUp ? {} : {
-        flexDirection: 'column'
-      })
-    }}>
+    <Box
+      sx={{
+        display: "flex",
+        gap: 3,
+        ...(isSmUp
+          ? {}
+          : {
+              flexDirection: "column",
+            }),
+      }}
+    >
       {blogList.map((blog, id) => (
         <BlogCard key={`blog-accordion-${id}`} blog={blog} />
       ))}
