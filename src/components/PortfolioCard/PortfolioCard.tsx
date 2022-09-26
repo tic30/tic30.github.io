@@ -39,7 +39,7 @@ const PortfolioCard: React.FC<PortfolioCardType> = ({
   sx,
   ...rest
 }) => {
-  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
+  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
 
   return (
     <Card
