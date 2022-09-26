@@ -43,7 +43,6 @@ const MenuScreen: React.FC<MenuScreenType> = ({
     () => ({
       flexDirection: open ? "row" : "column",
       alignItems: "center",
-      ...(isSmUp ? { justifyContent: "center" } : {}),
       borderRadius: 1,
       p: open ? "0.5rem 0.35rem" : 1,
       mb: open ? 3 : 1,

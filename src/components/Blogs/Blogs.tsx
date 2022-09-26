@@ -18,7 +18,7 @@ const blogList: BlogType[] = [
 ];
 
 export default function Blogs() {
-  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
+  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
 
   return (
     <Box

@@ -33,7 +33,7 @@ const indeedStories = [
 ];
 
 const IndeedPage: React.FC = () => {
-  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
+  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
   const paperSx = {
     ...topStorySx.outer,
     ...(isSmUp
