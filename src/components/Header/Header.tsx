@@ -60,7 +60,7 @@ const menuList: MenuItemType[] = [
         icon: <SummarizeIcon />,
         title: "Resume",
         pageUrl:
-          "https://drive.google.com/open?id=0B1dSWHM51dn-RGJBNlJZNFdaNW8",
+          "https://drive.google.com/file/d/1bXDjJxRLXtQFc9ffnoZv-sCnxcFigy1Q",
         external: true,
       },
       {

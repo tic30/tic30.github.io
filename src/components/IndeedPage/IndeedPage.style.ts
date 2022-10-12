@@ -34,6 +34,7 @@ export const storiesSx = {
     position: "relative",
     display: "flex",
     flexDirection: "column",
+    alignSelf: "flex-start",
     gap: 1,
     mb: 2,
     img: {
