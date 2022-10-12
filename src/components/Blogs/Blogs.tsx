@@ -18,14 +18,14 @@ const blogList: BlogType[] = [
 ];
 
 export default function Blogs() {
-  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
+  const isMdUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
 
   return (
     <Box
       sx={{
         display: "flex",
         gap: 3,
-        ...(isSmUp
+        ...(isMdUp
           ? {}
           : {
               flexDirection: "column",

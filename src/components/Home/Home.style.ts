@@ -7,7 +7,6 @@ export const introCardSx = {
     p: 3,
     gap: 3,
     minWidth: "300px",
-    width: "30%",
     backgroundColor: "rgba(255,255,255,0.98)",
     borderRadius: 3,
     boxShadow: 2,
