@@ -15,6 +15,12 @@ const blogList: BlogType[] = [
       "Build a design system that is both complete and extentively flexible.",
     img: "/imgs/design-system.png",
   },
+  {
+    title: "Tools and methodologies to prevent broken experiene",
+    description:
+      "Debugging and fixing incidents are stressful and costly. There are precautions we can make to mitigate this risk.",
+    img: "/imgs/prevent-broken.jpeg",
+  },
 ];
 
 export default function Blogs() {
