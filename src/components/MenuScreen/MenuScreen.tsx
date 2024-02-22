@@ -48,6 +48,8 @@ const MenuScreen: React.FC<MenuScreenType> = ({
       mb: open ? 3 : 1,
       height: open ? "2.5rem" : "3.5rem",
       width: open ? "auto" : "4.25rem",
+      justifyContent: open ? "flex-start" : "center",
+      textDecoration: "none",
       "&:hover": {
         cursor: "pointer",
       },
@@ -58,14 +60,14 @@ const MenuScreen: React.FC<MenuScreenType> = ({
         color: colors.grey[100],
         ...(open ? { mx: 2 } : {}),
       },
-      "> span": {
+      span: {
         fontSize: open ? "1rem" : "0.75rem",
-        color: colors.grey[100],
+        color: colors.common.white,
         display: openDelay ? "block" : "none",
         opacity: openDelay ? 1 : 0,
       },
       "&:hover, &:focus": {
-        backgroundColor: colors.grey[50],
+        backgroundColor: colors.grey[100],
         "> svg, > span": {
           color: colors.grey[900],
         },
@@ -92,14 +94,19 @@ const MenuScreen: React.FC<MenuScreenType> = ({
     width: open ? "24rem" : "5.5rem",
   } as SystemStyleObject;
 
+  const bgColor = `linear-gradient(
+    to left,
+    ${colors.common.black}, ${colors.grey[900]}
+  )` as SystemStyleObject;
+
   const hambergurSmUpStyle = {
     "&:hover": {
-      backgroundColor: colors.grey[900],
+      background: bgColor,
       "> div": {
-        backgroundColor: open ? colors.grey[900] : colors.grey[100],
+        background: open ? bgColor : colors.grey[100],
       },
       "> div::after": {
-        backgroundColor: colors.grey[100],
+        background: colors.grey[100],
       },
     },
   } as SystemStyleObject;
@@ -107,7 +114,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
   return (
     <Box
       sx={{
-        backgroundColor: colors.grey[900],
+        background: bgColor,
         p: 1,
         transition: "0.2s",
         flexShrink: 0,
@@ -128,11 +135,11 @@ const MenuScreen: React.FC<MenuScreenType> = ({
           ml: -1,
           mb: 2,
           p: 3,
-          backgroundColor: "white",
+          background: "white",
           ...(isSmUp ? hambergurSmUpStyle : {}),
           ...(open
             ? {
-                backgroundColor: colors.grey[900],
+                background: bgColor,
               }
             : {}),
         }}
@@ -221,10 +228,16 @@ const MenuScreen: React.FC<MenuScreenType> = ({
                     mr: 2,
                   },
                   "> a:hover, > a:hover span, > a:focus, > a:focus span": {
-                    backgroundColor: open ? colors.grey[50] : colors.grey[900],
+                    background: open ? colors.grey[50] : bgColor,
                     color: open ? colors.grey[900] : "white",
-                    textDecoration: "underline",
                   },
+                  ...(open
+                    ? {
+                        span: {
+                          color: colors.common.white,
+                        },
+                      }
+                    : {}),
                 }}
               >
                 {item.subMenuItems.map((page, id) =>

@@ -58,11 +58,11 @@ const IndeedPage: React.FC = () => {
         UX Developer @ Indeed
       </Typography>
       <Typography sx={{ mb: 5 }}>
-        I work at Indeed as a UX Developer. I play a role of front end
+        I work at Indeed as a Senior UX Developer, with a role of front end
         contributor and design-engineering coordinator in the team. My work
-        supports the front end feature iterations, drive adoption of
-        company-wide UX & FE directions and guidelines, and coordinate across
-        teams.
+        supports the front end product iterations, guides the development of
+        reusable UI component library, and grows our community by leading
+        innovations and coordinating across functions and teams.
       </Typography>
       <Paper sx={paperSx}>
         <Box>

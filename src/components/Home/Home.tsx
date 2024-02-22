@@ -163,7 +163,7 @@ const Home: React.FC = () => {
       </Box>
       <Box component="section" id="blog" sx={{ minHeight: "auto", pb: "7rem" }}>
         <Container sx={sectionHeaderSX}>
-          <Typography variant="h2">Blog</Typography>
+          <Typography variant="h2">Researches</Typography>
         </Container>
         <Container>
           <Blogs />

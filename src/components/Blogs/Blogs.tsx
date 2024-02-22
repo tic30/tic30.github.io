@@ -3,6 +3,13 @@ import BlogCard, { BlogType } from "./BlogCard";
 
 const blogList: BlogType[] = [
   {
+    title: "Storybook and Chromatic for large org",
+    description:
+      "Comprehensive visual testing and documentation of UI components using Storybook and Chromatic can work efficiently across teams in large organizations.",
+    // link: '#',
+    img: "/imgs/storybook.jpg",
+  },
+  {
     title: "Common practise in accessibility",
     description:
       "A11y can do you a lot more good than in WCAG paper. Look at this list of common practises to boost page usability.",
