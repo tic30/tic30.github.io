@@ -29,6 +29,8 @@ const BlogCard: React.FC<BlogCardType> = ({ blog }) => {
         ...(isMdUp ? { maxWidth: 345 } : {}),
         boxShadow: 3,
         borderRadius: 3,
+        flexBasis: "100px",
+        flexGrow: 1,
       }}
     >
       <CardActionArea
@@ -62,7 +64,7 @@ const BlogCard: React.FC<BlogCardType> = ({ blog }) => {
             disabled={!blog.link}
             sx={{ ml: "0.25rem", ":hover": { background: "none" } }}
           >
-            {blog.link ? "Read more" : "Coming soon"}
+            {blog.link ? "Read more" : "By request"}
           </Button>
         </CardActions>
       </CardActionArea>

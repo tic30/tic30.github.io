@@ -28,7 +28,7 @@ interface PortfolioCardContentType {
   pageUrl: string;
 }
 
-interface PortfolioCardType extends CardProps {
+interface PortfolioCardType extends Omit<CardProps, "content"> {
   wide?: boolean;
   content: PortfolioCardContentType;
 }
@@ -86,7 +86,7 @@ const PortfolioCard: React.FC<PortfolioCardType> = ({
               disabled={content.pageUrl === "tbd"}
               sx={btnStyle}
             >
-              {content.pageUrl === "tbd" ? "Coming soon" : "Read more"}
+              {content.pageUrl === "tbd" ? "By request" : "Read more"}
             </Button>
           )}
         </CardContent>

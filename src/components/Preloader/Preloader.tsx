@@ -5,8 +5,8 @@ import { styled } from "@mui/material/styles";
 
 const PreloaderScreen = styled(Box)({
   height: "100vh",
-  backgroundColor: colors.common.black,
-  color: colors.common.white,
+  backgroundColor: colors.grey[300],
+  color: colors.grey[900],
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -42,7 +42,7 @@ const PreloaderText = styled(Box)({
     height: "100%",
     width: "3px",
     right: 0,
-    backgroundColor: colors.common.white,
+    backgroundColor: colors.grey[900],
     zIndex: 1,
     animationName: "blink",
     animationDuration: "4s",

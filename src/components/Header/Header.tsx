@@ -28,8 +28,8 @@ const menuList: MenuItemType[] = [
   },
   {
     icon: <BatchPredictionIcon />,
-    text: "Blog",
-    link: "/home#blog",
+    text: "Researches",
+    link: "/home#researches",
   },
   {
     icon: <WorkspacesIcon />,
@@ -38,6 +38,7 @@ const menuList: MenuItemType[] = [
     subMenuItems: [
       {
         ...Texts.OH,
+        pageUrl: "/home#projects",
         icon: <DeveloperBoardIcon />,
       },
       // {
