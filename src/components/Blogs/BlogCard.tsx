@@ -41,6 +41,7 @@ const BlogCard: React.FC<BlogCardType> = ({ blog }) => {
           alignItems: "flex-start",
           height: "100%",
         }}
+        {...(blog.link ? { href: blog.link } : {})}
       >
         <CardMedia
           component="img"
