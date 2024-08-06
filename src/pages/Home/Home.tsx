@@ -9,10 +9,10 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
-import IndeedPage from "../IndeedPage";
-import OtherWorks from "../OtherWorks";
-import Blogs from "../Blogs";
-import PortfolioCard from "../PortfolioCard";
+import IndeedPage from "../../components/IndeedPage";
+import OtherWorks from "../../components/OtherWorks";
+import Blogs from "../../components/Blogs";
+import PortfolioCard from "../../components/PortfolioCard";
 import Texts from "../../texts";
 import { connectBgSx, introCardSx, sectionHeaderSX } from "./Home.style";
 import { LINKEDIN } from "../../constants";
@@ -20,7 +20,7 @@ import AccessibleForwardIcon from "@mui/icons-material/AccessibleForward";
 import PublicIcon from "@mui/icons-material/Public";
 import Diversity2OutlinedIcon from "@mui/icons-material/Diversity2Outlined";
 import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
-import LightTooltip from "../Misc/LightTooltip";
+import LightTooltip from "../../components/Misc/LightTooltip";
 
 const Home: React.FC = () => {
   const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
@@ -100,9 +100,9 @@ const Home: React.FC = () => {
               forward, together
             </Typography>
             <Typography>
-              Embrace diversity, bring practical value to communities and make
-              thoughtful impact, while pushing my value of life above and
-              beyond.
+              I believe in innovation, through which I endeavor to bring value
+              to communities, make thoughtful impact and seek personal and team
+              growth.
             </Typography>
             <Box sx={introCardSx.inner}>
               {/* {Texts.SelfIntro.icons.map((item, id) => (
@@ -114,16 +114,28 @@ const Home: React.FC = () => {
                 sx={introCardSx.img1}
               />
             ))} */}
-              <LightTooltip title="Cultural inclusive" tabIndex={0}>
+              <LightTooltip
+                title="Collaborate across time zone and build a efficient team across globe"
+                tabIndex={0}
+              >
                 <PublicIcon fontSize="large" />
               </LightTooltip>
-              <LightTooltip title="Accessibility" tabIndex={0}>
+              <LightTooltip
+                title="Advocate high accessibility standards"
+                tabIndex={0}
+              >
                 <AccessibleForwardIcon fontSize="large" />
               </LightTooltip>
-              <LightTooltip title="Wellness" tabIndex={0}>
+              <LightTooltip
+                title="Mentor college students and help them build career path in UX/Eng/HCI"
+                tabIndex={0}
+              >
                 <SpaOutlinedIcon fontSize="large" />
               </LightTooltip>
-              <LightTooltip title="Diversity" tabIndex={0}>
+              <LightTooltip
+                title="Connect cross functional and diverse colleagues and build trust"
+                tabIndex={0}
+              >
                 <Diversity2OutlinedIcon fontSize="large" />
               </LightTooltip>
             </Box>
@@ -161,7 +173,11 @@ const Home: React.FC = () => {
           <OtherWorks />
         </Container>
       </Box>
-      <Box component="section" id="blog" sx={{ minHeight: "auto", pb: "7rem" }}>
+      <Box
+        component="section"
+        id="researches"
+        sx={{ minHeight: "auto", pb: "7rem" }}
+      >
         <Container sx={sectionHeaderSX}>
           <Typography variant="h2">Researches</Typography>
         </Container>
