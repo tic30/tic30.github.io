@@ -49,7 +49,7 @@ const Text = {
     subTitle:
       "Design, construct and migrate to Webpack 5 based micro frontend, with GraphQL fragment first architecture.",
     btnText: "Read more",
-    pageUrl: "tbd", ///microfe
+    pageUrl: "", ///microfe
   },
   ITS: {
     title: "Intelligent Tutoring Systems",
