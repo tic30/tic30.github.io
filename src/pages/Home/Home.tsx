@@ -115,7 +115,7 @@ const Home: React.FC = () => {
               />
             ))} */}
               <LightTooltip
-                title="Collaborate across time zone and build a efficient team across globe"
+                title="Collaborate across time zones and build an efficient team across globe"
                 tabIndex={0}
               >
                 <PublicIcon fontSize="large" />
@@ -127,7 +127,7 @@ const Home: React.FC = () => {
                 <AccessibleForwardIcon fontSize="large" />
               </LightTooltip>
               <LightTooltip
-                title="Mentor college students and help them build career path in UX/Eng/HCI"
+                title="Mentor college students and help them build career paths in UX/Eng/HCI"
                 tabIndex={0}
               >
                 <SpaOutlinedIcon fontSize="large" />

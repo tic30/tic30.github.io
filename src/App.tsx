@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import Preloader from "./components/Preloader";
 import Home from "./pages/Home";
-// import Storybook from "./pages/Storybook";
+import Storybook from "./pages/Storybook";
 // import ITS from './components/ITS';
 // import IndeedMicroFE from './components/IndeedMicroFE';
 import Header from "./components/Header";
@@ -68,7 +68,10 @@ const PageContent: React.FC = () => {
           <Routes>
             <Route path="/" element={<Preloader />} />
             <Route path="/home" element={<Home />} />
-            {/* <Route path="/storybook" element={<Storybook />} /> */}
+            <Route
+              path="/storybook"
+              element={<Storybook scrollAreaRef={scrollAreaRef} />}
+            />
             {/* <Route path="/its" element={<ITS />} />
 							<Route path="/microfe" element={<IndeedMicroFE />} /> */}
             {/* <Route path="/m" exact element={Maintenance} /> */}

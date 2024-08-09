@@ -5,9 +5,7 @@ import {
   CardActionArea,
   CardActions,
   CardMedia,
-  Theme,
   Typography,
-  useMediaQuery,
 } from "@mui/material";
 
 export interface BlogType {
@@ -21,16 +19,11 @@ export interface BlogCardType {
 }
 
 const BlogCard: React.FC<BlogCardType> = ({ blog }) => {
-  const isMdUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
-
   return (
     <Card
       sx={{
-        ...(isMdUp ? { maxWidth: 345 } : {}),
         boxShadow: 3,
         borderRadius: 3,
-        flexBasis: "100px",
-        flexGrow: 1,
       }}
     >
       <CardActionArea
