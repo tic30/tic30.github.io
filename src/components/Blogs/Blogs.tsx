@@ -1,4 +1,4 @@
-import { Box, Theme, useMediaQuery } from "@mui/material";
+import { Box } from "@mui/material";
 import BlogCard, { BlogType } from "./BlogCard";
 
 const blogList: BlogType[] = [
@@ -6,8 +6,14 @@ const blogList: BlogType[] = [
     title: "Storybook and Chromatic for large org",
     description:
       "Comprehensive visual testing and documentation of UI components using Storybook and Chromatic can work efficiently across teams in large organizations.",
-    // link: '#',
+    link: "#/storybook",
     img: "/imgs/storybook.jpg",
+  },
+  {
+    title: "Engineering efficiency & code quality: Choose your test",
+    description:
+      "Find the most efficient and effective test among Unit tests, Storybook interaction tests, Chromatic, A11y tests, Integration/E2E tests",
+    img: "/imgs/testing.png",
   },
   {
     title: "Common practise in accessibility",
@@ -30,24 +36,18 @@ const blogList: BlogType[] = [
   },
 ];
 
-export default function Blogs() {
-  const isMdUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
+const Blogs: React.FC = () => (
+  <Box
+    sx={{
+      display: "grid",
+      gap: 3,
+      gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    }}
+  >
+    {blogList.map((blog, id) => (
+      <BlogCard key={`blog-accordion-${id}`} blog={blog} />
+    ))}
+  </Box>
+);
 
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        gap: 3,
-        ...(isMdUp
-          ? {}
-          : {
-              flexDirection: "column",
-            }),
-      }}
-    >
-      {blogList.map((blog, id) => (
-        <BlogCard key={`blog-accordion-${id}`} blog={blog} />
-      ))}
-    </Box>
-  );
-}
+export default Blogs;
