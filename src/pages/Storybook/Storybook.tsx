@@ -1,5 +1,4 @@
 import {
-  Alert,
   Box,
   colors,
   Container,
@@ -28,6 +27,7 @@ const Storybook: React.FC<{
         },
         "p, span, li": {
           fontSize: "1.25rem",
+          color: colors.grey[800],
         },
         "li p": {
           fontSize: "1rem",
@@ -37,7 +37,6 @@ const Storybook: React.FC<{
         },
       }}
     >
-      <Alert severity="info">This page is WIP.</Alert>
       <Container
         sx={{
           py: "3rem",
@@ -51,6 +50,7 @@ const Storybook: React.FC<{
           sx={{
             lineHeight: 1,
             mb: 2,
+            fontSize: ["3rem", "4rem", "6rem"],
           }}
         >
           Storybook & Chromatic
@@ -157,7 +157,7 @@ const Storybook: React.FC<{
           <ListItem>
             <ListItemText
               primary="How to upgrade Storybook to v8? How much effort is needed?"
-              secondary="The doc explains that installing the new utility library will automatically upgrade their Storybook to v8. Some common errors and solutions are also provided. Teams use addons that are not v8 compatible is instructed to use v7 compatible utility library for now. I explained that Storybook v7/8 are backward compatible so updating existing stories is optional, making the overall effort minimum."
+              secondary="The doc explains that installing the new utility library will automatically upgrade their Storybook to v8. Some common errors and solutions are also provided. Teams use addons that are not v8 compatible is instructed to use v7 compatible utility library for now. I explained that Storybook v7/8 are backward compatible so updating existing stories is optional, making the adoption progressive and the overall upfront effort minimum ."
             />
           </ListItem>
           <ListItem>
@@ -181,7 +181,7 @@ const Storybook: React.FC<{
           <ListItem>
             <ListItemText
               primary="What are new best practises?"
-              secondary="A few examples: CSF3 is the standard code format for story file; Interaction tests are encouraged as the first choise for React components; Certain ways of mocking things(GragphQL query and cache, feature flag...) are established; MDX documentation is encouraged should a single component has too many variants or two components are correlated."
+              secondary="A few examples: CSF3 is the standard code format for story file; Interaction tests are encouraged as the first choise for React components; Certain ways of mocking things(GragphQL query and cache, feature flag...) are established; Autodoc is enabled by default; MDX documentation is encouraged should a single component has too many variants or two components are correlated and autodoc is not enough."
             />
           </ListItem>
         </List>
