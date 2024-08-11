@@ -38,7 +38,7 @@ const menuList: MenuItemType[] = [
     subMenuItems: [
       {
         ...Texts.OH,
-        pageUrl: "/home#projects",
+        pageUrl: "/microfe",
         icon: <DeveloperBoardIcon />,
       },
       // {

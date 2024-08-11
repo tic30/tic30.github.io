@@ -14,13 +14,13 @@ import {
   useMediaQuery,
   Theme,
 } from "@mui/material";
-import Preloader from "./components/Preloader";
 import Home from "./pages/Home";
 import Storybook from "./pages/Storybook";
-// import ITS from './components/ITS';
-// import IndeedMicroFE from './components/IndeedMicroFE';
+import IndeedMicroFE from "./pages/IndeedMicroFE";
+import Preloader from "./components/Preloader";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+// import ITS from './components/ITS';
 // import Maintenance from './components/Maintenance';
 // import DFM from './components/DFM';
 
@@ -72,8 +72,11 @@ const PageContent: React.FC = () => {
               path="/storybook"
               element={<Storybook scrollAreaRef={scrollAreaRef} />}
             />
-            {/* <Route path="/its" element={<ITS />} />
-							<Route path="/microfe" element={<IndeedMicroFE />} /> */}
+            <Route
+              path="/microfe"
+              element={<IndeedMicroFE scrollAreaRef={scrollAreaRef} />}
+            />
+            {/* <Route path="/its" element={<ITS />} />*/}
             {/* <Route path="/m" exact element={Maintenance} /> */}
             {/* <Route path="/dfm" element={DFM} /> */}
             <Route path="*" element={<Navigate to="/home" />} />

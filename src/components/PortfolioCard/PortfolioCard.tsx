@@ -56,6 +56,7 @@ const PortfolioCard: React.FC<PortfolioCardType> = ({
             ? cardActionAreaWideStyleDesktop
             : cardActionAreaDefaultStyle),
         }}
+        {...(content.pageUrl ? { href: content.pageUrl } : {})}
       >
         <CardMedia
           component="img"
