@@ -5,9 +5,17 @@ import {
   List,
   ListItem,
   ListItemText,
+  SxProps,
   Typography,
 } from "@mui/material";
 import { useEffect } from "react";
+
+const imgSx: SxProps = {
+  display: "block",
+  marginInline: "auto",
+  paddingBlock: 4,
+  maxWidth: "100%",
+};
 
 const IndeedMicroFE: React.FC<{
   scrollAreaRef: React.RefObject<HTMLDivElement>;
@@ -25,7 +33,7 @@ const IndeedMicroFE: React.FC<{
         "*": {
           color: colors.grey[800],
         },
-        "p, span, li": {
+        "p, span, li, h6": {
           fontSize: "1.25rem",
           color: colors.grey[800],
         },
@@ -34,6 +42,9 @@ const IndeedMicroFE: React.FC<{
         },
         "h1, h5": {
           textTransform: "uppercase",
+        },
+        h6: {
+          fontWeight: "bold",
         },
       }}
     >
@@ -67,27 +78,66 @@ const IndeedMicroFE: React.FC<{
           to help my team onboard and do the migration.
         </Typography>
         <Typography variant="h5" sx={{ pb: "1rem" }}>
-          Concept: Webpack 5 federated module repositories
+          Problem
+        </Typography>
+        <Typography>
+          Tight coupling appears as we fetch data in one big query, use a
+          transformation layer to format the data to match what UI needs, and
+          store everything in one giant data object. Features often ask for
+          different format of the same/similar data, resulting in unmaintainable
+          large number of transformer functions, confusing data object keys,
+          prop drilling and poor performance.
+        </Typography>
+        <Box
+          component="img"
+          sx={imgSx}
+          alt="Problem"
+          aria-hidden
+          src="/imgs/mfe1.png"
+        />
+        <Typography variant="h5" sx={{ pb: "1rem" }}>
+          Concept and design
         </Typography>
         <Typography sx={{ pb: "2rem" }}>
+          Webpack 5 module federation and GraphQL fragments are two powerful
+          tools we can use. Here are how we interpret and apply these concepts.
+        </Typography>
+        <Typography variant="subtitle1">
+          Concept: Webpack 5 federated module repositories
+        </Typography>
+        <Typography>
           UI layer is broken down into page level "container" repositories, plus
           many "feature" repositories owned by product teams. Feature repos are
           exposed as federated modules and consumed by container repos, or other
           feature repos as needed.
         </Typography>
-        <Typography variant="h5" sx={{ pb: "1rem" }}>
+        <Box
+          component="img"
+          sx={imgSx}
+          alt="Federated React Components"
+          aria-hidden
+          src="/imgs/mfe-react.png"
+        />
+        <Typography variant="subtitle1">
           Concept: Federated GraphQL fragment
         </Typography>
-        <Typography sx={{ pb: "2rem" }}>
+        <Typography>
           GraphQL fragments can exist for any feature, live in any repository,
           be written as much as needed. They are all federated onto a few main
           queries, resulting in a small number of queries fired at page load,
           significantly boosts performance and reduces server load.
         </Typography>
-        <Typography variant="h5" sx={{ pb: "1rem" }}>
-          Concept: Fragment first architecture
+        <Box
+          component="img"
+          sx={imgSx}
+          alt="Federated React Components"
+          aria-hidden
+          src="/imgs/mfe-frag.png"
+        />
+        <Typography variant="subtitle1">
+          Design: Fragment first architecture
         </Typography>
-        <Typography sx={{ pb: "2rem" }}>
+        <Typography>
           Each UI feature module exposes its own GraphQL fragment. Never reuse a
           fragment from another feature. Then all the fragments are federated
           onto main queries in the container repository. This clarifies the
@@ -95,6 +145,13 @@ const IndeedMicroFE: React.FC<{
           modules, and makes feature iterations, code tracing and cleanups much
           easier.
         </Typography>
+        <Box
+          component="img"
+          sx={imgSx}
+          alt="Fragment first architecture"
+          aria-hidden
+          src="/imgs/mfe-together.png"
+        />
         <Typography variant="h5">Workflow</Typography>
         <List sx={{ pb: "2rem" }}>
           <ListItem>
@@ -181,6 +238,9 @@ const IndeedMicroFE: React.FC<{
           while and it is reliable, performant and proven easy to adapt across a
           few reorg. Teams are working to refine some of the features, adding
           capabilities and pushing for broader audience across the company.
+        </Typography>
+        <Typography variant="caption" component="div" sx={{ mt: "3rem" }}>
+          *Illustrations are credited to Indeed colleague.
         </Typography>
       </Container>
     </Box>
