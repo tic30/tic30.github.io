@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Box, colors, Theme, Typography, useMediaQuery } from "@mui/material";
 import { HashLink } from "react-router-hash-link";
 import { SystemStyleObject } from "@mui/system";
@@ -30,6 +30,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
   menuList = [],
   scrollAreaRef,
 }) => {
+  const menuTriggerRef = useRef<HTMLDivElement>(null);
   const [openDelay, setOpenDelay] = useState(false);
   const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
   const scrollDir = useScrollDirection(scrollAreaRef.current);
@@ -82,6 +83,11 @@ const MenuScreen: React.FC<MenuScreenType> = ({
     }
   };
 
+  const handleMenuItemClick = (): void => {
+    setOpen(false);
+    menuTriggerRef.current?.focus();
+  };
+
   const wrapperMobileStyle = {
     overflow: "hidden",
     height: open ? "100%" : "3.5rem",
@@ -123,6 +129,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
       }}
     >
       <Box
+        ref={menuTriggerRef}
         tabIndex={0}
         onKeyDown={handleKeyDown}
         onClick={() => setOpen(!open)}
@@ -186,7 +193,12 @@ const MenuScreen: React.FC<MenuScreenType> = ({
               },
           }}
         >
-          <Box component={HashLink} to={item.link} sx={innerSx}>
+          <Box
+            component={HashLink}
+            to={item.link}
+            sx={innerSx}
+            onClick={handleMenuItemClick}
+          >
             {item.icon}
             <Typography component="span">{item.text}</Typography>
           </Box>
@@ -257,6 +269,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
                       key={`menu-submenu-item-${id}`}
                       component={HashLink}
                       to={page.pageUrl}
+                      onClick={handleMenuItemClick}
                     >
                       {page.icon}
                       <Typography component="span">{page.title}</Typography>
