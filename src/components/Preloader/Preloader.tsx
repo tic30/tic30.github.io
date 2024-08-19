@@ -5,7 +5,6 @@ import { styled } from "@mui/material/styles";
 
 const PreloaderScreen = styled(Box)({
   height: "100vh",
-  backgroundColor: colors.grey[300],
   color: colors.grey[900],
   display: "flex",
   justifyContent: "center",
