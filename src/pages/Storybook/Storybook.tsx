@@ -39,7 +39,7 @@ const Storybook: React.FC<{
     >
       <Container
         sx={{
-          py: "3rem",
+          py: "min(30vh, 30rem)",
           "*": {
             textAlign: "center",
           },

@@ -2,32 +2,27 @@ import {
   Container,
   Box,
   colors,
-  Paper,
-  Theme,
   Typography,
   Button,
-  useMediaQuery,
+  IconButton,
+  useTheme,
 } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import SummarizeIcon from "@mui/icons-material/Summarize";
 import IndeedPage from "../../components/IndeedPage";
 import OtherWorks from "../../components/OtherWorks";
 import Blogs from "../../components/Blogs";
 import PortfolioCard from "../../components/PortfolioCard";
+import AboutMeCardUX from "../../components/AboutMeCards/AboutMeCardUX";
+import AboutMeCardPersonality from "../../components/AboutMeCards/AboutMeCardPersonality";
 import Texts from "../../texts";
-import { connectBgSx, introCardSx, sectionHeaderSX } from "./Home.style";
-import { LINKEDIN } from "../../constants";
-import AccessibleForwardIcon from "@mui/icons-material/AccessibleForward";
-import PublicIcon from "@mui/icons-material/Public";
-import Diversity2OutlinedIcon from "@mui/icons-material/Diversity2Outlined";
-import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
-import LightTooltip from "../../components/Misc/LightTooltip";
+import { connectBgSx, sectionHeaderSX } from "./Home.style";
+import { customColors, GITHUB, LINKEDIN, RESUME } from "../../constants";
 
 const Home: React.FC = () => {
-  const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
-  const introCardSxOuter = {
-    ...introCardSx.outer,
-    ...(isSmUp ? { width: "30%" } : {}),
-  };
+  const theme = useTheme();
 
   return (
     <>
@@ -35,8 +30,10 @@ const Home: React.FC = () => {
         component="section"
         id="self-intro"
         sx={{
-          minHeight: "100vh",
-          backgroundImage: "url(/imgs/bgsec1.png)",
+          marginTop: "30px",
+          minHeight: "calc(100vh - 30px)",
+          backgroundImage:
+            theme.palette.mode === "dark" ? "" : "url(/imgs/bgsec1.png)",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
@@ -55,12 +52,7 @@ const Home: React.FC = () => {
             },
           }}
         >
-          <Typography
-            variant="h4"
-            sx={{
-              color: colors.grey[500],
-            }}
-          >
+          <Typography variant="h4" sx={{ color: theme.palette.text.secondary }}>
             Hey there, I'm
           </Typography>
           <Typography
@@ -68,7 +60,6 @@ const Home: React.FC = () => {
             sx={{
               lineHeight: 1,
               mb: 2,
-              color: colors.grey[800],
             }}
           >
             Tim Chu
@@ -76,12 +67,12 @@ const Home: React.FC = () => {
           <Typography
             variant="h6"
             sx={{
-              color: colors.grey[500],
               lineHeight: 1.8,
+              color: theme.palette.text.secondary,
             }}
           >
             An innovative{" "}
-            <Box component="span" sx={{ color: colors.amber[800] }}>
+            <Box component="span" sx={{ color: customColors.orange }}>
               problem solver
             </Box>
             <br />
@@ -93,78 +84,15 @@ const Home: React.FC = () => {
           </Typography>
         </Container>
         <Container sx={{ mt: 3, display: "flex", gap: 3, flexWrap: "wrap" }}>
-          <Paper sx={introCardSxOuter}>
-            <Typography variant="h5">
-              A journey
-              <br />
-              forward, together
-            </Typography>
-            <Typography>
-              I believe in innovation, through which I endeavor to bring value
-              to communities, make thoughtful impact and seek personal and team
-              growth.
-            </Typography>
-            <Box sx={introCardSx.inner}>
-              {/* {Texts.SelfIntro.icons.map((item, id) => (
-              <Box
-                component="img"
-                key={`flyer-left-icon${id}`}
-                src={`/imgs/${item.src}`}
-                alt="Flyer Icon"
-                sx={introCardSx.img1}
-              />
-            ))} */}
-              <LightTooltip
-                title="Collaborate across time zones and build an efficient team across globe"
-                tabIndex={0}
-              >
-                <PublicIcon fontSize="large" />
-              </LightTooltip>
-              <LightTooltip
-                title="Advocate high accessibility standards"
-                tabIndex={0}
-              >
-                <AccessibleForwardIcon fontSize="large" />
-              </LightTooltip>
-              <LightTooltip
-                title="Mentor college students and help them build career paths in UX/Eng/HCI"
-                tabIndex={0}
-              >
-                <SpaOutlinedIcon fontSize="large" />
-              </LightTooltip>
-              <LightTooltip
-                title="Connect cross functional and diverse colleagues and build trust"
-                tabIndex={0}
-              >
-                <Diversity2OutlinedIcon fontSize="large" />
-              </LightTooltip>
-            </Box>
-          </Paper>
-          <Paper sx={introCardSxOuter}>
-            <Typography variant="h5">
-              UX,
-              <br />
-              front end, and perfection
-            </Typography>
-            <Typography>
-              Bridge design and engineering, craft comprehensive ux-eng-quality
-              guidelines and galvanize team towards product vision.
-            </Typography>
-            <Box sx={introCardSx.inner}>
-              {Texts.Company.icons.map((item, id) => (
-                <Box
-                  component="img"
-                  key={`flyer-left-icon${id}`}
-                  src={`/imgs/${item.src}`}
-                  alt="Flyer Icon"
-                  sx={introCardSx.img2}
-                />
-              ))}
-            </Box>
-          </Paper>
+          <AboutMeCardUX />
+          <AboutMeCardPersonality />
         </Container>
       </Box>
-      <Box component="section" id="work" sx={{ pb: "5rem" }}>
+      <Box
+        component="section"
+        id="work"
+        sx={{ minHeight: "100vh", pb: "5rem" }}
+      >
         <Container sx={sectionHeaderSX}>
           <Typography variant="h2">My work</Typography>
         </Container>
@@ -176,7 +104,7 @@ const Home: React.FC = () => {
       <Box
         component="section"
         id="researches"
-        sx={{ minHeight: "auto", pb: "7rem" }}
+        sx={{ minHeight: "100vh", pb: "7rem" }}
       >
         <Container sx={sectionHeaderSX}>
           <Typography variant="h2">Researches</Typography>
@@ -185,7 +113,11 @@ const Home: React.FC = () => {
           <Blogs />
         </Container>
       </Box>
-      <Box component="section" id="projects" sx={{ pb: "7rem" }}>
+      <Box
+        component="section"
+        id="projects"
+        sx={{ minHeight: "100vh", pb: "7rem" }}
+      >
         <Container sx={sectionHeaderSX}>
           <Typography variant="h2">Projects</Typography>
         </Container>
@@ -204,20 +136,50 @@ const Home: React.FC = () => {
           position: "relative",
           display: ["flex", "flex", "block"],
           flexDirection: "column",
+          minHeight: "calc(100vh - 250px)",
         }}
       >
         <Container sx={sectionHeaderSX}>
           <Typography variant="h2">Lets chat</Typography>
-          <Typography variant="h3" sx={{ my: 4, lineHeight: 1.6 }}>
-            I am open to
-            <br />
-            <Box component="span" sx={{ color: colors.amber[800] }}>
+          <Typography variant="h4" sx={{ my: 4, lineHeight: 1.6 }}>
+            I am open to{" "}
+            <Box component="span" sx={{ color: customColors.orange }}>
               creative
             </Box>{" "}
             ideas!
           </Typography>
+          <Box sx={{ display: "flex", gap: 1 }}>
+            <IconButton
+              size="large"
+              href={RESUME}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Resume"
+            >
+              <SummarizeIcon fontSize="large" aria-hidden />
+            </IconButton>
+            <IconButton
+              size="large"
+              href={LINKEDIN}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="LinkedIn"
+            >
+              <LinkedInIcon fontSize="large" aria-hidden />
+            </IconButton>
+            <IconButton
+              size="large"
+              href={GITHUB}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="GitHub"
+            >
+              <GitHubIcon fontSize="large" aria-hidden />
+            </IconButton>
+          </Box>
           <Button
-            sx={{ ml: -1, textTransform: "none" }}
+            size="large"
+            sx={{ mt: 1, textTransform: "none" }}
             endIcon={<ArrowForward />}
             component="a"
             href={LINKEDIN}
@@ -228,17 +190,20 @@ const Home: React.FC = () => {
           </Button>
         </Container>
         <Container sx={connectBgSx}>
-          <Box
-            component="img"
-            src="/imgs/bgsec4.jpeg"
-            alt="idea"
-            sx={{
-              height: ["200px", "300px"],
-            }}
-          />
+          {theme.palette.mode !== "dark" && (
+            <Box
+              component="img"
+              src="/imgs/bgsec4.jpeg"
+              alt="idea"
+              sx={{
+                height: ["200px", "300px"],
+              }}
+            />
+          )}
         </Container>
       </Box>
     </>
   );
 };
+
 export default Home;

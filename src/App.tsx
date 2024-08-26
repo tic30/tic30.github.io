@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   HashRouter as Router,
   Routes,
@@ -9,46 +9,70 @@ import {
   ThemeProvider,
   createTheme,
   Box,
-  colors,
   ThemeOptions,
   useMediaQuery,
   Theme,
+  colors,
+  styled,
+  useTheme,
 } from "@mui/material";
 import Home from "./pages/Home";
 import Storybook from "./pages/Storybook";
 import IndeedMicroFE from "./pages/IndeedMicroFE";
 import Preloader from "./components/Preloader";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
+import MenuScreen from "./components/MenuScreen";
+import { globalStyle } from "./constants";
 // import ITS from './components/ITS';
 // import Maintenance from './components/Maintenance';
 // import DFM from './components/DFM';
 
-const headingFont = {
-  fontFamily: "'Lato', sans-serif",
-  fontWeight: 700,
-};
-const theme = createTheme({
+const common: ThemeOptions = {
   typography: {
-    fontFamily: "'Roboto', sans-serif",
-    h1: headingFont,
-    h2: headingFont,
-    h4: headingFont,
-    body1: {
-      color: colors.grey[600],
+    fontFamily: "'Lato', sans-serif",
+    fontSize: 14,
+  },
+};
+
+const lightTheme = createTheme({
+  palette: {
+    mode: "light",
+    background: {
+      // default: colors.common.white,
+      paper: colors.common.white,
+    },
+    text: {
+      primary: colors.grey[900],
     },
   },
-  shadows: [
-    "none",
-    `0 0 12px ${colors.grey[100]}`,
-    `0 0 12px ${colors.grey[200]}`,
-    `5px 5px 20px ${colors.grey[300]}`,
-    ...Array<string>(21).fill("none"),
-  ] as ThemeOptions["shadows"],
+  ...common,
 });
 
-const PageContent: React.FC = () => {
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    background: {
+      // default: colors.grey[900],
+      paper: `${colors.grey[900]}B3`,
+    },
+    text: {
+      primary: colors.grey[50],
+    },
+  },
+  ...common,
+});
+
+const StyledMainContent = styled(Box)(({ theme }) => ({
+  width: "100%",
+  overflowY: "auto",
+  backgroundColor: theme.palette.background.default,
+}));
+
+const PageContent: React.FC<{
+  toggleDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ toggleDarkMode }) => {
   const scrollAreaRef = useRef(null);
+  const theme = useTheme();
   const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
 
   return (
@@ -58,13 +82,18 @@ const PageContent: React.FC = () => {
           display: "flex",
           position: "fixed",
           width: "100%",
-          height: "100%",
+          height: "100vh",
           overflow: "hidden",
           flexDirection: isSmUp ? "row" : "column",
+          color: theme.palette.text.primary,
+          ...globalStyle,
         }}
       >
-        <Header scrollAreaRef={scrollAreaRef} />
-        <Box ref={scrollAreaRef} sx={{ width: "100%", overflowY: "auto" }}>
+        <MenuScreen
+          scrollAreaRef={scrollAreaRef}
+          toggleDarkMode={toggleDarkMode}
+        />
+        <StyledMainContent ref={scrollAreaRef}>
           <Routes>
             <Route path="/" element={<Preloader />} />
             <Route path="/home" element={<Home />} />
@@ -82,18 +111,22 @@ const PageContent: React.FC = () => {
             <Route path="*" element={<Navigate to="/home" />} />
           </Routes>
           <Footer scrollAreaRef={scrollAreaRef} />
-        </Box>
+        </StyledMainContent>
       </Box>
     </>
   );
 };
 
-const App: React.FC = () => (
-  <ThemeProvider theme={theme}>
-    <Router>
-      <PageContent />
-    </Router>
-  </ThemeProvider>
-);
+const App: React.FC = () => {
+  const [darkMode, toggleDarkMode] = useState(false);
+
+  return (
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <Router>
+        <PageContent toggleDarkMode={toggleDarkMode} />
+      </Router>
+    </ThemeProvider>
+  );
+};
 
 export default App;

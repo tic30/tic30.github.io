@@ -1,8 +1,139 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Box, colors, Theme, Typography, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  styled,
+  Switch,
+  Theme,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { HashLink } from "react-router-hash-link";
 import { SystemStyleObject } from "@mui/system";
+import WorkspacesIcon from "@mui/icons-material/Workspaces";
+import PersonIcon from "@mui/icons-material/Person";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import DesignServicesIcon from "@mui/icons-material/DesignServices";
+import SummarizeIcon from "@mui/icons-material/Summarize";
+import BatchPredictionIcon from "@mui/icons-material/BatchPrediction";
+import CoffeeIcon from "@mui/icons-material/Coffee";
+import DeveloperBoardIcon from "@mui/icons-material/DeveloperBoard";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import useScrollDirection from "../../hooks/useScrollDirection";
+import Texts from "../../texts";
+import { GITHUB, LINKEDIN, RESUME } from "../../constants";
+
+const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+  width: 62,
+  height: 34,
+  padding: 7,
+  "& .MuiSwitch-switchBase": {
+    margin: 1,
+    padding: 0,
+    transform: "translateX(6px)",
+    "&.Mui-checked": {
+      color: "#fff",
+      transform: "translateX(22px)",
+      "& .MuiSwitch-thumb:before": {
+        backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
+          "#fff"
+        )}" d="M4.2 2.5l-.7 1.8-1.8.7 1.8.7.7 1.8.6-1.8L6.7 5l-1.9-.7-.6-1.8zm15 8.3a6.7 6.7 0 11-6.6-6.6 5.8 5.8 0 006.6 6.6z"/></svg>')`,
+      },
+      "& + .MuiSwitch-track": {
+        opacity: 1,
+        backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#aab4be",
+      },
+    },
+  },
+  "& .MuiSwitch-thumb": {
+    backgroundColor: theme.palette.mode === "dark" ? "#003153" : "#fff",
+    width: 32,
+    height: 32,
+    "&::before": {
+      content: "''",
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      left: 0,
+      top: 0,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+      backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
+        "#e85827"
+      )}" d="M9.305 1.667V3.75h1.389V1.667h-1.39zm-4.707 1.95l-.982.982L5.09 6.072l.982-.982-1.473-1.473zm10.802 0L13.927 5.09l.982.982 1.473-1.473-.982-.982zM10 5.139a4.872 4.872 0 00-4.862 4.86A4.872 4.872 0 0010 14.862 4.872 4.872 0 0014.86 10 4.872 4.872 0 0010 5.139zm0 1.389A3.462 3.462 0 0113.471 10a3.462 3.462 0 01-3.473 3.472A3.462 3.462 0 016.527 10 3.462 3.462 0 0110 6.528zM1.665 9.305v1.39h2.083v-1.39H1.666zm14.583 0v1.39h2.084v-1.39h-2.084zM5.09 13.928L3.616 15.4l.982.982 1.473-1.473-.982-.982zm9.82 0l-.982.982 1.473 1.473.982-.982-1.473-1.473zM9.305 16.25v2.083h1.389V16.25h-1.39z"/></svg>')`,
+    },
+  },
+  "& .MuiSwitch-track": {
+    opacity: 1,
+    backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#aab4be",
+    borderRadius: 20 / 2,
+  },
+}));
+
+const menuList: MenuItemType[] = [
+  {
+    icon: <PersonIcon />,
+    text: "About Me",
+    link: "/home#self-intro",
+  },
+  {
+    icon: <DesignServicesIcon />,
+    text: "My work",
+    link: "/home#work",
+  },
+  {
+    icon: <BatchPredictionIcon />,
+    text: "Researches",
+    link: "/home#researches",
+  },
+  {
+    icon: <WorkspacesIcon />,
+    text: "Projects",
+    link: "/home#projects",
+    subMenuItems: [
+      {
+        ...Texts.OH,
+        pageUrl: "/microfe",
+        icon: <DeveloperBoardIcon />,
+      },
+      // {
+      //   ...Texts.ITS,
+      //   icon: <VisibilityIcon />,
+      // },
+      {
+        title: "Others",
+        pageUrl: "/home#projects",
+        icon: <MoreHorizIcon />,
+      },
+    ],
+  },
+  {
+    icon: <CoffeeIcon />,
+    text: "Connect",
+    link: "/home#connect",
+    subMenuItems: [
+      {
+        icon: <SummarizeIcon />,
+        title: "Resume",
+        pageUrl: RESUME,
+        external: true,
+      },
+      {
+        icon: <LinkedInIcon />,
+        title: "LinkedIn",
+        pageUrl: LINKEDIN,
+        external: true,
+      },
+      {
+        icon: <GitHubIcon />,
+        title: "GitHub",
+        pageUrl: GITHUB,
+        external: true,
+      },
+    ],
+  },
+];
 
 export interface SubMenuItemType {
   icon?: React.ReactNode;
@@ -18,27 +149,55 @@ export interface MenuItemType {
   external?: boolean;
 }
 export interface MenuScreenType {
-  open: boolean;
-  setOpen: (newStatus: boolean) => void;
-  menuList: MenuItemType[];
   scrollAreaRef: React.RefObject<HTMLDivElement>;
+  toggleDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const MenuScreen: React.FC<MenuScreenType> = ({
-  open,
-  setOpen,
-  menuList = [],
   scrollAreaRef,
+  toggleDarkMode,
 }) => {
   const menuTriggerRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
   const [openDelay, setOpenDelay] = useState(false);
   const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
   const scrollDir = useScrollDirection(scrollAreaRef.current);
+  const theme = useTheme();
 
   useEffect(() => {
     setOpenDelay(false);
     setTimeout(() => setOpenDelay(true), 200);
   }, [open]);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+    const scrollListener = () => {
+      sections.forEach((current) => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 20;
+        const sectionId = current.getAttribute("id");
+        if (
+          (scrollAreaRef.current?.scrollTop ?? window.pageYOffset) >
+            sectionTop &&
+          (scrollAreaRef.current?.scrollTop ?? window.pageYOffset) <=
+            sectionTop + sectionHeight
+        ) {
+          document
+            .querySelector('.header-menu a[href*="' + sectionId + '"]')
+            ?.classList.add("active");
+        } else {
+          document
+            .querySelector('.header-menu a[href*="' + sectionId + '"]')
+            ?.classList.remove("active");
+        }
+      });
+    };
+    const scrollRef = scrollAreaRef.current;
+    scrollRef?.addEventListener("scroll", scrollListener);
+
+    return () => scrollRef?.removeEventListener("scroll", scrollListener);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const innerSx = useMemo(
     () => ({
@@ -58,19 +217,19 @@ const MenuScreen: React.FC<MenuScreenType> = ({
         display: "flex",
       },
       "> svg": {
-        color: colors.grey[100],
+        color: theme.palette.background.default,
         ...(open ? { mx: 2 } : {}),
       },
       span: {
         fontSize: open ? "1rem" : "0.75rem",
-        color: colors.common.white,
+        color: theme.palette.background.default,
         display: openDelay ? "block" : "none",
         opacity: openDelay ? 1 : 0,
       },
-      "&:hover, &:focus": {
-        backgroundColor: colors.grey[100],
+      "&:hover, &.active, &:focus": {
+        backgroundColor: theme.palette.background.default,
         "> svg, > span": {
-          color: colors.grey[900],
+          color: theme.palette.text.primary,
         },
       },
     }),
@@ -91,36 +250,35 @@ const MenuScreen: React.FC<MenuScreenType> = ({
   const wrapperMobileStyle = {
     overflow: "hidden",
     height: open ? "100%" : "3.5rem",
-    width: open ? "100%" : "5.5rem",
-    marginTop: scrollDir === "DOWN" ? "-3.5rem" : 0,
+    width: open ? "100%" : "6.25rem",
+    marginTop: scrollDir === "DOWN" ? "-4.5rem" : 0,
   } as SystemStyleObject;
 
   const wrapperSmUpStyle = {
-    height: "100%",
-    width: open ? "24rem" : "5.5rem",
+    width: open ? "24rem" : "6.25rem",
   } as SystemStyleObject;
-
-  const bgColor = `linear-gradient(
-    to left,
-    ${colors.common.black}, ${colors.grey[900]}
-  )` as SystemStyleObject;
 
   const hambergurSmUpStyle = {
     "&:hover": {
-      background: bgColor,
+      background: theme.palette.text.primary,
       "> div": {
-        background: open ? bgColor : colors.grey[100],
+        background: open
+          ? theme.palette.text.primary
+          : theme.palette.background.default,
       },
       "> div::after": {
-        background: colors.grey[100],
+        background: theme.palette.background.default,
       },
     },
   } as SystemStyleObject;
 
   return (
     <Box
+      className="header-menu"
       sx={{
-        background: bgColor,
+        position: "relative",
+        boxSizing: "border-box",
+        background: theme.palette.text.primary,
         p: 1,
         transition: "0.2s",
         flexShrink: 0,
@@ -134,6 +292,8 @@ const MenuScreen: React.FC<MenuScreenType> = ({
         onKeyDown={handleKeyDown}
         onClick={() => setOpen(!open)}
         sx={{
+          position: "relative",
+          zIndex: "12",
           boxSizing: "border-box",
           height: "4.5rem",
           width: "calc(100% + 1rem)",
@@ -142,11 +302,11 @@ const MenuScreen: React.FC<MenuScreenType> = ({
           ml: -1,
           mb: 2,
           p: 3,
-          background: "white",
+          background: theme.palette.background.default,
           ...(isSmUp ? hambergurSmUpStyle : {}),
           ...(open
             ? {
-                background: bgColor,
+                background: theme.palette.text.primary,
               }
             : {}),
         }}
@@ -156,7 +316,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
             width: "20px",
             height: "2px",
             margin: "8px 8px 16px",
-            backgroundColor: colors.grey[900],
+            backgroundColor: theme.palette.text.primary,
             position: "relative",
             transition: "background-color 320ms ease-in-out",
             "&::before, &::after": {
@@ -164,14 +324,18 @@ const MenuScreen: React.FC<MenuScreenType> = ({
               display: "block",
               width: "120%",
               height: "2px",
-              backgroundColor: open ? colors.grey[100] : colors.grey[900],
+              backgroundColor: open
+                ? theme.palette.background.default
+                : theme.palette.text.primary,
               position: "absolute",
               transition:
                 "transform 320ms ease-in-out, background-color 200ms ease-in-out",
             },
             "&::before": {
               transformOrigin: "top right",
-              backgroundColor: open ? "white" : "transparent",
+              backgroundColor: open
+                ? theme.palette.background.default
+                : "transparent",
               transform: open ? "rotate(45deg) translate(4px, 14px)" : "",
             },
             "&::after": {
@@ -220,11 +384,17 @@ const MenuScreen: React.FC<MenuScreenType> = ({
                   display: "flex",
                   flexGrow: 1,
                   flexDirection: "column",
-                  borderLeft: open ? `1px solid ${colors.grey[400]}` : "none",
+                  borderLeft: open
+                    ? `1px solid ${theme.palette.background.default}`
+                    : "none",
                   pl: open ? "0.4rem" : 0,
                   "> a": {
-                    backgroundColor: open ? "none" : "white",
-                    color: open ? "white" : colors.grey[900],
+                    backgroundColor: open
+                      ? "none"
+                      : theme.palette.background.default,
+                    color: open
+                      ? theme.palette.background.default
+                      : theme.palette.text.primary,
                     fontSize: "0.875rem",
                     py: open ? 1 : 2,
                     px: 3,
@@ -239,14 +409,18 @@ const MenuScreen: React.FC<MenuScreenType> = ({
                   "> a > *:not(:last-child)": {
                     mr: 2,
                   },
-                  "> a:hover, > a:hover span, > a:focus, > a:focus span": {
-                    background: open ? colors.grey[50] : bgColor,
-                    color: open ? colors.grey[900] : "white",
+                  "> a:hover,> a:hover span, > a:focus, > a:focus span": {
+                    background: open
+                      ? theme.palette.background.default
+                      : theme.palette.text.primary,
+                    color: open
+                      ? theme.palette.text.primary
+                      : theme.palette.background.default,
                   },
                   ...(open
                     ? {
                         span: {
-                          color: colors.common.white,
+                          color: theme.palette.background.default,
                         },
                       }
                     : {}),
@@ -281,6 +455,15 @@ const MenuScreen: React.FC<MenuScreenType> = ({
           )}
         </Box>
       ))}
+      {/* <MaterialUISwitch
+        onClick={() => toggleDarkMode((m) => !m)}
+        sx={{
+          position: "absolute",
+          left: "1rem",
+          bottom: "1.5rem",
+          zIndex: 11,
+        }}
+      /> */}
     </Box>
   );
 };

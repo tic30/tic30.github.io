@@ -40,7 +40,7 @@ const IndeedMicroFE: React.FC<{
         "li p": {
           fontSize: "1rem",
         },
-        "h1, h5": {
+        "h1, h4, h5": {
           textTransform: "uppercase",
         },
         h6: {
@@ -50,7 +50,7 @@ const IndeedMicroFE: React.FC<{
     >
       <Container
         sx={{
-          py: "3rem",
+          py: "min(30vh, 30rem)",
           "*": {
             textAlign: "center",
           },
