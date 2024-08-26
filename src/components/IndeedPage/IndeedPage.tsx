@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { topStorySx, storiesSx, storyDivider } from "./IndeedPage.style";
 import { Theme } from "@mui/system";
+import { customColors } from "../../constants";
 
 const indeedStories = [
   {
@@ -74,14 +75,14 @@ const IndeedPage: React.FC = () => {
           </Typography>
           <Typography sx={{ mb: 3 }}>
             In employer team, I focus on presenting{" "}
-            <Box component="span" sx={{ color: colors.amber[800] }}>
+            <Box component="span" sx={{ color: customColors.orange }}>
               easy to use
             </Box>{" "}
             flow and features for employers to post a job and manage postings.
           </Typography>
           <Typography sx={{ mb: 3 }}>
             I build onboarding pages that boost initial{" "}
-            <Box component="span" sx={{ color: colors.amber[800] }}>
+            <Box component="span" sx={{ color: customColors.orange }}>
               engagement
             </Box>{" "}
             from small, medium businesses and enterprises.
@@ -89,11 +90,11 @@ const IndeedPage: React.FC = () => {
           <Typography>
             I craft story-telling features in employers' job dashboard to
             increase employers'{" "}
-            <Box component="span" sx={{ color: colors.amber[800] }}>
+            <Box component="span" sx={{ color: customColors.orange }}>
               awareness
             </Box>{" "}
             of Indeed features and help them quickly{" "}
-            <Box component="span" sx={{ color: colors.amber[800] }}>
+            <Box component="span" sx={{ color: customColors.orange }}>
               navigate
             </Box>{" "}
             to the right action to get the most hires.
@@ -143,15 +144,15 @@ const IndeedPage: React.FC = () => {
           <Typography>
             My believe is that the best way to build customer trust and brand
             recognition is through{" "}
-            <Box component="span" sx={{ color: colors.amber[800] }}>
+            <Box component="span" sx={{ color: customColors.orange }}>
               consistent
             </Box>{" "}
             visual presentation,{" "}
-            <Box component="span" sx={{ color: colors.amber[800] }}>
+            <Box component="span" sx={{ color: customColors.orange }}>
               high quality
             </Box>{" "}
             content, and{" "}
-            <Box component="span" sx={{ color: colors.amber[800] }}>
+            <Box component="span" sx={{ color: customColors.orange }}>
               productive
             </Box>{" "}
             features.
