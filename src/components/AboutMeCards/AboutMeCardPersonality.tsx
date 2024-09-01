@@ -16,7 +16,7 @@ const AboutMeCardPersonality = () => (
     </Typography>
     <Typography>
       I endeavor to seek innovation and growth, bring value to communities and
-      make impact that solves real problem.
+      make measurable impacts that solve real problems.
     </Typography>
     <Box className="aboutme-card-inner">
       {/* {Texts.SelfIntro.icons.map((item, id) => (
