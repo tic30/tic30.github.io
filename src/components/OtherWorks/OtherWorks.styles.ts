@@ -30,6 +30,7 @@ export const boxContainerStyle = {
 };
 
 export const boxStyle = {
+  backgroundColor: colors.common.white,
   width: "8rem",
   height: "8rem",
   display: "flex",

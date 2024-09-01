@@ -1,6 +1,5 @@
 import { styled } from "@mui/material/styles";
 import Paper, { paperClasses } from "@mui/material/Paper";
-import shadows from "@mui/material/styles/shadows";
 
 const StyledAboutMeCard = styled(Paper)(({ theme }) => ({
   [`&.${paperClasses.root}`]: {
@@ -10,7 +9,7 @@ const StyledAboutMeCard = styled(Paper)(({ theme }) => ({
     gap: "1.5rem",
     minWidth: "300px",
     borderRadius: "0.75rem",
-    boxShadow: shadows[5],
+    boxShadow: theme.shadows[3],
     backdropFilter: "blur(10px)",
     [theme.breakpoints.up("md")]: {
       width: "30%",

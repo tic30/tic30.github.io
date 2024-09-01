@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, colors } from "@mui/material";
+import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-const PreloaderScreen = styled(Box)({
+const PreloaderScreen = styled(Box)(({ theme }) => ({
   height: "100vh",
-  color: colors.grey[900],
+  color: theme.palette.text.primary,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-});
+}));
 
 const PreloaderContent = styled(Box)({
   animationName: "fadeOutUpRight",
@@ -18,7 +18,7 @@ const PreloaderContent = styled(Box)({
   animationFillMode: "forwards",
 });
 
-const PreloaderText = styled(Box)({
+const PreloaderText = styled(Box)(({ theme }) => ({
   position: "relative",
   boxSizing: "border-box",
   width: "3px",
@@ -41,7 +41,7 @@ const PreloaderText = styled(Box)({
     height: "100%",
     width: "3px",
     right: 0,
-    backgroundColor: colors.grey[900],
+    backgroundColor: theme.palette.text.primary,
     zIndex: 1,
     animationName: "blink",
     animationDuration: "4s",
@@ -111,7 +111,7 @@ const PreloaderText = styled(Box)({
     "0%": { opacity: 1, transform: "translate(0)" },
     "100%": { opacity: 0, transform: "translate(0,-30px)" },
   },
-});
+}));
 
 const Preloader: React.FC = () => {
   const navigate = useNavigate();

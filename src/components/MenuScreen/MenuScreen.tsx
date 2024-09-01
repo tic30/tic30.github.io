@@ -233,7 +233,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
         },
       },
     }),
-    [openDelay, isSmUp] // eslint-disable-line react-hooks/exhaustive-deps
+    [openDelay, isSmUp, theme.palette.mode] // eslint-disable-line react-hooks/exhaustive-deps
   );
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>): void => {
@@ -403,7 +403,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
                     display: "flex",
                     alignItems: "center",
                     borderRadius: 1,
-                    boxShadow: open ? "none" : 3,
+                    boxShadow: open ? "none" : theme.shadows[3],
                     textDecoration: "none",
                   },
                   "> a > *:not(:last-child)": {

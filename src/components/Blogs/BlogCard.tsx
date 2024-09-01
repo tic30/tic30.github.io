@@ -6,6 +6,7 @@ import {
   CardActions,
   CardMedia,
   Typography,
+  useTheme,
 } from "@mui/material";
 
 export interface BlogType {
@@ -19,10 +20,12 @@ export interface BlogCardType {
 }
 
 const BlogCard: React.FC<BlogCardType> = ({ blog }) => {
+  const theme = useTheme();
+
   return (
     <Card
       sx={{
-        boxShadow: 3,
+        boxShadow: theme.shadows[3],
         borderRadius: 3,
       }}
     >

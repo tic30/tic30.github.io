@@ -22,12 +22,8 @@ const Storybook: React.FC<{
       component="section"
       id="storybook-title"
       sx={{
-        "*": {
-          color: colors.grey[800],
-        },
         "p, span, li": {
           fontSize: "1.25rem",
-          color: colors.grey[800],
         },
         "li p": {
           fontSize: "1rem",
