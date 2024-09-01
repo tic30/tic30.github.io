@@ -1,6 +1,5 @@
 import {
   Box,
-  colors,
   Container,
   List,
   ListItem,
