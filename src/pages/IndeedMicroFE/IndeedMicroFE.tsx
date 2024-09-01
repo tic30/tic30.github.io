@@ -1,21 +1,19 @@
 import {
   Box,
-  colors,
   Container,
   List,
   ListItem,
   ListItemText,
-  SxProps,
   Typography,
 } from "@mui/material";
 import { useEffect } from "react";
 
-const imgSx: SxProps = {
-  display: "block",
-  marginInline: "auto",
-  paddingBlock: 4,
-  maxWidth: "100%",
-};
+// const imgSx: SxProps = {
+//   display: "block",
+//   marginInline: "auto",
+//   paddingBlock: 4,
+//   maxWidth: "100%",
+// };
 
 const IndeedMicroFE: React.FC<{
   scrollAreaRef: React.RefObject<HTMLDivElement>;
@@ -30,12 +28,8 @@ const IndeedMicroFE: React.FC<{
       component="section"
       id="storybook-title"
       sx={{
-        "*": {
-          color: colors.grey[800],
-        },
         "p, span, li, h6": {
           fontSize: "1.25rem",
-          color: colors.grey[800],
         },
         "li p": {
           fontSize: "1rem",
@@ -60,7 +54,6 @@ const IndeedMicroFE: React.FC<{
           variant="h1"
           sx={{
             lineHeight: 1,
-            mb: 2,
             fontSize: ["3rem", "4rem", "6rem"],
           }}
         >
@@ -68,8 +61,14 @@ const IndeedMicroFE: React.FC<{
         </Typography>
         <Typography variant="h4">@ Indeed</Typography>
       </Container>
-      <Container>
-        <Typography sx={{ pb: "2rem" }}>
+      <Container
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 2,
+        }}
+      >
+        <Typography>
           Indeed has gone through several iterations of re-architecturing to
           enable teams to focus on feature development and have minimum friction
           in collaboration and integration. When Webpack 5 & GraphQL Apollo
@@ -77,9 +76,7 @@ const IndeedMicroFE: React.FC<{
           set up federated feature repositories and generate proper guidelines
           to help my team onboard and do the migration.
         </Typography>
-        <Typography variant="h5" sx={{ pb: "1rem" }}>
-          Problem
-        </Typography>
+        <Typography variant="h5">Problem</Typography>
         <Typography>
           Tight coupling appears as we fetch data in one big query, use a
           transformation layer to format the data to match what UI needs, and
@@ -88,17 +85,15 @@ const IndeedMicroFE: React.FC<{
           large number of transformer functions, confusing data object keys,
           prop drilling and poor performance.
         </Typography>
-        <Box
+        {/* <Box
           component="img"
           sx={imgSx}
           alt="Problem"
           aria-hidden
           src="/imgs/mfe1.png"
-        />
-        <Typography variant="h5" sx={{ pb: "1rem" }}>
-          Concept and design
-        </Typography>
-        <Typography sx={{ pb: "2rem" }}>
+        /> */}
+        <Typography variant="h5">Concept and design</Typography>
+        <Typography>
           Webpack 5 module federation and GraphQL fragments are two powerful
           tools we can use. Here are how we interpret and apply these concepts.
         </Typography>
@@ -111,13 +106,13 @@ const IndeedMicroFE: React.FC<{
           exposed as federated modules and consumed by container repos, or other
           feature repos as needed.
         </Typography>
-        <Box
+        {/* <Box
           component="img"
           sx={imgSx}
           alt="Federated React Components"
           aria-hidden
           src="/imgs/mfe-react.png"
-        />
+        /> */}
         <Typography variant="subtitle1">
           Concept: Federated GraphQL fragment
         </Typography>
@@ -127,13 +122,13 @@ const IndeedMicroFE: React.FC<{
           queries, resulting in a small number of queries fired at page load,
           significantly boosts performance and reduces server load.
         </Typography>
-        <Box
+        {/* <Box
           component="img"
           sx={imgSx}
           alt="Federated React Components"
           aria-hidden
           src="/imgs/mfe-frag.png"
-        />
+        /> */}
         <Typography variant="subtitle1">
           Design: Fragment first architecture
         </Typography>
@@ -145,15 +140,15 @@ const IndeedMicroFE: React.FC<{
           modules, and makes feature iterations, code tracing and cleanups much
           easier.
         </Typography>
-        <Box
+        {/* <Box
           component="img"
           sx={imgSx}
           alt="Fragment first architecture"
           aria-hidden
           src="/imgs/mfe-together.png"
-        />
+        /> */}
         <Typography variant="h5">Workflow</Typography>
-        <List sx={{ pb: "2rem" }}>
+        <List>
           <ListItem>
             <ListItemText
               primary="Spin up"
@@ -186,9 +181,7 @@ const IndeedMicroFE: React.FC<{
             />
           </ListItem>
         </List>
-        <Typography variant="h5" sx={{ pb: "1rem" }}>
-          Challenges
-        </Typography>
+        <Typography variant="h5">Challenges</Typography>
         <Typography>
           Below are a list of some of the technical challenges we ran into.
         </Typography>
@@ -230,16 +223,14 @@ const IndeedMicroFE: React.FC<{
             />
           </ListItem>
         </List>
-        <Typography variant="h5" sx={{ pb: "1rem" }}>
-          Where we are and what's next
-        </Typography>
+        <Typography variant="h5">Where we are and what's next</Typography>
         <Typography>
           The new system has been running for employer side of Indeed for a
           while and it is reliable, performant and proven easy to adapt across a
           few reorg. Teams are working to refine some of the features, adding
           capabilities and pushing for broader audience across the company.
         </Typography>
-        <Typography variant="caption" component="div" sx={{ mt: "3rem" }}>
+        <Typography variant="caption" component="div">
           *Illustrations are credited to Indeed colleague.
         </Typography>
       </Container>

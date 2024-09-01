@@ -1,7 +1,6 @@
 import React from "react";
-import { Box, Button, colors, Typography, useTheme } from "@mui/material";
+import { Box, Button, Typography, useTheme } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import shadows from "@mui/material/styles/shadows";
 
 export interface FooterType {
   scrollAreaRef: React.RefObject<HTMLDivElement>;
@@ -37,7 +36,7 @@ const Footer: React.FC<FooterType> = ({ scrollAreaRef }) => {
             backgroundColor: "transparent",
             color: theme.palette.text.primary,
             "> div": {
-              boxShadow: shadows[3],
+              boxShadow: theme.shadows[3],
             },
           },
         }}
@@ -51,7 +50,7 @@ const Footer: React.FC<FooterType> = ({ scrollAreaRef }) => {
             p: ".25rem",
             mb: 1,
             width: "4rem",
-            boxShadow: shadows[1],
+            boxShadow: theme.shadows[1],
             borderRadius: 2,
           }}
         >
