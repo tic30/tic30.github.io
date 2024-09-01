@@ -5,13 +5,15 @@ import StyledAboutMeCard from "./StyledAboutMeCard";
 const AboutMeCardUX = () => (
   <StyledAboutMeCard>
     <Typography variant="h5">
-      UX,
+      Deliver
       <br />
-      front end, and perfection
+      engineering product
+      <br />
+      with UX in heart
     </Typography>
     <Typography>
-      Bridge design and engineering, craft comprehensive ux-eng-quality
-      guidelines and galvanize team towards product vision.
+      My passion is to bridge design and engineering, craft comprehensive
+      ux-eng-quality guidelines and galvanize team towards product vision.
     </Typography>
     <Box className="aboutme-card-inner">
       {Texts.Company.icons.map((item, id) => (

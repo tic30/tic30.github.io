@@ -455,7 +455,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
           )}
         </Box>
       ))}
-      {/* <MaterialUISwitch
+      <MaterialUISwitch
         onClick={() => toggleDarkMode((m) => !m)}
         sx={{
           position: "absolute",
@@ -463,7 +463,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
           bottom: "1.5rem",
           zIndex: 11,
         }}
-      /> */}
+      />
     </Box>
   );
 };
