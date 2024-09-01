@@ -38,8 +38,7 @@ const lightTheme = createTheme({
   palette: {
     mode: "light",
     background: {
-      // default: colors.common.white,
-      paper: colors.common.white,
+      paper: `#FFFFFFD9`,
     },
     text: {
       primary: colors.grey[900],
@@ -52,7 +51,6 @@ const darkTheme = createTheme({
   palette: {
     mode: "dark",
     background: {
-      // default: colors.grey[900],
       paper: `${colors.grey[900]}B3`,
     },
     text: {

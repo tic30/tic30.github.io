@@ -9,13 +9,14 @@ import StyledAboutMeCard from "./StyledAboutMeCard";
 const AboutMeCardPersonality = () => (
   <StyledAboutMeCard>
     <Typography variant="h5">
-      A journey
+      Grow
       <br />
-      forward, together
+      team and company <br />
+      with thoughtful impact
     </Typography>
     <Typography>
       I endeavor to seek innovation and growth, bring value to communities and
-      make thoughtful impact.
+      make impact that solves real problem.
     </Typography>
     <Box className="aboutme-card-inner">
       {/* {Texts.SelfIntro.icons.map((item, id) => (

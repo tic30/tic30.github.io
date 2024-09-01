@@ -7,7 +7,7 @@ const blogList: BlogType[] = [
     description:
       "Comprehensive visual testing and documentation of UI components using Storybook and Chromatic can work efficiently across teams in large organizations.",
     link: "#/storybook",
-    img: "/imgs/storybook.jpg",
+    img: "/imgs/storybook.png",
   },
   {
     title: "Engineering efficiency & code quality: Choose your test",
@@ -20,7 +20,7 @@ const blogList: BlogType[] = [
     description:
       "A11y can do you a lot more good than in WCAG paper. Look at this list of common practises to boost page usability.",
     // link: '#',
-    img: "/imgs/a11y.gif",
+    img: "/imgs/a11y.png",
   },
   {
     title: "Build flexible UI system and component library",
@@ -32,7 +32,7 @@ const blogList: BlogType[] = [
     title: "Tools and methodologies to prevent broken experiene",
     description:
       "Debugging and fixing incidents are stressful and costly. There are precautions we can make to mitigate this risk.",
-    img: "/imgs/prevent-broken.jpeg",
+    img: "/imgs/prevent-broken.png",
   },
 ];
 

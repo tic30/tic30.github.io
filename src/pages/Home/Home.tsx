@@ -34,9 +34,10 @@ const Home: React.FC = () => {
           minHeight: "calc(100vh - 30px)",
           backgroundImage:
             theme.palette.mode === "dark" ? "" : "url(/imgs/bgsec1.png)",
-          backgroundSize: "cover",
+          backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
+          backgroundPosition: "right bottom",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-evenly",
@@ -196,7 +197,7 @@ const Home: React.FC = () => {
               src="/imgs/bgsec4.jpeg"
               alt="idea"
               sx={{
-                height: ["200px", "300px"],
+                height: ["200px", "400px"],
               }}
             />
           )}
