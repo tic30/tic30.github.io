@@ -28,18 +28,14 @@ const IndeedMicroFE: React.FC<{
       component="section"
       id="storybook-title"
       sx={{
-        "p, span, li, h6": {
+        "p, span, li": {
           fontSize: "1.25rem",
         },
         "li p": {
           fontSize: "1rem",
         },
-        "h1, h4, h5": {
-          textTransform: "uppercase",
-        },
-        h6: {
-          fontWeight: "bold",
-        },
+        "h1, h4": { fontWeight: "bold" },
+        h4: { py: 1 },
       }}
     >
       <Container
@@ -47,6 +43,7 @@ const IndeedMicroFE: React.FC<{
           py: "min(30vh, 30rem)",
           "*": {
             textAlign: "center",
+            textTransform: "uppercase",
           },
         }}
       >
@@ -76,7 +73,7 @@ const IndeedMicroFE: React.FC<{
           set up federated feature repositories and generate proper guidelines
           to help my team onboard and do the migration.
         </Typography>
-        <Typography variant="h5">Problem</Typography>
+        <Typography variant="h4">Problem</Typography>
         <Typography>
           Tight coupling appears as we fetch data in one big query, use a
           transformation layer to format the data to match what UI needs, and
@@ -92,7 +89,7 @@ const IndeedMicroFE: React.FC<{
           aria-hidden
           src="/imgs/mfe1.png"
         /> */}
-        <Typography variant="h5">Concept and design</Typography>
+        <Typography variant="h4">Concept and design</Typography>
         <Typography>
           Webpack 5 module federation and GraphQL fragments are two powerful
           tools we can use. Here are how we interpret and apply these concepts.
@@ -147,7 +144,7 @@ const IndeedMicroFE: React.FC<{
           aria-hidden
           src="/imgs/mfe-together.png"
         /> */}
-        <Typography variant="h5">Workflow</Typography>
+        <Typography variant="h4">Workflow</Typography>
         <List>
           <ListItem>
             <ListItemText
@@ -181,7 +178,7 @@ const IndeedMicroFE: React.FC<{
             />
           </ListItem>
         </List>
-        <Typography variant="h5">Challenges</Typography>
+        <Typography variant="h4">Challenges</Typography>
         <Typography>
           Below are a list of some of the technical challenges we ran into.
         </Typography>
@@ -223,7 +220,7 @@ const IndeedMicroFE: React.FC<{
             />
           </ListItem>
         </List>
-        <Typography variant="h5">Where we are and what's next</Typography>
+        <Typography variant="h4">Where we are and what's next</Typography>
         <Typography>
           The new system has been running for employer side of Indeed for a
           while and it is reliable, performant and proven easy to adapt across a

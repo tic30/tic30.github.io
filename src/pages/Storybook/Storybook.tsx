@@ -27,9 +27,8 @@ const Storybook: React.FC<{
         "li p": {
           fontSize: "1rem",
         },
-        "h1, h4, h5": {
-          textTransform: "uppercase",
-        },
+        "h1, h4": { fontWeight: "bold" },
+        h4: { py: 1 },
       }}
     >
       <Container
@@ -37,6 +36,7 @@ const Storybook: React.FC<{
           py: "min(30vh, 30rem)",
           "*": {
             textAlign: "center",
+            textTransform: "uppercase",
           },
         }}
       >
@@ -52,18 +52,17 @@ const Storybook: React.FC<{
         </Typography>
         <Typography variant="h4">setup for large organization</Typography>
       </Container>
-      <Container>
-        <Typography sx={{ pb: "2rem" }}>
+      <Container sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <Typography>
           To fully utitize Storybook as a tool to help cross functional
           peers(Eng, UX, PM...) among a large number of teams to view, test and
-          interact with UI components with best clarity and minimum effort, I
-          aim to set up rules and utilities to standardize Storybook usage at
-          Indeed.
+          interact with UI components with best clarity and minimum effort. This
+          is a full stack initiative that touches Node, TypeScript, CI/CD,
+          rollup, babel, versioning, eslint, and many other supportive
+          technologies - a very fun and rewarding experience.
         </Typography>
-        <Typography variant="h5" sx={{ pb: "1rem" }}>
-          Build as a community
-        </Typography>
-        <Typography sx={{ pb: "2rem" }}>
+        <Typography variant="h4">Build as a community</Typography>
+        <Typography>
           Most engineering teams already use Storybook in some way. My first
           effort was to learn from their pain points and build up interest in
           making Storybook and Chromatic standardized across the company. I
@@ -73,8 +72,8 @@ const Storybook: React.FC<{
           requests from a few engineers which helped push this initiative
           forward.
         </Typography>
-        <Typography variant="h5">Identify workflow</Typography>
-        <List sx={{ pb: "2rem" }}>
+        <Typography variant="h4">Identify workflow</Typography>
+        <List>
           <ListItem>
             PM & Eng leaders: Document and track feature iterations
           </ListItem>
@@ -94,34 +93,48 @@ const Storybook: React.FC<{
             work
           </ListItem>
         </List>
-        <Typography variant="h5" sx={{ pb: "1rem" }}>
-          Code change
+        <Typography variant="h4">Implementation</Typography>
+        <Typography>
+          First of all, I created a central repository that manages all
+          Storybook dependencies and recommended addons.
         </Typography>
+        <List>
+          <ListItem>
+            <ListItemText
+              primary="Include core Storybook dependencies"
+              secondary="From Storybook itself to theming, eslint, webpack5... I built the package to be one simple grab and go item for any team to setup storybook hassle free."
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemText
+              primary="Provide essential addons"
+              secondary="Controls, actions, accessibility, GraphQL, interaction test, feature flag, translation, etc. They are most common addon features needed across the company, hence included by default. An option is also given to turn one addon off."
+            />
+          </ListItem>
+        </List>
         <Typography>
           Teams use Storybook in very different ways. After many iterations, the
-          most straightfoward steps are summarized and advocated to engineers to
-          ensure the adoption is progressive and streamlined. The steps are the
-          following:
+          most straightfoward steps are summarized and advocated to engineers. I
+          set up rules and best practises to ensure the adoption is progressive
+          and streamlined. The steps are the following:
         </Typography>
-        <List sx={{ pb: "2rem" }}>
+        <List>
           <ListItem>
             <ListItemText
               primary="Install utilty library and hand over version management task to the library"
-              secondary="I built an NPM package that manages storybook and commonly used addons. This ensures version consistency and compatibility. Consuming teams are instructed to delete all covered Storybook dependencies at the same time."
+              secondary="The NPM package was designed to manages all storybook related packages. This ensures version consistency and compatibility. Consuming teams are instructed to delete all covered Storybook dependencies at the same time."
             />
           </ListItem>
           <ListItem>
             <ListItemText
               primary="Perform additional tasks to support Storybook v8"
-              secondary="Teams can choose to upgrade other non-common addons to Storybook v8 compatible versions at there own pace. A v7 compatible utility library is also provided in case the addon is not yet upgraded."
+              secondary="Teams can choose to upgrade other non-common addons to Storybook v8 compatible versions at there own pace. A v7 compatible utility library is also provided in case the addon does not have v8 support yet."
             />
           </ListItem>
         </List>
-        <Typography variant="h5" sx={{ pb: "1rem" }}>
-          Automation
-        </Typography>
+        <Typography variant="h4">Automation</Typography>
         <Typography>The following are done in GitLab CI:</Typography>
-        <List sx={{ pb: "2rem" }}>
+        <List>
           <ListItem>
             Chromatic is set up as a step in CI to auto build, deploy, send
             alerts in merge requests and start review sessions when UI changes.
@@ -135,9 +148,7 @@ const Storybook: React.FC<{
             with unit test coverage to produce an accurate overall coverage.
           </ListItem>
         </List>
-        <Typography variant="h5" sx={{ pb: "1rem" }}>
-          Documentation
-        </Typography>
+        <Typography variant="h4">Documentation</Typography>
         <Typography>
           Aside from the utility library, I released a guideline doc
           simultaneously which answers many "what", "why" and "how" questions.
@@ -180,8 +191,19 @@ const Storybook: React.FC<{
             />
           </ListItem>
         </List>
+        <Typography variant="h4">Feedback and future steps</Typography>
+        <Typography>
+          After one year of pushing this initiative across company, feedbacks
+          are very positive. Number one most shared feedback from all roles is
+          how it made communication and validation a lot easier and faster. As
+          the development advances into next phase, we will prioritize feature
+          requests, adding more setup assistance(npx script, repository template
+          etc.), and fine tune guideline document towards a beloved productivity
+          tool across all teams at Indeed.
+        </Typography>
       </Container>
     </Box>
   );
 };
+
 export default Storybook;
