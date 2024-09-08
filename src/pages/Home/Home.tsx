@@ -14,10 +14,8 @@ import SummarizeIcon from "@mui/icons-material/Summarize";
 import IndeedPage from "../../components/IndeedPage";
 import OtherWorks from "../../components/OtherWorks";
 import Blogs from "../../components/Blogs";
-import PortfolioCard from "../../components/PortfolioCard";
 import AboutMeCardUX from "../../components/AboutMeCards/AboutMeCardUX";
 import AboutMeCardPersonality from "../../components/AboutMeCards/AboutMeCardPersonality";
-import Texts from "../../texts";
 import { connectBgSx, sectionHeaderSX } from "./Home.style";
 import { customColors, GITHUB, LINKEDIN, RESUME } from "../../constants";
 
@@ -100,34 +98,7 @@ const Home: React.FC = () => {
         <Container>
           <IndeedPage />
           <OtherWorks />
-        </Container>
-      </Box>
-      <Box
-        component="section"
-        id="researches"
-        sx={{ minHeight: "100vh", pb: "7rem" }}
-      >
-        <Container sx={sectionHeaderSX}>
-          <Typography variant="h2">Researches</Typography>
-        </Container>
-        <Container>
           <Blogs />
-        </Container>
-      </Box>
-      <Box
-        component="section"
-        id="projects"
-        sx={{ minHeight: "100vh", pb: "7rem" }}
-      >
-        <Container sx={sectionHeaderSX}>
-          <Typography variant="h2">Projects</Typography>
-        </Container>
-        <Container sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
-          <PortfolioCard wide content={Texts.OH} />
-          {/* <PortfolioCard content={Texts.ITS} /> */}
-          <PortfolioCard content={Texts.DealFindMe} />
-          <PortfolioCard content={Texts.Milu} />
-          <PortfolioCard content={Texts.MovieEmodex} />
         </Container>
       </Box>
       <Box

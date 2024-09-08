@@ -10,16 +10,14 @@ import {
 } from "@mui/material";
 import { HashLink } from "react-router-hash-link";
 import { SystemStyleObject } from "@mui/system";
-import WorkspacesIcon from "@mui/icons-material/Workspaces";
 import PersonIcon from "@mui/icons-material/Person";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import SummarizeIcon from "@mui/icons-material/Summarize";
-import BatchPredictionIcon from "@mui/icons-material/BatchPrediction";
 import CoffeeIcon from "@mui/icons-material/Coffee";
 import DeveloperBoardIcon from "@mui/icons-material/DeveloperBoard";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import useScrollDirection from "../../hooks/useScrollDirection";
 import Texts from "../../texts";
 import { GITHUB, LINKEDIN, RESUME } from "../../constants";
@@ -81,33 +79,45 @@ const menuList: MenuItemType[] = [
     icon: <DesignServicesIcon />,
     text: "My work",
     link: "/home#work",
-  },
-  {
-    icon: <BatchPredictionIcon />,
-    text: "Researches",
-    link: "/home#researches",
-  },
-  {
-    icon: <WorkspacesIcon />,
-    text: "Projects",
-    link: "/home#projects",
     subMenuItems: [
       {
         ...Texts.OH,
         pageUrl: "/microfe",
         icon: <DeveloperBoardIcon />,
       },
-      // {
-      //   ...Texts.ITS,
-      //   icon: <VisibilityIcon />,
-      // },
       {
-        title: "Others",
-        pageUrl: "/home#projects",
-        icon: <MoreHorizIcon />,
+        title: "Storybook & Chromatic",
+        pageUrl: "/storybook",
+        icon: <AutoStoriesIcon />,
       },
     ],
   },
+  // {
+  //   icon: <BatchPredictionIcon />,
+  //   text: "Researches",
+  //   link: "/home#researches",
+  // },
+  // {
+  //   icon: <WorkspacesIcon />,
+  //   text: "Projects",
+  //   link: "/home#projects",
+  //   subMenuItems: [
+  //     {
+  //       ...Texts.OH,
+  //       pageUrl: "/microfe",
+  //       icon: <DeveloperBoardIcon />,
+  //     },
+  //     // {
+  //     //   ...Texts.ITS,
+  //     //   icon: <VisibilityIcon />,
+  //     // },
+  //     {
+  //       title: "Others",
+  //       pageUrl: "/home#projects",
+  //       icon: <MoreHorizIcon />,
+  //     },
+  //   ],
+  // },
   {
     icon: <CoffeeIcon />,
     text: "Connect",
