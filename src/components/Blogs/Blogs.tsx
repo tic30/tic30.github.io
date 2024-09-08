@@ -1,14 +1,8 @@
-import { Box } from "@mui/material";
+import { Box, colors, Typography } from "@mui/material";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import BlogCard, { BlogType } from "./BlogCard";
 
 const blogList: BlogType[] = [
-  {
-    title: "Storybook and Chromatic for large org",
-    description:
-      "Comprehensive visual testing and documentation of UI components using Storybook and Chromatic can work efficiently across teams in large organizations.",
-    link: "#/storybook",
-    img: "/imgs/storybook.png",
-  },
   {
     title: "Engineering efficiency & code quality: Choose your test",
     description:
@@ -37,17 +31,33 @@ const blogList: BlogType[] = [
 ];
 
 const Blogs: React.FC = () => (
-  <Box
-    sx={{
-      display: "grid",
-      gap: 3,
-      gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    }}
-  >
-    {blogList.map((blog, id) => (
-      <BlogCard key={`blog-accordion-${id}`} blog={blog} />
-    ))}
-  </Box>
+  <>
+    <Typography variant="h4" sx={{ pb: 4 }}>
+      Researches
+    </Typography>
+    <Typography sx={{ mb: 5 }}>
+      These are self studies, papers and presentations made both in and outside
+      of Indeed. Send me a message if you're interested.
+    </Typography>
+    <Box
+      sx={{
+        display: "grid",
+        gap: 3,
+        gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+      }}
+    >
+      {blogList.map((blog, id) => (
+        <BlogCard key={`blog-accordion-${id}`} blog={blog} />
+      ))}
+      <MoreHorizIcon
+        sx={{
+          display: ["none", null, null, "block"],
+          mt: "calc(50% - 12px)",
+          color: colors.grey[500],
+        }}
+      />
+    </Box>
+  </>
 );
 
 export default Blogs;

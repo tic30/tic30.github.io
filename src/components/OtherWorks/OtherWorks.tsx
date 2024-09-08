@@ -43,9 +43,7 @@ const previousRoles: PreviousRoleType[] = [
 const OtherWorks: React.FC = () => {
   return (
     <>
-      <Typography variant="h4" sx={{ mt: 5 }}>
-        My previous roles
-      </Typography>
+      <Typography variant="h4">My previous roles</Typography>
       <Box sx={rolesContainerStyle}>
         {previousRoles.map((role, i) => (
           <LightTooltip

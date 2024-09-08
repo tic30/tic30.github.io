@@ -11,6 +11,7 @@ import {
 import { topStorySx, storiesSx, storyDivider } from "./IndeedPage.style";
 import { Theme } from "@mui/system";
 import { customColors } from "../../constants";
+import BlogCard from "../Blogs/BlogCard";
 
 const indeedStories = [
   {
@@ -30,6 +31,24 @@ const indeedStories = [
     chips: ["Leadership"],
     content:
       "I actively research on useful new gadgets in open source community and bring them to the company. Meanwhile, I organize ad hoc training and knowledge sharing sessions to onboard new members, learn from each other and share insights towards the future of front end.",
+  },
+];
+
+const indeedProjects = [
+  {
+    title: "Micro Frontend @ Indeed",
+    description:
+      "Design, construct and migrate to Webpack 5 based micro frontend, with GraphQL fragment first architecture.",
+    btnText: "Read more",
+    link: "#/microfe",
+    img: "/imgs/indeed-oh.png",
+  },
+  {
+    title: "Storybook and Chromatic for large org",
+    description:
+      "Comprehensive visual testing and documentation of UI components using Storybook and Chromatic can work efficiently across teams in large organizations.",
+    link: "#/storybook",
+    img: "/imgs/storybook.png",
   },
 ];
 
@@ -160,16 +179,31 @@ const IndeedPage: React.FC = () => {
         </Box>
       </Paper>
       <Typography variant="h5" sx={storyDivider}>
+        Project showcases
+      </Typography>
+      <Box
+        sx={{
+          display: "grid",
+          gap: 3,
+          mb: 5,
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+        }}
+      >
+        {indeedProjects.map((p, id) => (
+          <BlogCard key={`blog-accordion-${id}`} blog={p} />
+        ))}
+      </Box>
+      <Typography variant="h5" sx={storyDivider}>
         I've also been doing...
       </Typography>
       <Box
         sx={{
           ...storiesSx.wrapper,
+          mb: 8,
           ...(isSmUp
             ? {}
             : {
                 flexDirection: "column",
-                mb: 0,
               }),
         }}
       >
