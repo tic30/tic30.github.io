@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useEffect } from "react";
+import transition from "../../transition";
 
 const Storybook: React.FC<{
   scrollAreaRef: React.RefObject<HTMLDivElement>;
@@ -206,4 +207,4 @@ const Storybook: React.FC<{
   );
 };
 
-export default Storybook;
+export default transition(Storybook);

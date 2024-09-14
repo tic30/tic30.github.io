@@ -18,6 +18,7 @@ import AboutMeCardUX from "../../components/AboutMeCards/AboutMeCardUX";
 import AboutMeCardPersonality from "../../components/AboutMeCards/AboutMeCardPersonality";
 import { connectBgSx, sectionHeaderSX } from "./Home.style";
 import { customColors, GITHUB, LINKEDIN, RESUME } from "../../constants";
+import transition from "../../transition";
 
 const Home: React.FC = () => {
   const theme = useTheme();
@@ -178,4 +179,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default transition(Home);

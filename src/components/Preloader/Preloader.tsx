@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import transition from "../../transition";
 
 const PreloaderScreen = styled(Box)(({ theme }) => ({
   height: "100vh",
@@ -143,4 +144,4 @@ const Preloader: React.FC = () => {
   );
 };
 
-export default Preloader;
+export default transition(Preloader, true, false);
