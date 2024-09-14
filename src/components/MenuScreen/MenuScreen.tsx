@@ -184,7 +184,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({
     const scrollListener = () => {
       sections.forEach((current) => {
         const sectionHeight = current.offsetHeight;
-        const sectionTop = current.offsetTop - 20;
+        const sectionTop = current.offsetTop - 100;
         const sectionId = current.getAttribute("id");
         if (
           (scrollAreaRef.current?.scrollTop ?? window.pageYOffset) >

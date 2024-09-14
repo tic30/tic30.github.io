@@ -4,6 +4,7 @@ import {
   Routes,
   Route,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 import {
   ThemeProvider,
@@ -23,6 +24,7 @@ import Preloader from "./components/Preloader";
 import Footer from "./components/Footer";
 import MenuScreen from "./components/MenuScreen";
 import { globalStyle } from "./constants";
+import { AnimatePresence } from "framer-motion";
 // import ITS from './components/ITS';
 // import Maintenance from './components/Maintenance';
 // import DFM from './components/DFM';
@@ -91,6 +93,7 @@ const StyledMainContent = styled(Box)(({ theme }) => ({
 const PageContent: React.FC<{
   toggleDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ toggleDarkMode }) => {
+  const location = useLocation();
   const scrollAreaRef = useRef(null);
   const theme = useTheme();
   const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
@@ -114,23 +117,25 @@ const PageContent: React.FC<{
           toggleDarkMode={toggleDarkMode}
         />
         <StyledMainContent ref={scrollAreaRef}>
-          <Routes>
-            <Route path="/" element={<Preloader />} />
-            <Route path="/home" element={<Home />} />
-            <Route
-              path="/storybook"
-              element={<Storybook scrollAreaRef={scrollAreaRef} />}
-            />
-            <Route
-              path="/microfe"
-              element={<IndeedMicroFE scrollAreaRef={scrollAreaRef} />}
-            />
-            {/* <Route path="/its" element={<ITS />} />*/}
-            {/* <Route path="/m" exact element={Maintenance} /> */}
-            {/* <Route path="/dfm" element={DFM} /> */}
-            <Route path="*" element={<Navigate to="/home" />} />
-          </Routes>
-          <Footer scrollAreaRef={scrollAreaRef} />
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Preloader />} />
+              <Route path="/home" element={<Home />} />
+              <Route
+                path="/storybook"
+                element={<Storybook scrollAreaRef={scrollAreaRef} />}
+              />
+              <Route
+                path="/microfe"
+                element={<IndeedMicroFE scrollAreaRef={scrollAreaRef} />}
+              />
+              {/* <Route path="/its" element={<ITS />} />*/}
+              {/* <Route path="/m" exact element={Maintenance} /> */}
+              {/* <Route path="/dfm" element={DFM} /> */}
+              <Route path="*" element={<Navigate to="/home" />} />
+            </Routes>
+            <Footer scrollAreaRef={scrollAreaRef} />
+          </AnimatePresence>
         </StyledMainContent>
       </Box>
     </>

@@ -7,7 +7,7 @@ const useScrollDirection = (target?: HTMLElement | null): ScrollDirection => {
   const scrollTarget = target ?? window;
 
   useEffect(() => {
-    const threshold = 10;
+    const threshold = 100;
     let lastScrollY = target ? target.scrollTop : window.pageYOffset;
     let ticking = false;
 

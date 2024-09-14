@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useEffect } from "react";
+import transition from "../../transition";
 
 // const imgSx: SxProps = {
 //   display: "block",
@@ -235,4 +236,4 @@ const IndeedMicroFE: React.FC<{
   );
 };
 
-export default IndeedMicroFE;
+export default transition(IndeedMicroFE);
