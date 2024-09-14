@@ -13,7 +13,7 @@ const transition = (
     const style: CSSProperties = {
       position: "fixed",
       top: 0,
-      left: isSmUp ? "6.25rem" : 0,
+      left: "6.25rem",
       width: "100%",
       height: "100vh",
       zIndex: 99,
@@ -23,7 +23,7 @@ const transition = (
     return (
       <>
         <OgComponent {...props} />
-        {slideIn && (
+        {slideIn && isSmUp && (
           <motion.div
             className="slide-in"
             initial={{ scaleY: 0 }}
@@ -33,7 +33,7 @@ const transition = (
             style={{ ...style, transformOrigin: "bottom" }}
           />
         )}
-        {slideOut && (
+        {slideOut && isSmUp && (
           <motion.div
             className="slide-out"
             initial={{ scaleY: 1 }}
