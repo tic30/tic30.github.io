@@ -47,7 +47,11 @@ const IndeedMicroFE: React.FC<{
       <Container
         component={motion.div}
         initial={{ opacity: 0, y: "20px" }}
-        animate={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          transition: { delay: 0.2, duration: 0.5 },
+        }}
         sx={{
           pt: "min(30vh, 30rem)",
           pb: 4,
@@ -56,7 +60,7 @@ const IndeedMicroFE: React.FC<{
             textTransform: "uppercase",
           },
         }}
-        maxWidth={false}
+        maxWidth="xl"
       >
         <Typography
           variant="h1"
@@ -89,9 +93,9 @@ const IndeedMicroFE: React.FC<{
           flexDirection: "column",
           gap: 2,
         }}
-        maxWidth={false}
+        maxWidth="xl"
       >
-        <Typography>
+        <Typography sx={{ marginBlock: 4 }}>
           Indeed has gone through several iterations of re-architecturing to
           enable teams to focus on feature development and have minimum friction
           in collaboration and integration. When Webpack 5 & GraphQL Apollo

@@ -11,6 +11,7 @@ import React, { useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { indeedProjects } from "../../constants";
+import { blue, grey, green } from "@mui/material/colors";
 
 const thumbnailCardRotate = 11;
 const thumbnailCardSx: SystemStyleObject = {
@@ -22,7 +23,7 @@ const thumbnailCardSx: SystemStyleObject = {
   transformOrigin: "20% center",
   transitionDuration: "200ms",
   transitionProperty: "transform, opacity",
-  opacity: "0.8",
+  opacity: "0.85",
 };
 const titleSx: SystemStyleObject = {
   position: "absolute",
@@ -43,24 +44,17 @@ const Dock: React.FC = () => {
     "&:hover, &.active": {
       opacity: "1",
       transform: `rotateY(${thumbnailCardRotate - 5}deg) translateX(10px)`,
-      "a, a:hover": {
-        backgroundColor: theme.palette.background.default,
+      "a:hover": {
+        background: `linear-gradient(235deg, ${green[200]}80, ${green[200]}00 70.71%),
+  linear-gradient(100deg, ${blue[200]}80, ${blue[200]}00 70.71%)`,
       },
     },
   };
   const btnSx: SystemStyleObject = {
     width: "100%",
     height: "100%",
-    color: "#fff",
+    color: theme.palette.text.primary,
     p: 0,
-    // "::after": {
-    //   content: '""',
-    //   position: "absolute",
-    //   inset: 0,
-    //   zIndex: 1,
-    //   backgroundColor: "rgba(255, 255, 255, 0.7)",
-    //   backdropFilter: "blur(3px)",
-    // },
   };
 
   return (
@@ -76,10 +70,6 @@ const Dock: React.FC = () => {
       }}
     >
       <Box
-        // component={motion.div}
-        // initial={{ opacity: 0 }}
-        // animate={{ opacity: 1 }}
-        // exit={{ opacity: 0 }}
         sx={{
           height: "80vh",
           mt: "10vh",
@@ -87,13 +77,8 @@ const Dock: React.FC = () => {
           perspective: "300px",
         }}
       >
-        {indeedProjects.map((p, id) => (
+        {indeedProjects.map((p) => (
           <Card
-            // component={motion.div}
-            // initial="initial"
-            // animate="animate"
-            // exit="exit"
-            // layoutId={`project-${p.name}`}
             key={`project-thumbnail-${p.name}`}
             sx={{ ...thumbnailCardSx, ...thumbnailCardHoverSx }}
             className={currentPage === p.name ? "active" : ""}
@@ -102,12 +87,12 @@ const Dock: React.FC = () => {
               <Button
                 component={HashLink}
                 to={`/projects/${p.name}`}
-                sx={btnSx}
+                sx={{
+                  ...btnSx,
+                  backgroundColor: theme.palette.background.default,
+                }}
               >
-                <Typography
-                  variant="h6"
-                  sx={{ backgroundColor: p.repColor, ...titleSx }}
-                >
+                <Typography variant="h6" sx={titleSx}>
                   {p.title}
                 </Typography>
               </Button>
@@ -116,10 +101,10 @@ const Dock: React.FC = () => {
         ))}
         <Card sx={thumbnailCardSx}>
           <CardContent sx={{ p: 0, height: "100%" }}>
-            <Button sx={btnSx}>
+            <Button sx={{ ...btnSx, cursor: "default" }}>
               <Typography
                 variant="h5"
-                sx={{ backgroundColor: "#abc", ...titleSx }}
+                sx={{ backgroundColor: grey[300], ...titleSx }}
               >
                 Coming...
               </Typography>
@@ -128,10 +113,10 @@ const Dock: React.FC = () => {
         </Card>
         <Card sx={thumbnailCardSx}>
           <CardContent sx={{ p: 0, height: "100%" }}>
-            <Button sx={btnSx}>
+            <Button sx={{ ...btnSx, cursor: "default" }}>
               <Typography
                 variant="h5"
-                sx={{ backgroundColor: "#abc", ...titleSx }}
+                sx={{ backgroundColor: grey[300], ...titleSx }}
               >
                 Coming...
               </Typography>
