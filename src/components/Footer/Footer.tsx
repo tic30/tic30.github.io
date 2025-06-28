@@ -21,8 +21,6 @@ const Footer: React.FC<FooterType> = ({ scrollAreaRef }) => {
         alignItems: "center",
       }}
     >
-      {/* Copyright © 2016 - 2022 TC */}
-      {/* <MediaIcons sx={{ ml: 2, mr: 0, my: 0 }} iconSx={{ width: '20px', height: '20px'}} /> */}
       <Button
         variant="text"
         onClick={() => scrollAreaRef.current?.scrollTo(0, 0)}

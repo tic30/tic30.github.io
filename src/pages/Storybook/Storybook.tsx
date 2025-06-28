@@ -6,6 +6,7 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
+import { motion } from "framer-motion";
 import { useEffect } from "react";
 import transition from "../../transition";
 
@@ -19,7 +20,8 @@ const Storybook: React.FC<{
 
   return (
     <Box
-      component="section"
+      component={motion.section}
+      // layoutId="project-storybook"
       id="storybook-title"
       sx={{
         "p, span, li": {
@@ -33,13 +35,18 @@ const Storybook: React.FC<{
       }}
     >
       <Container
+        component={motion.div}
+        initial={{ opacity: 0, y: "20px" }}
+        animate={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
         sx={{
-          py: "min(30vh, 30rem)",
+          pt: "min(30vh, 30rem)",
+          pb: 4,
           "*": {
             textAlign: "center",
             textTransform: "uppercase",
           },
         }}
+        maxWidth={false}
       >
         <Typography
           variant="h1"
@@ -53,7 +60,24 @@ const Storybook: React.FC<{
         </Typography>
         <Typography variant="h4">setup for large organization</Typography>
       </Container>
-      <Container sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+      <Box
+        component={motion.img}
+        initial={{ opacity: 0, y: "20px" }}
+        animate={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
+        src="/imgs/storybook.png"
+        alt="Micro Frontend @ Indeed"
+        aria-hidden
+        sx={{
+          width: "100%",
+          height: "min(30vh, 30rem)",
+          objectFit: "cover",
+          pb: 4,
+        }}
+      />
+      <Container
+        sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+        maxWidth={false}
+      >
         <Typography>
           To fully utitize Storybook as a tool to help cross functional
           peers(Eng, UX, PM...) among a large number of teams to view, test and
@@ -207,4 +231,4 @@ const Storybook: React.FC<{
   );
 };
 
-export default transition(Storybook);
+export default transition(Storybook, { leftOffset: "20rem" });

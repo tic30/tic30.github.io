@@ -37,7 +37,7 @@ const BlogCard: React.FC<BlogCardType> = ({ blog }) => {
           alignItems: "flex-start",
           height: "100%",
         }}
-        {...(blog.link ? { href: blog.link } : {})}
+        {...(blog.link ? { href: blog.link, target: "_blank" } : {})}
       >
         <CardMedia
           component="img"

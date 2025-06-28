@@ -19,7 +19,6 @@ import CoffeeIcon from "@mui/icons-material/Coffee";
 import DeveloperBoardIcon from "@mui/icons-material/DeveloperBoard";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import useScrollDirection from "../../hooks/useScrollDirection";
-import Texts from "../../texts";
 import { GITHUB, LINKEDIN, RESUME } from "../../constants";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -81,13 +80,13 @@ const menuList: MenuItemType[] = [
     link: "/home#work",
     subMenuItems: [
       {
-        ...Texts.OH,
-        pageUrl: "/microfe",
+        title: "Projects",
+        pageUrl: "/projects/microfe",
         icon: <DeveloperBoardIcon />,
       },
       {
-        title: "Storybook & Chromatic",
-        pageUrl: "/storybook",
+        title: "Blogs",
+        pageUrl: "/home#blogs",
         icon: <AutoStoriesIcon />,
       },
     ],
@@ -312,13 +311,9 @@ const MenuScreen: React.FC<MenuScreenType> = ({
           ml: -1,
           mb: 2,
           p: 3,
-          background: theme.palette.background.default,
+          // background: theme.palette.background.default,
           ...(isSmUp ? hambergurSmUpStyle : {}),
-          ...(open
-            ? {
-                background: theme.palette.text.primary,
-              }
-            : {}),
+          background: theme.palette.text.primary,
         }}
       >
         <Box
@@ -334,18 +329,16 @@ const MenuScreen: React.FC<MenuScreenType> = ({
               display: "block",
               width: "120%",
               height: "2px",
-              backgroundColor: open
-                ? theme.palette.background.default
-                : theme.palette.text.primary,
+              backgroundColor: theme.palette.background.default,
               position: "absolute",
               transition:
                 "transform 320ms ease-in-out, background-color 200ms ease-in-out",
             },
             "&::before": {
               transformOrigin: "top right",
-              backgroundColor: open
-                ? theme.palette.background.default
-                : "transparent",
+              // backgroundColor: open
+              //   ? theme.palette.background.default
+              //   : "transparent",
               transform: open ? "rotate(45deg) translate(4px, 14px)" : "",
             },
             "&::after": {

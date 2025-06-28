@@ -15,28 +15,41 @@ import IndeedPage from "../../components/IndeedPage";
 import OtherWorks from "../../components/OtherWorks";
 import Blogs from "../../components/Blogs";
 import AboutMeCardUX from "../../components/AboutMeCards/AboutMeCardUX";
-import AboutMeCardPersonality from "../../components/AboutMeCards/AboutMeCardPersonality";
 import { connectBgSx, sectionHeaderSX } from "./Home.style";
 import { customColors, GITHUB, LINKEDIN, RESUME } from "../../constants";
 import transition from "../../transition";
+import AboutMeCardReact from "../../components/AboutMeCards/AboutMeCardReact";
+import AboutMeCardJS from "../../components/AboutMeCards/AboutMeCardJS";
 
 const Home: React.FC = () => {
   const theme = useTheme();
 
   return (
-    <>
+    <Box
+      sx={{
+        backgroundImage:
+          theme.palette.mode === "dark"
+            ? "url(/imgs/bgsec1-dark.jpg)"
+            : "url(/imgs/bgsec1.png)",
+        backgroundSize: theme.palette.mode === "dark" ? "cover" : "contain",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+        backgroundPosition: "right bottom",
+        ...(theme.palette.mode === "dark"
+          ? {}
+          : {
+              "& section:not(:first-child)": {
+                backgroundColor: theme.palette.background.default,
+              },
+            }),
+      }}
+    >
       <Box
         component="section"
         id="self-intro"
         sx={{
-          marginTop: "30px",
-          minHeight: "calc(100vh - 30px)",
-          backgroundImage:
-            theme.palette.mode === "dark" ? "" : "url(/imgs/bgsec1.png)",
-          backgroundSize: "contain",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-          backgroundPosition: "right bottom",
+          minHeight: "100vh",
+          paddingTop: "2rem",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-evenly",
@@ -51,6 +64,7 @@ const Home: React.FC = () => {
               textTransform: "uppercase",
             },
           }}
+          maxWidth="xl"
         >
           <Typography variant="h4" sx={{ color: theme.palette.text.secondary }}>
             Hey there, I'm
@@ -80,25 +94,34 @@ const Home: React.FC = () => {
             <Box component="span" sx={{ color: colors.green[700] }}>
               front end
             </Box>{" "}
-            craftsman.
+            engineer.
           </Typography>
         </Container>
-        <Container sx={{ mt: 3, display: "flex", gap: 3, flexWrap: "wrap" }}>
+        <Container
+          sx={{
+            mt: 3,
+            display: "grid",
+            gap: 3,
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          }}
+          maxWidth="xl"
+        >
           <AboutMeCardUX />
-          <AboutMeCardPersonality />
+          <AboutMeCardReact />
+          <AboutMeCardJS />
         </Container>
       </Box>
-      <Box
-        component="section"
-        id="work"
-        sx={{ minHeight: "100vh", pb: "5rem" }}
-      >
-        <Container sx={sectionHeaderSX}>
+      <Box component="section" id="work">
+        <Container sx={sectionHeaderSX} maxWidth="xl">
           <Typography variant="h2">My work</Typography>
         </Container>
-        <Container>
+        <Container maxWidth="xl" sx={{ overflow: "hidden" }}>
           <IndeedPage />
           <OtherWorks />
+        </Container>
+      </Box>
+      <Box component="section" id="blogs" sx={{ pb: "5rem" }}>
+        <Container maxWidth="xl">
           <Blogs />
         </Container>
       </Box>
@@ -112,7 +135,7 @@ const Home: React.FC = () => {
           minHeight: "calc(100vh - 250px)",
         }}
       >
-        <Container sx={sectionHeaderSX}>
+        <Container sx={sectionHeaderSX} maxWidth="xl">
           <Typography variant="h2">Lets chat</Typography>
           <Typography variant="h4" sx={{ my: 4, lineHeight: 1.6 }}>
             I am open to{" "}
@@ -162,7 +185,7 @@ const Home: React.FC = () => {
             Send me a LinkedIn message
           </Button>
         </Container>
-        <Container sx={connectBgSx}>
+        <Container sx={connectBgSx} maxWidth="xl">
           {theme.palette.mode !== "dark" && (
             <Box
               component="img"
@@ -175,7 +198,7 @@ const Home: React.FC = () => {
           )}
         </Container>
       </Box>
-    </>
+    </Box>
   );
 };
 
