@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { topStorySx, storiesSx, storyDivider } from "./IndeedPage.style";
 import { Theme } from "@mui/system";
-import { customColors } from "../../constants";
+import { customColors, indeedProjects } from "../../constants";
 import BlogCard from "../Blogs/BlogCard";
 
 const indeedStories = [
@@ -31,24 +31,6 @@ const indeedStories = [
     chips: ["Leadership"],
     content:
       "I actively research on useful new gadgets in open source community and bring them to the company. Meanwhile, I organize ad hoc training and knowledge sharing sessions to onboard new members, learn from each other and share insights towards the future of front end.",
-  },
-];
-
-const indeedProjects = [
-  {
-    title: "Micro Frontend @ Indeed",
-    description:
-      "Design, construct and migrate to Webpack 5 based micro frontend, with GraphQL fragment first architecture.",
-    btnText: "Read more",
-    link: "#/microfe",
-    img: "/imgs/indeed-oh.png",
-  },
-  {
-    title: "Storybook and Chromatic for large org",
-    description:
-      "Comprehensive visual testing and documentation of UI components using Storybook and Chromatic can work efficiently across teams in large organizations.",
-    link: "#/storybook",
-    img: "/imgs/storybook.png",
   },
 ];
 

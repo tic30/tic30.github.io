@@ -23,6 +23,7 @@ import IndeedMicroFE from "./pages/IndeedMicroFE";
 import Preloader from "./components/Preloader";
 import Footer from "./components/Footer";
 import MenuScreen from "./components/MenuScreen";
+import Projects from "./components/Projects";
 import { globalStyle } from "./constants";
 import { AnimatePresence } from "framer-motion";
 // import ITS from './components/ITS';
@@ -45,6 +46,18 @@ const lightTheme = createTheme({
     text: {
       primary: colors.grey[900],
     },
+    // success: {
+    //   main: "#2e7d32",
+    //   light: "#4caf50",
+    //   dark: "#35574b",
+    //   contrastText: "#fff",
+    // },
+    // warning: {
+    //   main: "#995105",
+    //   light: "#ff9800",
+    //   dark: "#995105",
+    //   contrastText: "#fff",
+    // },
   },
   ...common,
 });
@@ -109,6 +122,7 @@ const PageContent: React.FC<{
           overflow: "hidden",
           flexDirection: isSmUp ? "row" : "column",
           color: theme.palette.text.primary,
+          backgroundColor: theme.palette.text.primary,
           ...globalStyle,
         }}
       >
@@ -121,14 +135,21 @@ const PageContent: React.FC<{
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Preloader />} />
               <Route path="/home" element={<Home />} />
-              <Route
-                path="/storybook"
-                element={<Storybook scrollAreaRef={scrollAreaRef} />}
-              />
-              <Route
-                path="/microfe"
-                element={<IndeedMicroFE scrollAreaRef={scrollAreaRef} />}
-              />
+              <Route path="/projects" element={<Projects />}>
+                <Route
+                  path="microfe"
+                  element={<IndeedMicroFE scrollAreaRef={scrollAreaRef} />}
+                />
+                <Route
+                  path="storybook"
+                  element={<Storybook scrollAreaRef={scrollAreaRef} />}
+                />
+                <Route
+                  index
+                  path="*"
+                  element={<Navigate to="microfe" replace />}
+                />
+              </Route>
               {/* <Route path="/its" element={<ITS />} />*/}
               {/* <Route path="/m" exact element={Maintenance} /> */}
               {/* <Route path="/dfm" element={DFM} /> */}

@@ -6,6 +6,7 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
+import { motion } from "framer-motion";
 import { useEffect } from "react";
 import transition from "../../transition";
 
@@ -27,7 +28,11 @@ const IndeedMicroFE: React.FC<{
   return (
     <Box
       component="section"
+      // initial="initial"
+      // animate="animate"
+      // exit="exit"
       id="storybook-title"
+      // layoutId="project-microfe"
       sx={{
         "p, span, li": {
           fontSize: "1.25rem",
@@ -40,13 +45,18 @@ const IndeedMicroFE: React.FC<{
       }}
     >
       <Container
+        component={motion.div}
+        initial={{ opacity: 0, y: "20px" }}
+        animate={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
         sx={{
-          py: "min(30vh, 30rem)",
+          pt: "min(30vh, 30rem)",
+          pb: 4,
           "*": {
             textAlign: "center",
             textTransform: "uppercase",
           },
         }}
+        maxWidth={false}
       >
         <Typography
           variant="h1"
@@ -59,12 +69,27 @@ const IndeedMicroFE: React.FC<{
         </Typography>
         <Typography variant="h4">@ Indeed</Typography>
       </Container>
+      <Box
+        component={motion.img}
+        initial={{ opacity: 0, y: "20px" }}
+        animate={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
+        src="/imgs/indeed-oh.png"
+        alt="Micro Frontend @ Indeed"
+        aria-hidden
+        sx={{
+          width: "100%",
+          height: "min(30vh, 30rem)",
+          objectFit: "cover",
+          pb: 4,
+        }}
+      />
       <Container
         sx={{
           display: "flex",
           flexDirection: "column",
           gap: 2,
         }}
+        maxWidth={false}
       >
         <Typography>
           Indeed has gone through several iterations of re-architecturing to
@@ -236,4 +261,4 @@ const IndeedMicroFE: React.FC<{
   );
 };
 
-export default transition(IndeedMicroFE);
+export default transition(IndeedMicroFE, { leftOffset: "20rem" });

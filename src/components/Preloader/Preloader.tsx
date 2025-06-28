@@ -144,4 +144,4 @@ const Preloader: React.FC = () => {
   );
 };
 
-export default transition(Preloader, true, false);
+export default transition(Preloader, { slideIn: true, slideOut: false });
