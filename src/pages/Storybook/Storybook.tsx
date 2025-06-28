@@ -37,7 +37,11 @@ const Storybook: React.FC<{
       <Container
         component={motion.div}
         initial={{ opacity: 0, y: "20px" }}
-        animate={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          transition: { delay: 0.2, duration: 0.5 },
+        }}
         sx={{
           pt: "min(30vh, 30rem)",
           pb: 4,
@@ -46,7 +50,7 @@ const Storybook: React.FC<{
             textTransform: "uppercase",
           },
         }}
-        maxWidth={false}
+        maxWidth="xl"
       >
         <Typography
           variant="h1"
@@ -76,9 +80,9 @@ const Storybook: React.FC<{
       />
       <Container
         sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-        maxWidth={false}
+        maxWidth="xl"
       >
-        <Typography>
+        <Typography sx={{ marginBlock: 4 }}>
           To fully utitize Storybook as a tool to help cross functional
           peers(Eng, UX, PM...) among a large number of teams to view, test and
           interact with UI components with best clarity and minimum effort. This

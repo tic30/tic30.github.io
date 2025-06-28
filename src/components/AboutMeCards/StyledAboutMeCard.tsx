@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 import Paper, { paperClasses } from "@mui/material/Paper";
-import { blue, purple, red } from "@mui/material/colors";
+import { blue, purple, green } from "@mui/material/colors";
 
 const StyledAboutMeCard = styled(Paper)(({ theme }) => ({
   [`&.${paperClasses.root}`]: {
@@ -16,7 +16,7 @@ const StyledAboutMeCard = styled(Paper)(({ theme }) => ({
     background:
       theme.palette.mode === "dark"
         ? `linear-gradient(to right, ${purple[600]}80, ${blue[500]}80)`
-        : `linear-gradient(to right, ${red[200]}80, ${blue[500]}80)`,
+        : `linear-gradient(to right, ${green[200]}80, ${blue[500]}80)`,
     lineHeight: 1.6,
   },
   "& .aboutme-card-content": {
