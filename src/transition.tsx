@@ -4,16 +4,24 @@ import { Theme, useMediaQuery, useTheme } from "@mui/material";
 
 const transition = (
   OgComponent: React.FC<any>,
-  slideIn = true,
-  slideOut = true
+  options?: {
+    slideIn?: boolean;
+    slideOut?: boolean;
+    leftOffset?: string;
+  }
 ) => {
+  const {
+    slideIn = true,
+    slideOut = true,
+    leftOffset = "6.25rem",
+  } = options || {};
   const NewComponent: React.FC<any> = (props) => {
     const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
     const theme = useTheme();
     const style: CSSProperties = {
       position: "fixed",
       top: 0,
-      left: "6.25rem",
+      left: leftOffset,
       width: "100%",
       height: "100vh",
       zIndex: 99,

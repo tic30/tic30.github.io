@@ -4,6 +4,20 @@ import BlogCard, { BlogType } from "./BlogCard";
 
 const blogList: BlogType[] = [
   {
+    title: "Make your React component downloadable",
+    description:
+      "Export a feature from your React based website to PDF or print it. Customize the exported layout with minimum effort.",
+    img: "/imgs/react-download.png",
+    link: "https://docs.google.com/document/d/1W0vKXWG3b9ELRtNCNs_gXZ_lgSCqW3ZJP60FojWIasU/edit?usp=sharing",
+  },
+  {
+    title: "Work with GraphQL in Storybook",
+    description:
+      "Use apollo addon to mock queries, fragments and client only queries. Visualize queries, variables and results in the addon panel.",
+    img: "/imgs/apollo-addon.png",
+    link: "https://docs.google.com/document/d/1Opyjs3dgO3iq2qVxhvvJBefHRaqiSfNvpB-g0IsPd4M/edit?usp=sharing",
+  },
+  {
     title: "Engineering efficiency & code quality: Choose your test",
     description:
       "Find the most efficient and effective test among Unit tests, Storybook interaction tests, Chromatic, A11y tests, Integration/E2E tests",
@@ -13,7 +27,6 @@ const blogList: BlogType[] = [
     title: "Common practise in accessibility",
     description:
       "A11y can do you a lot more good than in WCAG paper. Look at this list of common practises to boost page usability.",
-    // link: '#',
     img: "/imgs/a11y.png",
   },
   {
@@ -33,11 +46,11 @@ const blogList: BlogType[] = [
 const Blogs: React.FC = () => (
   <>
     <Typography variant="h4" sx={{ pb: 4 }}>
-      Researches
+      Blogs
     </Typography>
     <Typography sx={{ mb: 5 }}>
       These are self studies, papers and presentations made both in and outside
-      of Indeed. Send me a message if you're interested.
+      of Indeed. Send me a message if you're interested to read more.
     </Typography>
     <Box
       sx={{
