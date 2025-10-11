@@ -158,7 +158,7 @@ export interface MenuItemType {
     external?: boolean;
 }
 export interface MenuScreenType {
-    scrollAreaRef: React.RefObject<HTMLDivElement>;
+    scrollAreaRef: React.RefObject<HTMLDivElement | null>;
     toggleDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 

@@ -100,7 +100,7 @@ const PageContent: React.FC<{
     toggleDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ toggleDarkMode }) => {
     const location = useLocation();
-    const scrollAreaRef = useRef(null);
+    const scrollAreaRef = useRef<HTMLDivElement | null>(null);
     const theme = useTheme();
     const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
 
