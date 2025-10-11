@@ -1,3 +1,3 @@
 export const introCardSx = {
-  outer: { p: 3 },
+    outer: { p: 3 },
 };

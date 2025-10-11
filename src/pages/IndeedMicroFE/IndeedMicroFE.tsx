@@ -1,7 +1,7 @@
+import { useEffect } from 'react';
 import { Box, Container, List, ListItem, ListItemText, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
-import transition from '../../transition';
+import { PageTransition } from '../../components/PageTransition';
 
 // const imgSx: SxProps = {
 //   display: "block",
@@ -11,7 +11,7 @@ import transition from '../../transition';
 // };
 
 const IndeedMicroFE: React.FC<{
-    scrollAreaRef: React.RefObject<HTMLDivElement>;
+    scrollAreaRef: React.RefObject<HTMLDivElement | null>;
 }> = ({ scrollAreaRef }) => {
     useEffect(() => {
         scrollAreaRef.current?.scrollTo(0, 0);
@@ -247,8 +247,9 @@ const IndeedMicroFE: React.FC<{
                     *Illustrations are credited to Indeed colleague.
                 </Typography>
             </Container>
+            <PageTransition leftOffset="20rem" />
         </Box>
     );
 };
 
-export default transition(IndeedMicroFE, { leftOffset: '20rem' });
+export default IndeedMicroFE;

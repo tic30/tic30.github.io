@@ -1,9 +1,9 @@
 import { useEffect, type RefObject } from 'react';
 import { Box, Container, List, ListItem, ListItemText, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-import transition from '../../transition';
+import { PageTransition } from '../../components/PageTransition';
 
-const Storybook = ({ scrollAreaRef }: { scrollAreaRef: RefObject<HTMLDivElement> }) => {
+const Storybook = ({ scrollAreaRef }: { scrollAreaRef: RefObject<HTMLDivElement | null> }) => {
     useEffect(() => {
         scrollAreaRef.current?.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -210,8 +210,9 @@ const Storybook = ({ scrollAreaRef }: { scrollAreaRef: RefObject<HTMLDivElement>
                     document towards a beloved productivity tool across all teams at Indeed.
                 </Typography>
             </Container>
+            <PageTransition leftOffset="20rem" />
         </Box>
     );
 };
 
-export default transition(Storybook, { leftOffset: '20rem' });
+export default Storybook;

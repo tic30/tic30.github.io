@@ -1,1 +1,1 @@
-export { default } from "./IndeedMicroFE";
+export { default } from './IndeedMicroFE';

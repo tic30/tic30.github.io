@@ -1,2 +1,2 @@
-export { default } from "./MenuScreen";
-export type { MenuItemType } from "./MenuScreen";
+export { default } from './MenuScreen';
+export type { MenuItemType } from './MenuScreen';
