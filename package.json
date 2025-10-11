@@ -9,7 +9,8 @@
         "lint": "eslint .",
         "lint:fix": "eslint . --fix && prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
         "tsc": "tsc",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "prepare": "husky"
     },
     "dependencies": {
         "@emotion/react": "^11.13.0",
@@ -34,9 +35,16 @@
         "eslint-plugin-react-hooks": "^5.2.0",
         "eslint-plugin-react-refresh": "^0.4.22",
         "globals": "^16.4.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.2.4",
+        "prettier": "^2.8.8",
         "typescript": "~5.9.3",
         "typescript-eslint": "^8.45.0",
-        "prettier": "^2.8.8",
         "vite": "^7.1.7"
+    },
+    "lint-staged": {
+        "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+            "prettier --write"
+        ]
     }
 }
