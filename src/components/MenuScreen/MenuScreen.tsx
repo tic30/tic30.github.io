@@ -295,6 +295,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                 onKeyDown={handleKeyDown}
                 onClick={() => setOpen(!open)}
                 sx={{
+                    cursor: 'pointer',
                     position: 'relative',
                     zIndex: '12',
                     boxSizing: 'border-box',
@@ -305,9 +306,13 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                     ml: -1,
                     mb: 2,
                     p: 3,
+                    opacity: 0.5,
                     // background: theme.palette.background.default,
                     ...(isSmUp ? hambergurSmUpStyle : {}),
                     background: theme.palette.text.primary,
+                    '&:hover': {
+                        opacity: 1,
+                    },
                 }}
             >
                 <Box

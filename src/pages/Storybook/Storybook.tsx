@@ -1,6 +1,6 @@
 import { useEffect, type RefObject } from 'react';
 import { Box, Container, List, ListItem, ListItemText, Typography } from '@mui/material';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { PageTransition } from '../../components/PageTransition';
 
 const Storybook = ({ scrollAreaRef }: { scrollAreaRef: RefObject<HTMLDivElement | null> }) => {

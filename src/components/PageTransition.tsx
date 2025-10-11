@@ -1,5 +1,5 @@
 import { type CSSProperties } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { type Theme, useMediaQuery, useTheme } from '@mui/material';
 
 export const PageTransition = ({

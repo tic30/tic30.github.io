@@ -12,17 +12,17 @@ import {
     useTheme,
 } from '@mui/material';
 import Home from './pages/Home';
-import Storybook from './pages/Storybook';
-import IndeedMicroFE from './pages/IndeedMicroFE';
 import Preloader from './components/Preloader';
 import Footer from './components/Footer';
 import MenuScreen from './components/MenuScreen';
-import Projects from './components/Projects';
 import { globalStyle } from './constants';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'motion/react';
 // import ITS from './components/ITS';
 // import Maintenance from './components/Maintenance';
 // import DFM from './components/DFM';
+const Projects = React.lazy(() => import('./components/Projects'));
+const Storybook = React.lazy(() => import('./pages/Storybook'));
+const IndeedMicroFE = React.lazy(() => import('./pages/IndeedMicroFE'));
 
 const common: ThemeOptions = {
     typography: {
