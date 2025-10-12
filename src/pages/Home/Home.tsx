@@ -1,4 +1,13 @@
-import { Container, Box, colors, Typography, Button, IconButton, useTheme } from '@mui/material';
+import {
+    Container,
+    Box,
+    colors,
+    Typography,
+    Button,
+    IconButton,
+    useTheme,
+    Paper,
+} from '@mui/material';
 import { ArrowForward } from '@mui/icons-material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -7,7 +16,7 @@ import IndeedPage from '../../components/IndeedPage';
 import OtherWorks from '../../components/OtherWorks';
 import Blogs from '../../components/Blogs';
 import AboutMeCardUX from '../../components/AboutMeCards/AboutMeCardUX';
-import { connectBgSx, sectionHeaderSX } from './Home.style';
+import { sectionHeaderSX } from './Home.style';
 import { customColors, GITHUB, LINKEDIN, RESUME } from '../../constants';
 import { PageTransition } from '../../components/PageTransition';
 import AboutMeCardReact from '../../components/AboutMeCards/AboutMeCardReact';
@@ -19,21 +28,19 @@ const Home: React.FC = () => {
     return (
         <Box
             sx={{
+                paddingTop: ['6rem', '2rem'],
+                paddingLeft: ['0', '6.25rem'],
                 backgroundImage:
                     theme.palette.mode === 'dark'
-                        ? 'url(/imgs/bgsec1-dark.jpg)'
+                        ? 'url(/imgs/bgsec1-dark.png)'
                         : 'url(/imgs/bgsec1.png)',
-                backgroundSize: theme.palette.mode === 'dark' ? 'cover' : 'contain',
+                backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundAttachment: 'fixed',
-                backgroundPosition: 'right bottom',
-                ...(theme.palette.mode === 'dark'
-                    ? {}
-                    : {
-                          '& section:not(:first-child)': {
-                              backgroundColor: theme.palette.background.default,
-                          },
-                      }),
+                backgroundPosition: 'left top',
+                '& section:not(:first-child)': {
+                    backgroundColor: theme.palette.background.paper,
+                },
             }}
         >
             <Box
@@ -41,7 +48,6 @@ const Home: React.FC = () => {
                 id="self-intro"
                 sx={{
                     minHeight: '100vh',
-                    paddingTop: '2rem',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-evenly',
@@ -91,7 +97,7 @@ const Home: React.FC = () => {
                 </Container>
                 <Container
                     sx={{
-                        mt: 3,
+                        my: 3,
                         display: 'grid',
                         gap: 3,
                         gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -103,7 +109,11 @@ const Home: React.FC = () => {
                     <AboutMeCardJS />
                 </Container>
             </Box>
-            <Box component="section" id="work">
+            <Box
+                component="section"
+                id="work"
+                sx={{ borderTopLeftRadius: '1.5rem', borderTopRightRadius: '1.5rem' }}
+            >
                 <Container sx={sectionHeaderSX} maxWidth="xl">
                     <Typography variant="h2">My work</Typography>
                 </Container>
@@ -128,66 +138,91 @@ const Home: React.FC = () => {
                 }}
             >
                 <Container sx={sectionHeaderSX} maxWidth="xl">
-                    <Typography variant="h2">Lets chat</Typography>
-                    <Typography variant="h4" sx={{ my: 4, lineHeight: 1.6 }}>
-                        I am open to{' '}
-                        <Box component="span" sx={{ color: customColors.orange }}>
-                            creative
-                        </Box>{' '}
-                        ideas!
+                    <Typography variant="h2" sx={{ marginBlockEnd: 6 }}>
+                        Lets chat
                     </Typography>
-                    <Box sx={{ display: 'flex', gap: 1 }}>
-                        <IconButton
-                            size="large"
-                            href={RESUME}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            title="Resume"
-                        >
-                            <SummarizeIcon fontSize="large" aria-hidden />
-                        </IconButton>
-                        <IconButton
-                            size="large"
-                            href={LINKEDIN}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            title="LinkedIn"
-                        >
-                            <LinkedInIcon fontSize="large" aria-hidden />
-                        </IconButton>
-                        <IconButton
-                            size="large"
-                            href={GITHUB}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            title="GitHub"
-                        >
-                            <GitHubIcon fontSize="large" aria-hidden />
-                        </IconButton>
-                    </Box>
-                    <Button
-                        size="large"
-                        sx={{ mt: 1, textTransform: 'none' }}
-                        endIcon={<ArrowForward />}
-                        component="a"
-                        href={LINKEDIN}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <Paper
+                        sx={{
+                            borderRadius: '0.75rem',
+                            display: 'flex',
+                            flexWrap: ['wrap', 'nowrap'],
+                            backgroundColor: theme.palette.background.default,
+                            overflow: 'hidden',
+                        }}
                     >
-                        Send me a LinkedIn message
-                    </Button>
-                </Container>
-                <Container sx={connectBgSx} maxWidth="xl">
-                    {theme.palette.mode !== 'dark' && (
                         <Box
-                            component="img"
-                            src="/imgs/bgsec4.jpeg"
-                            alt="idea"
                             sx={{
-                                height: ['200px', '400px'],
+                                flex: '1 0 60%',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
                             }}
-                        />
-                    )}
+                        >
+                            <Box sx={{ margin: [2, 6] }}>
+                                <Typography
+                                    variant="h4"
+                                    sx={{ marginBlockEnd: 4, lineHeight: 1.6 }}
+                                >
+                                    I am open to{' '}
+                                    <Box component="span" sx={{ color: customColors.orange }}>
+                                        creative
+                                    </Box>{' '}
+                                    ideas!
+                                </Typography>
+                                <Box sx={{ display: 'flex', gap: 1 }}>
+                                    <IconButton
+                                        size="large"
+                                        href={RESUME}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="Resume"
+                                    >
+                                        <SummarizeIcon fontSize="large" aria-hidden />
+                                    </IconButton>
+                                    <IconButton
+                                        size="large"
+                                        href={LINKEDIN}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="LinkedIn"
+                                    >
+                                        <LinkedInIcon fontSize="large" aria-hidden />
+                                    </IconButton>
+                                    <IconButton
+                                        size="large"
+                                        href={GITHUB}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="GitHub"
+                                    >
+                                        <GitHubIcon fontSize="large" aria-hidden />
+                                    </IconButton>
+                                </Box>
+                                <Button
+                                    size="large"
+                                    sx={{ mt: 1, textTransform: 'none', alignSelf: 'flex-start' }}
+                                    endIcon={<ArrowForward />}
+                                    component="a"
+                                    href={LINKEDIN}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Send me a LinkedIn message
+                                </Button>
+                            </Box>
+                        </Box>
+                        {theme.palette.mode !== 'dark' && (
+                            <Box
+                                component="img"
+                                src="/imgs/bgsec4.jpeg"
+                                alt="idea"
+                                sx={{
+                                    aspectRatio: '1/1',
+                                    width: ['100%', '40%', '40%'],
+                                }}
+                            />
+                        )}
+                    </Paper>
                 </Container>
             </Box>
             <PageTransition />

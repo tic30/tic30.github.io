@@ -29,13 +29,43 @@ const common: ThemeOptions = {
         fontFamily: "'Lato', sans-serif",
         fontSize: 14,
     },
+    components: {
+        MuiPaper: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                    backgroundImage:
+                        'linear-gradient(135deg, rgba(255,255,255,0.20), rgba(255,255,255,0.06))',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
+                },
+            },
+        },
+        MuiCard: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                    backgroundImage:
+                        'linear-gradient(135deg, rgba(255,255,255,0.20), rgba(255,255,255,0.06))',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
+                },
+            },
+        },
+    },
 };
 
 const lightTheme = createTheme({
     palette: {
         mode: 'light',
         background: {
-            paper: `#FFFFFFD9`,
+            light: 'rgba(255, 255, 255, 0.1)',
+            paper: `#FFFFFFB3`,
+            invert: 'rgba(20, 20, 20, 0.1)',
         },
         text: {
             primary: colors.grey[900],
@@ -72,7 +102,9 @@ const darkTheme = createTheme({
     palette: {
         mode: 'dark',
         background: {
-            paper: `${colors.grey[900]}B3`,
+            light: 'rgba(20, 20, 20, 0.1)',
+            paper: `${colors.grey[800]}B3`,
+            invert: 'rgba(240, 240, 240, 0.8)',
         },
         text: {
             primary: colors.grey[50],

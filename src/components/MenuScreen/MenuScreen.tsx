@@ -18,6 +18,7 @@ import SummarizeIcon from '@mui/icons-material/Summarize';
 import CoffeeIcon from '@mui/icons-material/Coffee';
 import DeveloperBoardIcon from '@mui/icons-material/DeveloperBoard';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import { AnimatePresence, motion } from 'motion/react';
 import useScrollDirection from '../../hooks/useScrollDirection';
 import { GITHUB, LINKEDIN, RESUME } from '../../constants';
 
@@ -254,12 +255,13 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
 
     const wrapperMobileStyle = {
         overflow: 'hidden',
-        height: open ? '100%' : '3.5rem',
-        width: open ? '100%' : '6.25rem',
+        height: open ? '100%' : '4.5rem',
+        width: '100%',
         marginTop: scrollDir === 'DOWN' ? '-4.5rem' : 0,
     } as SystemStyleObject;
 
     const wrapperSmUpStyle = {
+        blockSize: '100vh',
         width: open ? '24rem' : '6.25rem',
     } as SystemStyleObject;
 
@@ -279,9 +281,11 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
         <Box
             className="header-menu"
             sx={{
-                position: 'relative',
+                position: 'absolute',
+                top: 0,
+                left: 0,
                 boxSizing: 'border-box',
-                background: theme.palette.text.primary,
+                background: open ? theme.palette.text.primary : theme.palette.background.invert,
                 p: 1,
                 transition: '0.2s',
                 flexShrink: 0,
@@ -297,7 +301,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                 sx={{
                     cursor: 'pointer',
                     position: 'relative',
-                    zIndex: '12',
+                    zIndex: '13',
                     boxSizing: 'border-box',
                     height: '4.5rem',
                     width: 'calc(100% + 1rem)',
@@ -306,12 +310,9 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                     ml: -1,
                     mb: 2,
                     p: 3,
-                    opacity: 0.5,
-                    // background: theme.palette.background.default,
                     ...(isSmUp ? hambergurSmUpStyle : {}),
-                    background: theme.palette.text.primary,
                     '&:hover': {
-                        opacity: 1,
+                        background: theme.palette.background.light,
                     },
                 }}
             >
@@ -320,7 +321,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                         width: '20px',
                         height: '2px',
                         margin: '8px 8px 16px',
-                        backgroundColor: theme.palette.text.primary,
+                        // backgroundColor: theme.palette.text.primary,
                         position: 'relative',
                         transition: 'background-color 320ms ease-in-out',
                         '&::before, &::after': {
@@ -457,15 +458,24 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                     )}
                 </Box>
             ))}
-            <MaterialUISwitch
-                onClick={() => toggleDarkMode((m) => !m)}
-                sx={{
-                    position: 'absolute',
-                    left: '1rem',
-                    bottom: '1.5rem',
-                    zIndex: 11,
-                }}
-            />
+            <AnimatePresence>
+                {(isSmUp || open) && (
+                    <Box
+                        component={motion.div}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1, transition: { duration: 0.2, delay: 0.3 } }}
+                        exit={{ opacity: 0, transition: { duration: 0.2, delay: 0 } }}
+                        sx={{
+                            position: 'absolute',
+                            left: '1rem',
+                            bottom: '1.5rem',
+                            zIndex: 11,
+                        }}
+                    >
+                        <MaterialUISwitch onClick={() => toggleDarkMode((m) => !m)} />
+                    </Box>
+                )}
+            </AnimatePresence>
         </Box>
     );
 };

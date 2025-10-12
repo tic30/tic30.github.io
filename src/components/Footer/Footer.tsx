@@ -19,6 +19,7 @@ const Footer: React.FC<FooterType> = ({ scrollAreaRef }) => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
+                backgroundColor: theme.palette.background.invert,
             }}
         >
             <Button

@@ -6,8 +6,8 @@ const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
     <Tooltip classes={{ popper: className }} arrow placement="bottom-start" {...props} />
 ))(({ theme }) => ({
     [`& .${tooltipClasses.tooltip}`]: {
-        backgroundColor: theme.palette.common.white,
-        color: colors.grey[800],
+        backgroundColor: theme.palette.background.default,
+        color: theme.palette.text.primary,
         boxShadow: theme.shadows[3],
         fontSize: '1rem',
         lineHeight: 1.5,
@@ -15,7 +15,7 @@ const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
         padding: 16,
     },
     [`& .${tooltipClasses.arrow}::before`]: {
-        backgroundColor: theme.palette.common.white,
+        backgroundColor: theme.palette.background.default,
         boxShadow: theme.shadows[3],
     },
 }));
