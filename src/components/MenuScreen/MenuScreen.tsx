@@ -285,7 +285,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                 top: 0,
                 left: 0,
                 boxSizing: 'border-box',
-                background: open ? theme.palette.text.primary : theme.palette.background.invert,
+                background: open ? theme.palette.text.primary : theme.palette.background.darker,
                 p: 1,
                 transition: '0.2s',
                 flexShrink: 0,

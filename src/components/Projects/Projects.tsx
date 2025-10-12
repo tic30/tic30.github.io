@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardContent, Typography, useTheme } from '@mui/material';
+import { Box, Button, Card, CardContent, Paper, Typography, useTheme } from '@mui/material';
 import { type SystemStyleObject, type Theme, useMediaQuery } from '@mui/system';
 import React, { useRef } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
@@ -8,6 +8,8 @@ import { blue, grey, green } from '@mui/material/colors';
 
 const thumbnailCardRotate = 11;
 const thumbnailCardSx: SystemStyleObject = {
+    border: 'none',
+    borderRadius: 4,
     width: '200px',
     height: '25%',
     transformStyle: 'preserve-3d',
@@ -37,18 +39,25 @@ const Dock: React.FC = () => {
         '&:hover, &.active': {
             opacity: '1',
             transform: `rotateY(${thumbnailCardRotate - 5}deg) translateX(10px)`,
-            'a:hover': {
-                background: `linear-gradient(235deg, ${green[200]}80, ${green[200]}00 70.71%),
-  linear-gradient(100deg, ${blue[200]}80, ${blue[200]}00 70.71%)`,
-            },
+            //             'a:hover': {
+            //                 background: `linear-gradient(235deg, ${green[200]}80, ${green[200]}00 70.71%),
+            //   linear-gradient(100deg, ${blue[200]}80, ${blue[200]}00 70.71%)`,
+            //             },
         },
     };
-    const btnSx: SystemStyleObject = {
+    const btnSx: (active: boolean) => SystemStyleObject = (active) => ({
         width: '100%',
         height: '100%',
-        color: theme.palette.text.primary,
         p: 0,
-    };
+        color: active ? theme.palette.text.invert : theme.palette.text.primary,
+        backgroundColor: active
+            ? theme.palette.background.invert
+            : theme.palette.background.default,
+        '&:hover': {
+            backgroundColor: theme.palette.background.invert,
+            color: theme.palette.text.invert,
+        },
+    });
 
     return (
         <Box
@@ -59,7 +68,6 @@ const Dock: React.FC = () => {
                 insetBlock: '0',
                 height: '100vh',
                 pl: '7.5rem',
-                background: theme.palette.text.primary,
             }}
         >
             <Box
@@ -80,10 +88,7 @@ const Dock: React.FC = () => {
                             <Button
                                 component={HashLink}
                                 to={`/projects/${p.name}`}
-                                sx={{
-                                    ...btnSx,
-                                    backgroundColor: theme.palette.background.default,
-                                }}
+                                sx={btnSx(currentPage === p.name)}
                             >
                                 <Typography variant="h6" sx={titleSx}>
                                     {p.title}
@@ -92,37 +97,29 @@ const Dock: React.FC = () => {
                         </CardContent>
                     </Card>
                 ))}
-                <Card sx={thumbnailCardSx}>
-                    <CardContent sx={{ p: 0, height: '100%' }}>
-                        <Button sx={{ ...btnSx, cursor: 'default' }}>
+                {Array.from({ length: 2 }).map((_, index) => (
+                    <Card key={`project-thumbnail-${index}`} sx={thumbnailCardSx}>
+                        <CardContent sx={{ p: 0, height: '100%' }}>
                             <Typography
-                                variant="h5"
-                                sx={{ backgroundColor: grey[300], ...titleSx }}
+                                variant="h6"
+                                sx={{
+                                    ...titleSx,
+                                    p: 4,
+                                    backgroundColor: theme.palette.background.default,
+                                    fontColor: theme.palette.text.secondary,
+                                }}
                             >
                                 Coming...
                             </Typography>
-                        </Button>
-                    </CardContent>
-                </Card>
-                <Card sx={thumbnailCardSx}>
-                    <CardContent sx={{ p: 0, height: '100%' }}>
-                        <Button sx={{ ...btnSx, cursor: 'default' }}>
-                            <Typography
-                                variant="h5"
-                                sx={{ backgroundColor: grey[300], ...titleSx }}
-                            >
-                                Coming...
-                            </Typography>
-                        </Button>
-                    </CardContent>
-                </Card>
+                        </CardContent>
+                    </Card>
+                ))}
             </Box>
         </Box>
     );
 };
 
 const Projects: React.FC = () => {
-    const theme = useTheme();
     const scrollAreaRef = useRef(null);
     const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
 
@@ -130,20 +127,20 @@ const Projects: React.FC = () => {
         <Box
             ref={scrollAreaRef}
             sx={{
-                background: theme.palette.text.primary,
                 overflowY: 'auto',
             }}
         >
             <Dock />
             <Box sx={isSmUp ? { ml: '20rem', pt: 2 } : {}}>
-                <Box
+                <Paper
                     sx={{
-                        backgroundColor: theme.palette.background.default,
+                        border: 'none',
+                        borderRadius: 0,
                         borderStartStartRadius: '1rem',
                     }}
                 >
                     <Outlet context={scrollAreaRef} />
-                </Box>
+                </Paper>
             </Box>
         </Box>
     );

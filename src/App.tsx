@@ -30,7 +30,7 @@ const common: ThemeOptions = {
         MuiPaper: {
             styleOverrides: {
                 root: {
-                    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
                     backgroundImage:
                         'linear-gradient(135deg, rgba(255,255,255,0.20), rgba(255,255,255,0.06))',
                     backdropFilter: 'blur(8px)',
@@ -43,7 +43,7 @@ const common: ThemeOptions = {
         MuiCard: {
             styleOverrides: {
                 root: {
-                    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
                     backgroundImage:
                         'linear-gradient(135deg, rgba(255,255,255,0.20), rgba(255,255,255,0.06))',
                     backdropFilter: 'blur(8px)',
@@ -60,12 +60,14 @@ const lightTheme = createTheme({
     palette: {
         mode: 'light',
         background: {
-            light: 'rgba(255, 255, 255, 0.1)',
-            paper: `#FFFFFFB3`,
-            invert: 'rgba(20, 20, 20, 0.1)',
+            light: 'rgba(255, 255, 255, 0.4)',
+            darker: 'rgba(20, 20, 20, 0.1)',
+            paper: 'rgba(255, 255, 255, 0.2)',
+            invert: 'rgba(20, 20, 20, 0.9)',
         },
         text: {
             primary: colors.grey[900],
+            invert: colors.grey[50],
         },
     },
     ...common,
@@ -75,12 +77,14 @@ const darkTheme = createTheme({
     palette: {
         mode: 'dark',
         background: {
-            light: 'rgba(20, 20, 20, 0.1)',
-            paper: `${colors.grey[800]}B3`,
+            light: 'rgba(255, 255, 255, 0.2)',
+            darker: 'rgba(240, 240, 240, 0.7)',
+            paper: 'rgba(255, 255, 255, 0.2)',
             invert: 'rgba(240, 240, 240, 0.8)',
         },
         text: {
             primary: colors.grey[50],
+            invert: colors.grey[900],
         },
     },
     ...common,
@@ -90,6 +94,8 @@ const StyledMainContent = styled(Box)(({ theme }) => ({
     width: '100%',
     overflowY: 'auto',
     backgroundColor: theme.palette.background.default,
+    backgroundImage:
+        theme.palette.mode === 'dark' ? 'url(/imgs/bgsec1-dark.png)' : 'url(/imgs/bgsec1.png)',
 }));
 
 const PageContent: React.FC<{

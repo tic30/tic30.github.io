@@ -28,16 +28,12 @@ const Home: React.FC = () => {
             sx={{
                 paddingTop: ['6rem', '2rem'],
                 paddingLeft: ['0', '6.25rem'],
-                backgroundImage:
-                    theme.palette.mode === 'dark'
-                        ? 'url(/imgs/bgsec1-dark.png)'
-                        : 'url(/imgs/bgsec1.png)',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundAttachment: 'fixed',
                 backgroundPosition: 'left top',
                 '& section:not(:first-child)': {
-                    backgroundColor: theme.palette.background.paper,
+                    backgroundColor: theme.palette.background.light,
                 },
             }}
         >
@@ -97,11 +93,7 @@ const Home: React.FC = () => {
                     <TopSectionSlider />
                 </Container>
             </Box>
-            <Box
-                component="section"
-                id="work"
-                sx={{ borderTopLeftRadius: '1.5rem', borderTopRightRadius: '1.5rem' }}
-            >
+            <Box component="section" id="work" sx={{ borderTopRightRadius: '5rem' }}>
                 <Container sx={sectionHeaderSX} maxWidth="xl">
                     <Typography variant="h2">My work</Typography>
                 </Container>
