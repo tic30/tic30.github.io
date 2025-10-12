@@ -4,7 +4,6 @@ import React, { useRef } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { indeedProjects } from '../../constants';
-import { blue, grey, green } from '@mui/material/colors';
 
 const thumbnailCardRotate = 11;
 const thumbnailCardSx: SystemStyleObject = {
@@ -136,7 +135,7 @@ const Projects: React.FC = () => {
                     sx={{
                         border: 'none',
                         borderRadius: 0,
-                        borderStartStartRadius: '1rem',
+                        borderStartStartRadius: '5rem',
                     }}
                 >
                     <Outlet context={scrollAreaRef} />
