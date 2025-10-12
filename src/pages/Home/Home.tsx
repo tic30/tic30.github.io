@@ -199,17 +199,15 @@ const Home: React.FC = () => {
                                 </Button>
                             </Box>
                         </Box>
-                        {theme.palette.mode !== 'dark' && (
-                            <Box
-                                component="img"
-                                src="/imgs/bgsec4.jpeg"
-                                alt="idea"
-                                sx={{
-                                    aspectRatio: '1/1',
-                                    width: ['100%', '40%', '40%'],
-                                }}
-                            />
-                        )}
+                        <Box
+                            component="img"
+                            src="/imgs/bgsec4.jpeg"
+                            alt="idea"
+                            sx={{
+                                aspectRatio: '1/1',
+                                width: ['100%', '40%', '40%'],
+                            }}
+                        />
                     </Paper>
                 </Container>
             </Box>
