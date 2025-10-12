@@ -2,20 +2,28 @@ import { useState } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { motion } from 'motion/react';
 import { Box, Paper, Typography, useTheme, type SxProps } from '@mui/material';
-import AirplaneTicketIcon from '@mui/icons-material/AirplaneTicket';
-import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import AirlineStopsIcon from '@mui/icons-material/AirlineStops';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import CollectionsBookmarkIcon from '@mui/icons-material/CollectionsBookmark';
+import { introSlides2024AndBefore, introSlides2025, introSlidestldr } from '../../texts';
+import Markdown from 'markdown-to-jsx';
+import { customColors } from '../../constants';
 
 const tabs = [
     {
-        icon: <AirplaneTicketIcon color="primary" sx={{ fontSize: 36 }} />,
+        icon: <AirlineStopsIcon color="primary" sx={{ fontSize: 36 }} />,
         label: 'tl;dr',
-        content: 'Tomato',
+        content: introSlidestldr,
     },
-    { icon: '🐍', label: '2025 so far', content: 'Lettuce' },
     {
-        icon: <AccessTimeFilledIcon color="warning" sx={{ fontSize: 36 }} />,
+        icon: <AutoAwesomeIcon color="success" sx={{ fontSize: 36 }} />,
+        label: '2025 so far',
+        content: introSlides2025,
+    },
+    {
+        icon: <CollectionsBookmarkIcon color="warning" sx={{ fontSize: 36 }} />,
         label: '2024 and before',
-        content: 'Cheese',
+        content: introSlides2024AndBefore,
     },
 ];
 
@@ -25,7 +33,7 @@ export const TopSectionSlider = () => {
 
     return (
         <Paper sx={{ ...container, border: 'none', backgroundColor: 'background.paper' }}>
-            <Box sx={{ ...nav, backgroundColor: 'background.invert' }}>
+            <Box sx={{ ...nav, backgroundColor: 'background.paper' }}>
                 <Box component="ul" sx={tabsContainer}>
                     {tabs.map((item) => (
                         <Box
@@ -43,7 +51,6 @@ export const TopSectionSlider = () => {
                         >
                             {item.icon}
                             <Typography
-                                variant="h4"
                                 sx={{
                                     color: selectedTab === item ? 'text.primary' : 'text.secondary',
                                 }}
@@ -71,9 +78,9 @@ export const TopSectionSlider = () => {
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -10, opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        sx={icon}
+                        sx={mainContent}
                     >
-                        {selectedTab ? selectedTab.content : ''}
+                        {selectedTab ? <Markdown>{selectedTab.content}</Markdown> : ''}
                     </Box>
                 </AnimatePresence>
             </Box>
@@ -86,6 +93,8 @@ export const TopSectionSlider = () => {
  */
 
 const container: SxProps = {
+    display: 'flex',
+    flexDirection: 'column',
     height: '60vh',
     borderRadius: 4,
     overflow: 'hidden',
@@ -101,13 +110,15 @@ const tabsStyles: SxProps = {
     padding: 0,
     margin: 0,
     fontWeight: 500,
-    fontSize: 14,
 };
 
 const tabsContainer: SxProps = {
     ...tabsStyles,
     display: 'flex',
+    paddingBlockEnd: '2px',
     width: '100%',
+    overflowX: 'auto',
+    overflowY: 'visible',
 };
 
 const tab: SxProps = {
@@ -115,19 +126,22 @@ const tab: SxProps = {
     borderRadius: 3,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    width: '100%',
-    padding: '1rem 1.5rem',
+    px: ['0.5rem', '0.5rem', '1rem'],
+    py: ['0.5rem', '0.5rem', '1.5rem'],
     position: 'relative',
     background: 'white',
     cursor: 'pointer',
-    fontSize: '2rem',
     display: 'flex',
     gap: 2,
     alignItems: 'center',
-    flex: 1,
+    flex: '1 0 auto',
     minWidth: 0,
     userSelect: 'none',
     color: 'text.primary',
+    '&, p': {
+        textWrap: 'nowrap',
+        fontSize: ['1.25rem', '1.25rem', '2rem'],
+    },
 };
 
 const underline: SxProps = {
@@ -136,16 +150,16 @@ const underline: SxProps = {
     left: 0,
     right: 0,
     height: 2,
-    background: 'red',
+    background: customColors.orange,
 };
 
 const iconContainer: SxProps = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
     flex: 1,
+    overflowY: 'auto',
 };
 
-const icon: SxProps = {
-    fontSize: 128,
+const mainContent: SxProps = {
+    padding: 4,
+    fontSize: ['1rem', '1rem', '1.25rem'],
+    lineHeight: 1.5,
 };

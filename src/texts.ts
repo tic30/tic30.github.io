@@ -1,3 +1,14 @@
+export const introSlidestldr = `
+Gemini is on it!
+`;
+
+export const introSlides2025 = `
+Gemini is on it!`;
+
+export const introSlides2024AndBefore = `
+Gemini is on it!
+`;
+
 const Text = {
     // Hero: {
     //   title: "Hi, Welcome!",
