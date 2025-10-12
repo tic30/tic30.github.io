@@ -15,12 +15,10 @@ import SummarizeIcon from '@mui/icons-material/Summarize';
 import IndeedPage from '../../components/IndeedPage';
 import OtherWorks from '../../components/OtherWorks';
 import Blogs from '../../components/Blogs';
-import AboutMeCardUX from '../../components/AboutMeCards/AboutMeCardUX';
 import { sectionHeaderSX } from './Home.style';
 import { customColors, GITHUB, LINKEDIN, RESUME } from '../../constants';
 import { PageTransition } from '../../components/PageTransition';
-import AboutMeCardReact from '../../components/AboutMeCards/AboutMeCardReact';
-import AboutMeCardJS from '../../components/AboutMeCards/AboutMeCardJS';
+import { TopSectionSlider } from '../../components/TopSectionSlider';
 
 const Home: React.FC = () => {
     const theme = useTheme();
@@ -95,18 +93,8 @@ const Home: React.FC = () => {
                         engineer.
                     </Typography>
                 </Container>
-                <Container
-                    sx={{
-                        my: 3,
-                        display: 'grid',
-                        gap: 3,
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                    }}
-                    maxWidth="xl"
-                >
-                    <AboutMeCardUX />
-                    <AboutMeCardReact />
-                    <AboutMeCardJS />
+                <Container maxWidth="xl">
+                    <TopSectionSlider />
                 </Container>
             </Box>
             <Box

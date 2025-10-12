@@ -58,7 +58,7 @@ const Dock: React.FC = () => {
                 zIndex: 1,
                 insetBlock: '0',
                 height: '100vh',
-                pl: '20px',
+                pl: '7.5rem',
                 background: theme.palette.text.primary,
             }}
         >
@@ -135,7 +135,7 @@ const Projects: React.FC = () => {
             }}
         >
             <Dock />
-            <Box sx={isSmUp ? { ml: '220px', pt: 2 } : {}}>
+            <Box sx={isSmUp ? { ml: '20rem', pt: 2 } : {}}>
                 <Box
                     sx={{
                         backgroundColor: theme.palette.background.default,
