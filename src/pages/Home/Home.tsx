@@ -45,11 +45,13 @@ const Home: React.FC = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-evenly',
+                    paddingBottom: '3rem',
                 }}
             >
                 <Container
                     sx={{
-                        my: 0,
+                        mt: 0,
+                        mb: 4,
                         display: 'flex',
                         flexDirection: 'column',
                         '*': {
