@@ -77,16 +77,17 @@ const Home: React.FC = () => {
                             color: theme.palette.text.secondary,
                         }}
                     >
-                        An innovative{' '}
-                        <Box component="span" sx={{ color: customColors.orange }}>
-                            problem solver
-                        </Box>
-                        <br />
-                        and{' '}
+                        A{' '}
                         <Box component="span" sx={{ color: colors.green[700] }}>
                             front end
                         </Box>{' '}
-                        engineer.
+                        biased full-stack engineer
+                        <br />
+                        and an innovative{' '}
+                        <Box component="span" sx={{ color: customColors.orange }}>
+                            problem solver
+                        </Box>
+                        .
                     </Typography>
                 </Container>
                 <Container maxWidth="xl">

@@ -1,9 +1,11 @@
+import React, { useRef } from 'react';
+import { motion } from 'motion/react';
 import { Box, Button, Card, CardContent, Paper, Typography, useTheme } from '@mui/material';
 import { type SystemStyleObject, type Theme, useMediaQuery } from '@mui/system';
-import React, { useRef } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { indeedProjects } from '../../constants';
+import { PageTransition } from '../PageTransition';
 
 const thumbnailCardRotate = 11;
 const thumbnailCardSx: SystemStyleObject = {
@@ -60,19 +62,24 @@ const Dock: React.FC = () => {
 
     return (
         <Box
+            component={motion.div}
+            initial={{ width: 0 }}
+            animate={{ width: 'fit-content' }}
+            transition={{ duration: 0.2, delay: 0.5 }}
             sx={{
                 display: isSmUp ? 'block' : 'none',
-                position: 'absolute',
+                position: 'sticky',
                 zIndex: 1,
-                insetBlock: '0',
                 height: '100vh',
-                pl: '7.5rem',
+                pl: '6.25rem',
+                overflow: 'hidden',
             }}
         >
             <Box
                 sx={{
                     height: '80vh',
                     mt: '10vh',
+                    paddingLeft: '1.25rem',
                     position: 'relative',
                     perspective: '300px',
                 }}
@@ -126,13 +133,15 @@ const Projects: React.FC = () => {
         <Box
             ref={scrollAreaRef}
             sx={{
+                display: 'flex',
                 overflowY: 'auto',
             }}
         >
             <Dock />
-            <Box sx={isSmUp ? { ml: '20rem', pt: 2 } : {}}>
+            <Box sx={{ flexGrow: 1 }}>
                 <Paper
                     sx={{
+                        mt: isSmUp ? 2 : 0,
                         border: 'none',
                         borderRadius: 0,
                         borderStartStartRadius: '5rem',
@@ -140,6 +149,7 @@ const Projects: React.FC = () => {
                 >
                     <Outlet context={scrollAreaRef} />
                 </Paper>
+                <PageTransition />
             </Box>
         </Box>
     );

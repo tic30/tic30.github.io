@@ -12,12 +12,20 @@ const PreloaderScreen = styled(Box)(({ theme }) => ({
     alignItems: 'center',
 }));
 
-const PreloaderContent = styled(Box)({
+const PreloaderContent = styled(Box)(({ theme }) => ({
+    width: '650px',
+    height: '15vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: '4rem',
+    backgroundColor: theme.palette.background.default,
+    boxShadow: theme.shadows[10],
     animationName: 'fadeOutUpRight',
     animationDelay: '5s',
-    animationDuration: '0.5s',
+    animationDuration: '0.4s',
     animationFillMode: 'forwards',
-});
+}));
 
 const PreloaderText = styled(Box)(({ theme }) => ({
     position: 'relative',
@@ -136,9 +144,11 @@ const Preloader: React.FC = () => {
     return (
         <PreloaderScreen>
             <PreloaderContent onAnimationEnd={updateRedirect}>
-                <PreloaderText>{'Hello, this is Tim Chu'}</PreloaderText>
+                <Box>
+                    <PreloaderText>{'Hello, this is Tim Chu'}</PreloaderText>
+                </Box>
+                <PageTransition slideOut={false} />
             </PreloaderContent>
-            <PageTransition slideOut={false} />
         </PreloaderScreen>
     );
 };

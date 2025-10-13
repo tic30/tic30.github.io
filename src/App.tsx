@@ -138,9 +138,6 @@ const PageContent: React.FC<{
                                 />
                                 <Route index path="*" element={<Navigate to="microfe" replace />} />
                             </Route>
-                            {/* <Route path="/its" element={<ITS />} />*/}
-                            {/* <Route path="/m" exact element={Maintenance} /> */}
-                            {/* <Route path="/dfm" element={DFM} /> */}
                             <Route path="*" element={<Navigate to="/home" />} />
                         </Routes>
                         <Footer scrollAreaRef={scrollAreaRef} />
