@@ -9,12 +9,15 @@ Current office: Foster City(San Francisco Bay Area), CA
 
 #### M.S Software Engineering @ CMU
 
-Leetcode: 358
+Certification: Building Generative AI Solutions(3 months nanodegree program) @ Udacity
 
 ---
 
 #### And...
-🏓 Ping pong 🎮 Genshin & LOL ... and more 🍵 🏹 🥐 🦸‍♂️ 🏁
+
+Web Accessibility CPACC & WAS training in progress
+
+Leetcode: 358
 `;
 
 export const introSlides2025 = `
