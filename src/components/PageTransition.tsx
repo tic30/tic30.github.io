@@ -1,5 +1,5 @@
 import { type CSSProperties } from 'react';
-import { motion } from 'motion/react';
+import { easeIn, motion } from 'motion/react';
 import { type Theme, useMediaQuery, useTheme } from '@mui/material';
 
 export const PageTransition = ({
@@ -20,7 +20,9 @@ export const PageTransition = ({
         width: '100%',
         height: '100vh',
         zIndex: 99,
-        backgroundColor: theme.palette.text.primary,
+        backgroundColor: theme.palette.background.default,
+        backgroundImage:
+            theme.palette.mode === 'dark' ? 'url(/imgs/bg-t-dark.png)' : 'url(/imgs/bg-t.png)',
     };
 
     return (
@@ -31,7 +33,7 @@ export const PageTransition = ({
                     initial={{ scaleY: 0 }}
                     animate={{ scaleY: 0 }}
                     exit={{ scaleY: 1 }}
-                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.4, ease: easeIn }}
                     style={{ ...style, transformOrigin: 'bottom' }}
                 />
             )}
@@ -41,7 +43,7 @@ export const PageTransition = ({
                     initial={{ scaleY: 1 }}
                     animate={{ scaleY: 0 }}
                     exit={{ scaleY: 0 }}
-                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.4, ease: easeIn }}
                     style={{ ...style, transformOrigin: 'top' }}
                 />
             )}

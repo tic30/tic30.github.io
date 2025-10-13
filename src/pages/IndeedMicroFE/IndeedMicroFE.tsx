@@ -1,14 +1,6 @@
 import { useEffect } from 'react';
 import { Box, Container, List, ListItem, ListItemText, Typography } from '@mui/material';
 import { motion } from 'motion/react';
-import { PageTransition } from '../../components/PageTransition';
-
-// const imgSx: SxProps = {
-//   display: "block",
-//   marginInline: "auto",
-//   paddingBlock: 4,
-//   maxWidth: "100%",
-// };
 
 const IndeedMicroFE: React.FC<{
     scrollAreaRef: React.RefObject<HTMLDivElement | null>;
@@ -21,11 +13,7 @@ const IndeedMicroFE: React.FC<{
     return (
         <Box
             component="section"
-            // initial="initial"
-            // animate="animate"
-            // exit="exit"
             id="storybook-title"
-            // layoutId="project-microfe"
             sx={{
                 'p, span, li': {
                     fontSize: '1.25rem',
@@ -103,13 +91,6 @@ const IndeedMicroFE: React.FC<{
                     data, resulting in unmaintainable large number of transformer functions,
                     confusing data object keys, prop drilling and poor performance.
                 </Typography>
-                {/* <Box
-          component="img"
-          sx={imgSx}
-          alt="Problem"
-          aria-hidden
-          src="/imgs/mfe1.png"
-        /> */}
                 <Typography variant="h4">Concept and design</Typography>
                 <Typography>
                     Webpack 5 module federation and GraphQL fragments are two powerful tools we can
@@ -124,13 +105,6 @@ const IndeedMicroFE: React.FC<{
                     federated modules and consumed by container repos, or other feature repos as
                     needed.
                 </Typography>
-                {/* <Box
-          component="img"
-          sx={imgSx}
-          alt="Federated React Components"
-          aria-hidden
-          src="/imgs/mfe-react.png"
-        /> */}
                 <Typography variant="subtitle1">Concept: Federated GraphQL fragment</Typography>
                 <Typography>
                     GraphQL fragments can exist for any feature, live in any repository, be written
@@ -138,13 +112,6 @@ const IndeedMicroFE: React.FC<{
                     a small number of queries fired at page load, significantly boosts performance
                     and reduces server load.
                 </Typography>
-                {/* <Box
-          component="img"
-          sx={imgSx}
-          alt="Federated React Components"
-          aria-hidden
-          src="/imgs/mfe-frag.png"
-        /> */}
                 <Typography variant="subtitle1">Design: Fragment first architecture</Typography>
                 <Typography>
                     Each UI feature module exposes its own GraphQL fragment. Never reuse a fragment
@@ -153,13 +120,6 @@ const IndeedMicroFE: React.FC<{
                     and data layers, decouples modules, and makes feature iterations, code tracing
                     and cleanups much easier.
                 </Typography>
-                {/* <Box
-          component="img"
-          sx={imgSx}
-          alt="Fragment first architecture"
-          aria-hidden
-          src="/imgs/mfe-together.png"
-        /> */}
                 <Typography variant="h4">Workflow</Typography>
                 <List>
                     <ListItem>
@@ -247,7 +207,6 @@ const IndeedMicroFE: React.FC<{
                     *Illustrations are credited to Indeed colleague.
                 </Typography>
             </Container>
-            <PageTransition leftOffset="20rem" />
         </Box>
     );
 };

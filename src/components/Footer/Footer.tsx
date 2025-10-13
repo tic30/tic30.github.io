@@ -14,11 +14,12 @@ const Footer: React.FC<FooterType> = ({ scrollAreaRef }) => {
             component="footer"
             sx={{
                 position: 'relative',
-                py: 10,
+                py: 8,
                 maxWidth: 'none',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
+                backgroundColor: theme.palette.background.paper,
             }}
         >
             <Button

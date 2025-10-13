@@ -23,7 +23,7 @@ export const boxContainerStyle = {
     backgroundColor: colors.grey[50],
     transitionDuration: '0.5s',
     '&:hover, &:focus': {
-        backgroundColor: colors.grey[200],
+        backgroundColor: colors.grey[300],
     },
     '&:hover > div, &:focus > div': {
         backgroundColor: colors.grey[50],

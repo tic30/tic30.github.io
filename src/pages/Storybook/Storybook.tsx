@@ -1,7 +1,6 @@
 import { useEffect, type RefObject } from 'react';
 import { Box, Container, List, ListItem, ListItemText, Typography } from '@mui/material';
 import { motion } from 'motion/react';
-import { PageTransition } from '../../components/PageTransition';
 
 const Storybook = ({ scrollAreaRef }: { scrollAreaRef: RefObject<HTMLDivElement | null> }) => {
     useEffect(() => {
@@ -12,7 +11,6 @@ const Storybook = ({ scrollAreaRef }: { scrollAreaRef: RefObject<HTMLDivElement 
     return (
         <Box
             component={motion.section}
-            // layoutId="project-storybook"
             id="storybook-title"
             sx={{
                 'p, span, li': {
@@ -210,7 +208,6 @@ const Storybook = ({ scrollAreaRef }: { scrollAreaRef: RefObject<HTMLDivElement 
                     document towards a beloved productivity tool across all teams at Indeed.
                 </Typography>
             </Container>
-            <PageTransition leftOffset="20rem" />
         </Box>
     );
 };
