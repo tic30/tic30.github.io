@@ -92,32 +92,6 @@ const menuList: MenuItemType[] = [
             },
         ],
     },
-    // {
-    //   icon: <BatchPredictionIcon />,
-    //   text: "Researches",
-    //   link: "/home#researches",
-    // },
-    // {
-    //   icon: <WorkspacesIcon />,
-    //   text: "Projects",
-    //   link: "/home#projects",
-    //   subMenuItems: [
-    //     {
-    //       ...Texts.OH,
-    //       pageUrl: "/microfe",
-    //       icon: <DeveloperBoardIcon />,
-    //     },
-    //     // {
-    //     //   ...Texts.ITS,
-    //     //   icon: <VisibilityIcon />,
-    //     // },
-    //     {
-    //       title: "Others",
-    //       pageUrl: "/home#projects",
-    //       icon: <MoreHorizIcon />,
-    //     },
-    //   ],
-    // },
     {
         icon: <CoffeeIcon />,
         text: 'Connect',
@@ -290,6 +264,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                 transition: '0.2s',
                 flexShrink: 0,
                 zIndex: 10,
+                boxShadow: open ? 5 : 'none',
                 ...(isSmUp ? wrapperSmUpStyle : wrapperMobileStyle),
             }}
         >
@@ -321,7 +296,6 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                         width: '20px',
                         height: '2px',
                         margin: '8px 8px 16px',
-                        // backgroundColor: theme.palette.text.primary,
                         position: 'relative',
                         transition: 'background-color 320ms ease-in-out',
                         '&::before, &::after': {
@@ -336,9 +310,6 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                         },
                         '&::before': {
                             transformOrigin: 'top right',
-                            // backgroundColor: open
-                            //   ? theme.palette.background.default
-                            //   : "transparent",
                             transform: open ? 'rotate(45deg) translate(4px, 14px)' : '',
                         },
                         '&::after': {

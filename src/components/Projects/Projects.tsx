@@ -40,10 +40,6 @@ const Dock: React.FC = () => {
         '&:hover, &.active': {
             opacity: '1',
             transform: `rotateY(${thumbnailCardRotate - 5}deg) translateX(10px)`,
-            //             'a:hover': {
-            //                 background: `linear-gradient(235deg, ${green[200]}80, ${green[200]}00 70.71%),
-            //   linear-gradient(100deg, ${blue[200]}80, ${blue[200]}00 70.71%)`,
-            //             },
         },
     };
     const btnSx: (active: boolean) => SystemStyleObject = (active) => ({
