@@ -1,5 +1,7 @@
 # My portfolio website
 
+https://tic30.github.io/
+
 ## Development
 
 ### Run
@@ -37,5 +39,3 @@ which bundles current local files and pushs to `gh-pages` branch. The website wi
 ## Find more about me
 
 LinkedIn: <https://www.linkedin.com/in/tim-chu-980881a4>
-
-GitHub: <https://github.com/tic30>
