@@ -228,6 +228,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
 
     const wrapperSmUpStyle = {
         blockSize: '100vh',
+        overflowX: 'hidden',
         overflowY: 'auto',
         width: open ? '24rem' : '6.25rem',
     } as SystemStyleObject;
@@ -249,6 +250,8 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
             className="header-menu"
             sx={{
                 position: 'absolute',
+                display: 'flex',
+                flexDirection: 'column',
                 top: 0,
                 left: 0,
                 boxSizing: 'border-box',
@@ -313,144 +316,131 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                     }}
                 />
             </Box>
-            <AnimatePresence>
-                {menuList.map((item, id) => (
-                    <Box
-                        key={`menu-item-${id}`}
-                        sx={{
-                            position: 'relative',
-                            [`&:hover #menu-submenu-item-${id}, &:focus-within #menu-submenu-item-${id}`]:
-                                {
-                                    display: 'flex',
-                                },
-                        }}
-                    >
+            <Box sx={{ flexGrow: 1 }}>
+                <AnimatePresence>
+                    {menuList.map((item, id) => (
                         <Box
-                            component={HashLink}
-                            to={item.link}
-                            sx={innerSx}
-                            onClick={handleMenuItemClick}
+                            key={`menu-item-${id}`}
+                            sx={{
+                                position: 'relative',
+                                [`&:hover #menu-submenu-item-${id}, &:focus-within #menu-submenu-item-${id}`]:
+                                    {
+                                        display: 'flex',
+                                    },
+                            }}
                         >
                             <Box
-                                component={motion.div}
-                                layout="position"
-                                transition={{ duration: 0.2 }}
-                                sx={open ? { mx: 2 } : {}}
-                            >
-                                {item.icon}
-                            </Box>
-                            <Typography
-                                layout="position"
-                                component={motion.span}
-                                transition={{ duration: 0.2 }}
-                            >
-                                {item.text}
-                            </Typography>
-                        </Box>
-                        {item.subMenuItems && (
-                            <Box
-                                id={`menu-submenu-item-${id}`}
-                                sx={{
-                                    position: open ? 'relative' : 'absolute',
-                                    left: open ? 0 : 'calc(100% - 1rem)',
-                                    pl: '2rem',
-                                    top: 0,
-                                    display: open ? 'flex' : 'none',
-                                    zIndex: 1,
-                                    mb: 3,
-                                }}
+                                component={HashLink}
+                                to={item.link}
+                                sx={innerSx}
+                                onClick={handleMenuItemClick}
                             >
                                 <Box
+                                    component={motion.div}
+                                    layout="position"
+                                    transition={{ duration: 0.2 }}
+                                    sx={open ? { mx: 2 } : {}}
+                                >
+                                    {item.icon}
+                                </Box>
+                                <Typography
+                                    layout="position"
+                                    component={motion.span}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    {item.text}
+                                </Typography>
+                            </Box>
+                            {item.subMenuItems && (
+                                <Box
+                                    id={`menu-submenu-item-${id}`}
                                     sx={{
-                                        display: 'flex',
-                                        flexGrow: 1,
-                                        flexDirection: 'column',
-                                        pl: open ? '0.4rem' : 0,
-                                        '> a': {
-                                            backgroundColor: open
-                                                ? 'none'
-                                                : theme.palette.background.default,
-                                            color: theme.palette.text.primary,
-                                            fontSize: '0.875rem',
-                                            py: open ? 1 : 2,
-                                            px: 3,
-                                            mb: 1,
-                                            whiteSpace: 'nowrap',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            borderRadius: 2,
-                                            boxShadow:
-                                                !open && theme.palette.mode === 'light'
-                                                    ? 3
-                                                    : 'none',
-                                            textDecoration: 'none',
-                                        },
-                                        '> a > *:not(:last-child)': {
-                                            mr: 2,
-                                        },
-                                        '> a:hover, > a:focus': {
-                                            background: open
-                                                ? theme.palette.background.light
-                                                : theme.palette.background.invert,
-                                            color: open
-                                                ? theme.palette.text.primary
-                                                : theme.palette.background.default,
-                                            boxShadow: theme.palette.mode === 'dark' ? 0 : 3,
-                                        },
+                                        position: open ? 'relative' : 'absolute',
+                                        left: open ? 0 : 'calc(100% - 1rem)',
+                                        pl: '2rem',
+                                        top: 0,
+                                        display: open ? 'flex' : 'none',
+                                        zIndex: 1,
+                                        mb: 3,
                                     }}
                                 >
-                                    {item.subMenuItems.map((page, id) =>
-                                        page.external ? (
-                                            <Box
-                                                key={`menu-submenu-item-${id}`}
-                                                component="a"
-                                                href={page.pageUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                {page.icon}
-                                                <Typography component="span">
-                                                    {page.title}
-                                                </Typography>
-                                            </Box>
-                                        ) : (
-                                            <Box
-                                                key={`menu-submenu-item-${id}`}
-                                                component={HashLink}
-                                                to={page.pageUrl}
-                                                onClick={handleMenuItemClick}
-                                            >
-                                                {page.icon}
-                                                <Typography component="span">
-                                                    {page.title}
-                                                </Typography>
-                                            </Box>
-                                        ),
-                                    )}
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            flexGrow: 1,
+                                            flexDirection: 'column',
+                                            pl: open ? '0.4rem' : 0,
+                                            '> a': {
+                                                backgroundColor: open
+                                                    ? 'none'
+                                                    : theme.palette.background.default,
+                                                color: theme.palette.text.primary,
+                                                fontSize: '0.875rem',
+                                                py: open ? 1 : 2,
+                                                px: 3,
+                                                mb: 1,
+                                                whiteSpace: 'nowrap',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                borderRadius: 2,
+                                                boxShadow:
+                                                    !open && theme.palette.mode === 'light'
+                                                        ? 3
+                                                        : 'none',
+                                                textDecoration: 'none',
+                                            },
+                                            '> a > *:not(:last-child)': {
+                                                mr: 2,
+                                            },
+                                            '> a:hover, > a:focus': {
+                                                background: open
+                                                    ? theme.palette.background.light
+                                                    : theme.palette.background.invert,
+                                                color: open
+                                                    ? theme.palette.text.primary
+                                                    : theme.palette.background.default,
+                                                boxShadow: theme.palette.mode === 'dark' ? 0 : 3,
+                                            },
+                                        }}
+                                    >
+                                        {item.subMenuItems.map((page, id) =>
+                                            page.external ? (
+                                                <Box
+                                                    key={`menu-submenu-item-${id}`}
+                                                    component="a"
+                                                    href={page.pageUrl}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    {page.icon}
+                                                    <Typography component="span">
+                                                        {page.title}
+                                                    </Typography>
+                                                </Box>
+                                            ) : (
+                                                <Box
+                                                    key={`menu-submenu-item-${id}`}
+                                                    component={HashLink}
+                                                    to={page.pageUrl}
+                                                    onClick={handleMenuItemClick}
+                                                >
+                                                    {page.icon}
+                                                    <Typography component="span">
+                                                        {page.title}
+                                                    </Typography>
+                                                </Box>
+                                            ),
+                                        )}
+                                    </Box>
                                 </Box>
-                            </Box>
-                        )}
-                    </Box>
-                ))}
-            </AnimatePresence>
-            <AnimatePresence>
-                {(isSmUp || open) && (
-                    <Box
-                        component={motion.div}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1, transition: { duration: 0.2, delay: 0.3 } }}
-                        exit={{ opacity: 0, transition: { duration: 0.2, delay: 0 } }}
-                        sx={{
-                            position: 'absolute',
-                            left: '1rem',
-                            bottom: '1.5rem',
-                            zIndex: 11,
-                        }}
-                    >
-                        <MaterialUISwitch onClick={() => toggleDarkMode((m) => !m)} />
-                    </Box>
-                )}
-            </AnimatePresence>
+                            )}
+                        </Box>
+                    ))}
+                </AnimatePresence>
+            </Box>
+            <Box sx={{ py: 2, pl: 1 }}>
+                <MaterialUISwitch onClick={() => toggleDarkMode((m) => !m)} />
+            </Box>
         </Box>
     );
 };
