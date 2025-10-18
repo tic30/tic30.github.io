@@ -8,9 +8,10 @@ export interface BlogType {
 }
 export interface BlogCardType {
     blog: BlogType;
+    external?: boolean;
 }
 
-const BlogCard: React.FC<BlogCardType> = ({ blog }) => {
+const BlogCard: React.FC<BlogCardType> = ({ blog, external = false }) => {
     return (
         <Paper sx={{ borderRadius: 3 }}>
             <CardActionArea
@@ -21,7 +22,7 @@ const BlogCard: React.FC<BlogCardType> = ({ blog }) => {
                     alignItems: 'flex-start',
                     height: '100%',
                 }}
-                {...(blog.link ? { href: blog.link, target: '_blank' } : {})}
+                {...(blog.link ? { href: blog.link, target: external ? '_blank' : undefined } : {})}
             >
                 <CardMedia component="img" height="140" image={blog.img} alt="blog image" />
                 <Box sx={{ flexGrow: 1, p: 2 }}>

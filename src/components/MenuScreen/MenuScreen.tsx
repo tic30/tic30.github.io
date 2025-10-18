@@ -228,8 +228,8 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
 
     const wrapperSmUpStyle = {
         blockSize: '100vh',
-        overflowX: 'hidden',
-        overflowY: 'auto',
+        overflowX: open ? 'hidden' : 'visible',
+        overflowY: open ? 'auto' : 'unset',
         width: open ? '24rem' : '6.25rem',
     } as SystemStyleObject;
 
@@ -272,7 +272,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                 sx={{
                     cursor: 'pointer',
                     position: 'relative',
-                    zIndex: '13',
+                    zIndex: 13,
                     boxSizing: 'border-box',
                     height: '4.5rem',
                     width: 'calc(100% + 1rem)',

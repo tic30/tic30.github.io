@@ -59,7 +59,7 @@ const Blogs: React.FC = () => (
             }}
         >
             {blogList.map((blog, id) => (
-                <BlogCard key={`blog-accordion-${id}`} blog={blog} />
+                <BlogCard key={`blog-accordion-${id}`} blog={blog} external />
             ))}
             <MoreHorizIcon
                 sx={{
