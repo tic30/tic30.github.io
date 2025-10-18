@@ -205,7 +205,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                 },
             },
         }),
-        [open, isSmUp, theme.palette.mode],
+        [open, isSmUp, theme.palette.mode], // eslint-disable-line react-hooks/exhaustive-deps
     );
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>): void => {
