@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box } from '@mui/material';
+import { Box, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { PageTransition } from '../PageTransition';
 
 const PreloaderScreen = styled(Box)(({ theme }) => ({
+    marginLeft: '6.25rem',
     height: '100vh',
     color: theme.palette.text.primary,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundImage:
+        theme.palette.mode === 'dark' ? 'url(/imgs/bg-t-dark.png)' : 'url(/imgs/bg-t.png)',
 }));
 
-const PreloaderContent = styled(Box)(({ theme }) => ({
+const PreloaderContent = styled(Paper)(({ theme }) => ({
     width: '650px',
-    height: '15vh',
+    height: '8rem',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: '4rem',
-    backgroundColor: theme.palette.background.default,
+    borderRadius: '2rem',
     boxShadow: theme.shadows[10],
     animationName: 'fadeOutUpRight',
     animationDelay: '5s',

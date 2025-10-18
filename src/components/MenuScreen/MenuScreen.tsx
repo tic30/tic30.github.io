@@ -140,15 +140,9 @@ export interface MenuScreenType {
 const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode }) => {
     const menuTriggerRef = useRef<HTMLDivElement>(null);
     const [open, setOpen] = useState(false);
-    const [openDelay, setOpenDelay] = useState(false);
     const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
     const scrollDir = useScrollDirection(scrollAreaRef.current);
     const theme = useTheme();
-
-    useEffect(() => {
-        setOpenDelay(false);
-        setTimeout(() => setOpenDelay(true), 200);
-    }, [open]);
 
     useEffect(() => {
         const sections = document.querySelectorAll('section');
@@ -183,37 +177,35 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
         () => ({
             flexDirection: open ? 'row' : 'column',
             alignItems: 'center',
-            borderRadius: 1,
+            borderRadius: 2,
             p: open ? '0.5rem 0.35rem' : 1,
             mb: open ? 3 : 1,
             height: open ? '2.5rem' : '3.5rem',
             width: open ? 'auto' : '4.25rem',
             justifyContent: open ? 'flex-start' : 'center',
             textDecoration: 'none',
+            color: theme.palette.text.primary,
             '&:hover': {
                 cursor: 'pointer',
             },
             '&, &:focus': {
                 display: 'flex',
             },
-            '> svg': {
-                color: theme.palette.background.default,
-                ...(open ? { mx: 2 } : {}),
-            },
             span: {
                 fontSize: open ? '1rem' : '0.75rem',
-                color: theme.palette.background.default,
-                display: openDelay ? 'block' : 'none',
-                opacity: openDelay ? 1 : 0,
             },
             '&:hover, &.active, &:focus': {
-                backgroundColor: theme.palette.background.default,
+                backgroundColor:
+                    theme.palette.mode === 'dark' && open
+                        ? theme.palette.background.light
+                        : theme.palette.background.default,
+                boxShadow: theme.palette.mode === 'dark' ? 0 : 3,
                 '> svg, > span': {
                     color: theme.palette.text.primary,
                 },
             },
         }),
-        [openDelay, isSmUp, theme.palette.mode], // eslint-disable-line react-hooks/exhaustive-deps
+        [open, isSmUp, theme.palette.mode],
     );
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>): void => {
@@ -259,7 +251,9 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                 top: 0,
                 left: 0,
                 boxSizing: 'border-box',
-                background: open ? theme.palette.text.primary : theme.palette.background.darker,
+                background: open
+                    ? theme.palette.background.default
+                    : theme.palette.background.light,
                 p: 1,
                 transition: '0.2s',
                 flexShrink: 0,
@@ -303,7 +297,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                             display: 'block',
                             width: '120%',
                             height: '2px',
-                            backgroundColor: theme.palette.background.default,
+                            backgroundColor: theme.palette.background.invert,
                             position: 'absolute',
                             transition:
                                 'transform 320ms ease-in-out, background-color 200ms ease-in-out',
@@ -320,115 +314,126 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                     }}
                 />
             </Box>
-            {menuList.map((item, id) => (
-                <Box
-                    key={`menu-item-${id}`}
-                    sx={{
-                        position: 'relative',
-                        [`&:hover #menu-submenu-item-${id}, &:focus-within #menu-submenu-item-${id}`]:
-                            {
-                                display: 'flex',
-                            },
-                    }}
-                >
+            <AnimatePresence>
+                {menuList.map((item, id) => (
                     <Box
-                        component={HashLink}
-                        to={item.link}
-                        sx={innerSx}
-                        onClick={handleMenuItemClick}
+                        key={`menu-item-${id}`}
+                        sx={{
+                            position: 'relative',
+                            [`&:hover #menu-submenu-item-${id}, &:focus-within #menu-submenu-item-${id}`]:
+                                {
+                                    display: 'flex',
+                                },
+                        }}
                     >
-                        {item.icon}
-                        <Typography component="span">{item.text}</Typography>
-                    </Box>
-                    {item.subMenuItems && (
                         <Box
-                            id={`menu-submenu-item-${id}`}
-                            sx={{
-                                position: open ? 'relative' : 'absolute',
-                                left: open ? 0 : 'calc(100% - 1rem)',
-                                pl: '2rem',
-                                top: 0,
-                                display: open ? 'flex' : 'none',
-                                zIndex: 1,
-                                mb: 3,
-                            }}
+                            component={HashLink}
+                            to={item.link}
+                            sx={innerSx}
+                            onClick={handleMenuItemClick}
                         >
                             <Box
+                                component={motion.div}
+                                layout="position"
+                                transition={{ duration: 0.2 }}
+                                sx={open ? { mx: 2 } : {}}
+                            >
+                                {item.icon}
+                            </Box>
+                            <Typography
+                                layout="position"
+                                component={motion.span}
+                                transition={{ duration: 0.2 }}
+                            >
+                                {item.text}
+                            </Typography>
+                        </Box>
+                        {item.subMenuItems && (
+                            <Box
+                                id={`menu-submenu-item-${id}`}
                                 sx={{
-                                    display: 'flex',
-                                    flexGrow: 1,
-                                    flexDirection: 'column',
-                                    borderLeft: open
-                                        ? `1px solid ${theme.palette.background.default}`
-                                        : 'none',
-                                    pl: open ? '0.4rem' : 0,
-                                    '> a': {
-                                        backgroundColor: open
-                                            ? 'none'
-                                            : theme.palette.background.default,
-                                        color: open
-                                            ? theme.palette.background.default
-                                            : theme.palette.text.primary,
-                                        fontSize: '0.875rem',
-                                        py: open ? 1 : 2,
-                                        px: 3,
-                                        mb: 1,
-                                        whiteSpace: 'nowrap',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        borderRadius: 1,
-                                        boxShadow: open ? 'none' : theme.shadows[3],
-                                        textDecoration: 'none',
-                                    },
-                                    '> a > *:not(:last-child)': {
-                                        mr: 2,
-                                    },
-                                    '> a:hover,> a:hover span, > a:focus, > a:focus span': {
-                                        background: open
-                                            ? theme.palette.background.default
-                                            : theme.palette.text.primary,
-                                        color: open
-                                            ? theme.palette.text.primary
-                                            : theme.palette.background.default,
-                                    },
-                                    ...(open
-                                        ? {
-                                              span: {
-                                                  color: theme.palette.background.default,
-                                              },
-                                          }
-                                        : {}),
+                                    position: open ? 'relative' : 'absolute',
+                                    left: open ? 0 : 'calc(100% - 1rem)',
+                                    pl: '2rem',
+                                    top: 0,
+                                    display: open ? 'flex' : 'none',
+                                    zIndex: 1,
+                                    mb: 3,
                                 }}
                             >
-                                {item.subMenuItems.map((page, id) =>
-                                    page.external ? (
-                                        <Box
-                                            key={`menu-submenu-item-${id}`}
-                                            component="a"
-                                            href={page.pageUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            {page.icon}
-                                            <Typography component="span">{page.title}</Typography>
-                                        </Box>
-                                    ) : (
-                                        <Box
-                                            key={`menu-submenu-item-${id}`}
-                                            component={HashLink}
-                                            to={page.pageUrl}
-                                            onClick={handleMenuItemClick}
-                                        >
-                                            {page.icon}
-                                            <Typography component="span">{page.title}</Typography>
-                                        </Box>
-                                    ),
-                                )}
+                                <Box
+                                    sx={{
+                                        display: 'flex',
+                                        flexGrow: 1,
+                                        flexDirection: 'column',
+                                        pl: open ? '0.4rem' : 0,
+                                        '> a': {
+                                            backgroundColor: open
+                                                ? 'none'
+                                                : theme.palette.background.default,
+                                            color: theme.palette.text.primary,
+                                            fontSize: '0.875rem',
+                                            py: open ? 1 : 2,
+                                            px: 3,
+                                            mb: 1,
+                                            whiteSpace: 'nowrap',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            borderRadius: 2,
+                                            boxShadow:
+                                                !open && theme.palette.mode === 'light'
+                                                    ? 3
+                                                    : 'none',
+                                            textDecoration: 'none',
+                                        },
+                                        '> a > *:not(:last-child)': {
+                                            mr: 2,
+                                        },
+                                        '> a:hover, > a:focus': {
+                                            background: open
+                                                ? theme.palette.background.light
+                                                : theme.palette.background.invert,
+                                            color: open
+                                                ? theme.palette.text.primary
+                                                : theme.palette.background.default,
+                                            boxShadow: theme.palette.mode === 'dark' ? 0 : 3,
+                                        },
+                                    }}
+                                >
+                                    {item.subMenuItems.map((page, id) =>
+                                        page.external ? (
+                                            <Box
+                                                key={`menu-submenu-item-${id}`}
+                                                component="a"
+                                                href={page.pageUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {page.icon}
+                                                <Typography component="span">
+                                                    {page.title}
+                                                </Typography>
+                                            </Box>
+                                        ) : (
+                                            <Box
+                                                key={`menu-submenu-item-${id}`}
+                                                component={HashLink}
+                                                to={page.pageUrl}
+                                                onClick={handleMenuItemClick}
+                                            >
+                                                {page.icon}
+                                                <Typography component="span">
+                                                    {page.title}
+                                                </Typography>
+                                            </Box>
+                                        ),
+                                    )}
+                                </Box>
                             </Box>
-                        </Box>
-                    )}
-                </Box>
-            ))}
+                        )}
+                    </Box>
+                ))}
+            </AnimatePresence>
             <AnimatePresence>
                 {(isSmUp || open) && (
                     <Box
