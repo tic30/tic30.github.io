@@ -228,6 +228,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
 
     const wrapperSmUpStyle = {
         blockSize: '100vh',
+        overflowY: 'auto',
         width: open ? '24rem' : '6.25rem',
     } as SystemStyleObject;
 
@@ -251,9 +252,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                 top: 0,
                 left: 0,
                 boxSizing: 'border-box',
-                background: open
-                    ? theme.palette.background.default
-                    : theme.palette.background.light,
+                background: open ? theme.palette.background.default : 'transparent',
                 p: 1,
                 transition: '0.2s',
                 flexShrink: 0,

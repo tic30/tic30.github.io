@@ -26,34 +26,13 @@ const common: ThemeOptions = {
         fontFamily: "'Lato', sans-serif",
         fontSize: 14,
     },
-    components: {
-        MuiPaper: {
-            styleOverrides: {
-                root: {
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    backgroundImage:
-                        'linear-gradient(135deg, rgba(255,255,255,0.20), rgba(255,255,255,0.06))',
-                    backdropFilter: 'blur(8px)',
-                    WebkitBackdropFilter: 'blur(8px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
-                },
-            },
-        },
-        MuiCard: {
-            styleOverrides: {
-                root: {
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    backgroundImage:
-                        'linear-gradient(135deg, rgba(255,255,255,0.20), rgba(255,255,255,0.06))',
-                    backdropFilter: 'blur(8px)',
-                    WebkitBackdropFilter: 'blur(8px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
-                },
-            },
-        },
-    },
+};
+
+const sharedPaperStyle = {
+    overflow: 'hidden',
+    backdropFilter: 'blur(8px)',
+    WebkitBackdropFilter: 'blur(8px)',
+    boxShadow: 3,
 };
 
 const lightTheme = createTheme({
@@ -62,12 +41,26 @@ const lightTheme = createTheme({
         background: {
             light: 'rgba(255, 255, 255, 0.4)',
             darker: 'rgba(20, 20, 20, 0.1)',
-            paper: 'rgba(255, 255, 255, 0.2)',
+            paper: 'rgba(255, 255, 255, 0.4)',
             invert: 'rgba(20, 20, 20, 0.9)',
         },
         text: {
             primary: colors.grey[900],
             invert: colors.grey[50],
+        },
+    },
+    components: {
+        MuiPaper: {
+            styleOverrides: {
+                root: {
+                    ...sharedPaperStyle,
+                    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+                    backgroundImage:
+                        'linear-gradient(135deg, rgba(255,255,255,0.20), rgba(255,255,255,0.06))',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
+                },
+            },
         },
     },
     ...common,
@@ -79,12 +72,23 @@ const darkTheme = createTheme({
         background: {
             light: 'rgba(255, 255, 255, 0.2)',
             darker: 'rgba(240, 240, 240, 0.7)',
-            paper: 'rgba(255, 255, 255, 0.2)',
+            paper: 'rgba(249, 250, 251, 0.1)',
             invert: 'rgba(240, 240, 240, 0.8)',
         },
         text: {
             primary: colors.grey[50],
             invert: colors.grey[900],
+        },
+    },
+    components: {
+        MuiPaper: {
+            styleOverrides: {
+                root: {
+                    ...sharedPaperStyle,
+                    backgroundColor: 'rgba(249, 250, 251, 0.1)',
+                    boxShadow: 'none',
+                },
+            },
         },
     },
     ...common,

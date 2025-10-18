@@ -1,13 +1,4 @@
-import {
-    Button,
-    Card,
-    CardContent,
-    CardActionArea,
-    CardActions,
-    CardMedia,
-    Typography,
-    useTheme,
-} from '@mui/material';
+import { Button, CardActionArea, CardMedia, Typography, Paper, Box } from '@mui/material';
 
 export interface BlogType {
     title: string;
@@ -20,15 +11,8 @@ export interface BlogCardType {
 }
 
 const BlogCard: React.FC<BlogCardType> = ({ blog }) => {
-    const theme = useTheme();
-
     return (
-        <Card
-            sx={{
-                boxShadow: theme.shadows[3],
-                borderRadius: 3,
-            }}
-        >
+        <Paper sx={{ borderRadius: 3 }}>
             <CardActionArea
                 disabled={!blog.link}
                 sx={{
@@ -40,27 +24,25 @@ const BlogCard: React.FC<BlogCardType> = ({ blog }) => {
                 {...(blog.link ? { href: blog.link, target: '_blank' } : {})}
             >
                 <CardMedia component="img" height="140" image={blog.img} alt="blog image" />
-                <CardContent sx={{ flexGrow: 1 }}>
+                <Box sx={{ flexGrow: 1, p: 2 }}>
                     <Typography variant="h5" sx={{ mb: 2 }}>
                         {blog.title}
                     </Typography>
                     <Typography>{blog.description}</Typography>
-                </CardContent>
-                <CardActions>
-                    <Button
-                        component="div"
-                        size="small"
-                        color="primary"
-                        disableRipple
-                        tabIndex={-1}
-                        disabled={!blog.link}
-                        sx={{ ml: '0.25rem', ':hover': { background: 'none' } }}
-                    >
-                        {blog.link ? 'Read more' : 'By request'}
-                    </Button>
-                </CardActions>
+                </Box>
+                <Button
+                    component="div"
+                    size="small"
+                    color="primary"
+                    disableRipple
+                    tabIndex={-1}
+                    disabled={!blog.link}
+                    sx={{ p: 2, ':hover': { background: 'none' } }}
+                >
+                    {blog.link ? 'Read more' : 'By request'}
+                </Button>
             </CardActionArea>
-        </Card>
+        </Paper>
     );
 };
 export default BlogCard;

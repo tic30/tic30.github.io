@@ -96,7 +96,11 @@ const Home: React.FC = () => {
                     <TopSectionSlider />
                 </Container>
             </Box>
-            <Box component="section" id="work" sx={{ borderTopRightRadius: '5rem' }}>
+            <Box
+                component="section"
+                id="work"
+                sx={{ borderStartStartRadius: ['2rem', '2rem', '5rem'] }}
+            >
                 <Container sx={sectionHeaderSX} maxWidth="xl">
                     <Typography variant="h2">My work</Typography>
                 </Container>
@@ -118,6 +122,7 @@ const Home: React.FC = () => {
                     display: ['flex', 'flex', 'block'],
                     flexDirection: 'column',
                     minHeight: 'calc(100vh - 250px)',
+                    borderEndStartRadius: ['2rem', '2rem', '5rem'],
                 }}
             >
                 <Container sx={sectionHeaderSX} maxWidth="xl">

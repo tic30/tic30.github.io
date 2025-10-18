@@ -1,6 +1,5 @@
 import {
     Button,
-    Card,
     CardContent,
     CardActionArea,
     CardActions,
@@ -10,6 +9,7 @@ import {
     Box,
     useMediaQuery,
     type Theme,
+    Paper,
 } from '@mui/material';
 import {
     baseCardStyle,
@@ -37,7 +37,7 @@ const PortfolioCard: React.FC<PortfolioCardType> = ({ wide = false, content, sx,
     const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('md'));
 
     return (
-        <Card
+        <Paper
             sx={{
                 ...(wide && isSmUp ? wideCardStyleDesktop : baseCardStyle),
                 ...sx,
@@ -86,7 +86,7 @@ const PortfolioCard: React.FC<PortfolioCardType> = ({ wide = false, content, sx,
                 </CardContent>
                 <CardActions></CardActions>
             </CardActionArea>
-        </Card>
+        </Paper>
     );
 };
 

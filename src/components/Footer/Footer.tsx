@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Typography, useTheme } from '@mui/material';
+import { Box, Button, Paper, Typography, useTheme } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 export interface FooterType {
@@ -14,12 +14,11 @@ const Footer: React.FC<FooterType> = ({ scrollAreaRef }) => {
             component="footer"
             sx={{
                 position: 'relative',
-                py: 8,
+                py: [4, 4, 8],
                 maxWidth: 'none',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                backgroundColor: theme.palette.background.paper,
             }}
         >
             <Button
@@ -31,16 +30,20 @@ const Footer: React.FC<FooterType> = ({ scrollAreaRef }) => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: theme.palette.text.secondary,
+                    '&, & *': {
+                        transition: 'none',
+                    },
                     ':hover': {
                         backgroundColor: 'transparent',
                         color: theme.palette.text.primary,
                         '> div': {
-                            boxShadow: theme.shadows[3],
+                            backgroundColor: theme.palette.background.default,
+                            boxShadow: 3,
                         },
                     },
                 }}
             >
-                <Box
+                <Paper
                     sx={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -49,13 +52,13 @@ const Footer: React.FC<FooterType> = ({ scrollAreaRef }) => {
                         p: '.25rem',
                         mb: 1,
                         width: '4rem',
-                        boxShadow: theme.shadows[1],
                         borderRadius: 2,
+                        boxShadow: 'none',
                     }}
                 >
                     <KeyboardArrowUpIcon sx={{ fontSize: 32 }} />
                     <KeyboardArrowUpIcon sx={{ fontSize: 32, mt: -3 }} />
-                </Box>
+                </Paper>
                 <Typography>Back to top</Typography>
             </Button>
         </Box>

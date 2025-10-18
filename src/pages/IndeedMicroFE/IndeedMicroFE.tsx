@@ -34,7 +34,7 @@ const IndeedMicroFE: React.FC<{
                     transition: { delay: 0.2, duration: 0.5 },
                 }}
                 sx={{
-                    pt: 'min(30vh, 30rem)',
+                    pt: [4, 'min(30vh, 30rem)'],
                     pb: 4,
                     '*': {
                         textAlign: 'center',

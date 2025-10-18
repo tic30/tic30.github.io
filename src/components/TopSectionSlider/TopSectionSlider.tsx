@@ -32,7 +32,7 @@ export const TopSectionSlider = () => {
     const theme = useTheme();
 
     return (
-        <Paper sx={{ ...container, border: 'none', backgroundColor: 'background.paper' }}>
+        <Paper sx={container}>
             <Box sx={{ ...nav, backgroundColor: 'background.paper' }}>
                 <Box component="ul" sx={tabsContainer}>
                     {tabs.map((item) => (
@@ -99,6 +99,8 @@ const container: SxProps = {
     borderRadius: 4,
     overflow: 'hidden',
     boxShadow: 2,
+    border: 'none',
+    backgroundColor: 'background.paper',
 };
 
 const nav: SxProps = {

@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
-import { motion } from 'motion/react';
-import { Box, Button, Card, CardContent, Paper, Typography, useTheme } from '@mui/material';
-import { type SystemStyleObject, type Theme, useMediaQuery } from '@mui/system';
+import React from 'react';
+import { Box, Button, Paper, Typography, useTheme } from '@mui/material';
+import { type SystemStyleObject } from '@mui/system';
 import { Outlet, useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { indeedProjects } from '../../constants';
@@ -11,10 +10,10 @@ const thumbnailCardRotate = 11;
 const thumbnailCardSx: SystemStyleObject = {
     border: 'none',
     borderRadius: 4,
-    width: '200px',
-    height: '25%',
+    width: ['25%', '200px'],
+    height: ['auto', '25%'],
     transformStyle: 'preserve-3d',
-    transform: `rotateY(${thumbnailCardRotate}deg) translateX(0)`,
+    transform: ['none', `rotateY(${thumbnailCardRotate}deg) translateX(0)`],
     scale: `calc(1 - (${thumbnailCardRotate} / 100))`,
     transformOrigin: '20% center',
     transitionDuration: '200ms',
@@ -29,17 +28,17 @@ const titleSx: SystemStyleObject = {
     display: 'flex',
     alignItems: 'center',
     textAlign: 'center',
+    fontSize: ['0.875rem', '1rem', 'auto'],
 };
 
 const Dock: React.FC = () => {
     const theme = useTheme();
-    const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
     const location = useLocation();
     const currentPage = location.pathname.split('/').at(-1);
     const thumbnailCardHoverSx: SystemStyleObject = {
         '&:hover, &.active': {
             opacity: '1',
-            transform: `rotateY(${thumbnailCardRotate - 5}deg) translateX(10px)`,
+            transform: ['none', `rotateY(${thumbnailCardRotate - 5}deg) translateX(10px)`],
         },
     };
     const btnSx: (active: boolean) => SystemStyleObject = (active) => ({
@@ -58,97 +57,84 @@ const Dock: React.FC = () => {
 
     return (
         <Box
-            component={motion.div}
-            initial={{ width: 0 }}
-            animate={{ width: 'fit-content' }}
-            transition={{ duration: 0.2, delay: 0.5 }}
             sx={{
-                display: isSmUp ? 'block' : 'none',
-                position: 'sticky',
+                position: ['static', 'sticky'],
+                top: 0,
                 zIndex: 1,
-                height: '100vh',
-                pl: '6.25rem',
-                overflow: 'hidden',
+                height: ['auto', '100vh'],
+                pl: ['0', '6.25rem'],
+                pb: ['1rem', '0'],
+                overflowX: 'visible',
+                flexShrink: 0,
             }}
         >
             <Box
                 sx={{
-                    height: '80vh',
-                    mt: '10vh',
-                    paddingLeft: '1.25rem',
+                    height: ['8rem', '80vh'],
+                    mt: ['4.5rem', '10vh'],
+                    px: '1.25rem',
                     position: 'relative',
-                    perspective: '300px',
+                    perspective: [0, '300px'],
+                    display: ['flex', 'block'],
                 }}
             >
                 {indeedProjects.map((p) => (
-                    <Card
+                    <Paper
                         key={`project-thumbnail-${p.name}`}
                         sx={{ ...thumbnailCardSx, ...thumbnailCardHoverSx }}
                         className={currentPage === p.name ? 'active' : ''}
                     >
-                        <CardContent sx={{ p: 0, height: '100%' }}>
-                            <Button
-                                component={HashLink}
-                                to={`/projects/${p.name}`}
-                                sx={btnSx(currentPage === p.name)}
-                            >
-                                <Typography variant="h6" sx={titleSx}>
-                                    {p.title}
-                                </Typography>
-                            </Button>
-                        </CardContent>
-                    </Card>
+                        <Button
+                            component={HashLink}
+                            to={`/projects/${p.name}`}
+                            sx={btnSx(currentPage === p.name)}
+                        >
+                            <Typography variant="h6" sx={titleSx}>
+                                {p.title}
+                            </Typography>
+                        </Button>
+                    </Paper>
                 ))}
                 {Array.from({ length: 2 }).map((_, index) => (
-                    <Card key={`project-thumbnail-${index}`} sx={thumbnailCardSx}>
-                        <CardContent sx={{ p: 0, height: '100%' }}>
-                            <Typography
-                                variant="h6"
-                                sx={{
-                                    ...titleSx,
-                                    p: 4,
-                                    backgroundColor: theme.palette.background.default,
-                                    fontColor: theme.palette.text.secondary,
-                                }}
-                            >
-                                Coming...
-                            </Typography>
-                        </CardContent>
-                    </Card>
+                    <Paper key={`project-thumbnail-${index}`} sx={thumbnailCardSx}>
+                        <Typography
+                            variant="h6"
+                            sx={{
+                                ...titleSx,
+                                p: 4,
+                                backgroundColor: theme.palette.background.default,
+                                fontColor: theme.palette.text.secondary,
+                            }}
+                        >
+                            Coming...
+                        </Typography>
+                    </Paper>
                 ))}
             </Box>
         </Box>
     );
 };
 
-const Projects: React.FC = () => {
-    const scrollAreaRef = useRef(null);
-    const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
-
-    return (
-        <Box
-            ref={scrollAreaRef}
+const Projects: React.FC = () => (
+    <Box sx={{ display: 'flex', flexDirection: ['column', 'row'] }}>
+        <Dock />
+        <Paper
             sx={{
-                display: 'flex',
-                overflowY: 'auto',
+                position: 'relative',
+                zIndex: 1,
+                mt: [0, 2],
+                py: 4,
+                border: 'none',
+                borderRadius: 0,
+                borderStartStartRadius: [0, '2rem', '5rem'],
+                boxShadow: 'none',
+                flexGrow: 1,
             }}
         >
-            <Dock />
-            <Box sx={{ flexGrow: 1 }}>
-                <Paper
-                    sx={{
-                        mt: isSmUp ? 2 : 0,
-                        border: 'none',
-                        borderRadius: 0,
-                        borderStartStartRadius: '5rem',
-                    }}
-                >
-                    <Outlet context={scrollAreaRef} />
-                </Paper>
-                <PageTransition />
-            </Box>
-        </Box>
-    );
-};
+            <Outlet />
+        </Paper>
+        <PageTransition />
+    </Box>
+);
 
 export default Projects;
