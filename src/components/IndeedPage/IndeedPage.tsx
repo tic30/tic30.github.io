@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, Chip, colors, Paper, Stack, Typography, useMediaQuery } from '@mui/material';
+import { Box, Chip, Paper, Stack, Typography, useMediaQuery } from '@mui/material';
 import { topStorySx, storiesSx, storyDivider } from './IndeedPage.style';
 import { type Theme } from '@mui/system';
-import { customColors, indeedProjects } from '../../constants';
+import { indeedProjects } from '../../constants';
 import BlogCard from '../Blogs/BlogCard';
 
 const indeedStories = [
@@ -61,20 +61,20 @@ const IndeedPage: React.FC = () => {
                 <Box>
                     <Typography variant="h5" sx={{ mb: 4 }}>
                         Build the platform for{' '}
-                        <Box component="span" sx={{ color: colors.green[700] }}>
+                        <Box component="span" sx={{ color: 'text.success' }}>
                             every employer
                         </Box>
                     </Typography>
                     <Typography sx={{ mb: 3 }}>
                         In employer team, I focus on presenting{' '}
-                        <Box component="span" sx={{ color: customColors.orange }}>
+                        <Box component="span" sx={{ color: 'text.warning' }}>
                             easy to use
                         </Box>{' '}
                         flow and features for employers to post a job and manage postings.
                     </Typography>
                     <Typography sx={{ mb: 3 }}>
                         I build onboarding pages that boost initial{' '}
-                        <Box component="span" sx={{ color: customColors.orange }}>
+                        <Box component="span" sx={{ color: 'text.warning' }}>
                             engagement
                         </Box>{' '}
                         from small, medium businesses and enterprises.
@@ -82,11 +82,11 @@ const IndeedPage: React.FC = () => {
                     <Typography>
                         I craft story-telling features in employers' job dashboard to increase
                         employers'{' '}
-                        <Box component="span" sx={{ color: customColors.orange }}>
+                        <Box component="span" sx={{ color: 'text.warning' }}>
                             awareness
                         </Box>{' '}
                         of Indeed features and help them quickly{' '}
-                        <Box component="span" sx={{ color: customColors.orange }}>
+                        <Box component="span" sx={{ color: 'text.warning' }}>
                             navigate
                         </Box>{' '}
                         to the right action to get the most hires.
@@ -119,7 +119,7 @@ const IndeedPage: React.FC = () => {
                 />
                 <Box>
                     <Typography variant="h5" sx={{ mb: 4 }}>
-                        <Box component="span" sx={{ color: colors.green[700] }}>
+                        <Box component="span" sx={{ color: 'text.success' }}>
                             One
                         </Box>{' '}
                         Experience
@@ -136,15 +136,15 @@ const IndeedPage: React.FC = () => {
                     <Typography>
                         My believe is that the best way to build customer trust and brand
                         recognition is through{' '}
-                        <Box component="span" sx={{ color: customColors.orange }}>
+                        <Box component="span" sx={{ color: 'text.warning' }}>
                             consistent
                         </Box>{' '}
                         visual presentation,{' '}
-                        <Box component="span" sx={{ color: customColors.orange }}>
+                        <Box component="span" sx={{ color: 'text.warning' }}>
                             high quality
                         </Box>{' '}
                         content, and{' '}
-                        <Box component="span" sx={{ color: customColors.orange }}>
+                        <Box component="span" sx={{ color: 'text.warning' }}>
                             productive
                         </Box>{' '}
                         features.

@@ -3,7 +3,6 @@ export const topStorySx = {
         display: 'flex',
         p: 6,
         borderRadius: 3,
-        boxShadow: 3,
         mb: 5,
         gap: 5,
         alignItems: 'center',
@@ -26,7 +25,6 @@ export const storiesSx = {
     paper: {
         ...topStorySx.outer,
         mb: 0,
-        boxShadow: 2,
         p: 3,
         flexDirection: 'column',
     },

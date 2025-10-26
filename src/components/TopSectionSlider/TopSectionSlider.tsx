@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { motion } from 'motion/react';
-import { Box, Paper, Typography, useTheme, type SxProps } from '@mui/material';
+import { Box, Paper, styled, Typography, useTheme, type SxProps } from '@mui/material';
 import AirlineStopsIcon from '@mui/icons-material/AirlineStops';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import CollectionsBookmarkIcon from '@mui/icons-material/CollectionsBookmark';
 import { introSlides2024AndBefore, introSlides2025, introSlidestldr } from '../../texts';
 import Markdown from 'markdown-to-jsx';
-import { customColors } from '../../constants';
 
 const tabs = [
     {
@@ -58,9 +57,9 @@ export const TopSectionSlider = () => {
                                 {item.label}
                             </Typography>
                             {item === selectedTab ? (
-                                <Box
-                                    component={motion.div}
-                                    sx={underline}
+                                <StyledUnderline
+                                    as={motion.div}
+                                    // @ts-ignore Needed for motion
                                     layoutId="underline"
                                     id="underline"
                                 />
@@ -98,7 +97,6 @@ const container: SxProps = {
     height: '60vh',
     borderRadius: 4,
     overflow: 'hidden',
-    boxShadow: 2,
     border: 'none',
     backgroundColor: 'background.paper',
 };
@@ -146,14 +144,14 @@ const tab: SxProps = {
     },
 };
 
-const underline: SxProps = {
+const StyledUnderline = styled(Box)(({ theme }) => ({
     position: 'absolute',
     bottom: -2,
     left: 0,
     right: 0,
     height: 2,
-    background: customColors.orange,
-};
+    background: theme.palette.text.warning,
+}));
 
 const iconContainer: SxProps = {
     flex: 1,

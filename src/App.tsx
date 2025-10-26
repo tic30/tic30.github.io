@@ -47,6 +47,8 @@ const lightTheme = createTheme({
         text: {
             primary: colors.grey[900],
             invert: colors.grey[50],
+            success: colors.green[700],
+            warning: colors.orange[900],
         },
     },
     components: {
@@ -78,6 +80,8 @@ const darkTheme = createTheme({
         text: {
             primary: colors.grey[50],
             invert: colors.grey[900],
+            success: colors.green[300],
+            warning: colors.orange[300],
         },
     },
     components: {

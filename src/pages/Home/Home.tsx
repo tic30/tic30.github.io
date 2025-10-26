@@ -1,13 +1,4 @@
-import {
-    Container,
-    Box,
-    colors,
-    Typography,
-    Button,
-    IconButton,
-    useTheme,
-    Paper,
-} from '@mui/material';
+import { Container, Box, Typography, Button, IconButton, useTheme, Paper } from '@mui/material';
 import { ArrowForward } from '@mui/icons-material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -16,7 +7,7 @@ import IndeedPage from '../../components/IndeedPage';
 import OtherWorks from '../../components/OtherWorks';
 import Blogs from '../../components/Blogs';
 import { sectionHeaderSX } from './Home.style';
-import { customColors, GITHUB, LINKEDIN, RESUME } from '../../constants';
+import { GITHUB, LINKEDIN, RESUME } from '../../constants';
 import { PageTransition } from '../../components/PageTransition';
 import { TopSectionSlider } from '../../components/TopSectionSlider';
 
@@ -80,13 +71,13 @@ const Home: React.FC = () => {
                         }}
                     >
                         A{' '}
-                        <Box component="span" sx={{ color: colors.green[700] }}>
+                        <Box component="span" sx={{ color: 'text.success' }}>
                             front end
                         </Box>{' '}
                         biased full-stack engineer
                         <br />
                         and an innovative{' '}
-                        <Box component="span" sx={{ color: customColors.orange }}>
+                        <Box component="span" sx={{ color: 'text.warning' }}>
                             problem solver
                         </Box>
                         .
@@ -152,7 +143,7 @@ const Home: React.FC = () => {
                                     sx={{ marginBlockEnd: 4, lineHeight: 1.6 }}
                                 >
                                     I am open to{' '}
-                                    <Box component="span" sx={{ color: customColors.orange }}>
+                                    <Box component="span" sx={{ color: 'text.warning' }}>
                                         creative
                                     </Box>{' '}
                                     ideas!

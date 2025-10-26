@@ -13,11 +13,6 @@ export const globalStyle = {
     },
 };
 
-export const customColors = {
-    orange: '#e85827',
-    blue: '#1565c0',
-};
-
 export const indeedProjects = [
     {
         name: 'microfe',
@@ -27,7 +22,6 @@ export const indeedProjects = [
         btnText: 'Read more',
         link: '#/projects/microfe',
         img: '/imgs/indeed-oh.png',
-        repColor: customColors.orange,
     },
     {
         name: 'storybook',
@@ -36,6 +30,5 @@ export const indeedProjects = [
             'Comprehensive visual testing and documentation of UI components using Storybook and Chromatic can work efficiently across teams in large organizations.',
         link: '#/projects/storybook',
         img: '/imgs/storybook.png',
-        repColor: customColors.blue,
     },
 ];

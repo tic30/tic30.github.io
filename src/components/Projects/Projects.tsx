@@ -123,10 +123,12 @@ const Projects: React.FC = () => (
                 position: 'relative',
                 zIndex: 1,
                 mt: [0, 2],
-                py: 4,
+                pt: 4,
+                pb: 10,
                 border: 'none',
                 borderRadius: 0,
                 borderStartStartRadius: [0, '2rem', '5rem'],
+                borderEndStartRadius: [0, '2rem', '5rem'],
                 boxShadow: 'none',
                 flexGrow: 1,
             }}

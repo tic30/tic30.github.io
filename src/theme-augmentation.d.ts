@@ -9,5 +9,7 @@ declare module '@mui/material/styles' {
 
     interface TypeText {
         invert: string;
+        success: string;
+        warning: string;
     }
 }
