@@ -1,23 +1,28 @@
 export const introSlidestldr = `
 #### Staff Software Engineer @ Indeed
 
+Current focus area: Building AI powered front end engineering tool: design system MCP, dev tools MCP, test automation, accessibility scanner, and more
+
 Current project: **Indeed AI**
 
-Current office: Foster City(San Francisco Bay Area), CA
+Current office: Foster City, CA
 
-#### 8 years work experience
+#### 8+ years of work experience
 
-#### M.S Software Engineering @ CMU
-
-Certification: Building Generative AI Solutions(3 months nanodegree program) @ Udacity
+#### M.S in Software Engineering @ CMU
 
 ---
 
-#### And...
+Previous roles:
 
-Web Accessibility CPACC & WAS training in progress
+- Lead Engineer @ Deliberately.ai
 
-Leetcode: 358
+- UX Prototype Engineer @ Siemens
+
+- Chef Front End Engineer @ Deephow
+
+- AR/VR Researcher @ CMU
+
 `;
 
 export const introSlides2025 = `
