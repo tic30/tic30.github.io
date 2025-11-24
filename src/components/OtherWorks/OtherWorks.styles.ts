@@ -15,18 +15,14 @@ export const boxContainerStyle = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'flex-start',
     flexBasis: 'min-content',
     gap: 1,
     borderRadius: 5,
     pb: 1,
-    boxShadow: 2,
-    backgroundColor: colors.grey[50],
-    transitionDuration: '0.5s',
+    transitionDuration: '0.2s',
     '&:hover, &:focus': {
-        backgroundColor: colors.grey[300],
-    },
-    '&:hover > div, &:focus > div': {
-        backgroundColor: colors.grey[50],
+        backgroundColor: 'background.action',
     },
 };
 
@@ -39,12 +35,12 @@ export const boxStyle = {
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,
-    transitionDuration: '0.5s',
+    transitionDuration: '0.2s',
     transitionProperty: 'background-color',
+    boxShadow: 2,
 };
 
 export const roleTitleStyle = {
-    color: colors.grey[800],
     textAlign: 'center',
-    transitionDuration: '500ms',
+    transitionDuration: '0.2s',
 };

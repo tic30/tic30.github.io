@@ -12,7 +12,6 @@ import {
     useTheme,
 } from '@mui/material';
 import Home from './pages/Home';
-import Preloader from './components/Preloader';
 import Footer from './components/Footer';
 import MenuScreen from './components/MenuScreen';
 import { globalStyle } from './constants';
@@ -39,10 +38,11 @@ const lightTheme = createTheme({
     palette: {
         mode: 'light',
         background: {
-            light: 'rgba(255, 255, 255, 0.4)',
+            light: 'rgba(255, 255, 255, 0.6)',
             darker: 'rgba(20, 20, 20, 0.1)',
             paper: 'rgba(255, 255, 255, 0.4)',
             invert: 'rgba(20, 20, 20, 0.9)',
+            action: 'rgba(200, 200, 200, 0.1)',
         },
         text: {
             primary: colors.grey[900],
@@ -72,10 +72,11 @@ const darkTheme = createTheme({
     palette: {
         mode: 'dark',
         background: {
-            light: 'rgba(255, 255, 255, 0.2)',
+            light: 'rgba(20, 20, 20, 0.6)',
             darker: 'rgba(240, 240, 240, 0.7)',
-            paper: 'rgba(249, 250, 251, 0.1)',
+            paper: 'rgba(20, 20, 20, 0.4)',
             invert: 'rgba(240, 240, 240, 0.8)',
+            action: 'rgba(249, 250, 251, 0.2)',
         },
         text: {
             primary: colors.grey[50],
@@ -133,8 +134,7 @@ const PageContent: React.FC<{
                 <StyledMainContent ref={scrollAreaRef}>
                     <AnimatePresence mode="wait">
                         <Routes location={location} key={location.pathname}>
-                            <Route path="/" element={<Preloader />} />
-                            <Route path="/home" element={<Home />} />
+                            <Route path="/" element={<Home />} />
                             <Route path="/projects" element={<Projects />}>
                                 <Route
                                     path="microfe"

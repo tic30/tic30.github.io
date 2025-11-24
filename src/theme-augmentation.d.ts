@@ -5,6 +5,7 @@ declare module '@mui/material/styles' {
         light: string;
         darker: string;
         invert: string;
+        action: string;
     }
 
     interface TypeText {

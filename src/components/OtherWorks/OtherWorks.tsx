@@ -47,7 +47,7 @@ const OtherWorks: React.FC = () => {
             <Box sx={rolesContainerStyle}>
                 {previousRoles.map((role, i) => (
                     <LightTooltip key={`previous-role-${i}`} title={role.description} tabIndex={0}>
-                        <Box sx={boxContainerStyle}>
+                        <Paper sx={boxContainerStyle}>
                             <Paper sx={boxStyle}>
                                 <Box
                                     component="img"
@@ -60,7 +60,7 @@ const OtherWorks: React.FC = () => {
                                 />
                             </Paper>
                             <Typography sx={roleTitleStyle}>{role.title}</Typography>
-                        </Box>
+                        </Paper>
                     </LightTooltip>
                 ))}
                 <MoreHorizIcon sx={{ mt: 7, color: colors.grey[500] }} />

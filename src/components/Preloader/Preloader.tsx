@@ -29,7 +29,7 @@ const PreloaderContent = styled(Paper)(({ theme }) => ({
     animationFillMode: 'forwards',
 }));
 
-const PreloaderText = styled(Box)(({ theme }) => ({
+export const PreloaderText = styled(Box)(({ theme }) => ({
     position: 'relative',
     boxSizing: 'border-box',
     width: '3px',
