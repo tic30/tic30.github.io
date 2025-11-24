@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { motion } from 'motion/react';
 import { Box, Paper, styled, Typography, useTheme, type SxProps } from '@mui/material';
@@ -29,9 +29,64 @@ const tabs = [
     },
 ];
 
+const TabComponent = ({
+    item,
+    selectedTab,
+    setSelectedTab,
+    getIconByTabId,
+}: {
+    item: (typeof tabs)[number];
+    selectedTab: (typeof tabs)[number];
+    setSelectedTab: (item: (typeof tabs)[number]) => void;
+    getIconByTabId: (id: string, isSelected: boolean) => React.ReactNode;
+}) => {
+    const theme = useTheme();
+    const ref = useRef<HTMLDivElement>(null);
+
+    const handleTabClick = (item: (typeof tabs)[number]) => () => {
+        setSelectedTab(item);
+        ref.current?.scrollIntoView({
+            behavior: 'smooth',
+            inline: 'nearest',
+            block: 'nearest',
+        });
+    };
+
+    return (
+        <Box
+            component={motion.li}
+            key={item.label}
+            initial={{ backgroundColor: 'transparent' }}
+            animate={{
+                backgroundColor:
+                    item === selectedTab ? theme.palette.background.paper : 'transparent',
+            }}
+            sx={tab}
+            onClick={handleTabClick(item)}
+            ref={ref}
+        >
+            {getIconByTabId(item.id, item === selectedTab)}
+            <Typography
+                sx={{
+                    color: selectedTab === item ? 'text.primary' : 'text.secondary',
+                }}
+            >
+                {item.label}
+            </Typography>
+            {item === selectedTab ? (
+                <StyledUnderline
+                    as={motion.div}
+                    // @ts-expect-error Needed for motion
+                    layoutId="underline"
+                    id="underline"
+                />
+            ) : null}
+        </Box>
+    );
+};
+
 export const TopSectionSlider = () => {
     const [selectedTab, setSelectedTab] = useState(tabs[0]);
-    const theme = useTheme();
 
     const getIconByTabId = (id: string, isSelected: boolean) =>
         ({
@@ -60,36 +115,12 @@ export const TopSectionSlider = () => {
             <Box sx={nav}>
                 <Box component="ul" sx={tabsContainer}>
                     {tabs.map((item) => (
-                        <Box
-                            component={motion.li}
-                            key={item.label}
-                            initial={{ backgroundColor: 'transparent' }}
-                            animate={{
-                                backgroundColor:
-                                    item === selectedTab
-                                        ? theme.palette.background.paper
-                                        : 'transparent',
-                            }}
-                            sx={tab}
-                            onClick={() => setSelectedTab(item)}
-                        >
-                            {getIconByTabId(item.id, item === selectedTab)}
-                            <Typography
-                                sx={{
-                                    color: selectedTab === item ? 'text.primary' : 'text.secondary',
-                                }}
-                            >
-                                {item.label}
-                            </Typography>
-                            {item === selectedTab ? (
-                                <StyledUnderline
-                                    as={motion.div}
-                                    // @ts-expect-error Needed for motion
-                                    layoutId="underline"
-                                    id="underline"
-                                />
-                            ) : null}
-                        </Box>
+                        <TabComponent
+                            item={item}
+                            selectedTab={selectedTab}
+                            setSelectedTab={setSelectedTab}
+                            getIconByTabId={getIconByTabId}
+                        />
                     ))}
                 </Box>
             </Box>
@@ -160,7 +191,7 @@ const tab: SxProps = {
     py: '0.5rem',
     position: 'relative',
     backgroundColor: 'background.paper',
-
+    flexShrink: 0,
     cursor: 'pointer',
     display: 'flex',
     gap: 2,

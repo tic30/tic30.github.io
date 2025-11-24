@@ -10,7 +10,7 @@ const Home: React.FC = () => {
     return (
         <Box
             sx={{
-                paddingTop: ['6rem', '2rem'],
+                paddingTop: [8, 4],
                 paddingLeft: ['0', '6.25rem'],
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
@@ -28,7 +28,8 @@ const Home: React.FC = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     gap: 4,
-                    paddingBlock: 8,
+                    paddingBlockStart: [2, 2, 8],
+                    paddingBlockEnd: 8,
                 }}
             >
                 <Container

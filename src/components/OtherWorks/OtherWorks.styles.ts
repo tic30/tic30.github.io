@@ -2,7 +2,7 @@ import { colors } from '@mui/material';
 
 export const rolesContainerStyle = {
     display: 'flex',
-    gap: 6,
+    gap: 3,
     ml: -2,
     pl: 2,
     py: 4,
@@ -13,6 +13,7 @@ export const rolesContainerStyle = {
 
 export const boxContainerStyle = {
     display: 'flex',
+    flexShrink: 0,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'flex-start',

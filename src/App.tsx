@@ -60,7 +60,7 @@ const lightTheme = createTheme({
                     backgroundImage:
                         'linear-gradient(135deg, rgba(255,255,255,0.20), rgba(255,255,255,0.06))',
                     border: '1px solid rgba(255, 255, 255, 0.12)',
-                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
+                    boxShadow: '0 8px 16px rgba(0, 0, 0, 0.35)',
                 },
             },
         },
