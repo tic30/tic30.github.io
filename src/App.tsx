@@ -16,6 +16,7 @@ import Footer from './components/Footer';
 import MenuScreen from './components/MenuScreen';
 import { globalStyle } from './constants';
 import { AnimatePresence } from 'motion/react';
+import { StockTrack } from './widgets/StockTrack';
 const Projects = React.lazy(() => import('./components/Projects'));
 const Storybook = React.lazy(() => import('./pages/Storybook'));
 const IndeedMicroFE = React.lazy(() => import('./pages/IndeedMicroFE'));
@@ -146,6 +147,7 @@ const PageContent: React.FC<{
                                 />
                                 <Route index path="*" element={<Navigate to="microfe" replace />} />
                             </Route>
+                            <Route path="/stocktrack" element={<StockTrack />} />
                             <Route path="*" element={<Navigate to="/home" />} />
                         </Routes>
                         <Footer scrollAreaRef={scrollAreaRef} />
