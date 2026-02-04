@@ -22,6 +22,7 @@ import {
     NotificationsOff as NotificationsOffIcon,
     TrendingUp as TrendingUpIcon,
     TrendingDown as TrendingDownIcon,
+    RestartAlt as RestartAltIcon,
 } from '@mui/icons-material';
 
 interface StockData {
@@ -398,6 +399,22 @@ export const StockTrack = () => {
         setIsEditingPurchasePrice(false);
     };
 
+    // Handle reset - clear localStorage and refresh
+    const handleReset = () => {
+        if (
+            window.confirm(
+                'Are you sure you want to reset all settings to defaults? This will clear all saved data and refresh the page.',
+            )
+        ) {
+            // Clear all stocktrack localStorage items
+            Object.values(STORAGE_KEYS).forEach((key) => {
+                localStorage.removeItem(key);
+            });
+            // Refresh the page
+            window.location.reload();
+        }
+    };
+
     const getPriceColor = (change: number) => {
         if (change > 0) return 'success.main';
         if (change < 0) return 'error.main';
@@ -420,22 +437,34 @@ export const StockTrack = () => {
                             <Typography variant="h5" component="h2">
                                 Stock Tracker
                             </Typography>
-                            <Chip
-                                icon={
-                                    notificationPermission === 'granted' ? (
-                                        <NotificationsActiveIcon />
-                                    ) : (
-                                        <NotificationsOffIcon />
-                                    )
-                                }
-                                label={
-                                    notificationPermission === 'granted'
-                                        ? 'Notifications On'
-                                        : 'Notifications Off'
-                                }
-                                color={notificationPermission === 'granted' ? 'success' : 'default'}
-                                size="small"
-                            />
+                            <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                                <Chip
+                                    icon={
+                                        notificationPermission === 'granted' ? (
+                                            <NotificationsActiveIcon />
+                                        ) : (
+                                            <NotificationsOffIcon />
+                                        )
+                                    }
+                                    label={
+                                        notificationPermission === 'granted'
+                                            ? 'Notifications On'
+                                            : 'Notifications Off'
+                                    }
+                                    color={
+                                        notificationPermission === 'granted' ? 'success' : 'default'
+                                    }
+                                    size="small"
+                                />
+                                <IconButton
+                                    size="small"
+                                    onClick={handleReset}
+                                    title="Reset all settings"
+                                    color="error"
+                                >
+                                    <RestartAltIcon />
+                                </IconButton>
+                            </Box>
                         </Box>
 
                         {/* Error Alert */}

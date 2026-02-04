@@ -148,7 +148,7 @@ const PageContent: React.FC<{
                                 <Route index path="*" element={<Navigate to="microfe" replace />} />
                             </Route>
                             <Route path="/stocktrack" element={<StockTrack />} />
-                            <Route path="*" element={<Navigate to="/home" />} />
+                            <Route path="*" element={<Navigate to="/" />} />
                         </Routes>
                         <Footer scrollAreaRef={scrollAreaRef} />
                     </AnimatePresence>
