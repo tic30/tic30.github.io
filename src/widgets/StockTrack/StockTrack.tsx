@@ -25,6 +25,13 @@ import {
     RestartAlt as RestartAltIcon,
 } from '@mui/icons-material';
 
+// Extend Window interface for webkit AudioContext
+declare global {
+    interface Window {
+        webkitAudioContext: typeof AudioContext;
+    }
+}
+
 interface StockData {
     symbol: string;
     price: number;
@@ -130,7 +137,7 @@ const loadFromStorage = <T,>(key: string, defaultValue: T): T => {
     }
 };
 
-const saveToStorage = (key: string, value: any): void => {
+const saveToStorage = (key: string, value: string | number | boolean): void => {
     try {
         localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
@@ -238,8 +245,7 @@ export const StockTrack = () => {
     const playAlertSound = useCallback((frequency: number = 800, duration: number = 200) => {
         try {
             if (!audioContextRef.current) {
-                audioContextRef.current = new (window.AudioContext ||
-                    (window as any).webkitAudioContext)();
+                audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
             }
 
             const context = audioContextRef.current;
