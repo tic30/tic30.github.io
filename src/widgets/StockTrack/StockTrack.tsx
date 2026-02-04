@@ -37,6 +37,66 @@ interface StockData {
 const ALPHA_VANTAGE_API_KEY = 'Z3UEVB72GV4K7XYQ'; // From https://www.alphavantage.co/support/#api-key
 const ALPHA_VANTAGE_BASE_URL = 'https://www.alphavantage.co/query';
 
+// Market hours configuration (US Eastern Time)
+const MARKET_HOURS = {
+    OPEN_HOUR: 9,
+    OPEN_MINUTE: 30,
+    CLOSE_HOUR: 16,
+    CLOSE_MINUTE: 0,
+    TIMEZONE: 'America/New_York',
+} as const;
+
+// Helper function to check if market is open
+const isMarketOpen = (): { isOpen: boolean; message: string } => {
+    try {
+        const now = new Date();
+        const etTime = new Date(now.toLocaleString('en-US', { timeZone: MARKET_HOURS.TIMEZONE }));
+        const dayOfWeek = etTime.getDay(); // 0 = Sunday, 6 = Saturday
+
+        // Check if it's a weekday (Monday-Friday)
+        if (dayOfWeek === 0 || dayOfWeek === 6) {
+            return {
+                isOpen: false,
+                message: 'Markets are closed on weekends',
+            };
+        }
+
+        const hour = etTime.getHours();
+        const minute = etTime.getMinutes();
+        const currentMinutes = hour * 60 + minute;
+        const openMinutes = MARKET_HOURS.OPEN_HOUR * 60 + MARKET_HOURS.OPEN_MINUTE;
+        const closeMinutes = MARKET_HOURS.CLOSE_HOUR * 60 + MARKET_HOURS.CLOSE_MINUTE;
+
+        if (currentMinutes < openMinutes) {
+            const opensIn = openMinutes - currentMinutes;
+            const hours = Math.floor(opensIn / 60);
+            const mins = opensIn % 60;
+            return {
+                isOpen: false,
+                message: `Markets open in ${hours}h ${mins}m (9:30 AM ET)`,
+            };
+        }
+
+        if (currentMinutes >= closeMinutes) {
+            return {
+                isOpen: false,
+                message: 'Markets closed for the day (4:00 PM ET)',
+            };
+        }
+
+        return {
+            isOpen: true,
+            message: 'Markets are open',
+        };
+    } catch (error) {
+        console.error('Error checking market hours:', error);
+        return {
+            isOpen: true,
+            message: 'Unable to verify market hours',
+        };
+    }
+};
+
 // Default values
 const DEFAULT_VALUES = {
     STOCK_SYMBOL: 'NVDA',
@@ -45,6 +105,7 @@ const DEFAULT_VALUES = {
     PURCHASE_PRICE: 171,
     ENABLE_HIGH_ALERT: true,
     ENABLE_LOW_ALERT: true,
+    UPDATE_INTERVAL_MINUTES: 10,
 } as const;
 
 // LocalStorage keys
@@ -55,6 +116,7 @@ const STORAGE_KEYS = {
     ENABLE_HIGH_ALERT: 'stocktrack_enable_high_alert',
     ENABLE_LOW_ALERT: 'stocktrack_enable_low_alert',
     PURCHASE_PRICE: 'stocktrack_purchase_price',
+    UPDATE_INTERVAL_MINUTES: 'stocktrack_update_interval_minutes',
 } as const;
 
 // Helper functions for localStorage
@@ -89,6 +151,7 @@ export const StockTrack = () => {
     const [notificationPermission, setNotificationPermission] =
         useState<NotificationPermission>('default');
     const [error, setError] = useState<string>('');
+    const [marketStatus, setMarketStatus] = useState<string>('');
 
     // Threshold alerts - load from localStorage
     const [highThreshold, setHighThreshold] = useState<number>(() =>
@@ -120,6 +183,21 @@ export const StockTrack = () => {
         loadFromStorage(STORAGE_KEYS.PURCHASE_PRICE, DEFAULT_VALUES.PURCHASE_PRICE).toString(),
     );
 
+    // Update interval - load from localStorage
+    const [updateIntervalMinutes, setUpdateIntervalMinutes] = useState<number>(() =>
+        loadFromStorage(
+            STORAGE_KEYS.UPDATE_INTERVAL_MINUTES,
+            DEFAULT_VALUES.UPDATE_INTERVAL_MINUTES,
+        ),
+    );
+    const [isEditingInterval, setIsEditingInterval] = useState<boolean>(false);
+    const [editedInterval, setEditedInterval] = useState<string>(() =>
+        loadFromStorage(
+            STORAGE_KEYS.UPDATE_INTERVAL_MINUTES,
+            DEFAULT_VALUES.UPDATE_INTERVAL_MINUTES,
+        ).toString(),
+    );
+
     // Track whether we've already alerted for current threshold breach
     const hasAlertedHighRef = useRef<boolean>(false);
     const hasAlertedLowRef = useRef<boolean>(false);
@@ -147,6 +225,10 @@ export const StockTrack = () => {
     useEffect(() => {
         saveToStorage(STORAGE_KEYS.ENABLE_LOW_ALERT, enableLowAlert);
     }, [enableLowAlert]);
+
+    useEffect(() => {
+        saveToStorage(STORAGE_KEYS.UPDATE_INTERVAL_MINUTES, updateIntervalMinutes);
+    }, [updateIntervalMinutes]);
 
     useEffect(() => {
         saveToStorage(STORAGE_KEYS.PURCHASE_PRICE, purchasePrice);
@@ -314,8 +396,16 @@ export const StockTrack = () => {
         ],
     );
 
-    // Fetch stock data
+    // Fetch stock data (only during market hours)
     const updateStockData = useCallback(async () => {
+        const marketCheck = isMarketOpen();
+        setMarketStatus(marketCheck.message);
+
+        if (!marketCheck.isOpen) {
+            console.log('Skipping update - market closed:', marketCheck.message);
+            return;
+        }
+
         try {
             const data = await fetchStockPrice(stockSymbol);
             setStockData(data);
@@ -327,20 +417,31 @@ export const StockTrack = () => {
         }
     }, [stockSymbol, fetchStockPrice, checkThresholdAlerts]);
 
-    // Initialize: check permissions and fetch initial data
+    // Initialize: check permissions, market status, and fetch initial data
     useEffect(() => {
         checkNotificationPermission();
         updateStockData();
     }, [checkNotificationPermission, updateStockData]);
 
-    // Set up interval to fetch data every minute
+    // Set up interval to fetch data based on user-defined interval
     useEffect(() => {
+        const intervalMs = updateIntervalMinutes * 60000; // Convert minutes to milliseconds
         const interval = setInterval(() => {
             updateStockData();
-        }, 60000); // 60,000ms = 1 minute
+        }, intervalMs);
 
         return () => clearInterval(interval);
-    }, [updateStockData]);
+    }, [updateStockData, updateIntervalMinutes]);
+
+    // Check market status every minute to update UI
+    useEffect(() => {
+        const statusInterval = setInterval(() => {
+            const marketCheck = isMarketOpen();
+            setMarketStatus(marketCheck.message);
+        }, 60000); // Check every minute
+
+        return () => clearInterval(statusInterval);
+    }, []);
 
     // Handle symbol edit
     const handleSaveSymbol = () => {
@@ -397,6 +498,23 @@ export const StockTrack = () => {
     const handleCancelPurchasePriceEdit = () => {
         setEditedPurchasePrice(purchasePrice.toString());
         setIsEditingPurchasePrice(false);
+    };
+
+    // Handle interval edit
+    const handleSaveInterval = () => {
+        const interval = parseFloat(editedInterval);
+
+        if (!isNaN(interval) && interval >= 1 && interval <= 60) {
+            setUpdateIntervalMinutes(interval);
+            setIsEditingInterval(false);
+        } else {
+            setError('Invalid interval. Must be between 1 and 60 minutes.');
+        }
+    };
+
+    const handleCancelIntervalEdit = () => {
+        setEditedInterval(updateIntervalMinutes.toString());
+        setIsEditingInterval(false);
     };
 
     // Handle reset - clear localStorage and refresh
@@ -469,6 +587,13 @@ export const StockTrack = () => {
 
                         {/* Error Alert */}
                         {error && <Alert severity="error">{error}</Alert>}
+
+                        {/* Market Status Alert */}
+                        {marketStatus && (
+                            <Alert severity={isMarketOpen().isOpen ? 'success' : 'info'}>
+                                {marketStatus}
+                            </Alert>
+                        )}
 
                         {/* Notification Permission Request */}
                         {notificationPermission === 'denied' && (
@@ -668,6 +793,80 @@ export const StockTrack = () => {
                             )}
                         </Box>
 
+                        {/* Update Interval Section */}
+                        <Box>
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    mb: 1,
+                                }}
+                            >
+                                <Typography variant="subtitle1" fontWeight="bold">
+                                    Update Interval
+                                </Typography>
+                                {!isEditingInterval && (
+                                    <IconButton
+                                        size="small"
+                                        onClick={() => setIsEditingInterval(true)}
+                                    >
+                                        <EditIcon />
+                                    </IconButton>
+                                )}
+                            </Box>
+
+                            {isEditingInterval ? (
+                                <Stack direction="row" spacing={1} alignItems="center">
+                                    <TextField
+                                        label="Minutes"
+                                        type="number"
+                                        value={editedInterval}
+                                        onChange={(e) => setEditedInterval(e.target.value)}
+                                        size="small"
+                                        fullWidth
+                                        autoFocus
+                                        inputProps={{ min: 1, max: 60, step: 1 }}
+                                        helperText="Between 1-60 minutes"
+                                        onKeyPress={(e) => {
+                                            if (e.key === 'Enter') handleSaveInterval();
+                                            if (e.key === 'Escape') handleCancelIntervalEdit();
+                                        }}
+                                    />
+                                    <Button
+                                        variant="contained"
+                                        size="small"
+                                        onClick={handleSaveInterval}
+                                    >
+                                        Save
+                                    </Button>
+                                    <Button
+                                        variant="outlined"
+                                        size="small"
+                                        onClick={handleCancelIntervalEdit}
+                                    >
+                                        Cancel
+                                    </Button>
+                                </Stack>
+                            ) : (
+                                <Box
+                                    sx={{
+                                        p: 2,
+                                        bgcolor: 'action.hover',
+                                        borderRadius: 1,
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <Typography variant="h6">
+                                        Every {updateIntervalMinutes}{' '}
+                                        {updateIntervalMinutes === 1 ? 'minute' : 'minutes'}
+                                    </Typography>
+                                </Box>
+                            )}
+                        </Box>
+
                         <Divider />
 
                         {/* Threshold Alerts Section */}
@@ -826,12 +1025,6 @@ export const StockTrack = () => {
                                 </Stack>
                             )}
                         </Box>
-
-                        {/* Info */}
-                        <Alert severity="info">
-                            Price updates every minute using Alpha Vantage API. You'll receive
-                            notifications with sound alerts when price crosses your thresholds.
-                        </Alert>
                     </Stack>
                 </CardContent>
             </Card>
