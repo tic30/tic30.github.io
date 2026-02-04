@@ -322,7 +322,7 @@ export const StockTrack = () => {
             checkThresholdAlerts(data);
             setError('');
         } catch (err) {
-            setError('Failed to fetch stock data');
+            setError('Failed to fetch stock data. This may go away next minute.');
             console.error(err);
         }
     }, [stockSymbol, fetchStockPrice, checkThresholdAlerts]);
@@ -831,14 +831,6 @@ export const StockTrack = () => {
                         <Alert severity="info">
                             Price updates every minute using Alpha Vantage API. You'll receive
                             notifications with sound alerts when price crosses your thresholds.
-                            Note: Demo API key has rate limits - get your free key at{' '}
-                            <a
-                                href="https://www.alphavantage.co/support/#api-key"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                alphavantage.co
-                            </a>
                         </Alert>
                     </Stack>
                 </CardContent>
