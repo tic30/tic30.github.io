@@ -41,8 +41,11 @@ interface StockData {
 }
 
 // Alpha Vantage API configuration
-const ALPHA_VANTAGE_API_KEY = 'Z3UEVB72GV4K7XYQ'; // From https://www.alphavantage.co/support/#api-key
-const ALPHA_VANTAGE_BASE_URL = 'https://www.alphavantage.co/query';
+// const ALPHA_VANTAGE_API_KEY = 'Z3UEVB72GV4K7XYQ'; // From https://www.alphavantage.co/support/#api-key
+// const ALPHA_VANTAGE_BASE_URL = 'https://www.alphavantage.co/query';
+
+const FINNHUB_API_KEY = 'd6fb101r01qvn4o2fpdgd6fb101r01qvn4o2fpe0'; // From https://finnhub.io/dashboard
+const FINNHUB_BASE_URL = 'https://finnhub.io/api/v1/quote';
 
 // Market hours configuration (US Eastern Time)
 const MARKET_HOURS = {
@@ -112,7 +115,7 @@ const DEFAULT_VALUES = {
     PURCHASE_PRICE: 171,
     ENABLE_HIGH_ALERT: true,
     ENABLE_LOW_ALERT: true,
-    UPDATE_INTERVAL_MINUTES: 10,
+    UPDATE_INTERVAL_MINUTES: 1,
 } as const;
 
 // LocalStorage keys
@@ -272,8 +275,8 @@ export const StockTrack = () => {
     const fetchStockPrice = useCallback(
         async (symbol: string): Promise<StockData> => {
             try {
-                const url = `${ALPHA_VANTAGE_BASE_URL}?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${ALPHA_VANTAGE_API_KEY}`;
-
+                // const url = `${ALPHA_VANTAGE_BASE_URL}?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${ALPHA_VANTAGE_API_KEY}`;
+                const url = `${FINNHUB_BASE_URL}?symbol=${symbol}&token=${FINNHUB_API_KEY}`;
                 const response = await fetch(url);
                 const data = await response.json();
 
@@ -286,13 +289,11 @@ export const StockTrack = () => {
                     throw new Error('API rate limit reached. Please wait a moment.');
                 }
 
-                const quote = data['Global Quote'];
-
-                if (!quote || !quote['05. price']) {
+                if (!data || !data['c']) {
                     throw new Error('Invalid symbol or no data available');
                 }
 
-                const price = parseFloat(quote['05. price']);
+                const price = parseFloat(data['c']);
 
                 // Calculate change based on purchase price
                 const change = price - purchasePrice;
@@ -407,10 +408,10 @@ export const StockTrack = () => {
         const marketCheck = isMarketOpen();
         setMarketStatus(marketCheck.message);
 
-        if (!marketCheck.isOpen) {
-            console.log('Skipping update - market closed:', marketCheck.message);
-            return;
-        }
+        // if (!marketCheck.isOpen) {
+        //     console.log('Skipping update - market closed:', marketCheck.message);
+        //     return;
+        // }
 
         try {
             const data = await fetchStockPrice(stockSymbol);
