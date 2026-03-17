@@ -18,7 +18,7 @@ const tabs = [
     {
         id: '2025',
         icon: <AutoAwesomeIcon color="success" sx={{ fontSize: '1.25rem' }} />,
-        label: '2025 so far',
+        label: '2025',
         content: introSlides2025,
     },
     {
