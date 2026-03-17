@@ -22,7 +22,7 @@
         "motion": "^12.23.24",
         "react": "^19.1.1",
         "react-dom": "^19.1.1",
-        "react-router-dom": "^6.26.0",
+        "react-router-dom": "^6.30.3",
         "react-router-hash-link": "^2.4.3"
     },
     "devDependencies": {
