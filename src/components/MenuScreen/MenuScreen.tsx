@@ -73,12 +73,12 @@ const menuList: MenuItemType[] = [
     {
         icon: <PersonIcon />,
         text: 'About Me',
-        link: '/home#self-intro',
+        link: '/#self-intro',
     },
     {
         icon: <DesignServicesIcon />,
         text: 'My work',
-        link: '/home#work',
+        link: '/#work',
         subMenuItems: [
             {
                 title: 'Projects',
@@ -87,7 +87,7 @@ const menuList: MenuItemType[] = [
             },
             {
                 title: 'Blogs',
-                pageUrl: '/home#blogs',
+                pageUrl: '/#blogs',
                 icon: <AutoStoriesIcon />,
             },
         ],
@@ -95,7 +95,6 @@ const menuList: MenuItemType[] = [
     {
         icon: <CoffeeIcon />,
         text: 'Connect',
-        link: '/home#connect',
         subMenuItems: [
             {
                 icon: <SummarizeIcon />,
@@ -128,7 +127,7 @@ export interface SubMenuItemType {
 export interface MenuItemType {
     icon?: React.ReactNode;
     text: React.ReactNode;
-    link: string;
+    link?: string;
     subMenuItems?: SubMenuItemType[];
     external?: boolean;
 }
@@ -330,7 +329,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                             }}
                         >
                             <Box
-                                component={HashLink}
+                                component={item.link ? HashLink : 'div'}
                                 to={item.link}
                                 sx={innerSx}
                                 onClick={handleMenuItemClick}

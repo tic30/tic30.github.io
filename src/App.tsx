@@ -12,11 +12,11 @@ import {
     useTheme,
 } from '@mui/material';
 import Home from './pages/Home';
-import Preloader from './components/Preloader';
 import Footer from './components/Footer';
 import MenuScreen from './components/MenuScreen';
 import { globalStyle } from './constants';
 import { AnimatePresence } from 'motion/react';
+import { StockTrack } from './widgets/StockTrack';
 const Projects = React.lazy(() => import('./components/Projects'));
 const Storybook = React.lazy(() => import('./pages/Storybook'));
 const IndeedMicroFE = React.lazy(() => import('./pages/IndeedMicroFE'));
@@ -39,10 +39,11 @@ const lightTheme = createTheme({
     palette: {
         mode: 'light',
         background: {
-            light: 'rgba(255, 255, 255, 0.4)',
+            light: 'rgba(255, 255, 255, 0.6)',
             darker: 'rgba(20, 20, 20, 0.1)',
             paper: 'rgba(255, 255, 255, 0.4)',
             invert: 'rgba(20, 20, 20, 0.9)',
+            action: 'rgba(200, 200, 200, 0.1)',
         },
         text: {
             primary: colors.grey[900],
@@ -60,7 +61,7 @@ const lightTheme = createTheme({
                     backgroundImage:
                         'linear-gradient(135deg, rgba(255,255,255,0.20), rgba(255,255,255,0.06))',
                     border: '1px solid rgba(255, 255, 255, 0.12)',
-                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
+                    boxShadow: '0 8px 16px rgba(0, 0, 0, 0.35)',
                 },
             },
         },
@@ -72,10 +73,11 @@ const darkTheme = createTheme({
     palette: {
         mode: 'dark',
         background: {
-            light: 'rgba(255, 255, 255, 0.2)',
+            light: 'rgba(20, 20, 20, 0.6)',
             darker: 'rgba(240, 240, 240, 0.7)',
-            paper: 'rgba(249, 250, 251, 0.1)',
+            paper: 'rgba(20, 20, 20, 0.4)',
             invert: 'rgba(240, 240, 240, 0.8)',
+            action: 'rgba(249, 250, 251, 0.2)',
         },
         text: {
             primary: colors.grey[50],
@@ -133,8 +135,7 @@ const PageContent: React.FC<{
                 <StyledMainContent ref={scrollAreaRef}>
                     <AnimatePresence mode="wait">
                         <Routes location={location} key={location.pathname}>
-                            <Route path="/" element={<Preloader />} />
-                            <Route path="/home" element={<Home />} />
+                            <Route path="/" element={<Home />} />
                             <Route path="/projects" element={<Projects />}>
                                 <Route
                                     path="microfe"
@@ -146,7 +147,8 @@ const PageContent: React.FC<{
                                 />
                                 <Route index path="*" element={<Navigate to="microfe" replace />} />
                             </Route>
-                            <Route path="*" element={<Navigate to="/home" />} />
+                            <Route path="/stocktrack" element={<StockTrack />} />
+                            <Route path="*" element={<Navigate to="/" />} />
                         </Routes>
                         <Footer scrollAreaRef={scrollAreaRef} />
                     </AnimatePresence>

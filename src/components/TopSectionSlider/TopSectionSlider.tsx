@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { motion } from 'motion/react';
 import { Box, Paper, styled, Typography, useTheme, type SxProps } from '@mui/material';
@@ -10,65 +10,126 @@ import Markdown from 'markdown-to-jsx';
 
 const tabs = [
     {
-        icon: <AirlineStopsIcon color="primary" sx={{ fontSize: 36 }} />,
+        id: 'tldr',
+        icon: <AirlineStopsIcon color="primary" sx={{ fontSize: '1.25rem' }} />,
         label: 'tl;dr',
         content: introSlidestldr,
     },
     {
-        icon: <AutoAwesomeIcon color="success" sx={{ fontSize: 36 }} />,
+        id: '2025',
+        icon: <AutoAwesomeIcon color="success" sx={{ fontSize: '1.25rem' }} />,
         label: '2025 so far',
         content: introSlides2025,
     },
     {
-        icon: <CollectionsBookmarkIcon color="warning" sx={{ fontSize: 36 }} />,
+        id: '2024',
+        icon: <CollectionsBookmarkIcon color="warning" sx={{ fontSize: '1.25rem' }} />,
         label: '2024 and before',
         content: introSlides2024AndBefore,
     },
 ];
 
+const TabComponent = ({
+    item,
+    selectedTab,
+    setSelectedTab,
+    getIconByTabId,
+}: {
+    item: (typeof tabs)[number];
+    selectedTab: (typeof tabs)[number];
+    setSelectedTab: (item: (typeof tabs)[number]) => void;
+    getIconByTabId: (id: string, isSelected: boolean) => React.ReactNode;
+}) => {
+    const theme = useTheme();
+    const ref = useRef<HTMLDivElement>(null);
+
+    const handleTabClick = (item: (typeof tabs)[number]) => () => {
+        setSelectedTab(item);
+        ref.current?.scrollIntoView({
+            behavior: 'smooth',
+            inline: 'nearest',
+            block: 'nearest',
+        });
+    };
+
+    return (
+        <Box
+            component={motion.li}
+            key={item.label}
+            initial={{ backgroundColor: 'transparent' }}
+            animate={{
+                backgroundColor:
+                    item === selectedTab ? theme.palette.background.paper : 'transparent',
+            }}
+            sx={tab}
+            onClick={handleTabClick(item)}
+            ref={ref}
+        >
+            {getIconByTabId(item.id, item === selectedTab)}
+            <Typography
+                sx={{
+                    color: selectedTab === item ? 'text.primary' : 'text.secondary',
+                }}
+            >
+                {item.label}
+            </Typography>
+            {item === selectedTab ? (
+                <StyledUnderline
+                    as={motion.div}
+                    // @ts-expect-error Needed for motion
+                    layoutId="underline"
+                    id="underline"
+                />
+            ) : null}
+        </Box>
+    );
+};
+
 export const TopSectionSlider = () => {
     const [selectedTab, setSelectedTab] = useState(tabs[0]);
-    const theme = useTheme();
+
+    const getIconByTabId = (id: string, isSelected: boolean) =>
+        ({
+            tldr: (
+                <AirlineStopsIcon
+                    color={isSelected ? 'primary' : 'inherit'}
+                    sx={{ fontSize: '1.25rem' }}
+                />
+            ),
+            '2025': (
+                <AutoAwesomeIcon
+                    color={isSelected ? 'success' : 'inherit'}
+                    sx={{ fontSize: '1.25rem' }}
+                />
+            ),
+            '2024': (
+                <CollectionsBookmarkIcon
+                    color={isSelected ? 'warning' : 'inherit'}
+                    sx={{ fontSize: '1.25rem' }}
+                />
+            ),
+        })[id];
 
     return (
         <Paper sx={container}>
-            <Box sx={{ ...nav, backgroundColor: 'background.paper' }}>
+            <Box sx={nav}>
                 <Box component="ul" sx={tabsContainer}>
                     {tabs.map((item) => (
-                        <Box
-                            component={motion.li}
-                            key={item.label}
-                            initial={{ backgroundColor: 'transparent' }}
-                            animate={{
-                                backgroundColor:
-                                    item === selectedTab
-                                        ? theme.palette.background.paper
-                                        : 'transparent',
-                            }}
-                            sx={tab}
-                            onClick={() => setSelectedTab(item)}
-                        >
-                            {item.icon}
-                            <Typography
-                                sx={{
-                                    color: selectedTab === item ? 'text.primary' : 'text.secondary',
-                                }}
-                            >
-                                {item.label}
-                            </Typography>
-                            {item === selectedTab ? (
-                                <StyledUnderline
-                                    as={motion.div}
-                                    // @ts-ignore Needed for motion
-                                    layoutId="underline"
-                                    id="underline"
-                                />
-                            ) : null}
-                        </Box>
+                        <TabComponent
+                            item={item}
+                            selectedTab={selectedTab}
+                            setSelectedTab={setSelectedTab}
+                            getIconByTabId={getIconByTabId}
+                        />
                     ))}
                 </Box>
             </Box>
-            <Box sx={iconContainer}>
+            <Box
+                sx={{
+                    flexGrow: 1,
+                    backgroundColor: 'background.light',
+                }}
+            >
                 <AnimatePresence mode="wait">
                     <Box
                         component={motion.div}
@@ -94,11 +155,11 @@ export const TopSectionSlider = () => {
 const container: SxProps = {
     display: 'flex',
     flexDirection: 'column',
-    height: '60vh',
+    height: '50vh',
     borderRadius: 4,
     overflow: 'hidden',
     border: 'none',
-    backgroundColor: 'background.paper',
+    backgroundColor: 'transparent',
 };
 
 const nav: SxProps = {
@@ -126,21 +187,21 @@ const tab: SxProps = {
     borderRadius: 3,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    px: ['0.5rem', '0.5rem', '1rem'],
-    py: ['0.5rem', '0.5rem', '1.5rem'],
+    px: ['0.5rem', '0.5rem', '1.5rem'],
+    py: '0.5rem',
     position: 'relative',
-    background: 'white',
+    backgroundColor: 'background.paper',
+    flexShrink: 0,
     cursor: 'pointer',
     display: 'flex',
     gap: 2,
     alignItems: 'center',
-    flex: '1 0 auto',
     minWidth: 0,
     userSelect: 'none',
     color: 'text.primary',
     '&, p': {
         textWrap: 'nowrap',
-        fontSize: ['1.25rem', '1.25rem', '2rem'],
+        fontSize: '1.25rem',
     },
 };
 
@@ -153,13 +214,9 @@ const StyledUnderline = styled(Box)(({ theme }) => ({
     background: theme.palette.text.warning,
 }));
 
-const iconContainer: SxProps = {
-    flex: 1,
-    overflowY: 'auto',
-};
-
 const mainContent: SxProps = {
-    padding: 4,
-    fontSize: ['1rem', '1rem', '1.25rem'],
+    flexGrow: 1,
+    paddingInline: 4,
+    paddingBlock: 2,
     lineHeight: 1.5,
 };
