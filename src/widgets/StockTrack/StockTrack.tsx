@@ -424,8 +424,9 @@ export const StockTrack = () => {
         }
     }, [stockSymbol, fetchStockPrice, checkThresholdAlerts]);
 
-    // Initialize: check permissions, market status, and fetch initial data
+    // Initialize: sync notification permission from the browser and fetch initial data
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         checkNotificationPermission();
         updateStockData();
     }, [checkNotificationPermission, updateStockData]);
@@ -723,7 +724,7 @@ export const StockTrack = () => {
                                     mb: 1,
                                 }}
                             >
-                                <Typography variant="subtitle1" fontWeight="bold">
+                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
                                     Purchase Price
                                 </Typography>
                                 {!isEditingPurchasePrice && (
@@ -737,7 +738,7 @@ export const StockTrack = () => {
                             </Box>
 
                             {isEditingPurchasePrice ? (
-                                <Stack direction="row" spacing={1} alignItems="center">
+                                <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
                                     <TextField
                                         label="Purchase Price"
                                         type="number"
@@ -746,12 +747,14 @@ export const StockTrack = () => {
                                         size="small"
                                         fullWidth
                                         autoFocus
-                                        InputProps={{
-                                            startAdornment: (
-                                                <Typography sx={{ mr: 1 }}>$</Typography>
-                                            ),
+                                        slotProps={{
+                                            input: {
+                                                startAdornment: (
+                                                    <Typography sx={{ mr: 1 }}>$</Typography>
+                                                ),
+                                            },
                                         }}
-                                        onKeyPress={(e) => {
+                                        onKeyDown={(e) => {
                                             if (e.key === 'Enter') handleSavePurchasePrice();
                                             if (e.key === 'Escape') handleCancelPurchasePriceEdit();
                                         }}
@@ -810,7 +813,7 @@ export const StockTrack = () => {
                                     mb: 1,
                                 }}
                             >
-                                <Typography variant="subtitle1" fontWeight="bold">
+                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
                                     Update Interval
                                 </Typography>
                                 {!isEditingInterval && (
@@ -824,7 +827,7 @@ export const StockTrack = () => {
                             </Box>
 
                             {isEditingInterval ? (
-                                <Stack direction="row" spacing={1} alignItems="center">
+                                <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
                                     <TextField
                                         label="Minutes"
                                         type="number"
@@ -833,9 +836,11 @@ export const StockTrack = () => {
                                         size="small"
                                         fullWidth
                                         autoFocus
-                                        inputProps={{ min: 1, max: 60, step: 1 }}
+                                        slotProps={{
+                                            htmlInput: { min: 1, max: 60, step: 1 },
+                                        }}
                                         helperText="Between 1-60 minutes"
-                                        onKeyPress={(e) => {
+                                        onKeyDown={(e) => {
                                             if (e.key === 'Enter') handleSaveInterval();
                                             if (e.key === 'Escape') handleCancelIntervalEdit();
                                         }}
@@ -910,10 +915,14 @@ export const StockTrack = () => {
                                                 }
                                                 size="small"
                                                 fullWidth
-                                                InputProps={{
-                                                    startAdornment: (
-                                                        <Typography sx={{ mr: 1 }}>$</Typography>
-                                                    ),
+                                                slotProps={{
+                                                    input: {
+                                                        startAdornment: (
+                                                            <Typography sx={{ mr: 1 }}>
+                                                                $
+                                                            </Typography>
+                                                        ),
+                                                    },
                                                 }}
                                             />
                                         </Grid>
@@ -927,10 +936,14 @@ export const StockTrack = () => {
                                                 }
                                                 size="small"
                                                 fullWidth
-                                                InputProps={{
-                                                    startAdornment: (
-                                                        <Typography sx={{ mr: 1 }}>$</Typography>
-                                                    ),
+                                                slotProps={{
+                                                    input: {
+                                                        startAdornment: (
+                                                            <Typography sx={{ mr: 1 }}>
+                                                                $
+                                                            </Typography>
+                                                        ),
+                                                    },
                                                 }}
                                             />
                                         </Grid>
@@ -968,7 +981,10 @@ export const StockTrack = () => {
                                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                                             <TrendingUpIcon />
                                             <Box>
-                                                <Typography variant="body2" fontWeight="bold">
+                                                <Typography
+                                                    variant="body2"
+                                                    sx={{ fontWeight: 'bold' }}
+                                                >
                                                     High Alert
                                                 </Typography>
                                                 <Typography variant="h6">
@@ -1006,7 +1022,10 @@ export const StockTrack = () => {
                                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                                             <TrendingDownIcon />
                                             <Box>
-                                                <Typography variant="body2" fontWeight="bold">
+                                                <Typography
+                                                    variant="body2"
+                                                    sx={{ fontWeight: 'bold' }}
+                                                >
                                                     Low Alert
                                                 </Typography>
                                                 <Typography variant="h6">

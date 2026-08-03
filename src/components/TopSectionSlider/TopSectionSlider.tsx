@@ -43,7 +43,7 @@ const TabComponent = ({
     const theme = useTheme();
     const ref = useRef<HTMLDivElement>(null);
 
-    const handleTabClick = (item: (typeof tabs)[number]) => () => {
+    const handleTabClick = () => {
         setSelectedTab(item);
         ref.current?.scrollIntoView({
             behavior: 'smooth',
@@ -68,7 +68,7 @@ const TabComponent = ({
                     color: 'text.primary',
                 },
             }}
-            onClick={handleTabClick(item)}
+            onClick={handleTabClick}
             ref={ref}
             whileHover={{
                 scale: 1.05,

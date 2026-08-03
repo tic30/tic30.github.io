@@ -140,7 +140,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
     const menuTriggerRef = useRef<HTMLDivElement>(null);
     const [open, setOpen] = useState(false);
     const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
-    const scrollDir = useScrollDirection(scrollAreaRef.current);
+    const scrollDir = useScrollDirection(scrollAreaRef);
     const theme = useTheme();
 
     useEffect(() => {
