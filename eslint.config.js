@@ -1,4 +1,5 @@
 import eslint from '@eslint/js';
+import prettierConfig from 'eslint-config-prettier';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
@@ -10,4 +11,5 @@ export default defineConfig([
     tseslint.configs.recommended,
     reactRefresh.configs.vite,
     reactHooks.configs.flat.recommended,
+    prettierConfig,
 ]);

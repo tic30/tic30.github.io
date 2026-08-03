@@ -8,6 +8,7 @@
         "build": "tsc -b && vite build",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix && prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+        "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
         "tsc": "tsc -b",
         "preview": "vite preview",
         "prepare": "husky"
@@ -33,6 +34,7 @@
         "@types/react-router-hash-link": "^2.4.9",
         "@vitejs/plugin-react": "^6.0.5",
         "eslint": "^10.8.0",
+        "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-react-hooks": "^7.1.1",
         "eslint-plugin-react-refresh": "^0.5.3",
         "gh-pages": "^6.3.0",
@@ -45,8 +47,12 @@
         "vite": "^8.2.0"
     },
     "lint-staged": {
-        "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-            "prettier --write"
+        "*.{ts,tsx,js,jsx}": [
+            "npx eslint --fix",
+            "npx prettier --write"
+        ],
+        "*.{css,scss,md,json}": [
+            "npx prettier --write"
         ]
     }
 }
