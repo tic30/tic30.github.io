@@ -1,11 +1,9 @@
 export const introSlidestldr = `
 #### Member of Technical Staff @ Everpure
 
-Current focus area: Building data preprocessing pipeline to make raw data ready for AI.
+Team: AI Infrastructure
 
-Current project: **AI Data Platform**
-
-Current office: Santa Clara, CA
+Work: Data ingestion app, React+Angular unified MFE platform, MCP, shared React component library
 
 #### 8+ years of work experience
 

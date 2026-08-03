@@ -61,18 +61,22 @@ const TabComponent = ({
                 backgroundColor:
                     item === selectedTab ? theme.palette.background.paper : 'transparent',
             }}
-            sx={tab}
+            sx={{
+                ...tab,
+                color: selectedTab === item ? 'text.primary' : 'text.secondary',
+                ':hover': {
+                    color: 'text.primary',
+                },
+            }}
             onClick={handleTabClick(item)}
             ref={ref}
+            whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.2 },
+            }}
         >
             {getIconByTabId(item.id, item === selectedTab)}
-            <Typography
-                sx={{
-                    color: selectedTab === item ? 'text.primary' : 'text.secondary',
-                }}
-            >
-                {item.label}
-            </Typography>
+            <Typography>{item.label}</Typography>
             {item === selectedTab ? (
                 <StyledUnderline
                     as={motion.div}
@@ -128,6 +132,7 @@ export const TopSectionSlider = () => {
                 sx={{
                     flexGrow: 1,
                     backgroundColor: 'background.light',
+                    overflowY: 'auto',
                 }}
             >
                 <AnimatePresence mode="wait">
@@ -199,6 +204,7 @@ const tab: SxProps = {
     minWidth: 0,
     userSelect: 'none',
     color: 'text.primary',
+    transformOrigin: 'bottom center',
     '&, p': {
         textWrap: 'nowrap',
         fontSize: '1.25rem',
