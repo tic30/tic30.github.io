@@ -438,7 +438,10 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                 </AnimatePresence>
             </Box>
             <Box sx={{ py: 2, pl: 1 }}>
-                <MaterialUISwitch onClick={() => toggleDarkMode((m) => !m)} />
+                <MaterialUISwitch
+                    checked={theme.palette.mode === 'dark'}
+                    onClick={() => toggleDarkMode((m) => !m)}
+                />
             </Box>
         </Box>
     );

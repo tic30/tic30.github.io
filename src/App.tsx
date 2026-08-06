@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { HashRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import {
     ThemeProvider,
     createTheme,
@@ -15,7 +15,7 @@ import Home from './pages/Home';
 import Footer from './components/Footer';
 import MenuScreen from './components/MenuScreen';
 import { globalStyle } from './constants';
-import { AnimatePresence } from 'motion/react';
+import { PageFlip } from './components/PageFlip';
 import { StockTrack } from './widgets/StockTrack';
 const Projects = React.lazy(() => import('./components/Projects'));
 const Storybook = React.lazy(() => import('./pages/Storybook'));
@@ -111,7 +111,6 @@ const StyledMainContent = styled(Box)(({ theme }) => ({
 const PageContent: React.FC<{
     toggleDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ toggleDarkMode }) => {
-    const location = useLocation();
     const scrollAreaRef = useRef<HTMLDivElement | null>(null);
     const theme = useTheme();
     const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
@@ -133,25 +132,31 @@ const PageContent: React.FC<{
             >
                 <MenuScreen scrollAreaRef={scrollAreaRef} toggleDarkMode={toggleDarkMode} />
                 <StyledMainContent ref={scrollAreaRef}>
-                    <AnimatePresence mode="wait">
-                        <Routes location={location} key={location.pathname}>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/projects" element={<Projects />}>
-                                <Route
-                                    path="microfe"
-                                    element={<IndeedMicroFE scrollAreaRef={scrollAreaRef} />}
-                                />
-                                <Route
-                                    path="storybook"
-                                    element={<Storybook scrollAreaRef={scrollAreaRef} />}
-                                />
-                                <Route index path="*" element={<Navigate to="microfe" replace />} />
-                            </Route>
-                            <Route path="/stocktrack" element={<StockTrack />} />
-                            <Route path="*" element={<Navigate to="/" />} />
-                        </Routes>
-                        <Footer scrollAreaRef={scrollAreaRef} />
-                    </AnimatePresence>
+                    <PageFlip
+                        render={(loc) => (
+                            <Routes location={loc}>
+                                <Route path="/" element={<Home />} />
+                                <Route path="/projects" element={<Projects />}>
+                                    <Route
+                                        path="microfe"
+                                        element={<IndeedMicroFE scrollAreaRef={scrollAreaRef} />}
+                                    />
+                                    <Route
+                                        path="storybook"
+                                        element={<Storybook scrollAreaRef={scrollAreaRef} />}
+                                    />
+                                    <Route
+                                        index
+                                        path="*"
+                                        element={<Navigate to="microfe" replace />}
+                                    />
+                                </Route>
+                                <Route path="/stocktrack" element={<StockTrack />} />
+                                <Route path="*" element={<Navigate to="/" />} />
+                            </Routes>
+                        )}
+                    />
+                    <Footer scrollAreaRef={scrollAreaRef} />
                 </StyledMainContent>
             </Box>
         </>
@@ -159,7 +164,23 @@ const PageContent: React.FC<{
 };
 
 const App: React.FC = () => {
-    const [darkMode, toggleDarkMode] = useState(false);
+    const [darkMode, toggleDarkMode] = useState(
+        () =>
+            typeof window !== 'undefined' &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches,
+    );
+
+    useEffect(() => {
+        const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+        if (link) link.href = darkMode ? '/favicon_dark.svg' : '/favicon.svg';
+    }, [darkMode]);
+
+    useEffect(() => {
+        const mql = window.matchMedia('(prefers-color-scheme: dark)');
+        const handler = (e: MediaQueryListEvent) => toggleDarkMode(e.matches);
+        mql.addEventListener('change', handler);
+        return () => mql.removeEventListener('change', handler);
+    }, []);
 
     return (
         <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
