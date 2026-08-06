@@ -1,4 +1,5 @@
 import { Button, CardActionArea, CardMedia, Typography, Paper, Box } from '@mui/material';
+import { motion } from 'motion/react';
 
 export interface BlogType {
     title: string;
@@ -12,8 +13,21 @@ export interface BlogCardType {
 }
 
 const BlogCard: React.FC<BlogCardType> = ({ blog, external = false }) => {
+    const clickable = Boolean(blog.link);
+
     return (
-        <Paper sx={{ borderRadius: 3 }}>
+        <Paper
+            component={motion.div}
+            whileHover={
+                clickable
+                    ? {
+                          scale: 1.03,
+                          transition: { duration: 0.2 },
+                      }
+                    : {}
+            }
+            sx={{ borderRadius: 3 }}
+        >
             <CardActionArea
                 disabled={!blog.link}
                 sx={{
@@ -40,7 +54,7 @@ const BlogCard: React.FC<BlogCardType> = ({ blog, external = false }) => {
                     disabled={!blog.link}
                     sx={{ p: 2, ':hover': { background: 'none' } }}
                 >
-                    {blog.link ? 'Read more' : 'By request'}
+                    {clickable ? 'Read more' : 'By request'}
                 </Button>
             </CardActionArea>
         </Paper>

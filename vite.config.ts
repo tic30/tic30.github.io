@@ -7,16 +7,22 @@ export default defineConfig({
         outDir: 'build',
         rollupOptions: {
             output: {
-                manualChunks: {
-                    vendor: [
-                        'react',
-                        'react-dom',
-                        'react-router-dom',
-                        'react-router-hash-link',
-                        '@mui/material',
-                        '@mui/icons-material',
-                        'motion/react',
-                    ],
+                manualChunks: (id) => {
+                    if (id.includes('node_modules/@mui/')) {
+                        return 'mui';
+                    }
+                    if (id.includes('node_modules/motion/')) {
+                        return 'motion';
+                    }
+                    if (
+                        id.includes('node_modules/react/') ||
+                        id.includes('node_modules/react-dom/') ||
+                        id.includes('node_modules/react-router-dom/') ||
+                        id.includes('node_modules/react-router-hash-link/')
+                    ) {
+                        return 'vendor';
+                    }
+                    return undefined;
                 },
             },
         },

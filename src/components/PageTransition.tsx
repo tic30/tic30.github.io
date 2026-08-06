@@ -2,6 +2,7 @@ import { type CSSProperties } from 'react';
 import { easeIn, motion } from 'motion/react';
 import { type Theme, useMediaQuery, useTheme } from '@mui/material';
 
+/** @deprecated No longer used — page transitions are handled by PageFlip. */
 export const PageTransition = ({
     slideIn = true,
     slideOut = true,

@@ -1,11 +1,9 @@
 export const introSlidestldr = `
-#### Staff Software Engineer @ Indeed
+#### Member of Technical Staff @ Everpure
 
-Current focus area: Building AI powered front end engineering tool: design system MCP, dev tools MCP, test automation, accessibility scanner, and more
+Team: AI Infrastructure
 
-Current project: **Indeed AI**
-
-Current office: Foster City, CA
+Work: Data ingestion app, React+Angular unified MFE platform, MCP, shared React component library
 
 #### 8+ years of work experience
 
@@ -14,6 +12,8 @@ Current office: Foster City, CA
 ---
 
 Previous roles:
+
+- Staff Software Engineer @ Indeed
 
 - Lead Engineer @ Deliberately.ai
 
@@ -26,11 +26,13 @@ Previous roles:
 `;
 
 export const introSlides2025 = `
-This year, I focused on delivering tangible improvements to the Talent Scout platform and supporting broader marketplace engineering initiatives. My work spanned feature development, technical leadership, and cross-team collaboration, with a strong emphasis on measurable impact.
+Staff Software Engineer @ Indeed
+
+This year, I focused on delivering the Talent Scout AI platform and supporting broader marketplace engineering initiatives. My work spanned feature development, technical leadership, and cross-team collaboration, with a strong emphasis on measurable impact.
 
 ---
 
-#### 1. Advancing Talent Scout's Front-End Experience
+#### 1. Scaffolding and advancing Talent Scout's Front-End Experience
 
 - Served as the front-end subject matter expert for Talent Scout, leading onboarding and knowledge sharing for new team members.
 - Collaborated closely with backend and cross-functional partners to ensure seamless feature delivery and technical alignment.

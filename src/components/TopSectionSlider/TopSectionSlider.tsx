@@ -18,7 +18,7 @@ const tabs = [
     {
         id: '2025',
         icon: <AutoAwesomeIcon color="success" sx={{ fontSize: '1.25rem' }} />,
-        label: '2025 so far',
+        label: '2025',
         content: introSlides2025,
     },
     {
@@ -43,7 +43,7 @@ const TabComponent = ({
     const theme = useTheme();
     const ref = useRef<HTMLDivElement>(null);
 
-    const handleTabClick = (item: (typeof tabs)[number]) => () => {
+    const handleTabClick = () => {
         setSelectedTab(item);
         ref.current?.scrollIntoView({
             behavior: 'smooth',
@@ -61,18 +61,22 @@ const TabComponent = ({
                 backgroundColor:
                     item === selectedTab ? theme.palette.background.paper : 'transparent',
             }}
-            sx={tab}
-            onClick={handleTabClick(item)}
+            sx={{
+                ...tab,
+                color: selectedTab === item ? 'text.primary' : 'text.secondary',
+                ':hover': {
+                    color: 'text.primary',
+                },
+            }}
+            onClick={handleTabClick}
             ref={ref}
+            whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.2 },
+            }}
         >
             {getIconByTabId(item.id, item === selectedTab)}
-            <Typography
-                sx={{
-                    color: selectedTab === item ? 'text.primary' : 'text.secondary',
-                }}
-            >
-                {item.label}
-            </Typography>
+            <Typography>{item.label}</Typography>
             {item === selectedTab ? (
                 <StyledUnderline
                     as={motion.div}
@@ -128,6 +132,7 @@ export const TopSectionSlider = () => {
                 sx={{
                     flexGrow: 1,
                     backgroundColor: 'background.light',
+                    overflowY: 'auto',
                 }}
             >
                 <AnimatePresence mode="wait">
@@ -199,6 +204,7 @@ const tab: SxProps = {
     minWidth: 0,
     userSelect: 'none',
     color: 'text.primary',
+    transformOrigin: 'bottom center',
     '&, p': {
         textWrap: 'nowrap',
         fontSize: '1.25rem',

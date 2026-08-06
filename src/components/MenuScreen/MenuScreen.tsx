@@ -140,7 +140,7 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
     const menuTriggerRef = useRef<HTMLDivElement>(null);
     const [open, setOpen] = useState(false);
     const isSmUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
-    const scrollDir = useScrollDirection(scrollAreaRef.current);
+    const scrollDir = useScrollDirection(scrollAreaRef);
     const theme = useTheme();
 
     useEffect(() => {
@@ -438,7 +438,10 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                 </AnimatePresence>
             </Box>
             <Box sx={{ py: 2, pl: 1 }}>
-                <MaterialUISwitch onClick={() => toggleDarkMode((m) => !m)} />
+                <MaterialUISwitch
+                    checked={theme.palette.mode === 'dark'}
+                    onClick={() => toggleDarkMode((m) => !m)}
+                />
             </Box>
         </Box>
     );

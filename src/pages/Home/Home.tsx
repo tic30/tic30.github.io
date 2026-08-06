@@ -3,7 +3,6 @@ import IndeedPage from '../../components/IndeedPage';
 import OtherWorks from '../../components/OtherWorks';
 import Blogs from '../../components/Blogs';
 import { sectionHeaderSX } from './Home.style';
-import { PageTransition } from '../../components/PageTransition';
 import { TopSectionSlider } from '../../components/TopSectionSlider';
 
 const Home: React.FC = () => {
@@ -94,7 +93,6 @@ const Home: React.FC = () => {
                     <Blogs />
                 </Container>
             </Box>
-            <PageTransition />
         </Box>
     );
 };

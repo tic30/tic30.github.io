@@ -4,7 +4,6 @@ import { type SystemStyleObject } from '@mui/system';
 import { Outlet, useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { indeedProjects } from '../../constants';
-import { PageTransition } from '../PageTransition';
 
 const thumbnailCardRotate = 11;
 const thumbnailCardSx: SystemStyleObject = {
@@ -135,7 +134,6 @@ const Projects: React.FC = () => (
         >
             <Outlet />
         </Paper>
-        <PageTransition />
     </Box>
 );
 
