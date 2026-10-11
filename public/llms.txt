@@ -1,0 +1,39 @@
+# Tim Chu - Portfolio
+
+> Personal portfolio of Tim Chu, a front-end and full-stack software engineer with 8+ years of experience. Currently a Member of Technical Staff on the AI Infrastructure team at Everpure, previously Staff Software Engineer at Indeed. Holds an M.S. in Software Engineering from Carnegie Mellon University (2018). The site showcases career history, selected projects, and short technical write-ups.
+
+Site URL: https://tic30.github.io/
+Author: Tim Chu
+GitHub: https://github.com/tic30
+LinkedIn: https://www.linkedin.com/in/tim-chu-980881a4
+
+The site is a React 19 + TypeScript single-page app built with Vite and MUI, hosted on GitHub Pages. It uses hash-based routing, so all pages live under `https://tic30.github.io/#/...`. Content is rendered client-side from the JavaScript bundle; there are no server-rendered HTML pages.
+
+## About Tim
+
+- Current role: Member of Technical Staff @ Everpure, AI Infrastructure team. Work includes a data ingestion app, a unified React + Angular micro-frontend (MFE) platform, Model Context Protocol (MCP) servers, and a shared React component library.
+- Previous roles: Staff Software Engineer @ Indeed; Lead Engineer @ Deliberately.ai; UX Prototype Engineer @ Siemens; Chief Front End Engineer @ Deephow (Techstars-incubated AI start-up co-founded in 2017); AR/VR Researcher @ CMU.
+- At Indeed (2018-2025): started as a Design Technologist (prototyping, A/B testing, user studies), later Staff Software Engineer. Maintained a widely adopted internal UI component library, drove engineering-efficiency tooling, and ran knowledge-sharing sessions. Full history is in the linked resume.
+- Areas of expertise: React, TypeScript, design systems and component libraries, Storybook and Chromatic visual testing, Webpack 5 Module Federation, GraphQL (fragment-first architecture), accessibility (a11y), front-end testing strategy, CI/CD pipelines, engineering efficiency.
+
+## Pages
+
+- [Home](https://tic30.github.io/#/): Hero intro with a short bio and links to the work section and resume, the "My work" section with a "RAG and MCP @ Everpure" story, a "UX Developer @ Indeed" story with project links, previous roles, and blog cards.
+- [Micro Frontend @ Indeed](https://tic30.github.io/#/projects/microfe): Case study on designing and migrating to a Webpack 5 Module Federation micro-frontend architecture with a GraphQL "fragment first" design. Covers the problem (tight coupling from one giant query and transformer layer), the concepts (federated module repositories, federated GraphQL fragments), the design rule (each feature module owns and exposes its own fragment, never reused across features), and the migration workflow.
+- [Storybook and Chromatic for large org](https://tic30.github.io/#/projects/storybook): Case study on standardizing Storybook usage and a Chromatic visual-regression pipeline across many teams in a large organization, including design-system alignment, accessibility compliance, CI/CD templates, and onboarding.
+- [StockTrack](https://tic30.github.io/#/stocktrack): A small standalone widget for tracking a stock price against a purchase price, with configurable price alerts and audio notifications. Runs entirely in the browser.
+## Blog write-ups
+
+Short technical articles linked from the home page. Some are hosted as Google Docs; others are summarized on the site only.
+
+- [Make your React component downloadable](https://docs.google.com/document/d/1W0vKXWG3b9ELRtNCNs_gXZ_lgSCqW3ZJP60FojWIasU/edit?usp=sharing): Export a feature from a React site to PDF or print with a customized layout.
+- [Work with GraphQL in Storybook](https://docs.google.com/document/d/1Opyjs3dgO3iq2qVxhvvJBefHRaqiSfNvpB-g0IsPd4M/edit?usp=sharing): Use the Apollo addon to mock queries, fragments, and client-only queries, and inspect them in the addon panel.
+- Engineering efficiency & code quality: Choose your test — picking among unit tests, Storybook interaction tests, Chromatic, a11y tests, and integration/E2E tests.
+- Common practices in accessibility — practical a11y habits that improve usability beyond WCAG checklists.
+- Build flexible UI system and component library — designing a design system that is both complete and extensively flexible.
+- Tools and methodologies to prevent broken experiences — precautions that reduce the cost and stress of production incidents.
+
+## Optional
+
+- [Resume (PDF, Google Drive)](https://drive.google.com/file/d/1bXDjJxRLXtQFc9ffnoZv-sCnxcFigy1Q)
+- [Source code](https://github.com/tic30/tic30.github.io): Repository for this site. Built with Vite, React 19, TypeScript, MUI, Motion, and react-router-dom; deployed to the `gh-pages` branch via `npm run deploy`.

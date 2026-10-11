@@ -1,10 +1,15 @@
 import { Container, Box, Typography } from '@mui/material';
+import Hero from '../../components/Hero';
+import HeroIllustration from '../../components/Hero/HeroIllustration';
+import EverpurePage from '../../components/EverpurePage';
+import EverpureIllustration from '../../components/EverpurePage/EverpureIllustration';
+import MfeIllustration from '../../components/EverpurePage/MfeIllustration';
+import McpIllustration from '../../components/EverpurePage/McpIllustration';
+import { illustrationVars } from '../../components/Misc/illustrationVars';
 import IndeedPage from '../../components/IndeedPage';
 import OtherWorks from '../../components/OtherWorks';
 import Blogs from '../../components/Blogs';
 import { sectionHeaderSX } from './Home.style';
-import { PageTransition } from '../../components/PageTransition';
-import { TopSectionSlider } from '../../components/TopSectionSlider';
 
 const Home: React.FC = () => {
     return (
@@ -28,49 +33,17 @@ const Home: React.FC = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     gap: 4,
-                    paddingBlockStart: [2, 2, 8],
+                    paddingBlockStart: [2, 2, 4],
                     paddingBlockEnd: 8,
                 }}
             >
-                <Container
-                    sx={{
-                        mt: 0,
-                        mb: 4,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: 4,
-                    }}
-                    maxWidth="xl"
-                >
-                    <Box sx={{ textTransform: 'uppercase' }}>
-                        <Typography variant="h4" sx={{ color: 'text.secondary' }}>
-                            Hey there, I'm
-                        </Typography>
-                        <Typography variant="h1" sx={{ lineHeight: 1, mb: 2 }}>
-                            Tim Chu
-                        </Typography>
-                        <Typography
-                            variant="h6"
-                            sx={{
-                                lineHeight: 1.8,
-                                color: 'text.secondary',
-                            }}
-                        >
-                            A{' '}
-                            <Box component="span" sx={{ color: 'text.success' }}>
-                                front end
-                            </Box>{' '}
-                            biased full-stack engineer
-                            <br />
-                            and an innovative{' '}
-                            <Box component="span" sx={{ color: 'text.warning' }}>
-                                problem solver
-                            </Box>
-                            .
-                        </Typography>
-                    </Box>
-                    <TopSectionSlider />
-                </Container>
+                <Hero
+                    visual={
+                        <Box sx={(theme) => ({ display: 'flex', ...illustrationVars(theme) })}>
+                            <HeroIllustration />
+                        </Box>
+                    }
+                />
             </Box>
             <Box
                 component="section"
@@ -81,6 +54,13 @@ const Home: React.FC = () => {
                     <Typography variant="h2">My work</Typography>
                 </Container>
                 <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
+                    <EverpurePage
+                        illustrations={{
+                            rag: <EverpureIllustration />,
+                            mfe: <MfeIllustration />,
+                            mcp: <McpIllustration />,
+                        }}
+                    />
                     <IndeedPage />
                     <OtherWorks />
                 </Container>
@@ -94,7 +74,6 @@ const Home: React.FC = () => {
                     <Blogs />
                 </Container>
             </Box>
-            <PageTransition />
         </Box>
     );
 };

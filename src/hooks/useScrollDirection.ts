@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type RefObject } from 'react';
 
 type ScrollDirection = 'NA' | 'UP' | 'DOWN';
 
-const useScrollDirection = (target?: HTMLElement | null): ScrollDirection => {
+const useScrollDirection = (targetRef?: RefObject<HTMLElement | null>): ScrollDirection => {
     const [scrollDir, setScrollDir] = useState<ScrollDirection>('NA');
-    const scrollTarget = target ?? window;
 
     useEffect(() => {
+        const target = targetRef?.current;
+        const scrollTarget: HTMLElement | Window = target ?? window;
         const threshold = 100;
         let lastScrollY = target ? target.scrollTop : window.pageYOffset;
         let ticking = false;
@@ -33,7 +34,7 @@ const useScrollDirection = (target?: HTMLElement | null): ScrollDirection => {
         scrollTarget.addEventListener('scroll', onScroll);
 
         return () => scrollTarget.removeEventListener('scroll', onScroll);
-    }, [scrollDir, scrollTarget, target]);
+    }, [targetRef]);
 
     return scrollDir;
 };

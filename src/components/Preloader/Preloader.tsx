@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { PageTransition } from '../PageTransition';
 
 const PreloaderScreen = styled(Box)(({ theme }) => ({
     marginLeft: '6.25rem',
@@ -29,7 +28,7 @@ const PreloaderContent = styled(Paper)(({ theme }) => ({
     animationFillMode: 'forwards',
 }));
 
-export const PreloaderText = styled(Box)(({ theme }) => ({
+const PreloaderText = styled(Box)(({ theme }) => ({
     position: 'relative',
     boxSizing: 'border-box',
     width: '3px',
@@ -149,7 +148,6 @@ const Preloader: React.FC = () => {
                 <Box>
                     <PreloaderText>{'Hello, this is Tim Chu'}</PreloaderText>
                 </Box>
-                <PageTransition slideOut={false} />
             </PreloaderContent>
         </PreloaderScreen>
     );
