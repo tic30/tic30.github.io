@@ -38,6 +38,9 @@ const sharedPaperStyle = {
 const lightTheme = createTheme({
     palette: {
         mode: 'light',
+        primary: {
+            main: colors.orange[900],
+        },
         background: {
             light: 'rgba(255, 255, 255, 0.6)',
             darker: 'rgba(20, 20, 20, 0.1)',
@@ -48,6 +51,7 @@ const lightTheme = createTheme({
         text: {
             primary: colors.grey[900],
             invert: colors.grey[50],
+            accent: colors.orange[900],
             success: colors.green[700],
             warning: colors.orange[900],
         },
@@ -72,6 +76,9 @@ const lightTheme = createTheme({
 const darkTheme = createTheme({
     palette: {
         mode: 'dark',
+        primary: {
+            main: colors.orange[300],
+        },
         background: {
             light: 'rgba(20, 20, 20, 0.6)',
             darker: 'rgba(240, 240, 240, 0.7)',
@@ -82,6 +89,7 @@ const darkTheme = createTheme({
         text: {
             primary: colors.grey[50],
             invert: colors.grey[900],
+            accent: colors.orange[300],
             success: colors.green[300],
             warning: colors.orange[300],
         },

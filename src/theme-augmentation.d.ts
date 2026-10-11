@@ -10,6 +10,8 @@ declare module '@mui/material/styles' {
 
     interface TypeText {
         invert: string;
+        /** Brand accent text color, matches palette.primary.main. */
+        accent: string;
         success: string;
         warning: string;
     }
