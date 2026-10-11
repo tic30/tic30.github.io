@@ -437,11 +437,39 @@ const MenuScreen: React.FC<MenuScreenType> = ({ scrollAreaRef, toggleDarkMode })
                     ))}
                 </AnimatePresence>
             </Box>
-            <Box sx={{ py: 2, pl: 1 }}>
+            <Box
+                sx={{
+                    py: 2,
+                    pl: 1,
+                    pr: 2,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: 2,
+                }}
+            >
                 <MaterialUISwitch
                     checked={theme.palette.mode === 'dark'}
                     onClick={() => toggleDarkMode((m) => !m)}
                 />
+                {open ? (
+                    <Typography
+                        component="a"
+                        href="/llms.txt"
+                        variant="body2"
+                        sx={{
+                            color: theme.palette.text.secondary,
+                            textDecoration: 'none',
+                            whiteSpace: 'nowrap',
+                            ':hover, :focus-visible': {
+                                color: theme.palette.text.primary,
+                                textDecoration: 'underline',
+                            },
+                        }}
+                    >
+                        For AI agents: llms.txt
+                    </Typography>
+                ) : null}
             </Box>
         </Box>
     );

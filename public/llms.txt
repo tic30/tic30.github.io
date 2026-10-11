@@ -1,4 +1,4 @@
-# Tim Chu — Portfolio
+# Tim Chu - Portfolio
 
 > Personal portfolio of Tim Chu, a front-end and full-stack software engineer with 8+ years of experience. Currently a Member of Technical Staff on the AI Infrastructure team at Everpure, previously Staff Software Engineer at Indeed. Holds an M.S. in Software Engineering from Carnegie Mellon University (2018). The site showcases career history, selected projects, and short technical write-ups.
 
